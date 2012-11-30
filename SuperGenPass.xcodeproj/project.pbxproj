@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
+		4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
+		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
+		4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
+		4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
+		4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
+		4D6576FB166536FD00F32D4F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576FA166536FD00F32D4F /* CoreGraphics.framework */; };
+		4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D6576FF166536FD00F32D4F /* InfoPlist.strings */; };
+		4D657703166536FD00F32D4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657702166536FD00F32D4F /* main.m */; };
+		4D657707166536FD00F32D4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657706166536FD00F32D4F /* AppDelegate.m */; };
+		4D657709166536FD00F32D4F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D657708166536FD00F32D4F /* Default.png */; };
+		4D65770B166536FD00F32D4F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D65770A166536FD00F32D4F /* Default@2x.png */; };
+		4D65770D166536FD00F32D4F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D65770C166536FD00F32D4F /* Default-568h@2x.png */; };
+		4D657710166536FD00F32D4F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */; };
+		4D657713166536FD00F32D4F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657712166536FD00F32D4F /* MainViewController.m */; };
+		4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657715166536FD00F32D4F /* SettingsViewController.m */; };
+		4D65771E166536FD00F32D4F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D65771D166536FD00F32D4F /* SenTestingKit.framework */; };
+		4D65771F166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
+		4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
+		4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D657726166536FD00F32D4F /* InfoPlist.strings */; };
+		4D65772B166536FD00F32D4F /* SuperGenPassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65772A166536FD00F32D4F /* SuperGenPassTests.m */; };
+		4D8B125B1665AFD40062C305 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12551665AFD40062C305 /* green.png */; };
+		4D8B125C1665AFD40062C305 /* green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12561665AFD40062C305 /* green@2x.png */; };
+		4D8B125D1665AFD40062C305 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12571665AFD40062C305 /* red.png */; };
+		4D8B125E1665AFD40062C305 /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12581665AFD40062C305 /* red@2x.png */; };
+		4D8B125F1665AFD40062C305 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12591665AFD40062C305 /* yellow.png */; };
+		4D8B12601665AFD40062C305 /* yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B125A1665AFD40062C305 /* yellow@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D657721166536FD00F32D4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D6576E9166536FD00F32D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D6576F1166536FD00F32D4F;
+			remoteInfo = SuperGenPass;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4D501E8616653CBB006A86E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		4D501E8716653CBB006A86E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
+		4D501E8916653CBB006A86E9 /* PasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordGenerator.m; sourceTree = "<group>"; };
+		4D6576F2166536FD00F32D4F /* SuperGenPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperGenPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6576F6166536FD00F32D4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4D6576F8166536FD00F32D4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4D6576FA166536FD00F32D4F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4D657700166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4D657702166536FD00F32D4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4D657704166536FD00F32D4F /* SuperGenPass-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperGenPass-Prefix.pch"; sourceTree = "<group>"; };
+		4D657705166536FD00F32D4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4D657706166536FD00F32D4F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4D657708166536FD00F32D4F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4D65770A166536FD00F32D4F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4D65770C166536FD00F32D4F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4D65770F166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4D657711166536FD00F32D4F /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4D657712166536FD00F32D4F /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		4D657714166536FD00F32D4F /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		4D657715166536FD00F32D4F /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		4D65771C166536FD00F32D4F /* SuperGenPassTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperGenPassTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D65771D166536FD00F32D4F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4D657725166536FD00F32D4F /* SuperGenPassTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SuperGenPassTests-Info.plist"; sourceTree = "<group>"; };
+		4D657727166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4D657729166536FD00F32D4F /* SuperGenPassTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperGenPassTests.h; sourceTree = "<group>"; };
+		4D65772A166536FD00F32D4F /* SuperGenPassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperGenPassTests.m; sourceTree = "<group>"; };
+		4D8B12551665AFD40062C305 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		4D8B12561665AFD40062C305 /* green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green@2x.png"; sourceTree = "<group>"; };
+		4D8B12571665AFD40062C305 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		4D8B12581665AFD40062C305 /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
+		4D8B12591665AFD40062C305 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		4D8B125A1665AFD40062C305 /* yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow@2x.png"; sourceTree = "<group>"; };
+		4D8B12611665B91D0062C305 /* SuperGenPass-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SuperGenPass-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D6576EF166536FD00F32D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */,
+				4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */,
+				4D6576FB166536FD00F32D4F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D657718166536FD00F32D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D65771E166536FD00F32D4F /* SenTestingKit.framework in Frameworks */,
+				4D65771F166536FD00F32D4F /* UIKit.framework in Frameworks */,
+				4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D6576E7166536FD00F32D4F = {
+			isa = PBXGroup;
+			children = (
+				4D6576FC166536FD00F32D4F /* SuperGenPass */,
+				4D657723166536FD00F32D4F /* SuperGenPassTests */,
+				4D6576F5166536FD00F32D4F /* Frameworks */,
+				4D6576F3166536FD00F32D4F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4D6576F3166536FD00F32D4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D6576F2166536FD00F32D4F /* SuperGenPass.app */,
+				4D65771C166536FD00F32D4F /* SuperGenPassTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D6576F5166536FD00F32D4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D6576F6166536FD00F32D4F /* UIKit.framework */,
+				4D6576F8166536FD00F32D4F /* Foundation.framework */,
+				4D6576FA166536FD00F32D4F /* CoreGraphics.framework */,
+				4D65771D166536FD00F32D4F /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D6576FC166536FD00F32D4F /* SuperGenPass */ = {
+			isa = PBXGroup;
+			children = (
+				4D8B12541665AFD40062C305 /* Resources */,
+				4D501E8616653CBB006A86E9 /* NSData+Base64.h */,
+				4D501E8716653CBB006A86E9 /* NSData+Base64.m */,
+				4D501E8816653CBB006A86E9 /* PasswordGenerator.h */,
+				4D501E8916653CBB006A86E9 /* PasswordGenerator.m */,
+				4D657705166536FD00F32D4F /* AppDelegate.h */,
+				4D657706166536FD00F32D4F /* AppDelegate.m */,
+				4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */,
+				4D657711166536FD00F32D4F /* MainViewController.h */,
+				4D657712166536FD00F32D4F /* MainViewController.m */,
+				4D657714166536FD00F32D4F /* SettingsViewController.h */,
+				4D657715166536FD00F32D4F /* SettingsViewController.m */,
+				4D6576FD166536FD00F32D4F /* Supporting Files */,
+			);
+			path = SuperGenPass;
+			sourceTree = "<group>";
+		};
+		4D6576FD166536FD00F32D4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D8B12611665B91D0062C305 /* SuperGenPass-Info.plist */,
+				4D6576FF166536FD00F32D4F /* InfoPlist.strings */,
+				4D657702166536FD00F32D4F /* main.m */,
+				4D657704166536FD00F32D4F /* SuperGenPass-Prefix.pch */,
+				4D657708166536FD00F32D4F /* Default.png */,
+				4D65770A166536FD00F32D4F /* Default@2x.png */,
+				4D65770C166536FD00F32D4F /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D657723166536FD00F32D4F /* SuperGenPassTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D657729166536FD00F32D4F /* SuperGenPassTests.h */,
+				4D65772A166536FD00F32D4F /* SuperGenPassTests.m */,
+				4D657724166536FD00F32D4F /* Supporting Files */,
+			);
+			path = SuperGenPassTests;
+			sourceTree = "<group>";
+		};
+		4D657724166536FD00F32D4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D657725166536FD00F32D4F /* SuperGenPassTests-Info.plist */,
+				4D657726166536FD00F32D4F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D8B12541665AFD40062C305 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D8B12551665AFD40062C305 /* green.png */,
+				4D8B12561665AFD40062C305 /* green@2x.png */,
+				4D8B12571665AFD40062C305 /* red.png */,
+				4D8B12581665AFD40062C305 /* red@2x.png */,
+				4D8B12591665AFD40062C305 /* yellow.png */,
+				4D8B125A1665AFD40062C305 /* yellow@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D6576F1166536FD00F32D4F /* SuperGenPass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D65772E166536FD00F32D4F /* Build configuration list for PBXNativeTarget "SuperGenPass" */;
+			buildPhases = (
+				4D6576EE166536FD00F32D4F /* Sources */,
+				4D6576EF166536FD00F32D4F /* Frameworks */,
+				4D6576F0166536FD00F32D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SuperGenPass;
+			productName = SuperGenPass;
+			productReference = 4D6576F2166536FD00F32D4F /* SuperGenPass.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4D65771B166536FD00F32D4F /* SuperGenPassTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D657731166536FD00F32D4F /* Build configuration list for PBXNativeTarget "SuperGenPassTests" */;
+			buildPhases = (
+				4D657717166536FD00F32D4F /* Sources */,
+				4D657718166536FD00F32D4F /* Frameworks */,
+				4D657719166536FD00F32D4F /* Resources */,
+				4D65771A166536FD00F32D4F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D657722166536FD00F32D4F /* PBXTargetDependency */,
+			);
+			name = SuperGenPassTests;
+			productName = SuperGenPassTests;
+			productReference = 4D65771C166536FD00F32D4F /* SuperGenPassTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D6576E9166536FD00F32D4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Camazotz Limited";
+			};
+			buildConfigurationList = 4D6576EC166536FD00F32D4F /* Build configuration list for PBXProject "SuperGenPass" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4D6576E7166536FD00F32D4F;
+			productRefGroup = 4D6576F3166536FD00F32D4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D6576F1166536FD00F32D4F /* SuperGenPass */,
+				4D65771B166536FD00F32D4F /* SuperGenPassTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D6576F0166536FD00F32D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */,
+				4D657709166536FD00F32D4F /* Default.png in Resources */,
+				4D65770B166536FD00F32D4F /* Default@2x.png in Resources */,
+				4D65770D166536FD00F32D4F /* Default-568h@2x.png in Resources */,
+				4D657710166536FD00F32D4F /* MainStoryboard.storyboard in Resources */,
+				4D8B125B1665AFD40062C305 /* green.png in Resources */,
+				4D8B125C1665AFD40062C305 /* green@2x.png in Resources */,
+				4D8B125D1665AFD40062C305 /* red.png in Resources */,
+				4D8B125E1665AFD40062C305 /* red@2x.png in Resources */,
+				4D8B125F1665AFD40062C305 /* yellow.png in Resources */,
+				4D8B12601665AFD40062C305 /* yellow@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D657719166536FD00F32D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D65771A166536FD00F32D4F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D6576EE166536FD00F32D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D657703166536FD00F32D4F /* main.m in Sources */,
+				4D657707166536FD00F32D4F /* AppDelegate.m in Sources */,
+				4D657713166536FD00F32D4F /* MainViewController.m in Sources */,
+				4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */,
+				4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */,
+				4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D657717166536FD00F32D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D65772B166536FD00F32D4F /* SuperGenPassTests.m in Sources */,
+				4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */,
+				4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D657722166536FD00F32D4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D6576F1166536FD00F32D4F /* SuperGenPass */;
+			targetProxy = 4D657721166536FD00F32D4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4D6576FF166536FD00F32D4F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D657700166536FD00F32D4F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D65770F166536FD00F32D4F /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		4D657726166536FD00F32D4F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D657727166536FD00F32D4F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4D65772C166536FD00F32D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4D65772D166536FD00F32D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4D65772F166536FD00F32D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperGenPass/SuperGenPass-Prefix.pch";
+				INFOPLIST_FILE = "SuperGenPass/SuperGenPass-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4D657730166536FD00F32D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperGenPass/SuperGenPass-Prefix.pch";
+				INFOPLIST_FILE = "SuperGenPass/SuperGenPass-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4D657732166536FD00F32D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SuperGenPass.app/SuperGenPass";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperGenPass/SuperGenPass-Prefix.pch";
+				INFOPLIST_FILE = "SuperGenPassTests/SuperGenPassTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4D657733166536FD00F32D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SuperGenPass.app/SuperGenPass";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperGenPass/SuperGenPass-Prefix.pch";
+				INFOPLIST_FILE = "SuperGenPassTests/SuperGenPassTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D6576EC166536FD00F32D4F /* Build configuration list for PBXProject "SuperGenPass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D65772C166536FD00F32D4F /* Debug */,
+				4D65772D166536FD00F32D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D65772E166536FD00F32D4F /* Build configuration list for PBXNativeTarget "SuperGenPass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D65772F166536FD00F32D4F /* Debug */,
+				4D657730166536FD00F32D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D657731166536FD00F32D4F /* Build configuration list for PBXNativeTarget "SuperGenPassTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D657732166536FD00F32D4F /* Debug */,
+				4D657733166536FD00F32D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D6576E9166536FD00F32D4F /* Project object */;
+}
