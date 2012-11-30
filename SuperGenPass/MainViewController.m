@@ -27,19 +27,23 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
+  
   self.urlTextField.text = self.url;
 
+  int passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:@"PasswordLength"];
+  
   self.passwordLengthStepper.minimumValue = 8;
   self.passwordLengthStepper.maximumValue = 20;
-  self.passwordLengthStepper.value = [NSUserDefaults.standardUserDefaults integerForKey:@"PasswordLength"];
+  self.passwordLengthStepper.value = (passwordLength == 0) ? 10 : passwordLength;
   if (self.passwordLengthStepper.value == 0) {
     self.passwordLengthStepper.value = 10;
   }
 
   self.passwordLengthLabel.text = [NSString stringWithFormat:@"Password Length: %d", (int)self.passwordLengthStepper.value];
 
-  [self editingChanged];
+  if (PasswordGenerator.sharedGenerator.hasPassword) {
+    [self editingChanged];
+  }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -123,6 +127,8 @@
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
   [PasswordGenerator.sharedGenerator updatePassword:controller.password storesHash:controller.storesHash];
+  
+  [self editingChanged];
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
