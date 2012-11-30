@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D2FBC9116694269007B8065 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC8D16694269007B8065 /* Icon-Small.png */; };
+		4D2FBC9216694269007B8065 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */; };
+		4D2FBC9316694269007B8065 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC8F16694269007B8065 /* Icon.png */; };
+		4D2FBC9416694269007B8065 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC9016694269007B8065 /* Icon@2x.png */; };
 		4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
@@ -47,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D2FBC8D16694269007B8065 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		4D2FBC8F16694269007B8065 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4D2FBC9016694269007B8065 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4D501E8616653CBB006A86E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		4D501E8716653CBB006A86E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
@@ -160,6 +168,10 @@
 		4D6576FD166536FD00F32D4F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D2FBC8D16694269007B8065 /* Icon-Small.png */,
+				4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */,
+				4D2FBC8F16694269007B8065 /* Icon.png */,
+				4D2FBC9016694269007B8065 /* Icon@2x.png */,
 				4D8B12611665B91D0062C305 /* SuperGenPass-Info.plist */,
 				4D6576FF166536FD00F32D4F /* InfoPlist.strings */,
 				4D657702166536FD00F32D4F /* main.m */,
@@ -285,6 +297,10 @@
 				4D8B125E1665AFD40062C305 /* red@2x.png in Resources */,
 				4D8B125F1665AFD40062C305 /* yellow.png in Resources */,
 				4D8B12601665AFD40062C305 /* yellow@2x.png in Resources */,
+				4D2FBC9116694269007B8065 /* Icon-Small.png in Resources */,
+				4D2FBC9216694269007B8065 /* Icon-Small@2x.png in Resources */,
+				4D2FBC9316694269007B8065 /* Icon.png in Resources */,
+				4D2FBC9416694269007B8065 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

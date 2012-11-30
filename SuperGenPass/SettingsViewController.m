@@ -33,6 +33,7 @@
   }
 
   self.hashSwitch.on = self.storesHash;
+  self.lowerPasswordTextField.placeholder = @"(Optional)";
   
   [self updateState];
   [self.upperPasswordTextField becomeFirstResponder];
