@@ -7,6 +7,7 @@
 //
 
 #import <CommonCrypto/CommonDigest.h>
+#import "Keychain.h"
 #import "NSData+Base64.h"
 #import "PasswordGenerator.h"
 
@@ -58,16 +59,30 @@ static NSArray *TLDs;
   return [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
 }
 
+- (id)init {
+  if ((self = [super init]) != nil) {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"Installed"]) {
+      [Keychain removeStringForKey:@"Hash"];
+      [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Installed"];
+    }
+    else {
+      self.hash = [NSData dataFromBase64String:[Keychain stringForKey:@"Hash"]];
+    }
+  }
+  
+  return self;
+}
+
 - (NSString *)passwordForURL:(NSString *)url length:(int)length {
   NSString *domain = [self domainFromURL:url];
-
+  
   if (domain == nil) {
     return nil;
   }
   
   NSString *password = [NSString stringWithFormat:@"%@:%@", self.masterPassword, domain];
   int count = 0;
-
+  
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
     NSData *md5 = [PasswordGenerator md5:password];
     password = [md5 base64EncodedString];
@@ -76,16 +91,8 @@ static NSArray *TLDs;
     password = [password stringByReplacingOccurrencesOfString:@"/" withString:@"8"];
     count += 1;
   }
-         
-  return [password substringToIndex:length];
-}
-
-- (id)init {
-  if ((self = [super init]) != nil) {
-    self.hash = [NSUserDefaults.standardUserDefaults objectForKey:@"Hash"];
-  }
   
-  return self;
+  return [password substringToIndex:length];
 }
 
 - (NSString *)domainFromURL:(NSString *)urlStr {
@@ -119,7 +126,7 @@ static NSArray *TLDs;
 }
 
 - (BOOL)storesHash {
-  return [NSUserDefaults.standardUserDefaults objectForKey:@"Hash"] != nil;
+  return [Keychain stringForKey:@"Hash"] != nil;
 }
 
 - (void)updatePassword:(NSString *)password storesHash:(BOOL)storesHash {
@@ -127,10 +134,10 @@ static NSArray *TLDs;
   self.hash = [PasswordGenerator sha256:password];
   
   if (storesHash) {
-    [NSUserDefaults.standardUserDefaults setObject:self.hash forKey:@"Hash"];
+    [Keychain setString:[self.hash base64EncodedString] forKey:@"Hash"];
   }
   else {
-    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"Hash"];
+    [Keychain removeStringForKey:@"Hash"];
   }
 }
 

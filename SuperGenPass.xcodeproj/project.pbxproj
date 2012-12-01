@@ -13,6 +13,10 @@
 		4D2FBC9416694269007B8065 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC9016694269007B8065 /* Icon@2x.png */; };
 		4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC9F166947B5007B8065 /* iTunesArtwork */; };
 		4D2FBCA2166947B5007B8065 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */; };
+		4D2FBCA916694F7F007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
+		4D2FBCAA16694FA3007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
+		4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
+		4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
 		4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
@@ -59,6 +63,9 @@
 		4D2FBC9016694269007B8065 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4D2FBC9F166947B5007B8065 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		4D2FBCA816694F7F007B8065 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4D2FBCAB166992F7007B8065 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keychain.h; sourceTree = "<group>"; };
+		4D2FBCAC166992F7007B8065 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keychain.m; sourceTree = "<group>"; };
 		4D501E8616653CBB006A86E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		4D501E8716653CBB006A86E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
@@ -100,9 +107,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */,
-				4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */,
 				4D6576FB166536FD00F32D4F /* CoreGraphics.framework in Frameworks */,
+				4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */,
+				4D2FBCA916694F7F007B8065 /* Security.framework in Frameworks */,
+				4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,9 +118,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */,
+				4D2FBCAA16694FA3007B8065 /* Security.framework in Frameworks */,
 				4D65771E166536FD00F32D4F /* SenTestingKit.framework in Frameworks */,
 				4D65771F166536FD00F32D4F /* UIKit.framework in Frameworks */,
-				4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +150,11 @@
 		4D6576F5166536FD00F32D4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4D6576F6166536FD00F32D4F /* UIKit.framework */,
-				4D6576F8166536FD00F32D4F /* Foundation.framework */,
 				4D6576FA166536FD00F32D4F /* CoreGraphics.framework */,
+				4D6576F8166536FD00F32D4F /* Foundation.framework */,
+				4D2FBCA816694F7F007B8065 /* Security.framework */,
 				4D65771D166536FD00F32D4F /* SenTestingKit.framework */,
+				4D6576F6166536FD00F32D4F /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,7 +162,8 @@
 		4D6576FC166536FD00F32D4F /* SuperGenPass */ = {
 			isa = PBXGroup;
 			children = (
-				4D8B12541665AFD40062C305 /* Resources */,
+				4D2FBCAB166992F7007B8065 /* Keychain.h */,
+				4D2FBCAC166992F7007B8065 /* Keychain.m */,
 				4D501E8616653CBB006A86E9 /* NSData+Base64.h */,
 				4D501E8716653CBB006A86E9 /* NSData+Base64.m */,
 				4D501E8816653CBB006A86E9 /* PasswordGenerator.h */,
@@ -164,6 +175,7 @@
 				4D657712166536FD00F32D4F /* MainViewController.m */,
 				4D657714166536FD00F32D4F /* SettingsViewController.h */,
 				4D657715166536FD00F32D4F /* SettingsViewController.m */,
+				4D8B12541665AFD40062C305 /* Resources */,
 				4D6576FD166536FD00F32D4F /* Supporting Files */,
 			);
 			path = SuperGenPass;
@@ -349,6 +361,7 @@
 				4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */,
 				4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */,
 				4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
+				4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +372,7 @@
 				4D65772B166536FD00F32D4F /* SuperGenPassTests.m in Sources */,
 				4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */,
 				4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
+				4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

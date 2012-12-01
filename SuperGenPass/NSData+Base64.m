@@ -277,6 +277,9 @@ char *NewBase64Encode(
 //
 + (NSData *)dataFromBase64String:(NSString *)aString
 {
+  if (aString == nil) {
+    return nil;
+  }
 	NSData *data = [aString dataUsingEncoding:NSASCIIStringEncoding];
 	size_t outputLength;
 	void *outputBuffer = NewBase64Decode([data bytes], [data length], &outputLength);
