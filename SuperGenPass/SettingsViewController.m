@@ -29,11 +29,10 @@
   [super viewDidLoad];
 
   if (!self.canCancel) {
-    ((UINavigationItem *)self.navigationBar.items[0]).rightBarButtonItem = nil;
+    ((UINavigationItem *)self.navigationBar.items[0]).leftBarButtonItem = nil;
   }
 
   self.hashSwitch.on = self.storesHash;
-  self.lowerPasswordTextField.placeholder = @"(Optional)";
   
   [self updateState];
   [self.upperPasswordTextField becomeFirstResponder];
@@ -66,26 +65,27 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-  if (textField == self.upperPasswordTextField) {
-    [self.lowerPasswordTextField becomeFirstResponder];
-  }
-  else {
-    [textField resignFirstResponder];
-  }
-
   if (self.doneButtonItem.enabled) {
     [self done];
   }
+  else {
+    if (textField == self.upperPasswordTextField) {
+      [self.lowerPasswordTextField becomeFirstResponder];
+    }
+    else {
+      [self.upperPasswordTextField becomeFirstResponder];
+    }
+  }
   
-  return YES;
+  return NO;
 }
 #pragma mark Private
 
 - (void)updateState {
   NSString *upperText = self.upperPasswordTextField.text;
   NSString *lowerText = self.lowerPasswordTextField.text;
-  NSString *upperImageName = nil;
-  NSString *lowerImageName = nil;
+  NSString *upperImageName = @"grey";
+  NSString *lowerImageName = @"grey";
   
   // Upper password.
   
@@ -123,17 +123,24 @@
     }
   }
 
+  BOOL done = [upperImageName isEqualToString:@"green"];
+  
   // Set images.
   
   self.upperPasswordImageView.image = [UIImage imageNamed:upperImageName];
-  self.upperPasswordImageView.hidden = (upperImageName == nil);
-  
   self.lowerPasswordImageView.image = [UIImage imageNamed:lowerImageName];
-  self.lowerPasswordImageView.hidden = (lowerImageName == nil);
 
   // Done button.
   
-  self.doneButtonItem.enabled = [upperImageName isEqualToString:@"green"] || [lowerImageName isEqualToString:@"green"];
+  self.doneButtonItem.enabled = done;
+  
+  // Return key.
+  
+  self.upperPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
+  self.lowerPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
+
+  [self.upperPasswordTextField reloadInputViews];
+  [self.lowerPasswordTextField reloadInputViews];
 }
 
 @end

@@ -9,38 +9,38 @@
 
 @implementation Keychain
 
-+ (void)setString:(NSString *)inputString forKey:(NSString	*)account {
-	NSAssert(account != nil, @"Invalid account");
-	NSAssert(inputString != nil, @"Invalid string");
-	
++ (void)setString:(NSString *)inputString forKey:(NSString *)account {
 	NSMutableDictionary *query = [NSMutableDictionary dictionary];
 	
 	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
 	[query setObject:account forKey:(__bridge id)kSecAttrAccount];
 	[query setObject:(__bridge id)kSecAttrAccessibleWhenUnlocked forKey:(__bridge id)kSecAttrAccessible];
 	
-	OSStatus error = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
-	if (error == errSecSuccess) {
-		// do update
-		NSDictionary *attributesToUpdate = [NSDictionary dictionaryWithObject:[inputString dataUsingEncoding:NSUTF8StringEncoding] 
-																	  forKey:(__bridge id)kSecValueData];
+	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
+
+	if (status == errSecSuccess) {
+		NSDictionary *attributesToUpdate = [NSDictionary dictionaryWithObject:[inputString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                   forKey:(__bridge id)kSecValueData];
 		
-		error = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributesToUpdate);
-		NSAssert1(error == errSecSuccess, @"SecItemUpdate failed: %ld", error);
-	} else if (error == errSecItemNotFound) {
-		// do add
+		status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributesToUpdate);
+		if (status != errSecSuccess) {
+      NSLog(@"SecItemUpdate failed: %ld", status);
+    }
+	}
+  else if (status == errSecItemNotFound) {
 		[query setObject:[inputString dataUsingEncoding:NSUTF8StringEncoding] forKey:(__bridge id)kSecValueData];
 		
-		error = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
-		NSAssert1(error == errSecSuccess, @"SecItemAdd failed: %ld", error);
-	} else {
-		NSAssert1(NO, @"SecItemCopyMatching failed: %ld", error);
+		status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
+		if (status != errSecSuccess) {
+      NSLog(@"SecItemAdd failed: %ld", status);
+    }
+	}
+  else {
+		NSLog(@"SecItemCopyMatching failed: %ld", status);
 	}
 }
 
 + (NSString *)stringForKey:(NSString *)account {
-	NSAssert(account != nil, @"Invalid account");
-	
 	NSMutableDictionary *query = [NSMutableDictionary dictionary];
 
 	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
@@ -48,21 +48,17 @@
 	[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
 
 	CFDataRef dataFromKeychain = NULL;
+	NSString *string = nil;
 
-	OSStatus error = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&dataFromKeychain);
-	
-	NSString *stringToReturn = nil;
-	if (error == errSecSuccess) {
-		stringToReturn = [[NSString alloc] initWithData:(__bridge id)dataFromKeychain encoding:NSUTF8StringEncoding];
+	if (SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&dataFromKeychain) == errSecSuccess) {
+		string = [[NSString alloc] initWithData:(__bridge id)dataFromKeychain encoding:NSUTF8StringEncoding];
     CFRelease(dataFromKeychain);
 	}
   
-	return stringToReturn;
+	return string;
 }
 
 + (void)removeStringForKey:(NSString *)account {
-	NSAssert(account != nil, @"Invalid account");
-
 	NSMutableDictionary *query = [NSMutableDictionary dictionary];
 	
 	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];

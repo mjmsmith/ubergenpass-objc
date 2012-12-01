@@ -17,6 +17,10 @@
 		4D2FBCAA16694FA3007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
 		4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
 		4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
+		4D2FBCB11669CE99007B8065 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAF1669CE99007B8065 /* gear.png */; };
+		4D2FBCB21669CE99007B8065 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB01669CE99007B8065 /* gear@2x.png */; };
+		4D2FBCB51669DC36007B8065 /* grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB31669DC36007B8065 /* grey.png */; };
+		4D2FBCB61669DC36007B8065 /* grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB41669DC36007B8065 /* grey@2x.png */; };
 		4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
@@ -66,6 +70,10 @@
 		4D2FBCA816694F7F007B8065 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4D2FBCAB166992F7007B8065 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keychain.h; sourceTree = "<group>"; };
 		4D2FBCAC166992F7007B8065 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keychain.m; sourceTree = "<group>"; };
+		4D2FBCAF1669CE99007B8065 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		4D2FBCB01669CE99007B8065 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		4D2FBCB31669DC36007B8065 /* grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey.png; sourceTree = "<group>"; };
+		4D2FBCB41669DC36007B8065 /* grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey@2x.png"; sourceTree = "<group>"; };
 		4D501E8616653CBB006A86E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		4D501E8716653CBB006A86E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
@@ -223,8 +231,12 @@
 				4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */,
 				4D2FBC9F166947B5007B8065 /* iTunesArtwork */,
 				4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */,
+				4D2FBCAF1669CE99007B8065 /* gear.png */,
+				4D2FBCB01669CE99007B8065 /* gear@2x.png */,
 				4D8B12551665AFD40062C305 /* green.png */,
 				4D8B12561665AFD40062C305 /* green@2x.png */,
+				4D2FBCB31669DC36007B8065 /* grey.png */,
+				4D2FBCB41669DC36007B8065 /* grey@2x.png */,
 				4D8B12571665AFD40062C305 /* red.png */,
 				4D8B12581665AFD40062C305 /* red@2x.png */,
 				4D8B12591665AFD40062C305 /* yellow.png */,
@@ -321,6 +333,10 @@
 				4D2FBC9416694269007B8065 /* Icon@2x.png in Resources */,
 				4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */,
 				4D2FBCA2166947B5007B8065 /* iTunesArtwork@2x in Resources */,
+				4D2FBCB11669CE99007B8065 /* gear.png in Resources */,
+				4D2FBCB21669CE99007B8065 /* gear@2x.png in Resources */,
+				4D2FBCB51669DC36007B8065 /* grey.png in Resources */,
+				4D2FBCB61669DC36007B8065 /* grey@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
