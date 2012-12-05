@@ -21,8 +21,6 @@
 
 @implementation MainViewController
 
-@synthesize url = _url;
-
 #pragma mark UIViewController
 
 - (void)viewDidLoad {
@@ -43,6 +41,14 @@
 
   if (PasswordGenerator.sharedGenerator.hasPassword) {
     [self editingChanged];
+  }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  
+  if (self.urlTextField.text.length == 0) {
+    [self.urlTextField becomeFirstResponder];
   }
 }
 
