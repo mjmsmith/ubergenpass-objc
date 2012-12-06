@@ -91,7 +91,7 @@
 
 - (IBAction)toggleShow {
   self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
-  [self.showHideButton setTitle:(self.passwordTextField.secureTextEntry ? @"Show" : @"Hide") forState:UIControlStateNormal];
+  [self.showHideButton setTitle:(self.passwordTextField.secureTextEntry ? @"Show Password" : @"Hide Password") forState:UIControlStateNormal];
 }
 
 - (IBAction)copyToClipboard {
