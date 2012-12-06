@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
+#import "GradientButton.h"
 #import "MainViewController.h"
 #import "PasswordGenerator.h"
 
@@ -13,10 +14,11 @@
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *urlTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordLengthLabel;
+@property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordHostLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIButton *showHideButton;
-@property (strong, readwrite, nonatomic) IBOutlet UIButton *clipboardButton;
-@property (strong, readwrite, nonatomic) IBOutlet UIButton *safariButton;
+@property (strong, readwrite, nonatomic) IBOutlet GradientButton *showHideButton;
+@property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
+@property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @end
 
 @implementation MainViewController
@@ -39,16 +41,18 @@
 
   self.passwordLengthLabel.text = [NSString stringWithFormat:@"Password Length: %d", (int)self.passwordLengthStepper.value];
 
+  [self.showHideButton useAlertStyle];
+  [self.clipboardButton useAlertStyle];
+  [self.safariButton useAlertStyle];
+
+  self.passwordHostLabel.hidden = YES;
+  self.passwordTextField.hidden = YES;
+  self.showHideButton.hidden = YES;
+  self.clipboardButton.hidden = YES;
+  self.safariButton.hidden = YES;
+  
   if (PasswordGenerator.sharedGenerator.hasPassword) {
     [self editingChanged];
-  }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  
-  if (self.urlTextField.text.length == 0) {
-    [self.urlTextField becomeFirstResponder];
   }
 }
 
@@ -57,6 +61,11 @@
   
   if (!PasswordGenerator.sharedGenerator.hasPassword) {
     [self performSegueWithIdentifier:@"showAlternate" sender:self];
+  }
+  else {
+    if (self.urlTextField.text.length == 0) {
+      [self.urlTextField becomeFirstResponder];
+    }
   }
 }
 
@@ -96,14 +105,21 @@
 }
 
 - (IBAction)editingChanged {
-  self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForURL:self.urlTextField.text
-                                                                            length:self.passwordLengthStepper.value];
-  BOOL hasText = (self.passwordTextField.text.length > 0);
+  NSString *domain = [PasswordGenerator.sharedGenerator domainFromURL:self.urlTextField.text];
+  NSString *password = [PasswordGenerator.sharedGenerator passwordForURL:self.urlTextField.text
+                                                                  length:self.passwordLengthStepper.value];
+  BOOL hidden = (domain == nil);
 
-  self.passwordTextField.hidden = !hasText;
-  self.showHideButton.hidden = !hasText;
-  self.clipboardButton.hidden = !hasText;
-  self.safariButton.hidden = !hasText;
+  if (!hidden) {
+    self.passwordHostLabel.text = [NSString stringWithFormat:@"Password for %@", domain];
+    self.passwordTextField.text = password;
+  }
+  
+  self.passwordHostLabel.hidden = hidden;
+  self.passwordTextField.hidden = hidden;
+  self.showHideButton.hidden = hidden;
+  self.clipboardButton.hidden = hidden;
+  self.safariButton.hidden = hidden;
 
   self->_url = self.urlTextField.text;
 }

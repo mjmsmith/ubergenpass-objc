@@ -25,6 +25,7 @@
 		4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
+		4D5AB303166FDCC200289CA6 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AB302166FDCC200289CA6 /* GradientButton.m */; };
 		4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
 		4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
 		4D6576FB166536FD00F32D4F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576FA166536FD00F32D4F /* CoreGraphics.framework */; };
@@ -78,6 +79,8 @@
 		4D501E8716653CBB006A86E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
 		4D501E8916653CBB006A86E9 /* PasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordGenerator.m; sourceTree = "<group>"; };
+		4D5AB301166FDCC200289CA6 /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
+		4D5AB302166FDCC200289CA6 /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
 		4D6576F2166536FD00F32D4F /* SuperGenPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperGenPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6576F6166536FD00F32D4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D6576F8166536FD00F32D4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +173,8 @@
 		4D6576FC166536FD00F32D4F /* SuperGenPass */ = {
 			isa = PBXGroup;
 			children = (
+				4D5AB301166FDCC200289CA6 /* GradientButton.h */,
+				4D5AB302166FDCC200289CA6 /* GradientButton.m */,
 				4D2FBCAB166992F7007B8065 /* Keychain.h */,
 				4D2FBCAC166992F7007B8065 /* Keychain.m */,
 				4D501E8616653CBB006A86E9 /* NSData+Base64.h */,
@@ -178,11 +183,11 @@
 				4D501E8916653CBB006A86E9 /* PasswordGenerator.m */,
 				4D657705166536FD00F32D4F /* AppDelegate.h */,
 				4D657706166536FD00F32D4F /* AppDelegate.m */,
-				4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */,
 				4D657711166536FD00F32D4F /* MainViewController.h */,
 				4D657712166536FD00F32D4F /* MainViewController.m */,
 				4D657714166536FD00F32D4F /* SettingsViewController.h */,
 				4D657715166536FD00F32D4F /* SettingsViewController.m */,
+				4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */,
 				4D8B12541665AFD40062C305 /* Resources */,
 				4D6576FD166536FD00F32D4F /* Supporting Files */,
 			);
@@ -378,6 +383,7 @@
 				4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */,
 				4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
 				4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */,
+				4D5AB303166FDCC200289CA6 /* GradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
