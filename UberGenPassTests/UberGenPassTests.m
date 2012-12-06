@@ -1,18 +1,18 @@
 //
-//  SuperGenPassTests.m
-//  SuperGenPassTests
+//  UberGenPassTests.m
+//  UberGenPassTests
 //
 //  Created by Mark Smith on 11/27/12.
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
-#import "SuperGenPassTests.h"
+#import "UberGenPassTests.h"
 
-@implementation SuperGenPassTests
+@implementation UberGenPassTests
 
 - (void)setUp
 {
-    [super setUp];
+    [Uber setUp];
     
     // Set-up code here.
 }
@@ -21,12 +21,12 @@
 {
     // Tear-down code here.
     
-    [super tearDown];
+    [Uber tearDown];
 }
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in SuperGenPassTests");
+    STFail(@"Unit tests are not implemented yet in UberGenPassTests");
 }
 
 @end

@@ -14,7 +14,7 @@
                         <subviews>
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="bVv-5p-2mC">
                                 <items>
-                                    <navigationItem title="SuperGenPass" id="ykd-BG-oUU"/>
+                                    <navigationItem title="UberGenPass" id="ykd-BG-oUU"/>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10">
