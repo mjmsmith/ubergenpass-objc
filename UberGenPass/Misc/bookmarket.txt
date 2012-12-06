@@ -1,1 +1,0 @@
-javascript:location.href='ubergenpass:'+encodeURIComponent(location.href)
