@@ -126,10 +126,32 @@
   BOOL done = [upperImageName isEqualToString:@"green"];
   
   // Set images.
-  
+
   self.upperPasswordImageView.image = [UIImage imageNamed:upperImageName];
   self.lowerPasswordImageView.image = [UIImage imageNamed:lowerImageName];
-
+  
+  if (done) {
+    CGRect upperFrame = self.upperPasswordImageView.frame;
+    CGRect lowerFrame = self.lowerPasswordImageView.frame;
+    
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationCurveEaseOut
+                     animations:^{
+                       self.upperPasswordImageView.frame = CGRectInset(self.upperPasswordImageView.frame, -4, -4);
+                       self.lowerPasswordImageView.frame = CGRectInset(self.lowerPasswordImageView.frame, -4, -4);
+                       self.upperPasswordImageView.frame = upperFrame;
+                       self.lowerPasswordImageView.frame = lowerFrame;
+                     }
+                     completion:^(BOOL finished){
+                       if (!finished) {
+                         self.upperPasswordImageView.frame = upperFrame;
+                         self.lowerPasswordImageView.frame = lowerFrame;
+                       }
+                     }
+     ];
+  }
+  
   // Done button.
   
   self.doneButtonItem.enabled = done;

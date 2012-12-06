@@ -16,10 +16,11 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  MainViewController *controller = (MainViewController *)self.window.rootViewController;
-
-  controller.url = [url.absoluteString substringFromIndex:4];
+  NSDictionary* urlDict = [[NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleURLTypes"] objectAtIndex:0];
+  NSString *scheme = [[urlDict objectForKey:@"CFBundleURLSchemes"] objectAtIndex:0];
   
+  ((MainViewController *)self.window.rootViewController).url = [url.absoluteString substringFromIndex:(scheme.length+1)];
+
   return YES;
 }
 

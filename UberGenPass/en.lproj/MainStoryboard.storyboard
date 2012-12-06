@@ -332,7 +332,6 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="textFieldEditChanged:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hashSwitch" candidateClass="UISwitch"/>

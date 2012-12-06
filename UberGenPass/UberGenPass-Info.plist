@@ -40,7 +40,7 @@
 			<string>com.camazotz.UberGenPass</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sgp</string>
+				<string>ubergenpass</string>
 			</array>
 		</dict>
 	</array>
