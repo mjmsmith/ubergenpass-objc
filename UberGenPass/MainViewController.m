@@ -13,7 +13,7 @@
 @interface MainViewController ()
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *urlTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
-@property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordLengthLabel;
+@property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordForLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordHostLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -29,18 +29,15 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  self.urlTextField.text = self.url;
-
   int passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:@"PasswordLength"];
+  
+  self.urlTextField.text = self.url;
   
   self.passwordLengthStepper.minimumValue = 8;
   self.passwordLengthStepper.maximumValue = 20;
   self.passwordLengthStepper.value = (passwordLength == 0) ? 10 : passwordLength;
-  if (self.passwordLengthStepper.value == 0) {
-    self.passwordLengthStepper.value = 10;
-  }
 
-  self.passwordLengthLabel.text = [NSString stringWithFormat:@"Password Length: %d", (int)self.passwordLengthStepper.value];
+  self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
 
   [self.showHideButton useAlertStyle];
   [self.clipboardButton useAlertStyle];
@@ -102,7 +99,7 @@
 
 - (IBAction)lengthChanged {
   [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:@"PasswordLength"];
-  self.passwordLengthLabel.text = [NSString stringWithFormat:@"Password Length: %d", (int)self.passwordLengthStepper.value];
+  self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
   [self editingChanged];
 }
 

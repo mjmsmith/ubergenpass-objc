@@ -105,7 +105,6 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05y-Ke-SPJ">
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                 <connections>
@@ -113,14 +112,11 @@
                                 </connections>
                             </textField>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="N8b-Y0-FHI">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="94" id="Jtz-qk-a86"/>
-                                </constraints>
                                 <connections>
                                     <action selector="lengthChanged" destination="2" eventType="valueChanged" id="R1f-XS-wtf"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password Length:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEj-7Y-Hwl">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password Length" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEj-7Y-Hwl">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hL5-eJ-8jW"/>
                                 </constraints>
@@ -151,6 +147,14 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-DS-CcW">
+                                <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="wcV-56-jge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -158,7 +162,7 @@
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-3" id="1VT-uY-Wr0"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="top" secondItem="3" secondAttribute="top" constant="174" id="1pd-CO-hCd"/>
                             <constraint firstAttribute="bottom" secondItem="TT1-7X-NsD" secondAttribute="bottom" constant="148" id="4Dh-FO-eoB"/>
-                            <constraint firstItem="N8b-Y0-FHI" firstAttribute="leading" secondItem="QEj-7Y-Hwl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6HU-b0-0z3"/>
+                            <constraint firstItem="kMk-DS-CcW" firstAttribute="top" secondItem="3" secondAttribute="top" constant="128" id="5H6-Mu-ZVw"/>
                             <constraint firstItem="ZxO-Oo-W4X" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6KE-Jd-PTS"/>
                             <constraint firstAttribute="bottom" secondItem="LRc-2i-vlU" secondAttribute="bottom" constant="204" id="8ay-If-JqX"/>
                             <constraint firstItem="TT1-7X-NsD" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="979-qT-Z9X"/>
@@ -177,6 +181,7 @@
                             <constraint firstAttribute="bottom" secondItem="79q-ur-hX6" secondAttribute="bottom" constant="19" type="user" id="Yd9-Kw-PRn"/>
                             <constraint firstItem="QEj-7Y-Hwl" firstAttribute="centerY" secondItem="N8b-Y0-FHI" secondAttribute="centerY" type="default" id="Z0g-xn-JnI"/>
                             <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="20" type="user" id="aC3-7E-ura"/>
+                            <constraint firstItem="kMk-DS-CcW" firstAttribute="leading" secondItem="QEj-7Y-Hwl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aIu-UJ-yc2"/>
                             <constraint firstAttribute="bottom" secondItem="10" secondAttribute="bottom" constant="20" type="user" id="aTB-0E-H9e"/>
                             <constraint firstItem="FBz-9R-IZS" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cH8-fP-yNz"/>
                             <constraint firstItem="79q-ur-hX6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" type="user" id="dGD-xu-DmY"/>
@@ -194,9 +199,9 @@
                         <outlet property="clipboardButton" destination="LRc-2i-vlU" id="mcK-T3-48P"/>
                         <outlet property="passwordForLabel" destination="ZxO-Oo-W4X" id="k3u-6P-L7d"/>
                         <outlet property="passwordHostLabel" destination="WmF-lm-GqR" id="4om-Mu-jul"/>
-                        <outlet property="passwordLengthLabel" destination="QEj-7Y-Hwl" id="JBe-mh-KRa"/>
                         <outlet property="passwordLengthStepper" destination="N8b-Y0-FHI" id="kbI-Vj-Vrr"/>
-                        <outlet property="passwordTextField" destination="05y-Ke-SPJ" id="3MR-P2-8Fm"/>
+                        <outlet property="passwordLengthTextField" destination="kMk-DS-CcW" id="eXC-v8-83c"/>
+                        <outlet property="passwordTextField" destination="05y-Ke-SPJ" id="Zmg-Fj-RXS"/>
                         <outlet property="safariButton" destination="TT1-7X-NsD" id="rTa-T3-NDe"/>
                         <outlet property="showHideButton" destination="7BE-4A-ODb" id="QwI-7H-mk9"/>
                         <outlet property="urlTextField" destination="FBz-9R-IZS" id="pIy-sp-CK5"/>
@@ -343,8 +348,8 @@
                 <relationship kind="outlet" name="clipboardButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="passwordForLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordHostLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="passwordLengthLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordLengthStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="passwordLengthTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="safariButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="showHideButton" candidateClass="GradientButton"/>
