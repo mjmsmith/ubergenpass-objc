@@ -237,7 +237,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Password Hash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z44-ze-eiR">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9ms-sh-NgA"/>
-                                    <constraint firstAttribute="width" constant="174" id="fMa-dP-HSl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -258,7 +257,11 @@
                                     <constraint firstAttribute="height" constant="19" id="pU2-hg-7hD"/>
                                 </constraints>
                             </imageView>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eAq-ub-eJq"/>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eAq-ub-eJq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="O9Y-tI-51y"/>
+                                </constraints>
+                            </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCo-Wu-yjf">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="GSY-4T-38i"/>
@@ -292,6 +295,7 @@
                                     <action selector="installSafariBookmark" destination="6" eventType="touchUpInside" id="HVT-5Q-auh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="welcome.png" translatesAutoresizingMaskIntoConstraints="NO" id="geA-K7-LHe"/>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -301,6 +305,7 @@
                             <constraint firstItem="1pp-2b-8mE" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7XY-EW-JfI"/>
                             <constraint firstItem="HCH-MN-zM3" firstAttribute="centerY" secondItem="VCo-Wu-yjf" secondAttribute="centerY" type="default" id="AYA-Fc-nuE"/>
                             <constraint firstItem="1pp-2b-8mE" firstAttribute="top" secondItem="7" secondAttribute="top" constant="86" id="BGx-Uw-6pE"/>
+                            <constraint firstItem="geA-K7-LHe" firstAttribute="bottom" secondItem="7" secondAttribute="bottom" type="default" id="Bh5-9s-FB2"/>
                             <constraint firstItem="XWe-fY-idL" firstAttribute="leading" secondItem="5K5-EP-GBH" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="CKs-X6-Ofe"/>
                             <constraint firstItem="drO-ch-xpG" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="DSJ-1l-YK8"/>
                             <constraint firstAttribute="trailing" secondItem="p2x-tj-kTT" secondAttribute="trailing" constant="20" type="user" id="FTb-ZC-XiT"/>
@@ -315,9 +320,11 @@
                             <constraint firstAttribute="bottom" secondItem="79q-ur-hX6" secondAttribute="bottom" constant="20" type="user" id="gkP-rN-QG5"/>
                             <constraint firstItem="p2x-tj-kTT" firstAttribute="centerY" secondItem="79q-ur-hX6" secondAttribute="centerY" type="default" id="kFK-8G-8km"/>
                             <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="default" id="kyL-VC-rMY"/>
+                            <constraint firstItem="geA-K7-LHe" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="default" id="lys-AN-8Nf"/>
                             <constraint firstAttribute="trailing" secondItem="drO-ch-xpG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="mxq-Ns-IqN"/>
                             <constraint firstItem="12" firstAttribute="top" secondItem="7" secondAttribute="top" type="default" id="oQ7-QK-1Ab"/>
                             <constraint firstItem="Z44-ze-eiR" firstAttribute="centerY" secondItem="eAq-ub-eJq" secondAttribute="centerY" type="default" id="tHW-vn-ga7"/>
+                            <constraint firstAttribute="trailing" secondItem="eAq-ub-eJq" secondAttribute="trailing" constant="41" id="vUw-e7-CSt"/>
                             <constraint firstItem="5K5-EP-GBH" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xbG-dB-oAA"/>
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="default" id="yf5-Bx-wHg"/>
                             <constraint firstItem="5K5-EP-GBH" firstAttribute="centerY" secondItem="XWe-fY-idL" secondAttribute="centerY" type="default" id="yuK-ea-tvX"/>
@@ -333,6 +340,7 @@
                         <outlet property="navigationBar" destination="12" id="ch2-Vl-vl3"/>
                         <outlet property="upperPasswordImageView" destination="VCo-Wu-yjf" id="t53-Qi-uKT"/>
                         <outlet property="upperPasswordTextField" destination="1pp-2b-8mE" id="fKI-YX-qbq"/>
+                        <outlet property="welcomeImageView" destination="geA-K7-LHe" id="aOs-bh-3w8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
@@ -343,6 +351,7 @@
     <resources>
         <image name="gear.png" width="26" height="26"/>
         <image name="info.png" width="28" height="28"/>
+        <image name="welcome.png" width="320" height="230"/>
     </resources>
     <classes>
         <class className="GradientButton" superclassName="UIButton">
@@ -384,6 +393,7 @@
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="upperPasswordImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="upperPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="welcomeImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>

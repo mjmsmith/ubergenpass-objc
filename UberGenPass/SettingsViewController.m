@@ -21,6 +21,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *upperPasswordImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerPasswordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *lowerPasswordImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *hashSwitch;
 @property (copy, readwrite, nonatomic) NSString *password;
 - (IBAction)editingChanged:(id)sender;
@@ -46,6 +47,13 @@
   }
 
   self.hashSwitch.on = self.storesHash;
+  
+  if ([NSUserDefaults.standardUserDefaults boolForKey:@"welcomeShown"]) {
+    self.welcomeImageView.hidden = YES;
+  }
+  else {
+    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"welcomeShown"];
+  }
   
   [self updateState];
   [self.upperPasswordTextField becomeFirstResponder];
