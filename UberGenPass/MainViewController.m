@@ -14,7 +14,6 @@
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *urlTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordForLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordHostLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *showHideButton;
@@ -48,7 +47,6 @@
   [self.clipboardButton useAlertStyle];
   [self.safariButton useAlertStyle];
 
-  self.passwordForLabel.hidden = YES;
   self.passwordHostLabel.hidden = YES;
   self.passwordTextField.hidden = YES;
   self.showHideButton.hidden = YES;
@@ -104,7 +102,6 @@
     self.passwordTextField.text = password;
   }
   
-  self.passwordForLabel.hidden = hidden;
   self.passwordHostLabel.hidden = hidden;
   self.passwordTextField.hidden = hidden;
   self.showHideButton.hidden = hidden;
