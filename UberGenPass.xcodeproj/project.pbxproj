@@ -49,6 +49,8 @@
 		4D8B125E1665AFD40062C305 /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12581665AFD40062C305 /* red@2x.png */; };
 		4D8B125F1665AFD40062C305 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12591665AFD40062C305 /* yellow.png */; };
 		4D8B12601665AFD40062C305 /* yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B125A1665AFD40062C305 /* yellow@2x.png */; };
+		4DF343A41671AB49004C6377 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A21671AB49004C6377 /* info.png */; };
+		4DF343A51671AB49004C6377 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A31671AB49004C6377 /* info@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		4D8B12591665AFD40062C305 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		4D8B125A1665AFD40062C305 /* yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow@2x.png"; sourceTree = "<group>"; };
 		4D8B12611665B91D0062C305 /* UberGenPass-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UberGenPass-Info.plist"; sourceTree = "<group>"; };
+		4DF343A21671AB49004C6377 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		4DF343A31671AB49004C6377 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 		4D8B12541665AFD40062C305 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DF343A21671AB49004C6377 /* info.png */,
+				4DF343A31671AB49004C6377 /* info@2x.png */,
 				4D657708166536FD00F32D4F /* Default.png */,
 				4D65770A166536FD00F32D4F /* Default@2x.png */,
 				4D65770C166536FD00F32D4F /* Default-568h@2x.png */,
@@ -342,6 +348,8 @@
 				4D2FBCB21669CE99007B8065 /* gear@2x.png in Resources */,
 				4D2FBCB51669DC36007B8065 /* grey.png in Resources */,
 				4D2FBCB61669DC36007B8065 /* grey@2x.png in Resources */,
+				4DF343A41671AB49004C6377 /* info.png in Resources */,
+				4DF343A51671AB49004C6377 /* info@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
