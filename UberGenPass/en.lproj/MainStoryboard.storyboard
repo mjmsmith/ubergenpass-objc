@@ -52,7 +52,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
                                 <connections>
                                     <action selector="editingChanged" destination="2" eventType="editingChanged" id="9aY-Dh-SzH"/>
-                                    <outlet property="delegate" destination="2" id="mkc-Mp-7bC"/>
+                                    <outlet property="delegate" destination="2" id="zan-xh-5gk"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BE-4A-ODb" customClass="GradientButton">
@@ -107,9 +107,6 @@
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="2" id="plv-q4-TvN"/>
-                                </connections>
                             </textField>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="N8b-Y0-FHI">
                                 <connections>
@@ -212,12 +209,12 @@
                                     <navigationItem title="Settings" id="13">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="14">
                                             <connections>
-                                                <action selector="cancel" destination="6" id="JtX-XG-h3E"/>
+                                                <action selector="cancel" destination="6" id="SJf-Oq-hfR"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="kIK-vY-Mm2">
                                             <connections>
-                                                <action selector="done" destination="6" id="YfF-fc-Hv4"/>
+                                                <action selector="done" destination="6" id="oAH-LQ-jLT"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -227,7 +224,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                 <connections>
-                                    <action selector="textFieldEditChanged:" destination="6" eventType="editingChanged" id="IAf-KR-lCB"/>
+                                    <action selector="editingChanged:" destination="6" eventType="editingChanged" id="bcr-5c-57I"/>
                                     <outlet property="delegate" destination="6" id="OQb-6b-7BZ"/>
                                 </connections>
                             </textField>
@@ -235,7 +232,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
-                                    <action selector="textFieldEditChanged:" destination="6" eventType="editingChanged" id="GL4-cO-goM"/>
+                                    <action selector="editingChanged:" destination="6" eventType="editingChanged" id="569-cu-qeX"/>
                                     <outlet property="delegate" destination="6" id="rZp-Ub-NTf"/>
                                 </connections>
                             </textField>
@@ -250,7 +247,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Password Hash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z44-ze-eiR">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="174" id="0qV-Ae-u0g"/>
+                                    <constraint firstAttribute="width" constant="174" id="fMa-dP-HSl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -288,26 +285,42 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2x-tj-kTT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="CQR-C8-S3c"/>
+                                    <constraint firstAttribute="width" constant="156" id="SFg-NI-N3x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Install Safari Bookmark">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="HCH-MN-zM3" firstAttribute="top" secondItem="7" secondAttribute="top" constant="64" id="0WS-bk-vZh"/>
                             <constraint firstAttribute="trailing" secondItem="1pp-2b-8mE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="3cF-uR-GSt"/>
-                            <constraint firstItem="eAq-ub-eJq" firstAttribute="top" secondItem="7" secondAttribute="top" constant="216" id="3lh-aP-EmD"/>
                             <constraint firstItem="HCH-MN-zM3" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5DQ-1l-n9s"/>
                             <constraint firstItem="1pp-2b-8mE" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7XY-EW-JfI"/>
                             <constraint firstItem="HCH-MN-zM3" firstAttribute="centerY" secondItem="VCo-Wu-yjf" secondAttribute="centerY" type="default" id="AYA-Fc-nuE"/>
                             <constraint firstItem="drO-ch-xpG" firstAttribute="top" secondItem="7" secondAttribute="top" constant="152" id="CGn-fC-vwB"/>
                             <constraint firstItem="XWe-fY-idL" firstAttribute="leading" secondItem="5K5-EP-GBH" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="CKs-X6-Ofe"/>
                             <constraint firstItem="drO-ch-xpG" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="DSJ-1l-YK8"/>
+                            <constraint firstAttribute="trailing" secondItem="p2x-tj-kTT" secondAttribute="trailing" constant="20" type="user" id="FTb-ZC-XiT"/>
+                            <constraint firstItem="Z44-ze-eiR" firstAttribute="top" secondItem="7" secondAttribute="top" constant="202" id="HF9-LI-f8x"/>
                             <constraint firstItem="VCo-Wu-yjf" firstAttribute="leading" secondItem="XWe-fY-idL" secondAttribute="leading" type="default" id="Jif-qt-Ad5"/>
-                            <constraint firstItem="Z44-ze-eiR" firstAttribute="top" secondItem="7" secondAttribute="top" constant="192" id="NOZ-Ml-wR6"/>
-                            <constraint firstItem="eAq-ub-eJq" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NoM-zX-sPc"/>
                             <constraint firstItem="79q-ur-hX6" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" type="user" id="U2h-Gb-2kc"/>
                             <constraint firstItem="1pp-2b-8mE" firstAttribute="top" secondItem="7" secondAttribute="top" constant="88" id="ZDp-qd-K0k"/>
                             <constraint firstItem="Z44-ze-eiR" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="beV-Z0-Oma"/>
+                            <constraint firstItem="eAq-ub-eJq" firstAttribute="top" secondItem="7" secondAttribute="top" constant="199" id="cbo-Al-LET"/>
+                            <constraint firstItem="eAq-ub-eJq" firstAttribute="leading" secondItem="Z44-ze-eiR" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="eYN-ns-hqZ"/>
                             <constraint firstItem="VCo-Wu-yjf" firstAttribute="trailing" secondItem="XWe-fY-idL" secondAttribute="trailing" type="default" id="gW9-ro-rIe"/>
                             <constraint firstAttribute="bottom" secondItem="79q-ur-hX6" secondAttribute="bottom" constant="20" type="user" id="gkP-rN-QG5"/>
+                            <constraint firstItem="p2x-tj-kTT" firstAttribute="centerY" secondItem="79q-ur-hX6" secondAttribute="centerY" type="default" id="kFK-8G-8km"/>
                             <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="default" id="kyL-VC-rMY"/>
                             <constraint firstAttribute="trailing" secondItem="drO-ch-xpG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="mxq-Ns-IqN"/>
                             <constraint firstItem="12" firstAttribute="top" secondItem="7" secondAttribute="top" type="default" id="oQ7-QK-1Ab"/>
@@ -345,6 +358,11 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
+                <relationship kind="action" name="copyToClipboard"/>
+                <relationship kind="action" name="editingChanged"/>
+                <relationship kind="action" name="launchSafari"/>
+                <relationship kind="action" name="lengthChanged"/>
+                <relationship kind="action" name="toggleShow"/>
                 <relationship kind="outlet" name="clipboardButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="passwordForLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordHostLabel" candidateClass="UILabel"/>
@@ -362,7 +380,9 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="textFieldEditChanged:"/>
+                <relationship kind="action" name="cancel"/>
+                <relationship kind="action" name="done"/>
+                <relationship kind="action" name="editingChanged:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hashSwitch" candidateClass="UISwitch"/>

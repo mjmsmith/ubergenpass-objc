@@ -20,6 +20,11 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *showHideButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
+- (IBAction)editingChanged;
+- (IBAction)lengthChanged;
+- (IBAction)toggleShow;
+- (IBAction)copyToClipboard;
+- (IBAction)launchSafari;
 @end
 
 @implementation MainViewController
@@ -88,21 +93,6 @@
 
 #pragma mark Actions
 
-- (IBAction)toggleShow {
-  self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
-  [self.showHideButton setTitle:(self.passwordTextField.secureTextEntry ? @"Show Password" : @"Hide Password") forState:UIControlStateNormal];
-}
-
-- (IBAction)copyToClipboard {
-  UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
-}
-
-- (IBAction)lengthChanged {
-  [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:@"PasswordLength"];
-  self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
-  [self editingChanged];
-}
-
 - (IBAction)editingChanged {
   NSString *domain = [PasswordGenerator.sharedGenerator domainFromURL:self.urlTextField.text];
   NSString *password = [PasswordGenerator.sharedGenerator passwordForURL:self.urlTextField.text
@@ -124,6 +114,21 @@
   self->_url = self.urlTextField.text;
 }
 
+- (IBAction)lengthChanged {
+  [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:@"PasswordLength"];
+  self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
+  [self editingChanged];
+}
+
+- (IBAction)toggleShow {
+  self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
+  [self.showHideButton setTitle:(self.passwordTextField.secureTextEntry ? @"Show Password" : @"Hide Password") forState:UIControlStateNormal];
+}
+
+- (IBAction)copyToClipboard {
+  UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
+}
+
 - (IBAction)launchSafari {
   NSString *url = self.url;
   
@@ -135,10 +140,6 @@
 }
 
 #pragma mark UITextFieldDelegate
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-  return textField != self.passwordTextField;
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];

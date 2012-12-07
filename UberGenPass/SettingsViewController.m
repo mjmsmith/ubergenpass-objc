@@ -23,6 +23,9 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *lowerPasswordImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *hashSwitch;
 @property (copy, readwrite, nonatomic) NSString *password;
+- (IBAction)editingChanged:(id)sender;
+- (IBAction)done;
+- (IBAction)cancel;
 @end
 
 @implementation SettingsViewController
@@ -57,6 +60,10 @@
 
 #pragma mark Actions
 
+- (IBAction)editingChanged:(id)sender {
+  [self updateState];
+}
+
 - (IBAction)done {
   self.password = self.upperPasswordTextField.text;
   self.storesHash = self.hashSwitch.on;
@@ -65,10 +72,6 @@
 
 - (IBAction)cancel {
   [self.delegate settingsViewControllerDidCancel:self];
-}
-
-- (IBAction)textFieldEditChanged:(id)sender {
-  [self updateState];
 }
 
 #pragma mark UITextFieldDelegate
