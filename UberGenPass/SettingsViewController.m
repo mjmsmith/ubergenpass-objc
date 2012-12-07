@@ -10,6 +10,10 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+@property (strong, readwrite, nonatomic) UIImage *greyImage;
+@property (strong, readwrite, nonatomic) UIImage *greenImage;
+@property (strong, readwrite, nonatomic) UIImage *yellowImage;
+@property (strong, readwrite, nonatomic) UIImage *redImage;
 @property (strong, readwrite, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
@@ -27,6 +31,11 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  self.greyImage = [UIImage imageNamed:@"grey"];
+  self.greenImage = [UIImage imageNamed:@"green"];
+  self.yellowImage = [UIImage imageNamed:@"yellow"];
+  self.redImage = [UIImage imageNamed:@"red"];
 
   if (!self.canCancel) {
     ((UINavigationItem *)self.navigationBar.items[0]).leftBarButtonItem = nil;
@@ -84,51 +93,37 @@
 - (void)updateState {
   NSString *upperText = self.upperPasswordTextField.text;
   NSString *lowerText = self.lowerPasswordTextField.text;
-  NSString *upperImageName = @"grey";
-  NSString *lowerImageName = @"grey";
+  UIImage *upperImage = self.greyImage;
+  UIImage *lowerImage = self.greyImage;
   
-  // Upper password.
+  // Images.
   
   if (upperText.length > 0 && [self.hash isEqualToData:[PasswordGenerator sha256:upperText]]) {
-    upperImageName = @"green";
-  }
-  
-  // Lower password.
-  
-  if ([upperImageName isEqualToString:@"green"]) {
     self.lowerPasswordTextField.text = upperText;
-    self.lowerPasswordTextField.enabled = NO;
-    lowerImageName = @"green";
+    upperImage = self.greenImage;
+    lowerImage = self.greenImage;
   }
   else {
-    if (!self.lowerPasswordTextField.enabled) {
-      lowerText = @"";
-      self.lowerPasswordTextField.text = lowerText;
-      self.lowerPasswordTextField.enabled = YES;
-    }
-    
-    if (lowerText.length > 0) {
+    if (upperText.length > 0 && lowerText.length > 0) {
       if ([upperText isEqualToString:lowerText]) {
-        upperImageName = @"green";
-        lowerImageName = @"green";
+        upperImage = self.greenImage;
+        lowerImage = self.greenImage;
+      }
+      else if ([upperText hasPrefix:lowerText] || [lowerText hasPrefix:upperText]) {
+        lowerImage = self.yellowImage;
       }
       else {
-        if (lowerText.length < upperText.length && [[upperText substringToIndex:lowerText.length] isEqualToString:lowerText]) {
-          lowerImageName = @"yellow";
-        }
-        else {
-          lowerImageName = @"red";
-        }
+        lowerImage = self.redImage;
       }
     }
   }
 
-  BOOL done = [upperImageName isEqualToString:@"green"];
+  BOOL done = (upperImage == self.greenImage);
   
   // Set images.
 
-  self.upperPasswordImageView.image = [UIImage imageNamed:upperImageName];
-  self.lowerPasswordImageView.image = [UIImage imageNamed:lowerImageName];
+  self.upperPasswordImageView.image = upperImage;
+  self.lowerPasswordImageView.image = lowerImage;
   
   if (done) {
     CGRect upperFrame = self.upperPasswordImageView.frame;
