@@ -23,6 +23,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *lowerPasswordImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *hashSwitch;
+@property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
 @property (copy, readwrite, nonatomic) NSString *password;
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)done;
@@ -47,6 +48,13 @@
   }
 
   self.hashSwitch.on = self.storesHash;
+  
+  if (self.backgroundTimeout == 300) {
+    self.timeoutSegment.selectedSegmentIndex = 2;
+  }
+  else if (self.backgroundTimeout == 60) {
+    self.timeoutSegment.selectedSegmentIndex = 1;
+  }
   
   if ([NSUserDefaults.standardUserDefaults boolForKey:@"welcomeShown"]) {
     self.welcomeImageView.hidden = YES;
@@ -81,8 +89,12 @@
 }
 
 - (IBAction)done {
+  int timeouts[] = {0, 60, 300};
+  
   self.password = self.upperPasswordTextField.text;
   self.storesHash = self.hashSwitch.on;
+  self.backgroundTimeout = timeouts[self.timeoutSegment.selectedSegmentIndex];
+  
   [self.delegate settingsViewControllerDidFinish:self];
 }
 

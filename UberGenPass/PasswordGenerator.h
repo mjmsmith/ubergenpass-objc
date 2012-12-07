@@ -17,11 +17,9 @@
 - (NSString *)passwordForURL:(NSString *)url length:(int)length;
 - (NSString *)domainFromURL:(NSString *)urlStr;
 
-- (void)updatePassword:(NSString *)password storesHash:(BOOL)storesHash;
+- (void)updatePassword:(NSString *)password;
 
 @property (assign, readonly, nonatomic) BOOL hasPassword;
-@property (assign, readonly, nonatomic) BOOL storesHash;
-
 @property (copy, readonly, nonatomic) NSData *hash;
 
 @end

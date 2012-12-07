@@ -156,16 +156,9 @@ static NSArray *TLDs;
   return [Keychain stringForKey:@"Hash"] != nil;
 }
 
-- (void)updatePassword:(NSString *)password storesHash:(BOOL)storesHash {
+- (void)updatePassword:(NSString *)password {
   self.masterPassword = password;
   self.hash = [PasswordGenerator sha256:password];
-  
-  if (storesHash) {
-    [Keychain setString:[self.hash base64EncodedString] forKey:@"Hash"];
-  }
-  else {
-    [Keychain removeStringForKey:@"Hash"];
-  }
 }
 
 #pragma mark Private

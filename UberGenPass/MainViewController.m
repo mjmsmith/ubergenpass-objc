@@ -7,7 +7,9 @@
 //
 
 #import "GradientButton.h"
+#import "Keychain.h"
 #import "MainViewController.h"
+#import "NSData+Base64.h"
 #import "PasswordGenerator.h"
 
 @interface MainViewController ()
@@ -146,7 +148,16 @@
 #pragma mark SettingsViewControllerDelegate
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
-  [PasswordGenerator.sharedGenerator updatePassword:controller.password storesHash:controller.storesHash];
+  [PasswordGenerator.sharedGenerator updatePassword:controller.password];
+
+  if (controller.storesHash) {
+    [Keychain setString:[PasswordGenerator.sharedGenerator.hash base64EncodedString] forKey:@"Hash"];
+  }
+  else {
+    [Keychain removeStringForKey:@"Hash"];
+  }
+
+  [NSUserDefaults.standardUserDefaults setInteger:controller.backgroundTimeout forKey:@"BackgroundTimeout"];
   
   [self editingChanged];
   [self dismissViewControllerAnimated:YES completion:nil];
@@ -162,7 +173,8 @@
 
     controller.canCancel = PasswordGenerator.sharedGenerator.hasPassword;
     controller.hash = PasswordGenerator.sharedGenerator.hash;
-    controller.storesHash = PasswordGenerator.sharedGenerator.storesHash;
+    controller.storesHash = ([Keychain stringForKey:@"Hash"] != nil);
+    controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
     controller.delegate = self;
   }
 }
