@@ -56,7 +56,10 @@
   }
   
   [self updateState];
-  [self.upperPasswordTextField becomeFirstResponder];
+
+  if (self.welcomeImageView.hidden) {
+    [self.upperPasswordTextField becomeFirstResponder];
+  }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
