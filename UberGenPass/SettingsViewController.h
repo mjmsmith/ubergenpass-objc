@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HelpViewController.h"
 
 @class SettingsViewController;
 
@@ -15,7 +15,7 @@
 - (void)settingsViewControllerDidCancel:(SettingsViewController *)controller;
 @end
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <HelpViewControllerDelegate>
 @property (weak, readwrite, nonatomic) id <SettingsViewControllerDelegate> delegate;
 @property (assign, readwrite, nonatomic) BOOL storesHash;
 @property (assign, readwrite, nonatomic) BOOL canCancel;

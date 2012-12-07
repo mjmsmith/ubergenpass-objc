@@ -142,6 +142,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="NnY-82-Unv" kind="modal" identifier="showHelp" modalTransitionStyle="coverVertical" id="cB1-bY-lok"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
@@ -195,7 +198,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="182"/>
+            <point key="canvasLocation" x="-163" y="-1122"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="82c-7B-u7D">
+            <objects>
+                <viewController id="NnY-82-Unv" customClass="HelpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fXY-wn-s1K">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="k4A-gO-TSz">
+                                <items>
+                                    <navigationItem title="Help" id="wx8-EX-jSe">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bak-9n-Qbj">
+                                            <connections>
+                                                <action selector="done" destination="NnY-82-Unv" id="HQ8-j9-GQt"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9A-WN-GQR"/>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="j9A-WN-GQR" firstAttribute="leading" secondItem="fXY-wn-s1K" secondAttribute="leading" type="default" id="86k-Ai-Gdb"/>
+                            <constraint firstItem="j9A-WN-GQR" firstAttribute="top" secondItem="k4A-gO-TSz" secondAttribute="bottom" type="default" id="9Qa-uJ-3co"/>
+                            <constraint firstItem="j9A-WN-GQR" firstAttribute="trailing" secondItem="fXY-wn-s1K" secondAttribute="trailing" type="default" id="FIm-Bp-bmu"/>
+                            <constraint firstItem="k4A-gO-TSz" firstAttribute="leading" secondItem="fXY-wn-s1K" secondAttribute="leading" type="default" id="YM5-GG-MHg"/>
+                            <constraint firstItem="j9A-WN-GQR" firstAttribute="bottom" secondItem="fXY-wn-s1K" secondAttribute="bottom" type="default" id="fSM-F2-DiR"/>
+                            <constraint firstItem="k4A-gO-TSz" firstAttribute="top" secondItem="fXY-wn-s1K" secondAttribute="top" type="default" id="wzW-Bt-Ble"/>
+                            <constraint firstItem="k4A-gO-TSz" firstAttribute="trailing" secondItem="fXY-wn-s1K" secondAttribute="trailing" type="default" id="xJF-zb-PJz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nw4-Ln-agS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="798" y="-1122"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="9">
@@ -278,6 +318,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="NnY-82-Unv" kind="modal" identifier="showHelp" modalTransitionStyle="coverVertical" id="BcP-J1-rlP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2x-tj-kTT">
                                 <constraints>
@@ -363,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="182"/>
+            <point key="canvasLocation" x="320" y="-1122"/>
         </scene>
     </scenes>
     <resources>
@@ -374,6 +417,13 @@
     <classes>
         <class className="GradientButton" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GradientButton.h"/>
+        </class>
+        <class className="HelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done"/>
+                <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
@@ -421,4 +471,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="BcP-J1-rlP"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -78,6 +78,14 @@
   }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"showHelp"]) {
+    HelpViewController *controller = segue.destinationViewController;
+    
+    controller.delegate = self;
+  }
+}
+
 #pragma mark Actions
 
 - (IBAction)editingChanged:(id)sender {
@@ -119,6 +127,13 @@
   
   return NO;
 }
+
+#pragma mark HelpViewControllerDelegate
+
+- (void)helpViewControllerDidFinish:(HelpViewController *)controller {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark Private
 
 - (void)updateState {

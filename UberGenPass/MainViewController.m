@@ -30,6 +30,18 @@
 
 @implementation MainViewController
 
+#pragma mark Public
+
+- (void)setUrl:(NSString *)url {
+  if (self.urlTextField == nil) {
+    self->_url = url;
+  }
+  else {
+    self.urlTextField.text = url;
+    [self editingChanged];
+  }
+}
+
 #pragma mark UIViewController
 
 - (void)viewDidLoad {
@@ -81,13 +93,20 @@
   }
 }
 
-- (void)setUrl:(NSString *)url {
-  if (self.urlTextField == nil) {
-    self->_url = url;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"showHelp"]) {
+    HelpViewController *controller = segue.destinationViewController;
+    
+    controller.delegate = self;
   }
-  else {
-    self.urlTextField.text = url;
-    [self editingChanged];
+  else if ([segue.identifier isEqualToString:@"showSettings"]) {
+    SettingsViewController *controller = segue.destinationViewController;
+    
+    controller.canCancel = PasswordGenerator.sharedGenerator.hasPassword;
+    controller.hash = PasswordGenerator.sharedGenerator.hash;
+    controller.storesHash = ([Keychain stringForKey:@"Hash"] != nil);
+    controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
+    controller.delegate = self;
   }
 }
 
@@ -145,6 +164,12 @@
   return YES;
 }
 
+#pragma mark HelpViewControllerDelegate
+
+- (void)helpViewControllerDidFinish:(HelpViewController *)controller {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark SettingsViewControllerDelegate
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
@@ -165,18 +190,6 @@
 
 - (void)settingsViewControllerDidCancel:(SettingsViewController *)controller {
   [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showSettings"]) {
-    SettingsViewController *controller = segue.destinationViewController;
-
-    controller.canCancel = PasswordGenerator.sharedGenerator.hasPassword;
-    controller.hash = PasswordGenerator.sharedGenerator.hash;
-    controller.storesHash = ([Keychain stringForKey:@"Hash"] != nil);
-    controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
-    controller.delegate = self;
-  }
 }
 
 @end

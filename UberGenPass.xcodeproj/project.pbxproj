@@ -51,6 +51,8 @@
 		4D98230E16726902001F3D8A /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98230C16726902001F3D8A /* welcome.png */; };
 		4D98230F16726902001F3D8A /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98230D16726902001F3D8A /* welcome@2x.png */; };
 		4D98231216727EF4001F3D8A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98231116727EF4001F3D8A /* Default-568h@2x.png */; };
+		4D98231516728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
+		4D98231616728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4DF343A41671AB49004C6377 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A21671AB49004C6377 /* info.png */; };
 		4DF343A51671AB49004C6377 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A31671AB49004C6377 /* info@2x.png */; };
 /* End PBXBuildFile section */
@@ -117,6 +119,8 @@
 		4D98230C16726902001F3D8A /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		4D98230D16726902001F3D8A /* welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome@2x.png"; sourceTree = "<group>"; };
 		4D98231116727EF4001F3D8A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4D98231316728813001F3D8A /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		4D98231416728813001F3D8A /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		4DF343A21671AB49004C6377 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		4DF343A31671AB49004C6377 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +187,8 @@
 			children = (
 				4D5AB301166FDCC200289CA6 /* GradientButton.h */,
 				4D5AB302166FDCC200289CA6 /* GradientButton.m */,
+				4D98231316728813001F3D8A /* HelpViewController.h */,
+				4D98231416728813001F3D8A /* HelpViewController.m */,
 				4D2FBCAB166992F7007B8065 /* Keychain.h */,
 				4D2FBCAC166992F7007B8065 /* Keychain.m */,
 				4D501E8616653CBB006A86E9 /* NSData+Base64.h */,
@@ -400,6 +406,7 @@
 				4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
 				4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */,
 				4D5AB303166FDCC200289CA6 /* GradientButton.m in Sources */,
+				4D98231516728813001F3D8A /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +418,7 @@
 				4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */,
 				4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
 				4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */,
+				4D98231616728813001F3D8A /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
