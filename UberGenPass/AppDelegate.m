@@ -16,8 +16,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  NSDictionary* urlDict = [[NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleURLTypes"] objectAtIndex:0];
-  NSString *scheme = [[urlDict objectForKey:@"CFBundleURLSchemes"] objectAtIndex:0];
+  NSString* scheme = NSBundle.mainBundle.infoDictionary[@"CFBundleURLTypes"][0][@"CFBundleURLSchemes"][0];
   
   ((MainViewController *)self.window.rootViewController).url = [url.absoluteString substringFromIndex:(scheme.length+1)];
 
