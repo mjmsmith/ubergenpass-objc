@@ -64,7 +64,7 @@
   [super viewDidAppear:animated];
   
   if (!PasswordGenerator.sharedGenerator.hasPassword) {
-    [self performSegueWithIdentifier:@"showAlternate" sender:self];
+    [self performSegueWithIdentifier:@"showSettings" sender:self];
   }
   else {
     if (self.urlTextField.text.length == 0) {
@@ -168,7 +168,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showAlternate"]) {
+  if ([segue.identifier isEqualToString:@"showSettings"]) {
     SettingsViewController *controller = segue.destinationViewController;
 
     controller.canCancel = PasswordGenerator.sharedGenerator.hasPassword;
