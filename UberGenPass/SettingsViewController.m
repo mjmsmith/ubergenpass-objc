@@ -26,6 +26,7 @@
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)done;
 - (IBAction)cancel;
+- (IBAction)installSafariBookmark;
 @end
 
 @implementation SettingsViewController
@@ -62,6 +63,10 @@
 
 - (IBAction)editingChanged:(id)sender {
   [self updateState];
+}
+
+- (IBAction)installSafariBookmark {
+  [UIApplication.sharedApplication openURL:[NSURL URLWithString:@"http://camazotz.com/ubergenpass/bookmark"]];
 }
 
 - (IBAction)done {

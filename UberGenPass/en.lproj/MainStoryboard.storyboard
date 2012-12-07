@@ -298,6 +298,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="installSafariBookmark" destination="6" eventType="touchUpInside" id="HVT-5Q-auh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
@@ -383,6 +386,7 @@
                 <relationship kind="action" name="cancel"/>
                 <relationship kind="action" name="done"/>
                 <relationship kind="action" name="editingChanged:"/>
+                <relationship kind="action" name="installSafariBookmark"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hashSwitch" candidateClass="UISwitch"/>
