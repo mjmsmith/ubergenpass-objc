@@ -1,4 +1,11 @@
-help button action
-version on main view?
-create http://camazotz.com/ubergenpass/bookmark
+help pages
+
+http://camazotz.com/ubergenpass/bookmark
+
 icon pngs
+
+background timeout handler
+
+smarter password editing, clear out lower if upper goes empty?
+
+move help and settings icons above keyboard

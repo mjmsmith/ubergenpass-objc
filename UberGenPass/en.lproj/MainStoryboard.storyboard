@@ -146,10 +146,20 @@
                                     <segue destination="NnY-82-Unv" kind="modal" identifier="showHelp" modalTransitionStyle="coverVertical" id="cB1-bY-lok"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg9-Pc-cEi">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="hQ9-sv-af4"/>
+                                    <constraint firstAttribute="height" constant="21" id="iRu-0t-wSX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="WmF-lm-GqR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0vd-Eg-tXi"/>
+                            <constraint firstItem="Yg9-Pc-cEi" firstAttribute="centerX" secondItem="TT1-7X-NsD" secondAttribute="centerX" type="default" id="1A7-AR-hJz"/>
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-3" id="1VT-uY-Wr0"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="top" secondItem="3" secondAttribute="top" constant="177" id="43g-oI-BWQ"/>
                             <constraint firstItem="86x-B8-9iG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="60" id="6fG-HM-zNU"/>
@@ -161,6 +171,7 @@
                             <constraint firstItem="FBz-9R-IZS" firstAttribute="top" secondItem="3" secondAttribute="top" constant="86" id="FtD-VJ-PNy"/>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="203" id="J81-6w-zQE"/>
                             <constraint firstItem="2Ah-Od-uxc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JOV-1w-3k3"/>
+                            <constraint firstItem="Yg9-Pc-cEi" firstAttribute="centerY" secondItem="2Ah-Od-uxc" secondAttribute="centerY" type="default" id="JlX-my-QIl"/>
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="LO5-6z-dAy"/>
                             <constraint firstAttribute="trailing" secondItem="TT1-7X-NsD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MrN-zU-kNc"/>
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Nfc-6o-SAF"/>
@@ -194,6 +205,7 @@
                         <outlet property="safariButton" destination="TT1-7X-NsD" id="rTa-T3-NDe"/>
                         <outlet property="showHideButton" destination="7BE-4A-ODb" id="QwI-7H-mk9"/>
                         <outlet property="urlTextField" destination="FBz-9R-IZS" id="pIy-sp-CK5"/>
+                        <outlet property="versionLabel" destination="Yg9-Pc-cEi" id="eJ2-lb-MD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -422,7 +434,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done"/>
-                <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
@@ -441,6 +452,7 @@
                 <relationship kind="outlet" name="safariButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="showHideButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="urlTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -472,6 +484,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BcP-J1-rlP"/>
+        <segue reference="cB1-bY-lok"/>
     </inferredMetricsTieBreakers>
 </document>

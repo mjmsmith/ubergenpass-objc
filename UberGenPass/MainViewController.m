@@ -21,6 +21,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *showHideButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
+@property (strong, readwrite, nonatomic) IBOutlet UILabel *versionLabel;
 - (IBAction)editingChanged;
 - (IBAction)lengthChanged;
 - (IBAction)toggleShow;
@@ -66,6 +67,8 @@
   self.showHideButton.hidden = YES;
   self.clipboardButton.hidden = YES;
   self.safariButton.hidden = YES;
+  
+  self.versionLabel.text = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   
   if (PasswordGenerator.sharedGenerator.hasPassword) {
     [self editingChanged];
