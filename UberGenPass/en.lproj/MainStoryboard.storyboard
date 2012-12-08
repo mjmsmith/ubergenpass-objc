@@ -361,10 +361,13 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw2-ET-7mR">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="201" id="BRh-8T-vMm"/>
+                                    <constraint firstAttribute="height" constant="21" id="TpO-cf-d8S"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
@@ -484,6 +487,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BcP-J1-rlP"/>
+        <segue reference="cB1-bY-lok"/>
     </inferredMetricsTieBreakers>
 </document>
