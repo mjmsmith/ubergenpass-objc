@@ -148,10 +148,9 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg9-Pc-cEi">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="hQ9-sv-af4"/>
                                     <constraint firstAttribute="height" constant="21" id="iRu-0t-wSX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -159,9 +158,9 @@
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="WmF-lm-GqR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0vd-Eg-tXi"/>
-                            <constraint firstItem="Yg9-Pc-cEi" firstAttribute="centerX" secondItem="TT1-7X-NsD" secondAttribute="centerX" type="default" id="1A7-AR-hJz"/>
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-3" id="1VT-uY-Wr0"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="top" secondItem="3" secondAttribute="top" constant="177" id="43g-oI-BWQ"/>
+                            <constraint firstItem="Yg9-Pc-cEi" firstAttribute="trailing" secondItem="kMk-DS-CcW" secondAttribute="trailing" type="default" id="4JO-mf-SR1"/>
                             <constraint firstItem="86x-B8-9iG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="60" id="6fG-HM-zNU"/>
                             <constraint firstItem="N8b-Y0-FHI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="132" id="8g4-Rs-asZ"/>
                             <constraint firstItem="TT1-7X-NsD" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="979-qT-Z9X"/>
@@ -190,6 +189,7 @@
                             <constraint firstAttribute="bottom" secondItem="2Ah-Od-uxc" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="hd7-Wo-2uR"/>
                             <constraint firstAttribute="trailing" secondItem="05y-Ke-SPJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="m0h-Lu-QUX"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oPh-Ef-B8Z"/>
+                            <constraint firstItem="Yg9-Pc-cEi" firstAttribute="centerX" secondItem="TT1-7X-NsD" secondAttribute="centerX" type="default" id="ojf-lk-du5"/>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rkr-Qr-MIf"/>
                             <constraint firstAttribute="trailing" secondItem="N8b-Y0-FHI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="sHF-tn-emJ"/>
                             <constraint firstItem="kMk-DS-CcW" firstAttribute="top" secondItem="3" secondAttribute="top" constant="131" id="ufO-81-fwT"/>
@@ -336,11 +336,11 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2x-tj-kTT">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="9L0-UI-m6h"/>
                                     <constraint firstAttribute="height" constant="16" id="CQR-C8-S3c"/>
-                                    <constraint firstAttribute="width" constant="156" id="SFg-NI-N3x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Install Safari Bookmark">
+                                <state key="normal" title="Add Safari Bookmarklet…">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -484,6 +484,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cB1-bY-lok"/>
+        <segue reference="BcP-J1-rlP"/>
     </inferredMetricsTieBreakers>
 </document>
