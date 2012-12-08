@@ -52,8 +52,8 @@
   
   self.urlTextField.text = self.url;
   
-  self.passwordLengthStepper.minimumValue = 8;
-  self.passwordLengthStepper.maximumValue = 20;
+  self.passwordLengthStepper.minimumValue = 4;
+  self.passwordLengthStepper.maximumValue = 24;
   self.passwordLengthStepper.value = (passwordLength == 0) ? 10 : passwordLength;
 
   self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
