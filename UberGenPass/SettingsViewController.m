@@ -18,9 +18,9 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *upperPasswordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *upperPasswordImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UIImageView *upperStatusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerPasswordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *lowerPasswordImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UIImageView *lowerStatusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *hashSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
@@ -28,7 +28,7 @@
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)done;
 - (IBAction)cancel;
-- (IBAction)installSafariBookmark;
+- (IBAction)addSafariBookmarklet;
 @end
 
 @implementation SettingsViewController
@@ -63,7 +63,7 @@
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"welcomeShown"];
   }
   
-  [self updateState];
+  [self editingChanged:nil];
 
   if (self.welcomeImageView.hidden) {
     [self.upperPasswordTextField becomeFirstResponder];
@@ -89,10 +89,74 @@
 #pragma mark Actions
 
 - (IBAction)editingChanged:(id)sender {
-  [self updateState];
+  NSString *upperText = self.upperPasswordTextField.text;
+  NSString *lowerText = self.lowerPasswordTextField.text;
+  UIImage *upperImage = self.greyImage;
+  UIImage *lowerImage = self.greyImage;
+  BOOL done = NO;
+
+  // If the upper password field was just edited to match the hash, set the lower field too.
+  
+  if (sender == self.upperPasswordTextField && [self.hash isEqualToData:[PasswordGenerator sha256:upperText]]) {
+    self.lowerPasswordTextField.text = lowerText = upperText;
+  }
+  
+  // Status images.
+  
+  if (upperText.length > 0 && lowerText.length > 0) {
+    if ([upperText isEqualToString:lowerText]) {
+      upperImage = lowerImage = self.greenImage;
+      done = YES;
+    }
+    else if ([upperText hasPrefix:lowerText] || [lowerText hasPrefix:upperText]) {
+      lowerImage = self.yellowImage;
+    }
+    else {
+      lowerImage = self.redImage;
+    }
+  }
+  
+  self.upperStatusImageView.image = upperImage;
+  self.lowerStatusImageView.image = lowerImage;
+  
+  // Done button.
+  
+  self.doneButtonItem.enabled = done;
+  
+  // Password text fields.
+  
+  self.upperPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
+  self.lowerPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
+  
+  [self.upperPasswordTextField reloadInputViews];
+  [self.lowerPasswordTextField reloadInputViews];
+
+  // Animate status images if done.
+
+  if (done) {
+    CGRect upperFrame = self.upperStatusImageView.frame;
+    CGRect lowerFrame = self.lowerStatusImageView.frame;
+    
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationCurveEaseOut
+                     animations:^{
+                       self.upperStatusImageView.frame = CGRectInset(self.upperStatusImageView.frame, -6, -6);
+                       self.lowerStatusImageView.frame = CGRectInset(self.lowerStatusImageView.frame, -6, -6);
+                       self.upperStatusImageView.frame = upperFrame;
+                       self.lowerStatusImageView.frame = lowerFrame;
+                     }
+                     completion:^(BOOL finished){
+                       if (!finished) {
+                         self.upperStatusImageView.frame = upperFrame;
+                         self.lowerStatusImageView.frame = lowerFrame;
+                       }
+                     }
+     ];
+  }  
 }
 
-- (IBAction)installSafariBookmark {
+- (IBAction)addSafariBookmarklet {
   [UIApplication.sharedApplication openURL:[NSURL URLWithString:@"http://camazotz.com/ubergenpass/bookmark"]];
 }
 
@@ -135,75 +199,5 @@
 }
 
 #pragma mark Private
-
-- (void)updateState {
-  NSString *upperText = self.upperPasswordTextField.text;
-  NSString *lowerText = self.lowerPasswordTextField.text;
-  UIImage *upperImage = self.greyImage;
-  UIImage *lowerImage = self.greyImage;
-  
-  // Images.
-  
-  if (upperText.length > 0 && [self.hash isEqualToData:[PasswordGenerator sha256:upperText]]) {
-    self.lowerPasswordTextField.text = upperText;
-    upperImage = self.greenImage;
-    lowerImage = self.greenImage;
-  }
-  else {
-    if (upperText.length > 0 && lowerText.length > 0) {
-      if ([upperText isEqualToString:lowerText]) {
-        upperImage = self.greenImage;
-        lowerImage = self.greenImage;
-      }
-      else if ([upperText hasPrefix:lowerText] || [lowerText hasPrefix:upperText]) {
-        lowerImage = self.yellowImage;
-      }
-      else {
-        lowerImage = self.redImage;
-      }
-    }
-  }
-
-  BOOL done = (upperImage == self.greenImage);
-  
-  // Set images.
-
-  self.upperPasswordImageView.image = upperImage;
-  self.lowerPasswordImageView.image = lowerImage;
-  
-  if (done) {
-    CGRect upperFrame = self.upperPasswordImageView.frame;
-    CGRect lowerFrame = self.lowerPasswordImageView.frame;
-    
-    [UIView animateWithDuration:0.5
-                          delay:0.0
-                        options:UIViewAnimationCurveEaseOut
-                     animations:^{
-                       self.upperPasswordImageView.frame = CGRectInset(self.upperPasswordImageView.frame, -4, -4);
-                       self.lowerPasswordImageView.frame = CGRectInset(self.lowerPasswordImageView.frame, -4, -4);
-                       self.upperPasswordImageView.frame = upperFrame;
-                       self.lowerPasswordImageView.frame = lowerFrame;
-                     }
-                     completion:^(BOOL finished){
-                       if (!finished) {
-                         self.upperPasswordImageView.frame = upperFrame;
-                         self.lowerPasswordImageView.frame = lowerFrame;
-                       }
-                     }
-     ];
-  }
-  
-  // Done button.
-  
-  self.doneButtonItem.enabled = done;
-  
-  // Return key.
-  
-  self.upperPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
-  self.lowerPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
-
-  [self.upperPasswordTextField reloadInputViews];
-  [self.lowerPasswordTextField reloadInputViews];
-}
 
 @end

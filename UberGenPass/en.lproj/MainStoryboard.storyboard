@@ -348,7 +348,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="installSafariBookmark" destination="6" eventType="touchUpInside" id="HVT-5Q-auh"/>
+                                    <action selector="addSafariBookmarklet" destination="6" eventType="touchUpInside" id="3h0-Da-lg7"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Qe-Lj-LeB">
@@ -410,12 +410,12 @@
                         <outlet property="cancelButtonItem" destination="14" id="ODa-cm-RH4"/>
                         <outlet property="doneButtonItem" destination="kIK-vY-Mm2" id="gWO-S2-2qU"/>
                         <outlet property="hashSwitch" destination="eAq-ub-eJq" id="u8W-1H-ruG"/>
-                        <outlet property="lowerPasswordImageView" destination="XWe-fY-idL" id="S30-VZ-FhW"/>
                         <outlet property="lowerPasswordTextField" destination="drO-ch-xpG" id="Pni-oh-MJh"/>
+                        <outlet property="lowerStatusImageView" destination="XWe-fY-idL" id="h11-EA-SaR"/>
                         <outlet property="navigationBar" destination="12" id="ch2-Vl-vl3"/>
                         <outlet property="timeoutSegment" destination="3Qe-Lj-LeB" id="pVA-zs-YZk"/>
-                        <outlet property="upperPasswordImageView" destination="VCo-Wu-yjf" id="t53-Qi-uKT"/>
                         <outlet property="upperPasswordTextField" destination="1pp-2b-8mE" id="fKI-YX-qbq"/>
+                        <outlet property="upperStatusImageView" destination="VCo-Wu-yjf" id="K8V-kg-Und"/>
                         <outlet property="welcomeImageView" destination="geA-K7-LHe" id="aOs-bh-3w8"/>
                     </connections>
                 </viewController>
@@ -464,19 +464,19 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addSafariBookmarklet"/>
                 <relationship kind="action" name="cancel"/>
                 <relationship kind="action" name="done"/>
                 <relationship kind="action" name="editingChanged:"/>
-                <relationship kind="action" name="installSafariBookmark"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hashSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="lowerPasswordImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="lowerPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lowerStatusImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="timeoutSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="upperPasswordImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="upperPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="upperStatusImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="welcomeImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
