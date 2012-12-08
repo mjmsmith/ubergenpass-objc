@@ -96,7 +96,7 @@
   // If the left password field was just edited to match the hash, set the right field too.
   
   if (sender == self.leftPasswordTextField && [self.hash isEqualToData:[PasswordGenerator sha256:leftText]]) {
-    self.rightPasswordTextField.text = leftText;
+    self.rightPasswordTextField.text = rightText = leftText;
   }
   
   // Status image.
