@@ -17,10 +17,9 @@
 @property (strong, readwrite, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *upperPasswordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *upperStatusImageView;
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerPasswordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *lowerStatusImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UITextField *leftPasswordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UITextField *rightPasswordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *hashSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
@@ -66,7 +65,7 @@
   [self editingChanged:nil];
 
   if (self.welcomeImageView.hidden) {
-    [self.upperPasswordTextField becomeFirstResponder];
+    [self.leftPasswordTextField becomeFirstResponder];
   }
 }
 
@@ -89,35 +88,33 @@
 #pragma mark Actions
 
 - (IBAction)editingChanged:(id)sender {
-  NSString *upperText = self.upperPasswordTextField.text;
-  NSString *lowerText = self.lowerPasswordTextField.text;
-  UIImage *upperImage = self.greyImage;
-  UIImage *lowerImage = self.greyImage;
+  NSString *leftText = self.leftPasswordTextField.text;
+  NSString *rightText = self.rightPasswordTextField.text;
+  UIImage *statusImage = self.greyImage;
   BOOL done = NO;
 
-  // If the upper password field was just edited to match the hash, set the lower field too.
+  // If the left password field was just edited to match the hash, set the right field too.
   
-  if (sender == self.upperPasswordTextField && [self.hash isEqualToData:[PasswordGenerator sha256:upperText]]) {
-    self.lowerPasswordTextField.text = lowerText = upperText;
+  if (sender == self.leftPasswordTextField && [self.hash isEqualToData:[PasswordGenerator sha256:leftText]]) {
+    self.rightPasswordTextField.text = leftText;
   }
   
-  // Status images.
+  // Status image.
   
-  if (upperText.length > 0 && lowerText.length > 0) {
-    if ([upperText isEqualToString:lowerText]) {
-      upperImage = lowerImage = self.greenImage;
+  if (leftText.length > 0 && rightText.length > 0) {
+    if ([leftText isEqualToString:rightText]) {
+      statusImage = self.greenImage;
       done = YES;
     }
-    else if ([upperText hasPrefix:lowerText] || [lowerText hasPrefix:upperText]) {
-      lowerImage = self.yellowImage;
+    else if ([leftText hasPrefix:rightText] || [rightText hasPrefix:leftText]) {
+      statusImage = self.yellowImage;
     }
     else {
-      lowerImage = self.redImage;
+      statusImage = self.redImage;
     }
   }
   
-  self.upperStatusImageView.image = upperImage;
-  self.lowerStatusImageView.image = lowerImage;
+  self.statusImageView.image = statusImage;
   
   // Done button.
   
@@ -125,31 +122,27 @@
   
   // Password text fields.
   
-  self.upperPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
-  self.lowerPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
+  self.leftPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
+  self.rightPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
   
-  [self.upperPasswordTextField reloadInputViews];
-  [self.lowerPasswordTextField reloadInputViews];
+  [self.leftPasswordTextField reloadInputViews];
+  [self.rightPasswordTextField reloadInputViews];
 
   // Animate status images if done.
 
   if (done) {
-    CGRect upperFrame = self.upperStatusImageView.frame;
-    CGRect lowerFrame = self.lowerStatusImageView.frame;
+    CGRect frame = self.statusImageView.frame;
     
     [UIView animateWithDuration:0.5
                           delay:0.0
                         options:UIViewAnimationCurveEaseOut
                      animations:^{
-                       self.upperStatusImageView.frame = CGRectInset(self.upperStatusImageView.frame, -6, -6);
-                       self.lowerStatusImageView.frame = CGRectInset(self.lowerStatusImageView.frame, -6, -6);
-                       self.upperStatusImageView.frame = upperFrame;
-                       self.lowerStatusImageView.frame = lowerFrame;
+                       self.statusImageView.frame = CGRectInset(self.statusImageView.frame, -6, -6);
+                       self.statusImageView.frame = frame;
                      }
                      completion:^(BOOL finished){
                        if (!finished) {
-                         self.upperStatusImageView.frame = upperFrame;
-                         self.lowerStatusImageView.frame = lowerFrame;
+                         self.statusImageView.frame = frame;
                        }
                      }
      ];
@@ -163,7 +156,7 @@
 - (IBAction)done {
   int timeouts[] = {0, 60, 300};
   
-  self.password = self.upperPasswordTextField.text;
+  self.password = self.leftPasswordTextField.text;
   self.storesHash = self.hashSwitch.on;
   self.backgroundTimeout = timeouts[self.timeoutSegment.selectedSegmentIndex];
   
@@ -181,11 +174,11 @@
     [self done];
   }
   else {
-    if (textField == self.upperPasswordTextField) {
-      [self.lowerPasswordTextField becomeFirstResponder];
+    if (textField == self.leftPasswordTextField) {
+      [self.rightPasswordTextField becomeFirstResponder];
     }
     else {
-      [self.upperPasswordTextField becomeFirstResponder];
+      [self.leftPasswordTextField becomeFirstResponder];
     }
   }
   
