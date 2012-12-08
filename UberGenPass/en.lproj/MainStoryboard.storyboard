@@ -336,8 +336,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2x-tj-kTT">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="174" id="9L0-UI-m6h"/>
                                     <constraint firstAttribute="height" constant="16" id="CQR-C8-S3c"/>
+                                    <constraint firstAttribute="width" constant="188" id="mc2-7T-vlu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Add Safari Bookmarklet…">
@@ -487,6 +487,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cB1-bY-lok"/>
+        <segue reference="BcP-J1-rlP"/>
     </inferredMetricsTieBreakers>
 </document>
