@@ -75,6 +75,9 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+  int fontHeight = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 14 : 12;
+  
+  self.leftPasswordTextField.font = self.rightPasswordTextField.font = [UIFont systemFontOfSize:fontHeight];
   self.welcomeImageView.hidden = UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
 }
 
