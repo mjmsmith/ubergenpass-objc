@@ -20,6 +20,10 @@
  [super viewDidLoad];
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+  return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 #pragma mark Actions
 
 - (IBAction)done {

@@ -88,6 +88,10 @@
   }
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+  return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   UITouch *touch = [touches anyObject];
   

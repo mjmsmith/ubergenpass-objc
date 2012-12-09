@@ -56,7 +56,8 @@
   }
   
   if ([NSUserDefaults.standardUserDefaults boolForKey:@"welcomeShown"]) {
-    self.welcomeImageView.hidden = YES;
+    [self.welcomeImageView removeFromSuperview];
+    self.welcomeImageView = nil;
   }
   else {
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"welcomeShown"];
@@ -64,9 +65,17 @@
   
   [self editingChanged:nil];
 
-  if (self.welcomeImageView.hidden) {
+  if (self.welcomeImageView == nil) {
     [self.leftPasswordTextField becomeFirstResponder];
   }
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+  return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+  self.welcomeImageView.hidden = UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
