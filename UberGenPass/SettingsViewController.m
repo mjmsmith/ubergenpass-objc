@@ -32,6 +32,18 @@
 
 @implementation SettingsViewController
 
+#pragma mark Public
+
+- (void)resetForActivate {
+  if (self.canCancel) {
+    self.canCancel = NO;
+    [self removeCancelButton];
+  }
+  
+  self.leftPasswordTextField.text = self.rightPasswordTextField.text = nil;
+  [self editingChanged:nil];
+}
+
 #pragma mark UIViewController
 
 - (void)viewDidLoad {
@@ -43,7 +55,7 @@
   self.redImage = [UIImage imageNamed:@"red"];
 
   if (!self.canCancel) {
-    ((UINavigationItem *)self.navigationBar.items[0]).leftBarButtonItem = nil;
+    [self removeCancelButton];
   }
 
   self.hashSwitch.on = self.storesHash;
@@ -205,5 +217,9 @@
 }
 
 #pragma mark Private
+
+- (void)removeCancelButton {
+  ((UINavigationItem *)self.navigationBar.items[0]).leftBarButtonItem = nil;
+}
 
 @end

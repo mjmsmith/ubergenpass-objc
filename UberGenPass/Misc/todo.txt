@@ -6,4 +6,4 @@ icon pngs
 
 background timeout handler
 
-localized strings
+localized strings, help html in en.proj

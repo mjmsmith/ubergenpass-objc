@@ -22,4 +22,6 @@
 @property (copy, readwrite, nonatomic) NSData *hash;
 @property (assign, readwrite, nonatomic) int backgroundTimeout;
 @property (copy, readonly, nonatomic) NSString *password;
+
+- (void)resetForActivate;
 @end

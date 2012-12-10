@@ -22,6 +22,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *versionLabel;
+@property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 - (IBAction)editingChanged;
 - (IBAction)lengthChanged;
 - (IBAction)toggleShow;
@@ -32,6 +33,11 @@
 @implementation MainViewController
 
 #pragma mark Public
+
+- (void)dealloc {
+  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
+  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+}
 
 - (void)setUrl:(NSString *)url {
   if (self.urlTextField == nil) {
@@ -73,6 +79,9 @@
   if (PasswordGenerator.sharedGenerator.hasPassword) {
     [self editingChanged];
   }
+  
+  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -163,6 +172,35 @@
   }
   
   [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
+}
+
+#pragma mark Notifications
+
+- (void)applicationWillResignActive:(NSNotification *)notification {
+  self.inactiveDate = NSDate.date;
+}
+
+- (void)applicationDidBecomeActive:(NSNotification *)notification {
+  if (self.inactiveDate == nil) {
+    return;
+  }
+  
+  NSTimeInterval elapsed = fabs([NSDate.date timeIntervalSinceDate:self.inactiveDate]);
+  
+  if (elapsed > [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"]) {
+    if (self.presentedViewController.class == SettingsViewController.class) {
+      [((SettingsViewController *)self.presentedViewController) resetForActivate];
+    }
+    else {
+      if (self.presentedViewController.class == HelpViewController.class) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+      }
+      
+      [self performSegueWithIdentifier:@"showSettings" sender:self];
+    }
+  }
+  
+  self.inactiveDate = nil;
 }
 
 #pragma mark UITextFieldDelegate
