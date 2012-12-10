@@ -6,6 +6,4 @@ icon pngs
 
 background timeout handler
 
-smarter password editing, clear out lower if upper goes empty?
-
-move help and settings icons above keyboard
+localized strings

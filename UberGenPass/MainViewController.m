@@ -104,6 +104,7 @@
   if ([segue.identifier isEqualToString:@"showHelp"]) {
     HelpViewController *controller = segue.destinationViewController;
     
+    controller.documentName = @"MainHelp";
     controller.delegate = self;
   }
   else if ([segue.identifier isEqualToString:@"showSettings"]) {

@@ -9,6 +9,7 @@
 #import "HelpViewController.h"
 
 @interface HelpViewController ()
+@property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
 - (IBAction)done;
 @end
 
@@ -17,7 +18,9 @@
 #pragma mark UIViewController
 
 - (void)viewDidLoad {
- [super viewDidLoad];
+  [super viewDidLoad];
+  
+  [self.webView loadRequest:[NSURLRequest requestWithURL:[NSBundle.mainBundle URLForResource:self.documentName withExtension:@"html"]]];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {

@@ -93,6 +93,7 @@
   if ([segue.identifier isEqualToString:@"showHelp"]) {
     HelpViewController *controller = segue.destinationViewController;
     
+    controller.documentName = @"SettingsHelp";
     controller.delegate = self;
   }
 }

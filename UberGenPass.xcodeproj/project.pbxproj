@@ -42,6 +42,8 @@
 		4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
 		4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D657726166536FD00F32D4F /* InfoPlist.strings */; };
 		4D65772B166536FD00F32D4F /* UberGenPassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65772A166536FD00F32D4F /* UberGenPassTests.m */; };
+		4D728B16167588AE004824AB /* SettingsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D728B15167588AE004824AB /* SettingsHelp.html */; };
+		4D728B1816758957004824AB /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 4D728B1716758957004824AB /* help.css */; };
 		4D8B125B1665AFD40062C305 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12551665AFD40062C305 /* green.png */; };
 		4D8B125C1665AFD40062C305 /* green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12561665AFD40062C305 /* green@2x.png */; };
 		4D8B125D1665AFD40062C305 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12571665AFD40062C305 /* red.png */; };
@@ -109,6 +111,9 @@
 		4D657727166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D657729166536FD00F32D4F /* UberGenPassTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UberGenPassTests.h; sourceTree = "<group>"; };
 		4D65772A166536FD00F32D4F /* UberGenPassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UberGenPassTests.m; sourceTree = "<group>"; };
+		4D728B1316758701004824AB /* Misc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Misc; path = UberGenPass/Misc; sourceTree = "<group>"; };
+		4D728B15167588AE004824AB /* SettingsHelp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SettingsHelp.html; sourceTree = "<group>"; };
+		4D728B1716758957004824AB /* help.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
 		4D8B12551665AFD40062C305 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		4D8B12561665AFD40062C305 /* green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green@2x.png"; sourceTree = "<group>"; };
 		4D8B12571665AFD40062C305 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
@@ -158,6 +163,7 @@
 				4D657723166536FD00F32D4F /* UberGenPassTests */,
 				4D6576F5166536FD00F32D4F /* Frameworks */,
 				4D6576F3166536FD00F32D4F /* Products */,
+				4D728B1316758701004824AB /* Misc */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,8 +266,10 @@
 				4D8B12561665AFD40062C305 /* green@2x.png */,
 				4D2FBCB31669DC36007B8065 /* grey.png */,
 				4D2FBCB41669DC36007B8065 /* grey@2x.png */,
+				4D728B1716758957004824AB /* help.css */,
 				4D8B12571665AFD40062C305 /* red.png */,
 				4D8B12581665AFD40062C305 /* red@2x.png */,
+				4D728B15167588AE004824AB /* SettingsHelp.html */,
 				4D8B12591665AFD40062C305 /* yellow.png */,
 				4D8B125A1665AFD40062C305 /* yellow@2x.png */,
 			);
@@ -364,6 +372,8 @@
 				4D98230E16726902001F3D8A /* welcome.png in Resources */,
 				4D98230F16726902001F3D8A /* welcome@2x.png in Resources */,
 				4D98231216727EF4001F3D8A /* Default-568h@2x.png in Resources */,
+				4D728B16167588AE004824AB /* SettingsHelp.html in Resources */,
+				4D728B1816758957004824AB /* help.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

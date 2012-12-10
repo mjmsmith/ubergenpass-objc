@@ -207,6 +207,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="j9A-WN-GQR" id="e62-vb-2Oi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nw4-Ln-agS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -376,6 +379,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
