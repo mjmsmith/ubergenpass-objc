@@ -87,6 +87,11 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+  CGRect frame = self.navigationBar.frame;
+
+  frame.size.height = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 32 : 44;
+  self.navigationBar.frame = frame;
+
   int fontHeight = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 14 : 12;
   
   self.leftPasswordTextField.font = self.rightPasswordTextField.font = [UIFont systemFontOfSize:fontHeight];

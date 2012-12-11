@@ -65,13 +65,7 @@ static NSArray *TLDs;
 
 - (id)init {
   if ((self = [super init]) != nil) {
-    if (![NSUserDefaults.standardUserDefaults boolForKey:@"Installed"]) {
-      [Keychain removeStringForKey:@"Hash"];
-      [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"Installed"];
-    }
-    else {
-      self.hash = [NSData dataFromBase64String:[Keychain stringForKey:@"Hash"]];
-    }
+    self.hash = [NSData dataFromBase64String:[Keychain stringForKey:@"Hash"]];
     
     self.lowerCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[a-z]" options:0 error:nil];
     self.upperCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]" options:0 error:nil];

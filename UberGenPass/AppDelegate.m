@@ -7,11 +7,23 @@
 //
 
 #import "AppDelegate.h"
+#import "Keychain.h"
 #import "MainViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  NSString *currentVersion = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+  NSString *defaultsVersion = [NSUserDefaults.standardUserDefaults stringForKey:@"AppVersion"];
+  
+  if (![currentVersion isEqualToString:defaultsVersion]) {
+    if (defaultsVersion == nil) {
+      [Keychain removeStringForKey:@"Hash"];
+    }
+    
+    [NSUserDefaults.standardUserDefaults setObject:currentVersion forKey:@"AppVersion"];
+  }
+  
   return YES;
 }
 
