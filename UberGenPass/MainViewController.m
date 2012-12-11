@@ -76,7 +76,7 @@
   
   self.versionLabel.text = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   
-  if (PasswordGenerator.sharedGenerator.hasPassword) {
+  if (PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self editingChanged];
   }
   
@@ -87,7 +87,7 @@
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   
-  if (!PasswordGenerator.sharedGenerator.hasPassword) {
+  if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self performSegueWithIdentifier:@"showSettings" sender:self];
   }
   else {
@@ -119,7 +119,7 @@
   else if ([segue.identifier isEqualToString:@"showSettings"]) {
     SettingsViewController *controller = segue.destinationViewController;
     
-    controller.canCancel = PasswordGenerator.sharedGenerator.hasPassword;
+    controller.canCancel = PasswordGenerator.sharedGenerator.hasMasterPassword;
     controller.hash = PasswordGenerator.sharedGenerator.hash;
     controller.storesHash = ([Keychain stringForKey:@"Hash"] != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
@@ -225,7 +225,7 @@
 #pragma mark SettingsViewControllerDelegate
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
-  [PasswordGenerator.sharedGenerator updatePassword:controller.password];
+  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
 
   if (controller.storesHash) {
     [Keychain setString:[PasswordGenerator.sharedGenerator.hash base64EncodedString] forKey:@"Hash"];

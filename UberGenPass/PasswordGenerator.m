@@ -142,7 +142,7 @@ static NSArray *TLDs;
   return domain;
 }
 
-- (BOOL)hasPassword {
+- (BOOL)hasMasterPassword {
   return self.masterPassword != nil;
 }
 
@@ -150,9 +150,9 @@ static NSArray *TLDs;
   return [Keychain stringForKey:@"Hash"] != nil;
 }
 
-- (void)updatePassword:(NSString *)password {
-  self.masterPassword = password;
-  self.hash = [PasswordGenerator sha256:password];
+- (void)updateMasterPassword:(NSString *)masterPassword {
+  self.masterPassword = masterPassword;
+  self.hash = [PasswordGenerator sha256:masterPassword];
 }
 
 #pragma mark Private
