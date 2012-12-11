@@ -49,10 +49,10 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  self.greyImage = [UIImage imageNamed:@"grey"];
-  self.greenImage = [UIImage imageNamed:@"green"];
-  self.yellowImage = [UIImage imageNamed:@"yellow"];
-  self.redImage = [UIImage imageNamed:@"red"];
+  self.greyImage = [UIImage imageNamed:@"GreyStatus"];
+  self.greenImage = [UIImage imageNamed:@"GreenStatus"];
+  self.yellowImage = [UIImage imageNamed:@"YellowStatus"];
+  self.redImage = [UIImage imageNamed:@"RedStatus"];
 
   if (!self.canCancel) {
     [self removeCancelButton];
@@ -67,12 +67,12 @@
     self.timeoutSegment.selectedSegmentIndex = 1;
   }
   
-  if ([NSUserDefaults.standardUserDefaults boolForKey:@"welcomeShown"]) {
+  if ([NSUserDefaults.standardUserDefaults boolForKey:@"WelcomeShown"]) {
     [self.welcomeImageView removeFromSuperview];
     self.welcomeImageView = nil;
   }
   else {
-    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"welcomeShown"];
+    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"WelcomeShown"];
   }
   
   [self editingChanged:nil];
