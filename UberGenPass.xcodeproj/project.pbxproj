@@ -217,7 +217,6 @@
 		4D6576FD166536FD00F32D4F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4D6576FF166536FD00F32D4F /* InfoPlist.strings */,
 				4D657702166536FD00F32D4F /* main.m */,
 				4D8B12611665B91D0062C305 /* UberGenPass-Info.plist */,
 				4D657704166536FD00F32D4F /* UberGenPass-Prefix.pch */,
@@ -258,6 +257,7 @@
 				4D2FBC9016694269007B8065 /* Icon@2x.png */,
 				4D2FBC8D16694269007B8065 /* Icon-Small.png */,
 				4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */,
+				4D6576FF166536FD00F32D4F /* InfoPlist.strings */,
 				4D2FBC9F166947B5007B8065 /* iTunesArtwork */,
 				4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */,
 				4D2FBCAF1669CE99007B8065 /* gear.png */,
@@ -449,6 +449,7 @@
 				4D657700166536FD00F32D4F /* en */,
 			);
 			name = InfoPlist.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */ = {
