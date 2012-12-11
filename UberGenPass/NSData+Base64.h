@@ -1,6 +1,8 @@
 //
 //  NSData+Base64.h
-//  base64
+//
+//  Based on code by Matt Gallagher at http://www.cocoawithlove.com/2009/06/base64-encoding-options-on-mac-and.html
+//  Minor changes for ARC support.
 //
 //  Created by Matt Gallagher on 2009/06/03.
 //  Copyright 2009 Matt Gallagher. All rights reserved.

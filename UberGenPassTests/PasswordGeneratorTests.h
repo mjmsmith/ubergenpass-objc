@@ -9,5 +9,4 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 @interface UberGenPassTests : SenTestCase
-
 @end

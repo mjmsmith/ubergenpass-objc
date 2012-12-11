@@ -76,7 +76,7 @@ static NSArray *TLDs;
     self.lowerCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[a-z]" options:0 error:nil];
     self.upperCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]" options:0 error:nil];
     self.digitPattern = [NSRegularExpression regularExpressionWithPattern:@"[\\d]" options:0 error:nil];
-    self.domainPattern = [NSRegularExpression regularExpressionWithPattern:@".+[.].+" options:0 error:nil];
+    self.domainPattern = [NSRegularExpression regularExpressionWithPattern:@"[^.]+[.][^.]+" options:0 error:nil];
   }
   
   return self;

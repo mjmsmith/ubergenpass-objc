@@ -41,7 +41,7 @@
 		4D65771F166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
 		4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
 		4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D657726166536FD00F32D4F /* InfoPlist.strings */; };
-		4D65772B166536FD00F32D4F /* UberGenPassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65772A166536FD00F32D4F /* UberGenPassTests.m */; };
+		4D65772B166536FD00F32D4F /* PasswordGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65772A166536FD00F32D4F /* PasswordGeneratorTests.m */; };
 		4D728B1816758957004824AB /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 4D728B1716758957004824AB /* help.css */; };
 		4D8B125B1665AFD40062C305 /* GreenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12551665AFD40062C305 /* GreenStatus.png */; };
 		4D8B125C1665AFD40062C305 /* GreenStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12561665AFD40062C305 /* GreenStatus@2x.png */; };
@@ -110,8 +110,8 @@
 		4D65771D166536FD00F32D4F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		4D657725166536FD00F32D4F /* UberGenPassTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UberGenPassTests-Info.plist"; sourceTree = "<group>"; };
 		4D657727166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4D657729166536FD00F32D4F /* UberGenPassTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UberGenPassTests.h; sourceTree = "<group>"; };
-		4D65772A166536FD00F32D4F /* UberGenPassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UberGenPassTests.m; sourceTree = "<group>"; };
+		4D657729166536FD00F32D4F /* PasswordGeneratorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordGeneratorTests.h; sourceTree = "<group>"; };
+		4D65772A166536FD00F32D4F /* PasswordGeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordGeneratorTests.m; sourceTree = "<group>"; };
 		4D728B1316758701004824AB /* Misc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Misc; path = UberGenPass/Misc; sourceTree = "<group>"; };
 		4D728B1716758957004824AB /* help.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
 		4D8B12551665AFD40062C305 /* GreenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenStatus.png; sourceTree = "<group>"; };
@@ -229,8 +229,8 @@
 		4D657723166536FD00F32D4F /* UberGenPassTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D657729166536FD00F32D4F /* UberGenPassTests.h */,
-				4D65772A166536FD00F32D4F /* UberGenPassTests.m */,
+				4D657729166536FD00F32D4F /* PasswordGeneratorTests.h */,
+				4D65772A166536FD00F32D4F /* PasswordGeneratorTests.m */,
 				4D657724166536FD00F32D4F /* Supporting Files */,
 			);
 			path = UberGenPassTests;
@@ -428,7 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D65772B166536FD00F32D4F /* UberGenPassTests.m in Sources */,
+				4D65772B166536FD00F32D4F /* PasswordGeneratorTests.m in Sources */,
 				4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */,
 				4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
 				4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */,
