@@ -112,7 +112,7 @@
 		4D657729166536FD00F32D4F /* UberGenPassTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UberGenPassTests.h; sourceTree = "<group>"; };
 		4D65772A166536FD00F32D4F /* UberGenPassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UberGenPassTests.m; sourceTree = "<group>"; };
 		4D728B1316758701004824AB /* Misc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Misc; path = UberGenPass/Misc; sourceTree = "<group>"; };
-		4D728B15167588AE004824AB /* SettingsHelp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = SettingsHelp.html; path = ../en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
+		4D728B15167588AE004824AB /* SettingsHelp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = SettingsHelp.html; path = ../SettingsHelp.html; sourceTree = "<group>"; };
 		4D728B1716758957004824AB /* help.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
 		4D8B12551665AFD40062C305 /* GreenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenStatus.png; sourceTree = "<group>"; };
 		4D8B12561665AFD40062C305 /* GreenStatus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GreenStatus@2x.png"; sourceTree = "<group>"; };
