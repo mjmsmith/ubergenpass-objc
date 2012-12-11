@@ -56,6 +56,7 @@
 		4D98231616728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D981676E7C900D3763E /* SettingsHelp.html */; };
 		4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D9D1676E87900D3763E /* Localizable.strings */; };
+		4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5A0711677BD6E00719D18 /* MainHelp.html */; };
 		4DF343A41671AB49004C6377 /* InfoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A21671AB49004C6377 /* InfoButton.png */; };
 		4DF343A51671AB49004C6377 /* InfoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A31671AB49004C6377 /* InfoButton@2x.png */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		4D98231416728813001F3D8A /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		4DC01D971676E7C900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
 		4DC01D9C1676E87900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4DE5A0701677BD6E00719D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/MainHelp.html; sourceTree = "<group>"; };
 		4DF343A21671AB49004C6377 /* InfoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoButton.png; sourceTree = "<group>"; };
 		4DF343A31671AB49004C6377 /* InfoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InfoButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +270,7 @@
 				4D2FBC9F166947B5007B8065 /* iTunesArtwork */,
 				4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */,
 				4DC01D9D1676E87900D3763E /* Localizable.strings */,
+				4DE5A0711677BD6E00719D18 /* MainHelp.html */,
 				4D8B12571665AFD40062C305 /* RedStatus.png */,
 				4D8B12581665AFD40062C305 /* RedStatus@2x.png */,
 				4DC01D981676E7C900D3763E /* SettingsHelp.html */,
@@ -378,6 +381,7 @@
 				4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */,
 				4D728B1816758957004824AB /* help.css in Resources */,
 				4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */,
+				4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +491,15 @@
 				4DC01D9C1676E87900D3763E /* en */,
 			);
 			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4DE5A0711677BD6E00719D18 /* MainHelp.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DE5A0701677BD6E00719D18 /* en */,
+			);
+			name = MainHelp.html;
 			path = ..;
 			sourceTree = "<group>";
 		};
