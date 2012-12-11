@@ -157,7 +157,13 @@
 
 - (IBAction)toggleShow {
   self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
-  [self.showHideButton setTitle:(self.passwordTextField.secureTextEntry ? @"Show Password" : @"Hide Password") forState:UIControlStateNormal];
+  
+  if (self.passwordTextField.secureTextEntry) {
+    [self.showHideButton setTitle:NSLocalizedString(@"ShowPasswordButtonName", nil) forState:UIControlStateNormal];
+  }
+  else {
+    [self.showHideButton setTitle:NSLocalizedString(@"HidePasswordButtonName", nil) forState:UIControlStateNormal];
+  }
 }
 
 - (IBAction)copyToClipboard {
