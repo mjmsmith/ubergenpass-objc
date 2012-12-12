@@ -41,6 +41,8 @@
   }
   
   self.leftPasswordTextField.text = self.rightPasswordTextField.text = nil;
+
+  [self.leftPasswordTextField becomeFirstResponder];
   [self editingChanged:nil];
 }
 
@@ -154,6 +156,11 @@
   
   self.leftPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
   self.rightPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
+
+  if (done) {
+    [self.leftPasswordTextField resignFirstResponder];
+    [self.rightPasswordTextField resignFirstResponder];
+  }
   
   [self.leftPasswordTextField reloadInputViews];
   [self.rightPasswordTextField reloadInputViews];
