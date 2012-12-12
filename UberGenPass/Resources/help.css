@@ -5,6 +5,10 @@ body {
   background-color: white;
 }
 
+li {
+  font-size: 80%;
+}
+
 img.status {
   vertical-align: bottom;
 }

@@ -2,16 +2,18 @@
 <html>
 <head>
   <title>Settings Help</title>
+  <meta charset=utf-8>
   <link rel="stylesheet" type="text/css" href="../help.css" />
 </head>
 <body>
   <h3>Master Password</h3>
-  <p>Type your SuperGenPass password into both <b>Master Password</b> text fields. The status indicator between the fields changes color as you type. Green<img class="status" src="../GreenStatus.png">indicates that the two passwords match exactly. Red<img class="status" src="../RedStatus.png">indicates that one or more characters do not match.  Yellow<img class="status" src="../YellowStatus.png">indicates that the passwords match so far, but one field is shorter than the other.</p>
+  <p>Type your SuperGenPass master password into both <b>Master Password</b> text fields. The status indicator between the fields changes color as you type. Green<img class="status" src="../GreenStatus.png">indicates that the two passwords match exactly. Red<img class="status" src="../RedStatus.png"> indicates that one or more characters do not match.  Yellow<img class="status" src="../YellowStatus.png">indicates that the fields match so far, but one field is shorter than the other.</p>
+  <p>UberGenPass asks for your master password again if you relaunch it while it's running in the background. In this case, it knows the master password you typed last time.  If you retype the same text into the left password field, it  automatically fills in the right field for you.</p>
   <p><b>Tip:</b> You may find it easier to enter the passwords with the device rotated to landscape.</p>
   <h3>Save Password Hash</h3>
-  <p>Typing the master password twice reduces the chance of a mistake, but it can become tiresome. If you enable <b>Save Password Hash</b>, UberGenPass saves a 256-byte (SHA-256) hash of your master password in the secure iOS Keychain. In this case, as soon as the password you type in the left field matches the hash, the right field is filled in for you.</p>
+  <p>When you first launch UberGenPass, it always asks for your master password.  Since it never stores the master password on the device for security reasons, it can't automatically fill in the right field for you as described above. Typing the master password twice reduces the chance of a mistake, but it can be tiresome. If you enable <b>Save Password Hash</b>, UberGenPass saves a 256-byte (SHA-256) hash of your master password in the secure iOS Keychain. In this case, as soon as the hash of the text you type in the left password field matches the saved hash, it fills in the right field for you.</p>
   <h3>Background Timeout</h3>
-  <p>The <b>Background Timeout</b> setting determines how long UberGenPass can be in the background before asking for your master password again. By default, this is the most secure option, immediately. You can optionally bypass this for up to five minutes.</p>
+  <p>The <b>Background Timeout</b> setting determines how long UberGenPass can be running in the background before asking for your master password again when relaunched. By default, this is set to the most secure option, "immediately". You can optionally suppress this for up to five minutes.</p>
   <h3>Add Safari Bookmarklet</h3>
   <p>If you tap <b>Add Safari Bookmarket</b>, UberGenPass will open a page in Safari describing how to integrate the two apps for faster workflow. Adding a bookmarket to Safari lets you launch UberGenPass directly from a web page with the URL of the page already filled in for you, and also return to the page in Safari directly from UberGenPass.</p>
 </body>
