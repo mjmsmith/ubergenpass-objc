@@ -4,5 +4,7 @@ icon pngs
 
 url scheme name?
 
+control positions in landscape
+
 TEST
 
