@@ -2,7 +2,6 @@
 //  MainViewController.m
 //  UberGenPass
 //
-//  Created by Mark Smith on 11/27/12.
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
@@ -32,12 +31,14 @@
 
 @implementation MainViewController
 
-#pragma mark Public
+#pragma mark Lifecycle
 
 - (void)dealloc {
   [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
   [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
 }
+
+#pragma mark Public
 
 - (void)setUrl:(NSString *)url {
   if (self.urlTextField == nil) {
@@ -53,10 +54,19 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+  // Observe active/inactive notifications.
   
-  int passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:@"PasswordLength"];
+  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+  // URL text field.
   
   self.urlTextField.text = self.url;
+
+  // Password length stepper and text field.
+  
+  int passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:@"PasswordLength"];
   
   self.passwordLengthStepper.minimumValue = 4;
   self.passwordLengthStepper.maximumValue = 24;
@@ -64,28 +74,36 @@
 
   self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
 
+  // Password buttons.
+  
   [self.showHideButton useAlertStyle];
   [self.clipboardButton useAlertStyle];
   [self.safariButton useAlertStyle];
 
+  // Controls hidden until we have a URL/domain.
+  
   self.passwordHostLabel.hidden = YES;
   self.passwordTextField.hidden = YES;
   self.showHideButton.hidden = YES;
   self.clipboardButton.hidden = YES;
   self.safariButton.hidden = YES;
+
+  // Version label.
   
   self.versionLabel.text = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+
+  // If we're ready to generate passwords, update the UI as usual.
   
   if (PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self editingChanged];
   }
-  
-  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
-  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
+  
+  // If we have no master password, force a segue to Settings (only happens on startup).
+  // Otherwise, set focus if we have no URL/domain text.
   
   if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
@@ -102,6 +120,8 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  // Handle background taps.
+  
   UITouch *touch = [touches anyObject];
   
   if (touch.phase == UITouchPhaseBegan) {
@@ -151,7 +171,7 @@
 
 - (IBAction)lengthChanged {
   [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:@"PasswordLength"];
-  self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
+  self.passwordLengthTextField.text =  [NSNumber numberWithInt:self.passwordLengthStepper.value].stringValue;
   [self editingChanged];
 }
 
@@ -191,9 +211,13 @@
     return;
   }
   
+  // Has the background timeout elapsed?
+  
   NSTimeInterval elapsed = fabs([NSDate.date timeIntervalSinceDate:self.inactiveDate]);
   
   if (elapsed > [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"]) {
+    // Yes, show Settings again to force master password (re-)entry.
+    
     if (self.presentedViewController.class == SettingsViewController.class) {
       [((SettingsViewController *)self.presentedViewController) resetForActivate];
     }

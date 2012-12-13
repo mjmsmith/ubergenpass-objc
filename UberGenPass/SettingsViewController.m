@@ -2,7 +2,6 @@
 //  SettingsViewController.m
 //  UberGenPass
 //
-//  Created by Mark Smith on 11/27/12.
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
@@ -101,6 +100,8 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  // Handle background taps.
+
   UITouch *touch = [touches anyObject];
   
   if (touch.phase == UITouchPhaseBegan) {

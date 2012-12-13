@@ -2,7 +2,6 @@
 //  HelpViewController.h
 //  UberGenPass
 //
-//  Created by Mark Smith on 12/7/12.
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 

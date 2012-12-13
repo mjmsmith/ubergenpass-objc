@@ -2,7 +2,6 @@
 //  AppDelegate.m
 //  UberGenPass
 //
-//  Created by Mark Smith on 11/27/12.
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
@@ -12,11 +11,18 @@
 
 @implementation AppDelegate
 
+#pragma mark UIApplicationDelegate
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSString *currentVersion = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   NSString *defaultsVersion = [NSUserDefaults.standardUserDefaults stringForKey:@"AppVersion"];
   
+  // Is this the same version as the last session?
+  
   if (![currentVersion isEqualToString:defaultsVersion]) {
+    // No, if we have no version, it's a new install or a delete/reinstall.
+    // In case it's the last one, delete undeleted Keychain data.
+    
     if (defaultsVersion == nil) {
       [Keychain removeStringForKey:@"Hash"];
     }
@@ -28,6 +34,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  // Strip off our scheme prefix and set the URL.
+  
   NSString* scheme = NSBundle.mainBundle.infoDictionary[@"CFBundleURLTypes"][0][@"CFBundleURLSchemes"][0];
   
   ((MainViewController *)self.window.rootViewController).url = [url.absoluteString substringFromIndex:(scheme.length+1)];
