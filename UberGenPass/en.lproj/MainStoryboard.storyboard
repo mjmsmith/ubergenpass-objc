@@ -249,7 +249,6 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type…" adjustsFontSizeToFit="NO" minimumFontSize="12" id="1pp-2b-8mE">
                                 <rect key="frame" x="16" y="86" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                 <connections>
@@ -261,7 +260,7 @@
                                 <rect key="frame" x="173" y="86" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="editingChanged:" destination="6" eventType="editingChanged" id="569-cu-qeX"/>
                                     <outlet property="delegate" destination="6" id="rZp-Ub-NTf"/>
@@ -427,7 +426,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cB1-bY-lok"/>
+        <segue reference="BcP-J1-rlP"/>
         <segue reference="11"/>
     </inferredMetricsTieBreakers>
 </document>
