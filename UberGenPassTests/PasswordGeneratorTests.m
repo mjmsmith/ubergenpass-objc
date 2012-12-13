@@ -16,7 +16,7 @@
 
 - (void)setUp {
   self.generator = [[PasswordGenerator alloc] init];
-  [self.generator updatePassword:@"t0pS3cr3t"];
+  [self.generator updateMasterPassword:@"t0pS3cr3t"];
 }
 
 - (void)tearDown {
