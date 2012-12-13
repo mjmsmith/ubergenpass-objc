@@ -109,7 +109,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showHelp"]) {
+  if ([segue.identifier isEqualToString:@"ShowHelp"]) {
     HelpViewController *controller = segue.destinationViewController;
     
     controller.documentName = @"SettingsHelp";

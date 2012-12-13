@@ -88,7 +88,7 @@
   [super viewDidAppear:animated];
   
   if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
-    [self performSegueWithIdentifier:@"showSettings" sender:self];
+    [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
   }
   else {
     if (self.urlTextField.text.length == 0) {
@@ -110,16 +110,16 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showHelp"]) {
+  if ([segue.identifier isEqualToString:@"ShowHelp"]) {
     HelpViewController *controller = segue.destinationViewController;
     
     controller.documentName = @"MainHelp";
     controller.delegate = self;
   }
-  else if ([segue.identifier isEqualToString:@"showSettings"]) {
+  else if ([segue.identifier isEqualToString:@"ShowSettingsOptional"] || [segue.identifier isEqualToString:@"ShowSettingsRequired"]) {
     SettingsViewController *controller = segue.destinationViewController;
     
-    controller.canCancel = PasswordGenerator.sharedGenerator.hasMasterPassword;
+    controller.canCancel = [segue.identifier isEqualToString:@"ShowSettingsOptional"];
     controller.hash = PasswordGenerator.sharedGenerator.hash;
     controller.storesHash = ([Keychain stringForKey:@"Hash"] != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
@@ -202,7 +202,7 @@
         [self dismissViewControllerAnimated:NO completion:nil];
       }
       
-      [self performSegueWithIdentifier:@"showSettings" sender:self];
+      [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
     }
   }
   
