@@ -1,17 +1,8 @@
 TODO
 
-help pages
-
-http://camazotz.com/ubergenpass/bookmark
-
 icon pngs
 
 url scheme name?
 
-unit tests
-
 TEST
 
-background timeout handler
-
-localized strings, help html in en.proj

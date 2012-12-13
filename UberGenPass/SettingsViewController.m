@@ -154,9 +154,6 @@
   
   // Password text fields.
   
-  self.leftPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
-  self.rightPasswordTextField.returnKeyType = done ? UIReturnKeyDone : UIReturnKeyNext;
-
   if (done) {
     [self.leftPasswordTextField resignFirstResponder];
     [self.rightPasswordTextField resignFirstResponder];
@@ -207,18 +204,13 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-  if (self.doneButtonItem.enabled) {
-    [self done];
+  if (textField == self.leftPasswordTextField) {
+    [self.rightPasswordTextField becomeFirstResponder];
   }
   else {
-    if (textField == self.leftPasswordTextField) {
-      [self.rightPasswordTextField becomeFirstResponder];
-    }
-    else {
-      [self.leftPasswordTextField becomeFirstResponder];
-    }
+    [self.leftPasswordTextField becomeFirstResponder];
   }
-  
+
   return NO;
 }
 
