@@ -46,6 +46,8 @@
   }
   else {
     self.urlTextField.text = url;
+    self.urlTextField.selectedTextRange = [self.urlTextField textRangeFromPosition:self.urlTextField.beginningOfDocument
+                                                                        toPosition:self.urlTextField.beginningOfDocument];
     [self editingChanged];
   }
 }
@@ -57,12 +59,17 @@
 
   // Observe active/inactive notifications.
   
-  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
-  [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
-
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                         selector:@selector(applicationWillResignActive:)
+                                             name:UIApplicationWillResignActiveNotification object:nil];
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                         selector:@selector(applicationDidBecomeActive:)
+                                             name:UIApplicationDidBecomeActiveNotification object:nil];
   // URL text field.
   
   self.urlTextField.text = self.url;
+  self.urlTextField.selectedTextRange = [self.urlTextField textRangeFromPosition:self.urlTextField.beginningOfDocument
+                                                                      toPosition:self.urlTextField.beginningOfDocument];
 
   // Password length stepper and text field.
   
