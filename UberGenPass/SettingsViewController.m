@@ -93,7 +93,7 @@
   frame.size.height = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 32 : 44;
   self.navigationBar.frame = frame;
 
-  int fontHeight = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 14 : 12;
+  int fontHeight = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 14 : 13;
   
   self.leftPasswordTextField.font = self.rightPasswordTextField.font = [UIFont systemFontOfSize:fontHeight];
   self.welcomeImageView.hidden = UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
