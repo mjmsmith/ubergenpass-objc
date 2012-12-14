@@ -1,0 +1,3 @@
+#! /bin/sh
+
+xcodebuild -scheme UberGenPass -target UberGenPass -configuration Release clean build archive
