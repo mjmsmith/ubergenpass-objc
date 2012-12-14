@@ -23,10 +23,6 @@
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *hashSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
 @property (copy, readwrite, nonatomic) NSString *password;
-- (IBAction)editingChanged:(id)sender;
-- (IBAction)done;
-- (IBAction)cancel;
-- (IBAction)addSafariBookmarklet;
 @end
 
 @implementation SettingsViewController

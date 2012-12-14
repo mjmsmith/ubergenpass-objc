@@ -57,6 +57,10 @@
 		4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D981676E7C900D3763E /* SettingsHelp.html */; };
 		4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D9D1676E87900D3763E /* Localizable.strings */; };
 		4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5A0711677BD6E00719D18 /* MainHelp.html */; };
+		4DEF1B89167BC70300E187D9 /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B85167BC70300E187D9 /* BackButton.png */; };
+		4DEF1B8A167BC70300E187D9 /* BackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B86167BC70300E187D9 /* BackButton@2x.png */; };
+		4DEF1B8B167BC70300E187D9 /* ForwardButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B87167BC70300E187D9 /* ForwardButton.png */; };
+		4DEF1B8C167BC70300E187D9 /* ForwardButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B88167BC70300E187D9 /* ForwardButton@2x.png */; };
 		4DF343A41671AB49004C6377 /* InfoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A21671AB49004C6377 /* InfoButton.png */; };
 		4DF343A51671AB49004C6377 /* InfoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A31671AB49004C6377 /* InfoButton@2x.png */; };
 /* End PBXBuildFile section */
@@ -130,6 +134,10 @@
 		4DC01D971676E7C900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
 		4DC01D9C1676E87900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DE5A0701677BD6E00719D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/MainHelp.html; sourceTree = "<group>"; };
+		4DEF1B85167BC70300E187D9 /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
+		4DEF1B86167BC70300E187D9 /* BackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton@2x.png"; sourceTree = "<group>"; };
+		4DEF1B87167BC70300E187D9 /* ForwardButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ForwardButton.png; sourceTree = "<group>"; };
+		4DEF1B88167BC70300E187D9 /* ForwardButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ForwardButton@2x.png"; sourceTree = "<group>"; };
 		4DF343A21671AB49004C6377 /* InfoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoButton.png; sourceTree = "<group>"; };
 		4DF343A31671AB49004C6377 /* InfoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InfoButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,9 +258,13 @@
 		4D8B12541665AFD40062C305 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DEF1B85167BC70300E187D9 /* BackButton.png */,
+				4DEF1B86167BC70300E187D9 /* BackButton@2x.png */,
 				4D657708166536FD00F32D4F /* Default.png */,
 				4D65770A166536FD00F32D4F /* Default@2x.png */,
 				4D98231116727EF4001F3D8A /* Default-568h@2x.png */,
+				4DEF1B87167BC70300E187D9 /* ForwardButton.png */,
+				4DEF1B88167BC70300E187D9 /* ForwardButton@2x.png */,
 				4D2FBCAF1669CE99007B8065 /* GearButton.png */,
 				4D2FBCB01669CE99007B8065 /* GearButton@2x.png */,
 				4D8B12551665AFD40062C305 /* GreenStatus.png */,
@@ -382,6 +394,10 @@
 				4D728B1816758957004824AB /* help.css in Resources */,
 				4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */,
 				4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */,
+				4DEF1B89167BC70300E187D9 /* BackButton.png in Resources */,
+				4DEF1B8A167BC70300E187D9 /* BackButton@2x.png in Resources */,
+				4DEF1B8B167BC70300E187D9 /* ForwardButton.png in Resources */,
+				4DEF1B8C167BC70300E187D9 /* ForwardButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

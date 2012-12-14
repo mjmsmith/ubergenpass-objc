@@ -22,11 +22,6 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *versionLabel;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
-- (IBAction)editingChanged;
-- (IBAction)lengthChanged;
-- (IBAction)toggleShow;
-- (IBAction)copyToClipboard;
-- (IBAction)launchSafari;
 @end
 
 @implementation MainViewController

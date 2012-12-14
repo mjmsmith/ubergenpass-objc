@@ -201,14 +201,34 @@
                                 </items>
                             </navigationBar>
                             <webView contentMode="scaleToFill" id="j9A-WN-GQR">
-                                <rect key="frame" x="5" y="49" width="310" height="406"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NnY-82-Unv" id="bWz-Pg-IWx"/>
+                                </connections>
                             </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="uCb-w9-9Hu">
+                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="BackButton.png" style="plain" id="ufO-1k-3Ld">
+                                        <connections>
+                                            <action selector="back" destination="NnY-82-Unv" id="ogU-7A-xFw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="ForwardButton.png" style="plain" id="adY-iQ-NSO">
+                                        <connections>
+                                            <action selector="forward" destination="NnY-82-Unv" id="Qee-DK-J1h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="ufO-1k-3Ld" id="aFO-Wc-fJr"/>
+                        <outlet property="forwardButton" destination="adY-iQ-NSO" id="I7K-0O-yDm"/>
                         <outlet property="webView" destination="j9A-WN-GQR" id="e62-vb-2Oi"/>
                     </connections>
                 </viewController>
@@ -367,6 +387,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BackButton.png" width="15" height="18"/>
+        <image name="ForwardButton.png" width="15" height="18"/>
         <image name="GearButton.png" width="26" height="26"/>
         <image name="InfoButton.png" width="28" height="28"/>
         <image name="WelcomeOverlay.png" width="320" height="200"/>
@@ -378,18 +400,14 @@
         <class className="HelpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
             <relationships>
-                <relationship kind="action" name="done"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="copyToClipboard"/>
-                <relationship kind="action" name="editingChanged"/>
-                <relationship kind="action" name="launchSafari"/>
-                <relationship kind="action" name="lengthChanged"/>
-                <relationship kind="action" name="toggleShow"/>
                 <relationship kind="outlet" name="clipboardButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="passwordHostLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordLengthStepper" candidateClass="UIStepper"/>
@@ -404,9 +422,6 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addSafariBookmarklet"/>
-                <relationship kind="action" name="cancel"/>
-                <relationship kind="action" name="done"/>
                 <relationship kind="action" name="editingChanged:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
