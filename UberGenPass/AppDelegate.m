@@ -34,12 +34,17 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  // Strip off our scheme prefix and set the URL.
+  // Strip off our scheme prefix to get the real URL.
   
-  NSString* scheme = NSBundle.mainBundle.infoDictionary[@"CFBundleURLTypes"][0][@"CFBundleURLSchemes"][0];
+  NSString *scheme = NSBundle.mainBundle.infoDictionary[@"CFBundleURLTypes"][0][@"CFBundleURLSchemes"][0];
+  NSString *urlStr = [url.absoluteString substringFromIndex:(scheme.length+1)];
   
-  ((MainViewController *)self.window.rootViewController).url = [url.absoluteString substringFromIndex:(scheme.length+1)];
-
+  // Ignore about: URLs.
+  
+  if (![urlStr hasPrefix:@"about:"]) {
+    ((MainViewController *)self.window.rootViewController).url = urlStr;
+  }
+  
   return YES;
 }
 
