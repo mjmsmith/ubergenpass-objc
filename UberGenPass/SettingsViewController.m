@@ -168,9 +168,9 @@
   if (done) {
     CGRect frame = self.statusImageView.frame;
     
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.75
                           delay:0.0
-                        options:UIViewAnimationCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                        self.statusImageView.frame = CGRectInset(self.statusImageView.frame, -6, -6);
                        self.statusImageView.frame = frame;
