@@ -156,9 +156,6 @@
     [self.rightPasswordTextField resignFirstResponder];
   }
   
-  [self.leftPasswordTextField reloadInputViews];
-  [self.rightPasswordTextField reloadInputViews];
-
   // Animate status images if done.
 
   if (done) {
