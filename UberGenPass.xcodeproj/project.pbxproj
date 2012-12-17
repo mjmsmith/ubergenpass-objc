@@ -54,6 +54,8 @@
 		4D98231216727EF4001F3D8A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98231116727EF4001F3D8A /* Default-568h@2x.png */; };
 		4D98231516728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4D98231616728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
+		4DB05B4F167E8DEF006669A1 /* Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB05B4D167E8DEF006669A1 /* Checkmark.png */; };
+		4DB05B50167E8DEF006669A1 /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */; };
 		4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D981676E7C900D3763E /* SettingsHelp.html */; };
 		4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D9D1676E87900D3763E /* Localizable.strings */; };
 		4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5A0711677BD6E00719D18 /* MainHelp.html */; };
@@ -131,6 +133,8 @@
 		4D98231116727EF4001F3D8A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4D98231316728813001F3D8A /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		4D98231416728813001F3D8A /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		4DB05B4D167E8DEF006669A1 /* Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkmark.png; sourceTree = "<group>"; };
+		4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
 		4DC01D971676E7C900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
 		4DC01D9C1676E87900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DE5A0701677BD6E00719D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/MainHelp.html; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 			children = (
 				4DEF1B85167BC70300E187D9 /* BackButton.png */,
 				4DEF1B86167BC70300E187D9 /* BackButton@2x.png */,
+				4DB05B4D167E8DEF006669A1 /* Checkmark.png */,
+				4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */,
 				4D657708166536FD00F32D4F /* Default.png */,
 				4D65770A166536FD00F32D4F /* Default@2x.png */,
 				4D98231116727EF4001F3D8A /* Default-568h@2x.png */,
@@ -398,6 +404,8 @@
 				4DEF1B8A167BC70300E187D9 /* BackButton@2x.png in Resources */,
 				4DEF1B8B167BC70300E187D9 /* ForwardButton.png in Resources */,
 				4DEF1B8C167BC70300E187D9 /* ForwardButton@2x.png in Resources */,
+				4DB05B4F167E8DEF006669A1 /* Checkmark.png in Resources */,
+				4DB05B50167E8DEF006669A1 /* Checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

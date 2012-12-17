@@ -20,6 +20,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *showHideButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
+@property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *versionLabel;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 @end
@@ -89,6 +90,7 @@
   self.showHideButton.hidden = YES;
   self.clipboardButton.hidden = YES;
   self.safariButton.hidden = YES;
+  self.checkmarkImageView.hidden = YES;
 
   // Version label.
   
@@ -153,13 +155,12 @@
 
 - (IBAction)editingChanged {
   NSString *domain = [PasswordGenerator.sharedGenerator domainFromURL:self.urlTextField.text];
-  NSString *password = [PasswordGenerator.sharedGenerator passwordForURL:self.urlTextField.text
-                                                                  length:self.passwordLengthStepper.value];
   BOOL hidden = (domain == nil);
 
   if (!hidden) {
     self.passwordHostLabel.text = domain;
-    self.passwordTextField.text = password;
+    self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForURL:self.urlTextField.text
+                                                                             length:self.passwordLengthStepper.value];
   }
   
   self.passwordHostLabel.hidden = hidden;
@@ -167,6 +168,7 @@
   self.showHideButton.hidden = hidden;
   self.clipboardButton.hidden = hidden;
   self.safariButton.hidden = hidden;
+  self.checkmarkImageView.hidden = hidden || ![self.passwordTextField.text isEqualToString:UIPasteboard.generalPasteboard.string];
 
   self->_url = self.urlTextField.text;
 }
@@ -190,6 +192,7 @@
 
 - (IBAction)copyToClipboard {
   UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
+  self.checkmarkImageView.hidden = NO;
 }
 
 - (IBAction)launchSafari {
@@ -229,6 +232,14 @@
       }
       
       [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
+    }
+  }
+  else {
+    // No, handle the edge case where the password was copied to the pasteboard
+    // but the pasteboard contents changed in the meantime.
+    
+    if (!self.checkmarkImageView.hidden) {
+      self.checkmarkImageView.hidden = ![self.passwordTextField.text isEqualToString:UIPasteboard.generalPasteboard.string];
     }
   }
   

@@ -53,7 +53,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7BE-4A-ODb" customClass="GradientButton">
-                                <rect key="frame" x="20" y="220" width="280" height="44"/>
+                                <rect key="frame" x="40" y="220" width="240" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Show Password">
@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LRc-2i-vlU" customClass="GradientButton">
-                                <rect key="frame" x="20" y="276" width="280" height="44"/>
+                                <rect key="frame" x="40" y="276" width="240" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Copy to Clipboard">
@@ -83,7 +83,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TT1-7X-NsD" customClass="GradientButton">
-                                <rect key="frame" x="20" y="332" width="280" height="44"/>
+                                <rect key="frame" x="40" y="332" width="240" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Launch Safari">
@@ -98,7 +98,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="05y-Ke-SPJ">
-                                <rect key="frame" x="20" y="176" width="280" height="30"/>
+                                <rect key="frame" x="40" y="176" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
@@ -158,11 +158,16 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Checkmark.png" id="0cx-uC-ixZ">
+                                <rect key="frame" x="288" y="291" width="14" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
+                        <outlet property="checkmarkImageView" destination="0cx-uC-ixZ" id="dWS-v1-oYX"/>
                         <outlet property="clipboardButton" destination="LRc-2i-vlU" id="mcK-T3-48P"/>
                         <outlet property="passwordHostLabel" destination="WmF-lm-GqR" id="4om-Mu-jul"/>
                         <outlet property="passwordLengthStepper" destination="N8b-Y0-FHI" id="kbI-Vj-Vrr"/>
@@ -388,6 +393,7 @@
     </scenes>
     <resources>
         <image name="BackButton.png" width="15" height="18"/>
+        <image name="Checkmark.png" width="14" height="14"/>
         <image name="ForwardButton.png" width="15" height="18"/>
         <image name="GearButton.png" width="26" height="26"/>
         <image name="InfoButton.png" width="28" height="28"/>
@@ -408,6 +414,7 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="checkmarkImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="clipboardButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="passwordHostLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordLengthStepper" candidateClass="UIStepper"/>
@@ -441,7 +448,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="cB1-bY-lok"/>
         <segue reference="11"/>
-        <segue reference="BcP-J1-rlP"/>
     </inferredMetricsTieBreakers>
 </document>
