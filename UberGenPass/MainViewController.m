@@ -42,9 +42,12 @@
   }
   else {
     self.urlTextField.text = url;
-    self.urlTextField.selectedTextRange = [self.urlTextField textRangeFromPosition:self.urlTextField.beginningOfDocument
-                                                                        toPosition:self.urlTextField.beginningOfDocument];
+
     [self editingChanged];
+    
+    if (!self.passwordTextField.hidden) {
+      [self.urlTextField resignFirstResponder];
+    }
   }
 }
 
@@ -64,8 +67,6 @@
   // URL text field.
   
   self.urlTextField.text = self.url;
-  self.urlTextField.selectedTextRange = [self.urlTextField textRangeFromPosition:self.urlTextField.beginningOfDocument
-                                                                      toPosition:self.urlTextField.beginningOfDocument];
 
   // Password length stepper and text field.
   
@@ -100,6 +101,10 @@
   
   if (PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self editingChanged];
+
+    if (!self.passwordTextField.hidden) {
+      [self.urlTextField resignFirstResponder];
+    }
   }
 }
 
