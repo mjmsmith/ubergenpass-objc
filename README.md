@@ -1,6 +1,6 @@
 # ubergenpass
 
-UberGenPass is a [SuperGenPass](http://supergenpass.com)-compatible iOS password generator with a focus on efficient and secure workflow.  Available on the [App Store](https://itunes.apple.com/app/ubergenpass/id588224057?mt=8).
+UberGenPass is a [SuperGenPass](http://supergenpass.com)-compatible iOS password generator with a focus on efficient and secure workflow.  Available in the [App Store](https://itunes.apple.com/app/ubergenpass/id588224057?mt=8).
 
 ## License
 
