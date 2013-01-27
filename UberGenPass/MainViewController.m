@@ -21,7 +21,6 @@
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordHostLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet GradientButton *showHideButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
@@ -94,7 +93,6 @@
 
   // Password buttons.
   
-  [self.showHideButton useAlertStyle];
   [self.clipboardButton useAlertStyle];
   [self.safariButton useAlertStyle];
 
@@ -102,7 +100,6 @@
   
   self.passwordHostLabel.hidden = YES;
   self.passwordTextField.hidden = YES;
-  self.showHideButton.hidden = YES;
   self.clipboardButton.hidden = YES;
   self.safariButton.hidden = YES;
   self.checkmarkImageView.hidden = YES;
@@ -188,7 +185,6 @@
   
   self.passwordHostLabel.hidden = hidden;
   self.passwordTextField.hidden = hidden;
-  self.showHideButton.hidden = hidden;
   self.clipboardButton.hidden = hidden;
   self.safariButton.hidden = hidden;
 
@@ -213,15 +209,8 @@
   [self editingChanged];
 }
 
-- (IBAction)toggleShow {
+- (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer {
   self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
-  
-  if (self.passwordTextField.secureTextEntry) {
-    [self.showHideButton setTitle:NSLocalizedString(@"ShowPasswordButtonName", nil) forState:UIControlStateNormal];
-  }
-  else {
-    [self.showHideButton setTitle:NSLocalizedString(@"HidePasswordButtonName", nil) forState:UIControlStateNormal];
-  }
 }
 
 - (IBAction)copyToClipboard {
