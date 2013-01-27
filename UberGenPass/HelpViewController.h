@@ -11,7 +11,7 @@
 - (void)helpViewControllerDidFinish:(HelpViewController *)controller;
 @end
 
-@interface HelpViewController : UIViewController <UIWebViewDelegate>
+@interface HelpViewController : UIViewController
 @property (copy, readwrite, nonatomic) NSString *documentName;
 @property (weak, readwrite, nonatomic) id <HelpViewControllerDelegate> delegate;
 @end

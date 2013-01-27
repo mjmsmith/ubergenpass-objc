@@ -7,7 +7,7 @@
 
 #import "HelpViewController.h"
 
-@interface HelpViewController ()
+@interface HelpViewController () <UIWebViewDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
