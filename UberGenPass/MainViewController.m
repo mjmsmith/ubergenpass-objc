@@ -21,6 +21,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordHostLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UIView *passwordTapView;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;

@@ -84,14 +84,11 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" id="05y-Ke-SPJ">
                                 <rect key="frame" x="40" y="170" width="240" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="deviceRGB"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="AoI-Dl-MiJ" appends="YES" id="Ae4-d0-3AE"/>
-                                </connections>
                             </textField>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="N8b-Y0-FHI">
                                 <rect key="frame" x="206" y="101" width="94" height="27"/>
@@ -111,7 +108,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$host" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WmF-lm-GqR">
                                 <rect key="frame" x="20" y="144" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -149,11 +146,11 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Checkmark.png" id="0cx-uC-ixZ">
                                 <rect key="frame" x="288" y="241" width="14" height="14"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="22" sectionFooterHeight="22" id="QSM-b0-eRh">
                                 <rect key="frame" x="55" y="94" width="245" height="230"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MatchingDomainsTableViewCell" textLabel="av1-P9-xoj" style="IBUITableViewCellStyleDefault" id="qrh-l6-mT5">
@@ -181,6 +178,15 @@
                                     <outlet property="delegate" destination="2" id="VTc-ni-FuM"/>
                                 </connections>
                             </tableView>
+                            <view opaque="NO" contentMode="scaleToFill" id="3SQ-CK-b1y">
+                                <rect key="frame" x="40" y="170" width="240" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="AoI-Dl-MiJ" appends="YES" id="ZUg-uU-hg4"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
                     </view>
@@ -192,6 +198,7 @@
                         <outlet property="passwordHostLabel" destination="WmF-lm-GqR" id="4om-Mu-jul"/>
                         <outlet property="passwordLengthStepper" destination="N8b-Y0-FHI" id="kbI-Vj-Vrr"/>
                         <outlet property="passwordLengthTextField" destination="kMk-DS-CcW" id="eXC-v8-83c"/>
+                        <outlet property="passwordTapView" destination="3SQ-CK-b1y" id="jQ9-BI-DXh"/>
                         <outlet property="passwordTextField" destination="05y-Ke-SPJ" id="Zmg-Fj-RXS"/>
                         <outlet property="safariButton" destination="TT1-7X-NsD" id="rTa-T3-NDe"/>
                         <outlet property="urlTextField" destination="FBz-9R-IZS" id="pIy-sp-CK5"/>
@@ -445,6 +452,7 @@
                 <relationship kind="outlet" name="passwordHostLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordLengthStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="passwordLengthTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTapView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="safariButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="urlTextField" candidateClass="UITextField"/>
@@ -454,6 +462,7 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="editingChanged:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hashSwitch" candidateClass="UISwitch"/>
