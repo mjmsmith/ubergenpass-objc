@@ -91,6 +91,10 @@
 
   self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
 
+  // Password text field.  We can't set the height in IB if the style is a rounded rect.
+  
+  self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
+  
   // Password buttons.
   
   [self.clipboardButton useAlertStyle];
@@ -211,6 +215,7 @@
 
 - (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer {
   self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
+  [self.urlTextField resignFirstResponder];
 }
 
 - (IBAction)copyToClipboard {
