@@ -5,10 +5,11 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
+#import "HelpViewController.h"
 #import "PasswordGenerator.h"
 #import "SettingsViewController.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <HelpViewControllerDelegate>
 @property (strong, readwrite, nonatomic) UIImage *greyImage;
 @property (strong, readwrite, nonatomic) UIImage *greenImage;
 @property (strong, readwrite, nonatomic) UIImage *yellowImage;
