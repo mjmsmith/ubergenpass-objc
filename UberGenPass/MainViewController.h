@@ -5,9 +5,6 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
-#import "HelpViewController.h"
-#import "SettingsViewController.h"
-
-@interface MainViewController : UIViewController <HelpViewControllerDelegate, SettingsViewControllerDelegate>
+@interface MainViewController : UIViewController
 @property (copy, readwrite, nonatomic) NSString *url;
 @end

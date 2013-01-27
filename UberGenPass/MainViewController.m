@@ -6,12 +6,16 @@
 //
 
 #import "GradientButton.h"
+#import "HelpViewController.h"
 #import "Keychain.h"
 #import "MainViewController.h"
 #import "NSData+Base64.h"
 #import "PasswordGenerator.h"
+#import "SettingsViewController.h"
 
-@interface MainViewController ()
+#define MAXRECENTDOMAINS 50
+
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *urlTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
@@ -21,8 +25,11 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingDomainsTableView;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *versionLabel;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
+@property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentDomains;
+@property (strong, readwrite, nonatomic) NSArray *matchingDomains;
 @end
 
 @implementation MainViewController
@@ -32,6 +39,7 @@
 - (void)dealloc {
   [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
   [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+  [NSNotificationCenter.defaultCenter removeObserver:self name:UIPasteboardChangedNotification object:UIPasteboard.generalPasteboard];
 }
 
 #pragma mark Public
@@ -56,7 +64,10 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  // Observe active/inactive notifications.
+  self.recentDomains = [NSMutableOrderedSet orderedSetWithCapacity:MAXRECENTDOMAINS];
+  self.matchingDomains = [NSMutableArray array];
+  
+  // Notifications.
   
   [NSNotificationCenter.defaultCenter addObserver:self
                                          selector:@selector(applicationWillResignActive:)
@@ -64,6 +75,9 @@
   [NSNotificationCenter.defaultCenter addObserver:self
                                          selector:@selector(applicationDidBecomeActive:)
                                              name:UIApplicationDidBecomeActiveNotification object:nil];
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                         selector:@selector(pasteboardChanged:)
+                                             name:UIPasteboardChangedNotification object:UIPasteboard.generalPasteboard];
   // URL text field.
   
   self.urlTextField.text = self.url;
@@ -92,6 +106,10 @@
   self.clipboardButton.hidden = YES;
   self.safariButton.hidden = YES;
   self.checkmarkImageView.hidden = YES;
+  
+  // Matching domains table hidden until we have some.
+  
+  self.matchingDomainsTableView.hidden = YES;
 
   // Version label.
   
@@ -173,8 +191,19 @@
   self.showHideButton.hidden = hidden;
   self.clipboardButton.hidden = hidden;
   self.safariButton.hidden = hidden;
-  self.checkmarkImageView.hidden = hidden || ![self.passwordTextField.text isEqualToString:UIPasteboard.generalPasteboard.string];
 
+  [self updateClipboardCheckmark];
+  
+  self.matchingDomains = [self recentDomainsWithPrefix:[self.urlTextField.text lowercaseString]];
+  
+  if (self.matchingDomains.count == 0) {
+    self.matchingDomainsTableView.hidden = YES;
+  }
+  else {
+    [self.matchingDomainsTableView reloadData];
+    self.matchingDomainsTableView.hidden = NO;
+  }
+  
   self->_url = self.urlTextField.text;
 }
 
@@ -197,7 +226,10 @@
 
 - (IBAction)copyToClipboard {
   UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
-  self.checkmarkImageView.hidden = NO;
+  [self updateClipboardCheckmark];
+  if ([self.url rangeOfString:@":"].location == NSNotFound) {
+    [self addRecentDomain:self.url];
+  }
 }
 
 - (IBAction)launchSafari {
@@ -205,6 +237,7 @@
   
   if ([url rangeOfString:@":"].location == NSNotFound) {
     url = [@"http://" stringByAppendingString:url];
+    [self addRecentDomain:url];
   }
   
   [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
@@ -240,18 +273,48 @@
     }
   }
   else {
-    // No, handle the edge case where the password was copied to the pasteboard
-    // but the pasteboard contents changed in the meantime.
-    
-    if (!self.checkmarkImageView.hidden) {
-      self.checkmarkImageView.hidden = ![self.passwordTextField.text isEqualToString:UIPasteboard.generalPasteboard.string];
-    }
+    [self updateClipboardCheckmark];
   }
   
   self.inactiveDate = nil;
 }
 
+- (void)pasteboardChanged:(NSNotification *)notification {
+  [self updateClipboardCheckmark];
+}
+
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return self.matchingDomains.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  UITableViewCell *cell = [self.matchingDomainsTableView dequeueReusableCellWithIdentifier:@"MatchingDomainsTableViewCell"];
+  
+  cell.textLabel.text = self.matchingDomains[indexPath.row];
+  
+  return cell;
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [self.matchingDomainsTableView deselectRowAtIndexPath:indexPath animated:YES];
+
+  self.urlTextField.text = self.matchingDomains[indexPath.row];
+  [self editingChanged];
+}
+
 #pragma mark UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+  self.matchingDomainsTableView.hidden = (self.matchingDomains.count == 0);
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+  self.matchingDomainsTableView.hidden = YES;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
@@ -284,6 +347,40 @@
 
 - (void)settingsViewControllerDidCancel:(SettingsViewController *)controller {
   [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark Private
+
+- (void)addRecentDomain:(NSString *)domain {
+  if (![self.recentDomains containsObject:domain]) {
+    if (self.recentDomains.count == MAXRECENTDOMAINS) {
+      [self.recentDomains removeObjectAtIndex:0];
+    }
+    [self.recentDomains addObject:domain];
+  }
+}
+
+- (NSArray *)recentDomainsWithPrefix:(NSString *)prefix {
+  NSMutableArray *domains = [NSMutableArray array];
+  
+  if (prefix.length == 0) {
+    return domains;
+  }
+
+  for (NSString *domain in self.recentDomains) {
+    if (domain.length > prefix.length && [domain hasPrefix:prefix]) {
+      [domains addObject:domain];
+    }
+  }
+
+  return [domains sortedArrayUsingComparator:^(NSString *left, NSString *right) {
+    return [left compare:right];
+  }];
+}
+
+- (void)updateClipboardCheckmark {
+  self.checkmarkImageView.hidden = self.clipboardButton.hidden ||
+                                   ![self.passwordTextField.text isEqualToString:UIPasteboard.generalPasteboard.string];
 }
 
 @end
