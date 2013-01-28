@@ -75,12 +75,12 @@ static NSSet *TLDs;
   return [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
 }
 
-- (NSString *)passwordForURL:(NSString *)url length:(int)length {
-  if (url == nil) {
+- (NSString *)passwordForSite:(NSString *)site length:(int)length {
+  if (site == nil) {
     return nil;
   }
   
-  NSString *domain = [self domainFromURL:url];
+  NSString *domain = [self domainFromSite:site];
   
   if (domain == nil) {
     return nil;
@@ -101,24 +101,24 @@ static NSSet *TLDs;
   return [password substringToIndex:length];
 }
 
-- (NSString *)domainFromURL:(NSString *)urlStr {
-  if (urlStr == nil) {
+- (NSString *)domainFromSite:(NSString *)site {
+  if (site == nil) {
     return nil;
   }
   
-  if ([self.domainPattern numberOfMatchesInString:urlStr options:0 range:NSMakeRange(0, urlStr.length)] == 0) {
+  if ([self.domainPattern numberOfMatchesInString:site options:0 range:NSMakeRange(0, site.length)] == 0) {
     return nil;
   }
 
-  if ([urlStr rangeOfString:@"://"].location == NSNotFound) {
-    urlStr = [@"//" stringByAppendingString:urlStr];
+  if ([site rangeOfString:@"://"].location == NSNotFound) {
+    site = [@"//" stringByAppendingString:site];
   }
 
   NSString *domain = nil;
-  NSURL *url = [NSURL URLWithString:urlStr];
+  NSURL *url = [NSURL URLWithString:site];
   NSString *host = [url.host lowercaseString];
 
-  if ([urlStr hasPrefix:@"//"]) {
+  if ([site hasPrefix:@"//"]) {
     domain = host;
   }
   else {

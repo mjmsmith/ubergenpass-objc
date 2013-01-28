@@ -42,7 +42,7 @@
   // Ignore about: URLs.
   
   if (![urlStr hasPrefix:@"about:"]) {
-    ((MainViewController *)self.window.rootViewController).url = urlStr;
+    ((MainViewController *)self.window.rootViewController).site = urlStr;
   }
   
   return YES;

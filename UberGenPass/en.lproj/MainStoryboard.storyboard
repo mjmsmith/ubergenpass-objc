@@ -203,7 +203,7 @@
                         <outlet property="passwordTapView" destination="3SQ-CK-b1y" id="jQ9-BI-DXh"/>
                         <outlet property="passwordTextField" destination="05y-Ke-SPJ" id="Zmg-Fj-RXS"/>
                         <outlet property="safariButton" destination="TT1-7X-NsD" id="rTa-T3-NDe"/>
-                        <outlet property="urlTextField" destination="FBz-9R-IZS" id="pIy-sp-CK5"/>
+                        <outlet property="siteTextField" destination="FBz-9R-IZS" id="xap-K1-8y6"/>
                         <outlet property="versionLabel" destination="Yg9-Pc-cEi" id="eJ2-lb-MD9"/>
                         <segue destination="6" kind="modal" identifier="ShowSettingsRequired" modalTransitionStyle="flipHorizontal" id="F6i-BF-7ir"/>
                     </connections>

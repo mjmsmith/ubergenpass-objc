@@ -18,7 +18,7 @@
 #define MaxRecentSites 50
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *urlTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UITextField *siteTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordHostLabel;
@@ -46,17 +46,17 @@
 
 #pragma mark Public
 
-- (void)setUrl:(NSString *)url {
-  if (self.urlTextField == nil) {
-    self->_url = url;
+- (void)setSite:(NSString *)site {
+  if (self.siteTextField == nil) {
+    self->_site = site;
   }
   else {
-    self.urlTextField.text = url;
+    self.siteTextField.text = site;
 
     [self editingChanged];
     
     if (!self.passwordTextField.hidden) {
-      [self.urlTextField resignFirstResponder];
+      [self.siteTextField resignFirstResponder];
     }
   }
 }
@@ -84,9 +84,9 @@
   [NSNotificationCenter.defaultCenter addObserver:self
                                          selector:@selector(pasteboardChanged:)
                                              name:UIPasteboardChangedNotification object:UIPasteboard.generalPasteboard];
-  // URL text field.
+  // Site text field.
   
-  self.urlTextField.text = self.url;
+  self.siteTextField.text = self.site;
 
   // Password length stepper and text field.
   
@@ -132,7 +132,7 @@
     [self editingChanged];
 
     if (!self.passwordTextField.hidden) {
-      [self.urlTextField resignFirstResponder];
+      [self.siteTextField resignFirstResponder];
     }
   }
 }
@@ -147,8 +147,8 @@
     [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
   }
   else {
-    if (self.urlTextField.text.length == 0) {
-      [self.urlTextField becomeFirstResponder];
+    if (self.siteTextField.text.length == 0) {
+      [self.siteTextField becomeFirstResponder];
     }
   }
 }
@@ -188,13 +188,13 @@
 #pragma mark Actions
 
 - (IBAction)editingChanged {
-  NSString *domain = [PasswordGenerator.sharedGenerator domainFromURL:self.urlTextField.text];
+  NSString *domain = [PasswordGenerator.sharedGenerator domainFromSite:self.siteTextField.text];
   BOOL hidden = (domain == nil);
 
   if (!hidden) {
     self.passwordHostLabel.text = domain;
-    self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForURL:self.urlTextField.text
-                                                                             length:self.passwordLengthStepper.value];
+    self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForSite:self.siteTextField.text
+                                                                              length:self.passwordLengthStepper.value];
   }
   
   self.passwordHostLabel.hidden = hidden;
@@ -205,7 +205,7 @@
   [self updateClipboardCheckmark];
   
   if (self.recentSites != nil) {
-    self.matchingSites = [self recentSitesWithPrefix:[self.urlTextField.text lowercaseString]];
+    self.matchingSites = [self recentSitesWithPrefix:[self.siteTextField.text lowercaseString]];
     
     if (self.matchingSites.count == 0) {
       self.matchingSitesTableView.hidden = YES;
@@ -216,7 +216,7 @@
     }
   }
   
-  self->_url = self.urlTextField.text;
+  self->_site = self.siteTextField.text;
 }
 
 - (IBAction)lengthChanged {
@@ -227,7 +227,7 @@
 
 - (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer {
   self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
-  [self.urlTextField resignFirstResponder];
+  [self.siteTextField resignFirstResponder];
 }
 
 - (IBAction)copyToClipboard {
@@ -235,22 +235,22 @@
   [self updateClipboardCheckmark];
   
   if (self.recentSites != nil ) {
-    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromURL:self.url]];
+    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromSite:self.site]];
   }
 }
 
 - (IBAction)launchSafari {
-  NSString *url = self.url;
+  NSString *site = self.site;
   
-  if ([url rangeOfString:@":"].location == NSNotFound) {
-    url = [@"http://" stringByAppendingString:url];
+  if ([site rangeOfString:@":"].location == NSNotFound) {
+    site = [@"http://" stringByAppendingString:site];
   }
   
-  if (self.recentSites != nil ) {
-    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromURL:url]];
+  if (self.recentSites != nil) {
+    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromSite:site]];
   }
   
-  [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
+  [UIApplication.sharedApplication openURL:[NSURL URLWithString:site]];
 }
 
 #pragma mark Notifications
@@ -312,7 +312,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [self.matchingSitesTableView deselectRowAtIndexPath:indexPath animated:YES];
 
-  self.urlTextField.text = self.matchingSites[indexPath.row];
+  self.siteTextField.text = self.matchingSites[indexPath.row];
   [self editingChanged];
 }
 

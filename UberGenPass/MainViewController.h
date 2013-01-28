@@ -6,5 +6,5 @@
 //
 
 @interface MainViewController : UIViewController
-@property (copy, readwrite, nonatomic) NSString *url;
+@property (copy, readwrite, nonatomic) NSString *site;
 @end
