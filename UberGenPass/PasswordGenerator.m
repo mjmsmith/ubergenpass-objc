@@ -145,7 +145,7 @@ static NSSet *TLDs;
   return self.masterPassword != nil;
 }
 
-- (BOOL)storesHash {
+- (BOOL)savesHash {
   return [Keychain stringForKey:@"Hash"] != nil;
 }
 

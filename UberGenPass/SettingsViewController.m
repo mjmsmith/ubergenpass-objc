@@ -57,7 +57,7 @@
     [self removeCancelButton];
   }
 
-  self.passwordHashSwitch.on = self.storesHash;
+  self.passwordHashSwitch.on = self.savesPasswordHash;
   self.recentSitesSwitch.on = self.remembersRecentSites;
   
   if (self.backgroundTimeout == 300) {
@@ -189,7 +189,7 @@
   int timeouts[] = {0, 60, 300};
   
   self.password = self.leftPasswordTextField.text;
-  self.storesHash = self.passwordHashSwitch.on;
+  self.savesPasswordHash = self.passwordHashSwitch.on;
   self.remembersRecentSites = self.recentSitesSwitch.on;
   self.backgroundTimeout = timeouts[self.timeoutSegment.selectedSegmentIndex];
   

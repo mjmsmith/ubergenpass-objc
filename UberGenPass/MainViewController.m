@@ -15,7 +15,7 @@
 #import "PasswordGenerator.h"
 #import "SettingsViewController.h"
 
-#define MAXRECENTDOMAINS 50
+#define MaxRecentSites 50
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *urlTextField;
@@ -27,11 +27,11 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
-@property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingDomainsTableView;
+@property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *versionLabel;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
-@property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentDomains;
-@property (strong, readwrite, nonatomic) NSArray *matchingDomains;
+@property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentSites;
+@property (strong, readwrite, nonatomic) NSArray *matchingSites;
 @end
 
 @implementation MainViewController
@@ -66,11 +66,11 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  NSArray *recentDomains = [NSUserDefaults.standardUserDefaults arrayForKey:@"RecentDomains"];
+  NSArray *recentSites = [NSUserDefaults.standardUserDefaults arrayForKey:@"RecentSites"];
   
-  if (recentDomains != nil) {
-    self.recentDomains = [NSMutableOrderedSet orderedSetWithArray:recentDomains];
-    self.matchingDomains = [NSMutableArray array];
+  if (recentSites != nil) {
+    self.recentSites = [NSMutableOrderedSet orderedSetWithArray:recentSites];
+    self.matchingSites = [NSMutableArray array];
   }
   
   // Notifications.
@@ -107,7 +107,7 @@
   [self.clipboardButton useAlertStyle];
   [self.safariButton useAlertStyle];
 
-  // Controls hidden until we have a URL/domain.
+  // Controls hidden until we have a site.
   
   self.passwordHostLabel.hidden = YES;
   self.passwordTextField.hidden = YES;
@@ -115,12 +115,12 @@
   self.safariButton.hidden = YES;
   self.checkmarkImageView.hidden = YES;
   
-  // Matching domains popup.
+  // Matching sites popup.
   
-  self.matchingDomainsTableView.hidden = YES;
+  self.matchingSitesTableView.hidden = YES;
 
-  self.matchingDomainsTableView.layer.masksToBounds = NO;
-  self.matchingDomainsTableView.layer.shadowOpacity = 0.5;
+  self.matchingSitesTableView.layer.masksToBounds = NO;
+  self.matchingSitesTableView.layer.shadowOpacity = 0.5;
   
   // Version label.
   
@@ -141,7 +141,7 @@
   [super viewDidAppear:animated];
   
   // If we have no master password, force a segue to Settings (only happens on startup).
-  // Otherwise, set focus if we have no URL/domain text.
+  // Otherwise, set focus if we have no site text.
   
   if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
@@ -178,8 +178,8 @@
     SettingsViewController *controller = segue.destinationViewController;
     
     controller.canCancel = [segue.identifier isEqualToString:@"ShowSettingsOptional"];
-    controller.storesHash = PasswordGenerator.sharedGenerator.storesHash;
-    controller.remembersRecentSites = (self.recentDomains != nil);
+    controller.savesPasswordHash = PasswordGenerator.sharedGenerator.savesHash;
+    controller.remembersRecentSites = (self.recentSites != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
     controller.delegate = self;
   }
@@ -204,15 +204,15 @@
 
   [self updateClipboardCheckmark];
   
-  if (self.recentDomains != nil) {
-    self.matchingDomains = [self recentDomainsWithPrefix:[self.urlTextField.text lowercaseString]];
+  if (self.recentSites != nil) {
+    self.matchingSites = [self recentSitesWithPrefix:[self.urlTextField.text lowercaseString]];
     
-    if (self.matchingDomains.count == 0) {
-      self.matchingDomainsTableView.hidden = YES;
+    if (self.matchingSites.count == 0) {
+      self.matchingSitesTableView.hidden = YES;
     }
     else {
-      [self.matchingDomainsTableView reloadData];
-      self.matchingDomainsTableView.hidden = NO;
+      [self.matchingSitesTableView reloadData];
+      self.matchingSitesTableView.hidden = NO;
     }
   }
   
@@ -234,8 +234,8 @@
   UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
   [self updateClipboardCheckmark];
   
-  if (self.recentDomains != nil ) {
-    [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:self.url]];
+  if (self.recentSites != nil ) {
+    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromURL:self.url]];
   }
 }
 
@@ -246,8 +246,8 @@
     url = [@"http://" stringByAppendingString:url];
   }
   
-  if (self.recentDomains != nil ) {
-    [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:url]];
+  if (self.recentSites != nil ) {
+    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromURL:url]];
   }
   
   [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
@@ -296,13 +296,13 @@
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.matchingDomains.count;
+  return self.matchingSites.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [self.matchingDomainsTableView dequeueReusableCellWithIdentifier:@"MatchingDomainsTableViewCell"];
+  UITableViewCell *cell = [self.matchingSitesTableView dequeueReusableCellWithIdentifier:@"MatchingSitesTableViewCell"];
   
-  cell.textLabel.text = self.matchingDomains[indexPath.row];
+  cell.textLabel.text = self.matchingSites[indexPath.row];
   
   return cell;
 }
@@ -310,23 +310,23 @@
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self.matchingDomainsTableView deselectRowAtIndexPath:indexPath animated:YES];
+  [self.matchingSitesTableView deselectRowAtIndexPath:indexPath animated:YES];
 
-  self.urlTextField.text = self.matchingDomains[indexPath.row];
+  self.urlTextField.text = self.matchingSites[indexPath.row];
   [self editingChanged];
 }
 
 #pragma mark UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-  if (self.recentDomains != nil) {
-    self.matchingDomainsTableView.hidden = (self.matchingDomains.count == 0);
+  if (self.recentSites != nil) {
+    self.matchingSitesTableView.hidden = (self.matchingSites.count == 0);
   }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-  if (self.recentDomains != nil) {
-    self.matchingDomainsTableView.hidden = YES;
+  if (self.recentSites != nil) {
+    self.matchingSitesTableView.hidden = YES;
   }
 }
 
@@ -346,7 +346,7 @@
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
   [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
 
-  if (controller.storesHash) {
+  if (controller.savesPasswordHash) {
     [Keychain setString:[PasswordGenerator.sharedGenerator.hash base64EncodedString] forKey:@"Hash"];
   }
   else {
@@ -354,20 +354,20 @@
   }
 
   if (controller.remembersRecentSites) {
-    if (self.recentDomains == nil) {
-      self.recentDomains = [NSMutableOrderedSet orderedSet];
-      self.matchingDomains = [NSMutableArray array];
+    if (self.recentSites == nil) {
+      self.recentSites = [NSMutableOrderedSet orderedSet];
+      self.matchingSites = [NSMutableArray array];
 
-      [NSUserDefaults.standardUserDefaults setObject:[self.recentDomains array] forKey:@"RecentDomains"];
+      [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:@"RecentSites"];
     }
   }
   else {
-    if (self.recentDomains != nil) {
-      self.recentDomains = nil;
-      self.matchingDomains = nil;
+    if (self.recentSites != nil) {
+      self.recentSites = nil;
+      self.matchingSites = nil;
 
-      [NSUserDefaults.standardUserDefaults removeObjectForKey:@"RecentDomains"];
-      self.matchingDomainsTableView.hidden = YES;
+      [NSUserDefaults.standardUserDefaults removeObjectForKey:@"RecentSites"];
+      self.matchingSitesTableView.hidden = YES;
     }
   }
 
@@ -383,33 +383,33 @@
 
 #pragma mark Private
 
-- (void)addRecentDomain:(NSString *)domain {
-  if ([self.recentDomains containsObject:domain]) {
+- (void)addRecentSite:(NSString *)site {
+  if ([self.recentSites containsObject:site]) {
     return;
   }
 
-  if (self.recentDomains.count >= MAXRECENTDOMAINS) {
-    [self.recentDomains removeObjectAtIndex:0];
+  if (self.recentSites.count >= MaxRecentSites) {
+    [self.recentSites removeObjectAtIndex:0];
   }
-  [self.recentDomains addObject:domain];
+  [self.recentSites addObject:site];
 
-  [NSUserDefaults.standardUserDefaults setObject:[self.recentDomains array] forKey:@"RecentDomains"];
+  [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:@"RecentSites"];
 }
 
-- (NSArray *)recentDomainsWithPrefix:(NSString *)prefix {
-  NSMutableArray *domains = [NSMutableArray array];
+- (NSArray *)recentSitesWithPrefix:(NSString *)prefix {
+  NSMutableArray *sites = [NSMutableArray array];
   
   if (prefix.length == 0) {
-    return domains;
+    return sites;
   }
 
-  for (NSString *domain in self.recentDomains) {
-    if (domain.length > prefix.length && [domain hasPrefix:prefix]) {
-      [domains addObject:domain];
+  for (NSString *site in self.recentSites) {
+    if (site.length > prefix.length && [site hasPrefix:prefix]) {
+      [sites addObject:site];
     }
   }
 
-  return [domains sortedArrayUsingComparator:^(NSString *left, NSString *right) {
+  return [sites sortedArrayUsingComparator:^(NSString *left, NSString *right) {
     return [left compare:right];
   }];
 }

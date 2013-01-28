@@ -154,7 +154,7 @@
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.90980392160000001" blue="0.92941176469999998" alpha="1" colorSpace="deviceRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MatchingDomainsTableViewCell" textLabel="av1-P9-xoj" style="IBUITableViewCellStyleDefault" id="qrh-l6-mT5">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MatchingSitesTableViewCell" textLabel="av1-P9-xoj" style="IBUITableViewCellStyleDefault" id="qrh-l6-mT5">
                                         <rect key="frame" x="0.0" y="22" width="245" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -196,7 +196,7 @@
                     <connections>
                         <outlet property="checkmarkImageView" destination="0cx-uC-ixZ" id="dWS-v1-oYX"/>
                         <outlet property="clipboardButton" destination="LRc-2i-vlU" id="mcK-T3-48P"/>
-                        <outlet property="matchingDomainsTableView" destination="QSM-b0-eRh" id="CF5-xk-pcE"/>
+                        <outlet property="matchingSitesTableView" destination="QSM-b0-eRh" id="hzs-TO-Hrv"/>
                         <outlet property="passwordHostLabel" destination="WmF-lm-GqR" id="4om-Mu-jul"/>
                         <outlet property="passwordLengthStepper" destination="N8b-Y0-FHI" id="kbI-Vj-Vrr"/>
                         <outlet property="passwordLengthTextField" destination="kMk-DS-CcW" id="eXC-v8-83c"/>
@@ -467,9 +467,10 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
+                <relationship kind="action" name="tapGestureRecognized:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="checkmarkImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="clipboardButton" candidateClass="GradientButton"/>
-                <relationship kind="outlet" name="matchingDomainsTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="matchingSitesTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="passwordHostLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordLengthStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="passwordLengthTextField" candidateClass="UITextField"/>
@@ -483,6 +484,7 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="editingChanged:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="leftPasswordTextField" candidateClass="UITextField"/>
