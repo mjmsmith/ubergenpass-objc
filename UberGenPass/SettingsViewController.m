@@ -67,12 +67,12 @@
     self.timeoutSegment.selectedSegmentIndex = 1;
   }
   
-  if ([NSUserDefaults.standardUserDefaults boolForKey:@"WelcomeShown"]) {
+  if ([NSUserDefaults.standardUserDefaults boolForKey:WelcomeShownKey]) {
     [self.welcomeImageView removeFromSuperview];
     self.welcomeImageView = nil;
   }
   else {
-    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"WelcomeShown"];
+    [NSUserDefaults.standardUserDefaults setBool:YES forKey:WelcomeShownKey];
   }
   
   [self editingChanged:nil];

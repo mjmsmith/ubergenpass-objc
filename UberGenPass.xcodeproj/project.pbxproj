@@ -137,6 +137,7 @@
 		4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
 		4DC01D971676E7C900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
 		4DC01D9C1676E87900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4DC1729E16B6C707000E2B99 /* UberGenPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UberGenPass.h; sourceTree = "<group>"; };
 		4DE5A0701677BD6E00719D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/MainHelp.html; sourceTree = "<group>"; };
 		4DEF1B85167BC70300E187D9 /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
 		4DEF1B86167BC70300E187D9 /* BackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton@2x.png"; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 				4D657714166536FD00F32D4F /* SettingsViewController.h */,
 				4D657715166536FD00F32D4F /* SettingsViewController.m */,
 				4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */,
+				4DC1729E16B6C707000E2B99 /* UberGenPass.h */,
 				4D8B12541665AFD40062C305 /* Resources */,
 				4D6576FD166536FD00F32D4F /* Supporting Files */,
 			);

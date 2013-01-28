@@ -33,7 +33,7 @@ static NSSet *TLDs;
 
 - (id)init {
   if ((self = [super init]) != nil) {
-    self.hash = [NSData dataFromBase64String:[Keychain stringForKey:@"Hash"]];
+    self.hash = [NSData dataFromBase64String:[Keychain stringForKey:PasswordHashKey]];
     
     self.lowerCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[a-z]" options:0 error:nil];
     self.upperCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]" options:0 error:nil];
@@ -146,7 +146,7 @@ static NSSet *TLDs;
 }
 
 - (BOOL)savesHash {
-  return [Keychain stringForKey:@"Hash"] != nil;
+  return [Keychain stringForKey:PasswordHashKey] != nil;
 }
 
 - (BOOL)textMatchesHash:(NSString *)text {

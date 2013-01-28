@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSString *currentVersion = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-  NSString *defaultsVersion = [NSUserDefaults.standardUserDefaults stringForKey:@"AppVersion"];
+  NSString *defaultsVersion = [NSUserDefaults.standardUserDefaults stringForKey:AppVersionKey];
   
   // Is this the same version as the last session?
   
@@ -24,10 +24,10 @@
     // In case it's the last one, delete undeleted Keychain data.
     
     if (defaultsVersion == nil) {
-      [Keychain removeStringForKey:@"Hash"];
+      [Keychain removeStringForKey:PasswordHashKey];
     }
     
-    [NSUserDefaults.standardUserDefaults setObject:currentVersion forKey:@"AppVersion"];
+    [NSUserDefaults.standardUserDefaults setObject:currentVersion forKey:AppVersionKey];
   }
   
   return YES;

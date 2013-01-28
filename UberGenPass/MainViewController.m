@@ -66,7 +66,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  NSArray *recentSites = [NSUserDefaults.standardUserDefaults arrayForKey:@"RecentSites"];
+  NSArray *recentSites = [NSUserDefaults.standardUserDefaults arrayForKey:RecentSitesKey];
   
   if (recentSites != nil) {
     self.recentSites = [NSMutableOrderedSet orderedSetWithArray:recentSites];
@@ -90,7 +90,7 @@
 
   // Password length stepper and text field.
   
-  int passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:@"PasswordLength"];
+  int passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:PasswordLengthKey];
   
   self.passwordLengthStepper.minimumValue = 4;
   self.passwordLengthStepper.maximumValue = 24;
@@ -180,7 +180,7 @@
     controller.canCancel = [segue.identifier isEqualToString:@"ShowSettingsOptional"];
     controller.savesPasswordHash = PasswordGenerator.sharedGenerator.savesHash;
     controller.remembersRecentSites = (self.recentSites != nil);
-    controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
+    controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:BackgroundTimeoutKey];
     controller.delegate = self;
   }
 }
@@ -220,7 +220,7 @@
 }
 
 - (IBAction)lengthChanged {
-  [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:@"PasswordLength"];
+  [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:PasswordLengthKey];
   self.passwordLengthTextField.text =  [NSNumber numberWithInt:self.passwordLengthStepper.value].stringValue;
   [self editingChanged];
 }
@@ -268,7 +268,7 @@
   
   NSTimeInterval elapsed = fabs([NSDate.date timeIntervalSinceDate:self.inactiveDate]);
   
-  if (elapsed > [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"]) {
+  if (elapsed > [NSUserDefaults.standardUserDefaults integerForKey:BackgroundTimeoutKey]) {
     // Yes, show Settings again to force master password (re-)entry.
     
     if (self.presentedViewController.class == SettingsViewController.class) {
@@ -347,10 +347,10 @@
   [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
 
   if (controller.savesPasswordHash) {
-    [Keychain setString:[PasswordGenerator.sharedGenerator.hash base64EncodedString] forKey:@"Hash"];
+    [Keychain setString:[PasswordGenerator.sharedGenerator.hash base64EncodedString] forKey:PasswordHashKey];
   }
   else {
-    [Keychain removeStringForKey:@"Hash"];
+    [Keychain removeStringForKey:PasswordHashKey];
   }
 
   if (controller.remembersRecentSites) {
@@ -358,7 +358,7 @@
       self.recentSites = [NSMutableOrderedSet orderedSet];
       self.matchingSites = [NSMutableArray array];
 
-      [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:@"RecentSites"];
+      [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:RecentSitesKey];
     }
   }
   else {
@@ -366,12 +366,12 @@
       self.recentSites = nil;
       self.matchingSites = nil;
 
-      [NSUserDefaults.standardUserDefaults removeObjectForKey:@"RecentSites"];
+      [NSUserDefaults.standardUserDefaults removeObjectForKey:RecentSitesKey];
       self.matchingSitesTableView.hidden = YES;
     }
   }
 
-  [NSUserDefaults.standardUserDefaults setInteger:controller.backgroundTimeout forKey:@"BackgroundTimeout"];
+  [NSUserDefaults.standardUserDefaults setInteger:controller.backgroundTimeout forKey:BackgroundTimeoutKey];
   
   [self editingChanged];
   [self dismissViewControllerAnimated:YES completion:nil];
@@ -393,7 +393,7 @@
   }
   [self.recentSites addObject:site];
 
-  [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:@"RecentSites"];
+  [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:RecentSitesKey];
 }
 
 - (NSArray *)recentSitesWithPrefix:(NSString *)prefix {
