@@ -7,6 +7,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "AboutViewController.h"
 #import "GradientButton.h"
 #import "HelpViewController.h"
 #import "Keychain.h"
@@ -17,7 +18,8 @@
 
 #define MaxRecentSites 50
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate,
+                                  AboutViewControllerDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *siteTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
@@ -168,7 +170,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"ShowHelp"]) {
+  if ([segue.identifier isEqualToString:@"ShowAbout"]) {
+    AboutViewController *controller = segue.destinationViewController;
+    
+    controller.delegate = self;
+  }
+  else if ([segue.identifier isEqualToString:@"ShowHelp"]) {
     HelpViewController *controller = segue.destinationViewController;
     
     controller.documentName = @"MainHelp";
@@ -333,6 +340,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return YES;
+}
+
+#pragma mark AboutViewControllerDelegate
+
+- (void)aboutViewControllerDidFinish:(AboutViewController *)controller {
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark HelpViewControllerDelegate
