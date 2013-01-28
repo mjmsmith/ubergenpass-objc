@@ -6,7 +6,7 @@
 //
 
 @interface PasswordGenerator : NSObject
-@property (assign, readonly, nonatomic) BOOL savesHash;
+@property (assign, readwrite, nonatomic) BOOL savesHash;
 @property (assign, readonly, nonatomic) BOOL hasMasterPassword;
 @property (copy, readonly, nonatomic) NSData *hash;
 

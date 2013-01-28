@@ -346,12 +346,7 @@
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
   [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
 
-  if (controller.savesPasswordHash) {
-    [Keychain setString:[PasswordGenerator.sharedGenerator.hash base64EncodedString] forKey:PasswordHashKey];
-  }
-  else {
-    [Keychain removeStringForKey:PasswordHashKey];
-  }
+  PasswordGenerator.sharedGenerator.savesHash = controller.savesPasswordHash;
 
   if (controller.remembersRecentSites) {
     if (self.recentSites == nil) {

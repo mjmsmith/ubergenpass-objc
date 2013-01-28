@@ -90,7 +90,7 @@ static NSSet *TLDs;
   int count = 0;
   
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
-    NSData *md5 = [PasswordGenerator md5:password];
+    NSData *md5 = [self.class md5:password];
     password = [md5 base64EncodedString];
     password = [password stringByReplacingOccurrencesOfString:@"=" withString:@"A"];
     password = [password stringByReplacingOccurrencesOfString:@"+" withString:@"9"];
@@ -149,13 +149,23 @@ static NSSet *TLDs;
   return [Keychain stringForKey:PasswordHashKey] != nil;
 }
 
+- (void)setSavesHash:(BOOL)savesHash {
+  if (savesHash) {
+    NSAssert((self.masterPassword != nil), @"Master password must exist before hash can be saved.");
+    [Keychain setString:[self.hash base64EncodedString] forKey:PasswordHashKey];
+  }
+  else {
+    [Keychain removeStringForKey:PasswordHashKey];
+  }
+}
+
 - (BOOL)textMatchesHash:(NSString *)text {
   return [self.hash isEqualToData:[self.class sha256:text]];
 }
 
 - (void)updateMasterPassword:(NSString *)masterPassword {
   self.masterPassword = masterPassword;
-  self.hash = [PasswordGenerator sha256:masterPassword];
+  self.hash = [self.class sha256:masterPassword];
 }
 
 #pragma mark Private
