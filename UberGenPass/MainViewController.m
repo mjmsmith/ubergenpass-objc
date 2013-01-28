@@ -121,9 +121,6 @@
   
   self.matchingSitesTableView.hidden = YES;
 
-  self.matchingSitesTableView.layer.masksToBounds = NO;
-  self.matchingSitesTableView.layer.shadowOpacity = 0.5;
-  
   // Version label.
   
   self.versionLabel.text = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
