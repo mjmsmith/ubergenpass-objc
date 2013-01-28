@@ -66,7 +66,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.recentDomains = [NSMutableOrderedSet orderedSetWithCapacity:MAXRECENTDOMAINS];
+  self.recentDomains = [NSMutableOrderedSet orderedSetWithArray:[NSUserDefaults.standardUserDefaults arrayForKey:@"RecentDomains"]];
   self.matchingDomains = [NSMutableArray array];
   
   // Notifications.
@@ -227,9 +227,7 @@
 - (IBAction)copyToClipboard {
   UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
   [self updateClipboardCheckmark];
-  if ([self.url rangeOfString:@":"].location == NSNotFound) {
-    [self addRecentDomain:self.url];
-  }
+  [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:self.url]];
 }
 
 - (IBAction)launchSafari {
@@ -237,9 +235,9 @@
   
   if ([url rangeOfString:@":"].location == NSNotFound) {
     url = [@"http://" stringByAppendingString:url];
-    [self addRecentDomain:url];
   }
   
+  [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:url]];
   [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
 }
 
@@ -352,12 +350,16 @@
 #pragma mark Private
 
 - (void)addRecentDomain:(NSString *)domain {
-  if (![self.recentDomains containsObject:domain]) {
-    if (self.recentDomains.count == MAXRECENTDOMAINS) {
-      [self.recentDomains removeObjectAtIndex:0];
-    }
-    [self.recentDomains addObject:domain];
+  if ([self.recentDomains containsObject:domain]) {
+    return;
   }
+
+  if (self.recentDomains.count >= MAXRECENTDOMAINS) {
+    [self.recentDomains removeObjectAtIndex:0];
+  }
+  [self.recentDomains addObject:domain];
+
+  [NSUserDefaults.standardUserDefaults setObject:[self.recentDomains array] forKey:@"RecentDomains"];
 }
 
 - (NSArray *)recentDomainsWithPrefix:(NSString *)prefix {
