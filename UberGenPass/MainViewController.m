@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "GradientButton.h"
 #import "HelpViewController.h"
 #import "Keychain.h"
@@ -109,10 +111,13 @@
   self.safariButton.hidden = YES;
   self.checkmarkImageView.hidden = YES;
   
-  // Matching domains table hidden until we have some.
+  // Matching domains popup.
   
   self.matchingDomainsTableView.hidden = YES;
 
+  self.matchingDomainsTableView.layer.masksToBounds = NO;
+  self.matchingDomainsTableView.layer.shadowOpacity = 0.5;
+  
   // Version label.
   
   self.versionLabel.text = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
