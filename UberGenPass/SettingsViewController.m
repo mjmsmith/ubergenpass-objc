@@ -19,10 +19,11 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *leftPasswordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *rightPasswordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UISwitch *passwordHashSwitch;
+@property (strong, readwrite, nonatomic) IBOutlet UISwitch *recentSitesSwitch;
+@property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
-@property (strong, readwrite, nonatomic) IBOutlet UISwitch *hashSwitch;
-@property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
 @property (copy, readwrite, nonatomic) NSString *password;
 @end
 
@@ -56,7 +57,8 @@
     [self removeCancelButton];
   }
 
-  self.hashSwitch.on = self.storesHash;
+  self.passwordHashSwitch.on = self.storesHash;
+  self.recentSitesSwitch.on = self.remembersRecentSites;
   
   if (self.backgroundTimeout == 300) {
     self.timeoutSegment.selectedSegmentIndex = 2;
@@ -125,7 +127,7 @@
 
   // If the left password field was just edited to match the hash, set the right field too.
   
-  if (sender == self.leftPasswordTextField && [self.hash isEqualToData:[PasswordGenerator sha256:leftText]]) {
+  if (sender == self.leftPasswordTextField && [PasswordGenerator.sharedGenerator textMatchesHash:leftText]) {
     self.rightPasswordTextField.text = rightText = leftText;
   }
   
@@ -187,7 +189,8 @@
   int timeouts[] = {0, 60, 300};
   
   self.password = self.leftPasswordTextField.text;
-  self.storesHash = self.hashSwitch.on;
+  self.storesHash = self.passwordHashSwitch.on;
+  self.remembersRecentSites = self.recentSitesSwitch.on;
   self.backgroundTimeout = timeouts[self.timeoutSegment.selectedSegmentIndex];
   
   [self.delegate settingsViewControllerDidFinish:self];

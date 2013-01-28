@@ -66,8 +66,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.recentDomains = [NSMutableOrderedSet orderedSetWithArray:[NSUserDefaults.standardUserDefaults arrayForKey:@"RecentDomains"]];
-  self.matchingDomains = [NSMutableArray array];
+  NSArray *recentDomains = [NSUserDefaults.standardUserDefaults arrayForKey:@"RecentDomains"];
+  
+  if (recentDomains != nil) {
+    self.recentDomains = [NSMutableOrderedSet orderedSetWithArray:recentDomains];
+    self.matchingDomains = [NSMutableArray array];
+  }
   
   // Notifications.
   
@@ -174,8 +178,8 @@
     SettingsViewController *controller = segue.destinationViewController;
     
     controller.canCancel = [segue.identifier isEqualToString:@"ShowSettingsOptional"];
-    controller.hash = PasswordGenerator.sharedGenerator.hash;
-    controller.storesHash = ([Keychain stringForKey:@"Hash"] != nil);
+    controller.storesHash = PasswordGenerator.sharedGenerator.storesHash;
+    controller.remembersRecentSites = (self.recentDomains != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:@"BackgroundTimeout"];
     controller.delegate = self;
   }
@@ -200,14 +204,16 @@
 
   [self updateClipboardCheckmark];
   
-  self.matchingDomains = [self recentDomainsWithPrefix:[self.urlTextField.text lowercaseString]];
-  
-  if (self.matchingDomains.count == 0) {
-    self.matchingDomainsTableView.hidden = YES;
-  }
-  else {
-    [self.matchingDomainsTableView reloadData];
-    self.matchingDomainsTableView.hidden = NO;
+  if (self.recentDomains != nil) {
+    self.matchingDomains = [self recentDomainsWithPrefix:[self.urlTextField.text lowercaseString]];
+    
+    if (self.matchingDomains.count == 0) {
+      self.matchingDomainsTableView.hidden = YES;
+    }
+    else {
+      [self.matchingDomainsTableView reloadData];
+      self.matchingDomainsTableView.hidden = NO;
+    }
   }
   
   self->_url = self.urlTextField.text;
@@ -227,7 +233,10 @@
 - (IBAction)copyToClipboard {
   UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
   [self updateClipboardCheckmark];
-  [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:self.url]];
+  
+  if (self.recentDomains != nil ) {
+    [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:self.url]];
+  }
 }
 
 - (IBAction)launchSafari {
@@ -237,7 +246,10 @@
     url = [@"http://" stringByAppendingString:url];
   }
   
-  [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:url]];
+  if (self.recentDomains != nil ) {
+    [self addRecentDomain:[PasswordGenerator.sharedGenerator domainFromURL:url]];
+  }
+  
   [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
 }
 
@@ -307,11 +319,15 @@
 #pragma mark UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-  self.matchingDomainsTableView.hidden = (self.matchingDomains.count == 0);
+  if (self.recentDomains != nil) {
+    self.matchingDomainsTableView.hidden = (self.matchingDomains.count == 0);
+  }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-  self.matchingDomainsTableView.hidden = YES;
+  if (self.recentDomains != nil) {
+    self.matchingDomainsTableView.hidden = YES;
+  }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -335,6 +351,24 @@
   }
   else {
     [Keychain removeStringForKey:@"Hash"];
+  }
+
+  if (controller.remembersRecentSites) {
+    if (self.recentDomains == nil) {
+      self.recentDomains = [NSMutableOrderedSet orderedSet];
+      self.matchingDomains = [NSMutableArray array];
+
+      [NSUserDefaults.standardUserDefaults setObject:[self.recentDomains array] forKey:@"RecentDomains"];
+    }
+  }
+  else {
+    if (self.recentDomains != nil) {
+      self.recentDomains = nil;
+      self.matchingDomains = nil;
+
+      [NSUserDefaults.standardUserDefaults removeObjectForKey:@"RecentDomains"];
+      self.matchingDomainsTableView.hidden = YES;
+    }
   }
 
   [NSUserDefaults.standardUserDefaults setInteger:controller.backgroundTimeout forKey:@"BackgroundTimeout"];

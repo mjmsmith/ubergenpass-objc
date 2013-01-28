@@ -367,7 +367,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="3Qe-Lj-LeB">
-                                <rect key="frame" x="33" y="195" width="253" height="30"/>
+                                <rect key="frame" x="22" y="232" width="276" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Immediately"/>
@@ -376,7 +376,7 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lw2-ET-7mR">
-                                <rect key="frame" x="33" y="169" width="253" height="21"/>
+                                <rect key="frame" x="22" y="206" width="253" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -389,7 +389,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Password Hash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z44-ze-eiR">
-                                        <rect key="frame" x="13" y="8" width="174" height="21"/>
+                                        <rect key="frame" x="2" y="8" width="196" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
@@ -397,7 +397,26 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="eAq-ub-eJq">
-                                        <rect key="frame" x="189" y="5" width="79" height="27"/>
+                                        <rect key="frame" x="200" y="5" width="79" height="27"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="Dpv-tE-Mkw">
+                                <rect key="frame" x="20" y="164" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remember Recent Sites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ubx-H7-1Vg">
+                                        <rect key="frame" x="2" y="8" width="196" height="21"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Jjj-ca-rcS">
+                                        <rect key="frame" x="200" y="5" width="79" height="27"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </switch>
                                 </subviews>
@@ -410,9 +429,10 @@
                     <connections>
                         <outlet property="cancelButtonItem" destination="14" id="ODa-cm-RH4"/>
                         <outlet property="doneButtonItem" destination="kIK-vY-Mm2" id="gWO-S2-2qU"/>
-                        <outlet property="hashSwitch" destination="eAq-ub-eJq" id="u8W-1H-ruG"/>
                         <outlet property="leftPasswordTextField" destination="1pp-2b-8mE" id="78f-L5-DGC"/>
                         <outlet property="navigationBar" destination="12" id="ch2-Vl-vl3"/>
+                        <outlet property="passwordHashSwitch" destination="eAq-ub-eJq" id="pzl-If-HHF"/>
+                        <outlet property="recentSitesSwitch" destination="Jjj-ca-rcS" id="GPe-5o-jBP"/>
                         <outlet property="rightPasswordTextField" destination="drO-ch-xpG" id="WwS-Ql-pfU"/>
                         <outlet property="statusImageView" destination="XWe-fY-idL" id="Bv6-qp-03o"/>
                         <outlet property="timeoutSegment" destination="3Qe-Lj-LeB" id="pVA-zs-YZk"/>
@@ -465,9 +485,10 @@
             <relationships>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="hashSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="leftPasswordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="passwordHashSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="recentSitesSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="rightPasswordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="statusImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="timeoutSegment" candidateClass="UISegmentedControl"/>
@@ -481,7 +502,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="11"/>
         <segue reference="cB1-bY-lok"/>
+        <segue reference="11"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -149,6 +149,10 @@ static NSSet *TLDs;
   return [Keychain stringForKey:@"Hash"] != nil;
 }
 
+- (BOOL)textMatchesHash:(NSString *)text {
+  return [self.hash isEqualToData:[self.class sha256:text]];
+}
+
 - (void)updateMasterPassword:(NSString *)masterPassword {
   self.masterPassword = masterPassword;
   self.hash = [PasswordGenerator sha256:masterPassword];
