@@ -9,8 +9,8 @@
 
 @interface HelpViewController () <UIWebViewDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *backButton;
-@property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
+@property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *backButtonItem;
+@property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *forwardButtonItem;
 @end
 
 @implementation HelpViewController
@@ -26,8 +26,8 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  self.backButton.enabled = self.webView.canGoBack;
-  self.forwardButton.enabled = self.webView.canGoForward;
+  self.backButtonItem.enabled = self.webView.canGoBack;
+  self.forwardButtonItem.enabled = self.webView.canGoForward;
   
   [self.webView loadRequest:[NSURLRequest requestWithURL:[NSBundle.mainBundle URLForResource:self.documentName withExtension:@"html"]]];
 }
@@ -39,8 +39,8 @@
 #pragma mark UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-  self.backButton.enabled = self.webView.canGoBack;
-  self.forwardButton.enabled = self.webView.canGoForward;
+  self.backButtonItem.enabled = self.webView.canGoBack;
+  self.forwardButtonItem.enabled = self.webView.canGoForward;
 }
 
 #pragma mark Actions
