@@ -17,8 +17,8 @@
 		4D2FBCAA16694FA3007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
 		4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
 		4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
-		4D2FBCB11669CE99007B8065 /* GearButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAF1669CE99007B8065 /* GearButton.png */; };
-		4D2FBCB21669CE99007B8065 /* GearButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB01669CE99007B8065 /* GearButton@2x.png */; };
+		4D2FBCB11669CE99007B8065 /* SettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAF1669CE99007B8065 /* SettingsButton.png */; };
+		4D2FBCB21669CE99007B8065 /* SettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */; };
 		4D2FBCB51669DC36007B8065 /* GreyStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB31669DC36007B8065 /* GreyStatus.png */; };
 		4D2FBCB61669DC36007B8065 /* GreyStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB41669DC36007B8065 /* GreyStatus@2x.png */; };
 		4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
@@ -93,8 +93,8 @@
 		4D2FBCA816694F7F007B8065 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4D2FBCAB166992F7007B8065 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keychain.h; sourceTree = "<group>"; };
 		4D2FBCAC166992F7007B8065 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keychain.m; sourceTree = "<group>"; };
-		4D2FBCAF1669CE99007B8065 /* GearButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GearButton.png; sourceTree = "<group>"; };
-		4D2FBCB01669CE99007B8065 /* GearButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GearButton@2x.png"; sourceTree = "<group>"; };
+		4D2FBCAF1669CE99007B8065 /* SettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsButton.png; sourceTree = "<group>"; };
+		4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsButton@2x.png"; sourceTree = "<group>"; };
 		4D2FBCB31669DC36007B8065 /* GreyStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreyStatus.png; sourceTree = "<group>"; };
 		4D2FBCB41669DC36007B8065 /* GreyStatus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GreyStatus@2x.png"; sourceTree = "<group>"; };
 		4D501E8616653CBB006A86E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -287,8 +287,8 @@
 				4D98231116727EF4001F3D8A /* Default-568h@2x.png */,
 				4DEF1B87167BC70300E187D9 /* ForwardButton.png */,
 				4DEF1B88167BC70300E187D9 /* ForwardButton@2x.png */,
-				4D2FBCAF1669CE99007B8065 /* GearButton.png */,
-				4D2FBCB01669CE99007B8065 /* GearButton@2x.png */,
+				4D2FBCAF1669CE99007B8065 /* SettingsButton.png */,
+				4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */,
 				4D8B12551665AFD40062C305 /* GreenStatus.png */,
 				4D8B12561665AFD40062C305 /* GreenStatus@2x.png */,
 				4D2FBCB31669DC36007B8065 /* GreyStatus.png */,
@@ -403,8 +403,8 @@
 				4D2FBC9416694269007B8065 /* Icon@2x.png in Resources */,
 				4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */,
 				4D2FBCA2166947B5007B8065 /* iTunesArtwork@2x in Resources */,
-				4D2FBCB11669CE99007B8065 /* GearButton.png in Resources */,
-				4D2FBCB21669CE99007B8065 /* GearButton@2x.png in Resources */,
+				4D2FBCB11669CE99007B8065 /* SettingsButton.png in Resources */,
+				4D2FBCB21669CE99007B8065 /* SettingsButton@2x.png in Resources */,
 				4D2FBCB51669DC36007B8065 /* GreyStatus.png in Resources */,
 				4D2FBCB61669DC36007B8065 /* GreyStatus@2x.png in Resources */,
 				4DF343A41671AB49004C6377 /* InfoButton.png in Resources */,
