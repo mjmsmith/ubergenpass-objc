@@ -313,6 +313,7 @@
 
   self.siteTextField.text = self.matchingSites[indexPath.row];
   [self editingChanged];
+  self.matchingSitesTableView.hidden = YES;
 }
 
 #pragma mark UITextFieldDelegate
