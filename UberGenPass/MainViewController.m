@@ -30,7 +30,6 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
-@property (strong, readwrite, nonatomic) IBOutlet UILabel *versionLabel;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 @property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentSites;
 @property (strong, readwrite, nonatomic) NSArray *matchingSites;
@@ -120,10 +119,6 @@
   // Matching sites popup.
   
   self.matchingSitesTableView.hidden = YES;
-
-  // Version label.
-  
-  self.versionLabel.text = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 
   // If we're ready to generate passwords, update the UI as usual.
   
