@@ -12,7 +12,6 @@
 #define AppStoreReviewsURL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=588224057"
 
 @interface AboutViewController ()
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *rateButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
@@ -35,10 +34,9 @@
                          [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"],
                          [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
   
-  self.iconImageView.layer.masksToBounds = YES;
-  self.iconImageView.layer.cornerRadius = 10;
-  
   [self.rateButton useAlertStyle];
+  
+  self.webView.scrollView.bounces = NO;
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
