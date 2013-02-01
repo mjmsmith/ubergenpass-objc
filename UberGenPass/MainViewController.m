@@ -29,6 +29,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UIView *matchingSitesView;
 @property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 @property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentSites;
@@ -118,7 +119,12 @@
   
   // Matching sites popup.
   
-  self.matchingSitesTableView.hidden = YES;
+  self.matchingSitesView.layer.shadowColor = UIColor.blackColor.CGColor;
+  self.matchingSitesView.layer.shadowOpacity = 0.75;
+  self.matchingSitesView.layer.shadowOffset = CGSizeMake(4, 2);
+  self.matchingSitesView.layer.shadowRadius = 10;
+  
+  self.matchingSitesView.hidden = YES;
 
   // If we're ready to generate passwords, update the UI as usual.
   
@@ -207,11 +213,11 @@
     self.matchingSites = [self recentSitesWithPrefix:[self.siteTextField.text lowercaseString]];
     
     if (self.matchingSites.count == 0) {
-      self.matchingSitesTableView.hidden = YES;
+      self.matchingSitesView.hidden = YES;
     }
     else {
       [self.matchingSitesTableView reloadData];
-      self.matchingSitesTableView.hidden = NO;
+      [self sizeAndShowMatchingSitesView];
     }
   }
   
@@ -313,20 +319,22 @@
 
   self.siteTextField.text = self.matchingSites[indexPath.row];
   [self editingChanged];
-  self.matchingSitesTableView.hidden = YES;
+  self.matchingSitesView.hidden = YES;
 }
 
 #pragma mark UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
   if (self.recentSites != nil) {
-    self.matchingSitesTableView.hidden = (self.matchingSites.count == 0);
+    if (self.matchingSites.count != 0) {
+      [self sizeAndShowMatchingSitesView];
+    }
   }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
   if (self.recentSites != nil) {
-    self.matchingSitesTableView.hidden = YES;
+    self.matchingSitesView.hidden = YES;
   }
 }
 
@@ -368,7 +376,7 @@
       self.matchingSites = nil;
 
       [NSUserDefaults.standardUserDefaults removeObjectForKey:RecentSitesKey];
-      self.matchingSitesTableView.hidden = YES;
+      self.matchingSitesView.hidden = YES;
     }
   }
 
@@ -413,6 +421,14 @@
   return [sites sortedArrayUsingComparator:^(NSString *left, NSString *right) {
     return [left compare:right];
   }];
+}
+
+- (void)sizeAndShowMatchingSitesView {
+  CGRect frame = self.matchingSitesView.frame;
+
+  frame.size.height = MIN(self.matchingSites.count, 5) * self.matchingSitesTableView.rowHeight;
+  self.matchingSitesView.frame = frame;
+  self.matchingSitesView.hidden = NO;
 }
 
 - (void)updateClipboardCheckmark {
