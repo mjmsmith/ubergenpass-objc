@@ -11,10 +11,12 @@
 
 #define AppStoreReviewsURL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=588224057"
 
-@interface AboutViewController ()
+@interface AboutViewController () <UIWebViewDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *rateButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
+- (IBAction)done;
+- (IBAction)rate;
 @end
 
 @implementation AboutViewController
@@ -35,12 +37,24 @@
                          [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
   
   [self.rateButton useAlertStyle];
-  
+
   self.webView.scrollView.bounces = NO;
+  [self.webView loadRequest:[NSURLRequest requestWithURL:[NSBundle.mainBundle URLForResource:@"About" withExtension:@"html"]]];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
   return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark UIWebViewDelegate
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)type {
+  if (type == UIWebViewNavigationTypeLinkClicked) {
+    [[UIApplication sharedApplication] openURL:[request URL]];
+    return NO;
+  }
+  
+  return YES;
 }
 
 #pragma mark Actions

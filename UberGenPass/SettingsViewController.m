@@ -25,6 +25,10 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (copy, readwrite, nonatomic) NSString *password;
+- (IBAction)editingChanged:(id)sender;
+- (IBAction)addSafariBookmarklet;
+- (IBAction)done;
+- (IBAction)cancel;
 @end
 
 @implementation SettingsViewController

@@ -385,6 +385,31 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="hps-FC-SHU">
+                                <rect key="frame" x="20" y="201" width="280" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lw2-ET-7mR">
+                                        <rect key="frame" x="2" y="8" width="196" height="21"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="3Qe-Lj-LeB">
+                                        <rect key="frame" x="2" y="33" width="276" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <segments>
+                                            <segment title="Immediately"/>
+                                            <segment title="1 minute"/>
+                                            <segment title="5 minutes"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="79q-ur-hX6">
                                 <rect key="frame" x="16" y="408" width="36" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -419,31 +444,6 @@
                                 <rect key="frame" x="0.0" y="260" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="hps-FC-SHU">
-                                <rect key="frame" x="20" y="201" width="280" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lw2-ET-7mR">
-                                        <rect key="frame" x="2" y="8" width="196" height="21"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="0.0" height="1"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="3Qe-Lj-LeB">
-                                        <rect key="frame" x="2" y="33" width="276" height="30"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <segments>
-                                            <segment title="Immediately"/>
-                                            <segment title="1 minute"/>
-                                            <segment title="5 minutes"/>
-                                        </segments>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -519,12 +519,14 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2H2-gP-edu" id="rKI-H8-fcU"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="iconImageView" destination="Ih1-Ed-sFc" id="NPR-nc-dmV"/>
                         <outlet property="nameLabel" destination="4ky-Ng-MPn" id="20n-3e-G1y"/>
                         <outlet property="rateButton" destination="5km-ej-3Fz" id="BVV-Ch-Opa"/>
                         <outlet property="webView" destination="YVa-HH-mdQ" id="t1X-El-77v"/>
@@ -550,6 +552,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done"/>
+                <relationship kind="action" name="rate"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="rateButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
@@ -561,6 +564,9 @@
         <class className="HelpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
             <relationships>
+                <relationship kind="action" name="back"/>
+                <relationship kind="action" name="done"/>
+                <relationship kind="action" name="forward"/>
                 <relationship kind="outlet" name="backButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwardButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
@@ -569,6 +575,11 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
+                <relationship kind="action" name="copyToClipboard"/>
+                <relationship kind="action" name="editingChanged"/>
+                <relationship kind="action" name="launchSafari"/>
+                <relationship kind="action" name="lengthChanged"/>
+                <relationship kind="action" name="tapGestureRecognized:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="checkmarkImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="clipboardButton" candidateClass="GradientButton"/>
                 <relationship kind="outlet" name="matchingSitesTableView" candidateClass="UITableView"/>
@@ -585,6 +596,10 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addSafariBookmarklet"/>
+                <relationship kind="action" name="cancel"/>
+                <relationship kind="action" name="done"/>
+                <relationship kind="action" name="editingChanged:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="leftPasswordTextField" candidateClass="UITextField"/>
@@ -605,6 +620,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="F6i-BF-7ir"/>
-        <segue reference="cB1-bY-lok"/>
+        <segue reference="BcP-J1-rlP"/>
     </inferredMetricsTieBreakers>
 </document>

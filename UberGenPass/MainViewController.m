@@ -34,6 +34,11 @@
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 @property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentSites;
 @property (strong, readwrite, nonatomic) NSArray *matchingSites;
+- (IBAction)editingChanged;
+- (IBAction)lengthChanged;
+- (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer;
+- (IBAction)copyToClipboard;
+- (IBAction)launchSafari;
 @end
 
 @implementation MainViewController
@@ -280,7 +285,7 @@
       [((SettingsViewController *)self.presentedViewController) resetForActivate];
     }
     else {
-      if (self.presentedViewController.class == HelpViewController.class) {
+      if (self.presentedViewController != nil) {
         [self dismissViewControllerAnimated:NO completion:nil];
       }
       

@@ -11,6 +11,9 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *backButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *forwardButtonItem;
+- (IBAction)done;
+- (IBAction)back;
+- (IBAction)forward;
 @end
 
 @implementation HelpViewController

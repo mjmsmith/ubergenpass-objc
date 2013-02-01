@@ -15,5 +15,4 @@
 
 @interface AboutViewController : UIViewController
 @property (weak, readwrite, nonatomic) id <AboutViewControllerDelegate> delegate;
-- (IBAction)done;
 @end
