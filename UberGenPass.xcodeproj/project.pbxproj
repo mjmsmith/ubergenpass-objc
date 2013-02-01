@@ -28,7 +28,6 @@
 		4D5AB303166FDCC200289CA6 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AB302166FDCC200289CA6 /* GradientButton.m */; };
 		4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
 		4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
-		4D6576FB166536FD00F32D4F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576FA166536FD00F32D4F /* CoreGraphics.framework */; };
 		4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D6576FF166536FD00F32D4F /* InfoPlist.strings */; };
 		4D657703166536FD00F32D4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657702166536FD00F32D4F /* main.m */; };
 		4D657707166536FD00F32D4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657706166536FD00F32D4F /* AppDelegate.m */; };
@@ -49,6 +48,7 @@
 		4D8B125E1665AFD40062C305 /* RedStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12581665AFD40062C305 /* RedStatus@2x.png */; };
 		4D8B125F1665AFD40062C305 /* YellowStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12591665AFD40062C305 /* YellowStatus.png */; };
 		4D8B12601665AFD40062C305 /* YellowStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B125A1665AFD40062C305 /* YellowStatus@2x.png */; };
+		4D8F4D7A16BB760B00B29904 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */; };
 		4D98230E16726902001F3D8A /* WelcomeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98230C16726902001F3D8A /* WelcomeOverlay.png */; };
 		4D98230F16726902001F3D8A /* WelcomeOverlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98230D16726902001F3D8A /* WelcomeOverlay@2x.png */; };
 		4D98231216727EF4001F3D8A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98231116727EF4001F3D8A /* Default-568h@2x.png */; };
@@ -106,7 +106,6 @@
 		4D6576F2166536FD00F32D4F /* UberGenPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberGenPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6576F6166536FD00F32D4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D6576F8166536FD00F32D4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4D6576FA166536FD00F32D4F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4D657700166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D657702166536FD00F32D4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D657704166536FD00F32D4F /* UberGenPass-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UberGenPass-Prefix.pch"; sourceTree = "<group>"; };
@@ -134,6 +133,7 @@
 		4D8B12591665AFD40062C305 /* YellowStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowStatus.png; sourceTree = "<group>"; };
 		4D8B125A1665AFD40062C305 /* YellowStatus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YellowStatus@2x.png"; sourceTree = "<group>"; };
 		4D8B12611665B91D0062C305 /* UberGenPass-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UberGenPass-Info.plist"; sourceTree = "<group>"; };
+		4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4D98230C16726902001F3D8A /* WelcomeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeOverlay.png; sourceTree = "<group>"; };
 		4D98230D16726902001F3D8A /* WelcomeOverlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WelcomeOverlay@2x.png"; sourceTree = "<group>"; };
 		4D98231116727EF4001F3D8A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D6576FB166536FD00F32D4F /* CoreGraphics.framework in Frameworks */,
+				4D8F4D7A16BB760B00B29904 /* CoreGraphics.framework in Frameworks */,
 				4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */,
 				4D2FBCA916694F7F007B8065 /* Security.framework in Frameworks */,
 				4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */,
@@ -206,7 +206,7 @@
 		4D6576F5166536FD00F32D4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4D6576FA166536FD00F32D4F /* CoreGraphics.framework */,
+				4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */,
 				4D6576F8166536FD00F32D4F /* Foundation.framework */,
 				4D2FBCA816694F7F007B8065 /* Security.framework */,
 				4D65771D166536FD00F32D4F /* SenTestingKit.framework */,
