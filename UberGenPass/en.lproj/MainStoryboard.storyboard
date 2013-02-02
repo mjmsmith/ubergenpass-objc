@@ -211,9 +211,9 @@
                     <connections>
                         <outlet property="checkmarkImageView" destination="0cx-uC-ixZ" id="dWS-v1-oYX"/>
                         <outlet property="clipboardButton" destination="LRc-2i-vlU" id="mcK-T3-48P"/>
+                        <outlet property="domainLabel" destination="WmF-lm-GqR" id="TS0-OD-TUR"/>
                         <outlet property="matchingSitesTableView" destination="QSM-b0-eRh" id="hzs-TO-Hrv"/>
                         <outlet property="matchingSitesView" destination="5Hs-N2-o2x" id="Tj8-Sw-SPE"/>
-                        <outlet property="passwordHostLabel" destination="WmF-lm-GqR" id="4om-Mu-jul"/>
                         <outlet property="passwordLengthStepper" destination="N8b-Y0-FHI" id="kbI-Vj-Vrr"/>
                         <outlet property="passwordLengthTextField" destination="kMk-DS-CcW" id="eXC-v8-83c"/>
                         <outlet property="passwordTapView" destination="3SQ-CK-b1y" id="jQ9-BI-DXh"/>
@@ -547,72 +547,6 @@
         <image name="SettingsButton.png" width="32" height="32"/>
         <image name="WelcomeOverlay.png" width="320" height="200"/>
     </resources>
-    <classes>
-        <class className="AboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done"/>
-                <relationship kind="action" name="rate"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rateButton" candidateClass="GradientButton"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="GradientButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GradientButton.h"/>
-        </class>
-        <class className="HelpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back"/>
-                <relationship kind="action" name="done"/>
-                <relationship kind="action" name="forward"/>
-                <relationship kind="outlet" name="backButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="forwardButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="copyToClipboard"/>
-                <relationship kind="action" name="editingChanged"/>
-                <relationship kind="action" name="launchSafari"/>
-                <relationship kind="action" name="lengthChanged"/>
-                <relationship kind="action" name="tapGestureRecognized:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="checkmarkImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="clipboardButton" candidateClass="GradientButton"/>
-                <relationship kind="outlet" name="matchingSitesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="matchingSitesView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordHostLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="passwordLengthStepper" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="passwordLengthTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordTapView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="safariButton" candidateClass="GradientButton"/>
-                <relationship kind="outlet" name="siteTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addSafariBookmarklet"/>
-                <relationship kind="action" name="cancel"/>
-                <relationship kind="action" name="done"/>
-                <relationship kind="action" name="editingChanged:"/>
-                <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="doneButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="leftPasswordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="passwordHashSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="recentSitesSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="rightPasswordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="statusImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="timeoutSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="welcomeImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

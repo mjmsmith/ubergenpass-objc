@@ -23,7 +23,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *siteTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UILabel *passwordHostLabel;
+@property (strong, readwrite, nonatomic) IBOutlet UILabel *domainLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *passwordTapView;
 @property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
@@ -116,7 +116,7 @@
 
   // Controls hidden until we have a site.
   
-  self.passwordHostLabel.hidden = YES;
+  self.domainLabel.hidden = YES;
   self.passwordTextField.hidden = YES;
   self.clipboardButton.hidden = YES;
   self.safariButton.hidden = YES;
@@ -202,12 +202,12 @@
   BOOL hidden = (domain == nil);
 
   if (!hidden) {
-    self.passwordHostLabel.text = domain;
+    self.domainLabel.text = domain;
     self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForSite:self.siteTextField.text
                                                                               length:self.passwordLengthStepper.value];
   }
   
-  self.passwordHostLabel.hidden = hidden;
+  self.domainLabel.hidden = hidden;
   self.passwordTextField.hidden = hidden;
   self.clipboardButton.hidden = hidden;
   self.safariButton.hidden = hidden;
