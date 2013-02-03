@@ -31,6 +31,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *matchingSitesView;
 @property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
+@property (strong, readwrite, nonatomic) UIView *coveringView;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 @property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentSites;
 @property (strong, readwrite, nonatomic) NSArray *matchingSites;
@@ -46,8 +47,8 @@
 #pragma mark Lifecycle
 
 - (void)dealloc {
-  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
-  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
   [NSNotificationCenter.defaultCenter removeObserver:self name:UIPasteboardChangedNotification object:UIPasteboard.generalPasteboard];
 }
 
@@ -59,12 +60,7 @@
   }
   else {
     self.siteTextField.text = site;
-
     [self editingChanged];
-    
-    if (!self.passwordTextField.hidden) {
-      [self.siteTextField resignFirstResponder];
-    }
   }
 }
 
@@ -73,7 +69,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  NSArray *recentSites = [NSUserDefaults.standardUserDefaults arrayForKey:RecentSitesKey];
+  // Recent sites.
+  
+  NSError *error = nil;
+  NSString *str = [Keychain stringForKey:RecentSitesKey];
+  NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+  NSArray *recentSites = (data == nil) ? nil : [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
   
   if (recentSites != nil) {
     self.recentSites = [NSMutableOrderedSet orderedSetWithArray:recentSites];
@@ -83,11 +84,11 @@
   // Notifications.
   
   [NSNotificationCenter.defaultCenter addObserver:self
-                                         selector:@selector(applicationWillResignActive:)
-                                             name:UIApplicationWillResignActiveNotification object:nil];
+                                         selector:@selector(applicationDidEnterBackground:)
+                                             name:UIApplicationDidEnterBackgroundNotification object:nil];
   [NSNotificationCenter.defaultCenter addObserver:self
-                                         selector:@selector(applicationDidBecomeActive:)
-                                             name:UIApplicationDidBecomeActiveNotification object:nil];
+                                         selector:@selector(applicationWillEnterForeground:)
+                                             name:UIApplicationWillEnterForegroundNotification object:nil];
   [NSNotificationCenter.defaultCenter addObserver:self
                                          selector:@selector(pasteboardChanged:)
                                              name:UIPasteboardChangedNotification object:UIPasteboard.generalPasteboard];
@@ -113,14 +114,6 @@
   
   [self.clipboardButton useAlertStyle];
   [self.safariButton useAlertStyle];
-
-  // Controls hidden until we have a site.
-  
-  self.domainLabel.hidden = YES;
-  self.passwordTextField.hidden = YES;
-  self.clipboardButton.hidden = YES;
-  self.safariButton.hidden = YES;
-  self.checkmarkImageView.hidden = YES;
   
   // Matching sites popup.
   
@@ -129,16 +122,27 @@
   self.matchingSitesView.layer.shadowOffset = CGSizeMake(4, 2);
   self.matchingSitesView.layer.shadowRadius = 10;
   
+  // Controls hidden until we have a site.
+  
+  self.domainLabel.hidden = YES;
+  self.passwordTextField.hidden = YES;
+  self.clipboardButton.hidden = YES;
+  self.safariButton.hidden = YES;
+  self.checkmarkImageView.hidden = YES;
   self.matchingSitesView.hidden = YES;
 
   // If we're ready to generate passwords, update the UI as usual.
   
   if (PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self editingChanged];
+  }
+}
 
-    if (!self.passwordTextField.hidden) {
-      [self.siteTextField resignFirstResponder];
-    }
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+
+  if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
+    [self addCoveringView];
   }
 }
 
@@ -199,14 +203,14 @@
 
 - (IBAction)editingChanged {
   NSString *domain = [PasswordGenerator.sharedGenerator domainFromSite:self.siteTextField.text];
-  BOOL hidden = (domain == nil);
 
-  if (!hidden) {
+  if (domain != nil) {
     self.domainLabel.text = domain;
-    self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForSite:self.siteTextField.text
-                                                                              length:self.passwordLengthStepper.value];
+    [self updatePasswordTextField];
   }
   
+  BOOL hidden = (domain == nil);
+
   self.domainLabel.hidden = hidden;
   self.passwordTextField.hidden = hidden;
   self.clipboardButton.hidden = hidden;
@@ -225,39 +229,46 @@
       [self sizeAndShowMatchingSitesView];
     }
   }
-  
+
   self->_site = self.siteTextField.text;
 }
 
 - (IBAction)lengthChanged {
   [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:PasswordLengthKey];
-  self.passwordLengthTextField.text =  [NSNumber numberWithInt:self.passwordLengthStepper.value].stringValue;
-  [self editingChanged];
+  self.passwordLengthTextField.text = [NSNumber numberWithInt:self.passwordLengthStepper.value].stringValue;
+  
+  if (!self.passwordTextField.hidden) {
+    [self updatePasswordTextField];
+  }
 }
 
 - (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer {
   self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
   [self.siteTextField resignFirstResponder];
+
+  if (self.recentSites != nil) {
+    [self addToRecentSites];
+  }
 }
 
 - (IBAction)copyToClipboard {
   UIPasteboard.generalPasteboard.string = self.passwordTextField.text;
   [self updateClipboardCheckmark];
   
-  if (self.recentSites != nil ) {
-    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromSite:self.site]];
+  if (self.recentSites != nil) {
+    [self addToRecentSites];
   }
 }
 
 - (IBAction)launchSafari {
-  NSString *site = self.site;
+  NSString *site = self.siteTextField.text;
   
   if ([site rangeOfString:@":"].location == NSNotFound) {
     site = [@"http://" stringByAppendingString:site];
   }
   
   if (self.recentSites != nil) {
-    [self addRecentSite:[PasswordGenerator.sharedGenerator domainFromSite:site]];
+    [self addToRecentSites];
   }
   
   [UIApplication.sharedApplication openURL:[NSURL URLWithString:site]];
@@ -265,11 +276,7 @@
 
 #pragma mark Notifications
 
-- (void)applicationWillResignActive:(NSNotification *)notification {
-  self.inactiveDate = NSDate.date;
-}
-
-- (void)applicationDidBecomeActive:(NSNotification *)notification {
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
   if (self.inactiveDate == nil) {
     return;
   }
@@ -297,6 +304,11 @@
   }
   
   self.inactiveDate = nil;
+}
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+  self.inactiveDate = NSDate.date;
+  [self addCoveringView];
 }
 
 - (void)pasteboardChanged:(NSNotification *)notification {
@@ -364,7 +376,6 @@
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
   [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
-
   PasswordGenerator.sharedGenerator.savesHash = controller.savesPasswordHash;
 
   if (controller.remembersRecentSites) {
@@ -372,7 +383,7 @@
       self.recentSites = [NSMutableOrderedSet orderedSet];
       self.matchingSites = [NSMutableArray array];
 
-      [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:RecentSitesKey];
+      [self saveRecentSites];
     }
   }
   else {
@@ -387,7 +398,15 @@
 
   [NSUserDefaults.standardUserDefaults setInteger:controller.backgroundTimeout forKey:BackgroundTimeoutKey];
   
-  [self editingChanged];
+  if (!self.passwordTextField.hidden) {
+    [self updatePasswordTextField];
+  }
+
+  if (self.coveringView != nil) {
+    [self.coveringView removeFromSuperview];
+    self.coveringView = nil;
+  }
+
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -397,7 +416,21 @@
 
 #pragma mark Private
 
-- (void)addRecentSite:(NSString *)site {
+- (void)addCoveringView {
+  if (self.coveringView != nil) {
+    return;
+  }
+  
+  self.coveringView = [[UIView alloc] initWithFrame:self.view.bounds];
+  self.coveringView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  self.coveringView.backgroundColor = self.view.backgroundColor;
+  
+  [self.view addSubview:self.coveringView];
+}
+
+- (void)addToRecentSites {
+  NSString *site = [PasswordGenerator.sharedGenerator domainFromSite:self.siteTextField.text];
+  
   if ([self.recentSites containsObject:site]) {
     return;
   }
@@ -405,9 +438,9 @@
   if (self.recentSites.count >= MaxRecentSites) {
     [self.recentSites removeObjectAtIndex:0];
   }
-  [self.recentSites addObject:site];
 
-  [NSUserDefaults.standardUserDefaults setObject:[self.recentSites array] forKey:RecentSitesKey];
+  [self.recentSites addObject:site];
+  [self saveRecentSites];
 }
 
 - (NSArray *)recentSitesWithPrefix:(NSString *)prefix {
@@ -428,12 +461,26 @@
   }];
 }
 
+- (void)saveRecentSites {
+  NSError *error = nil;
+  NSData *data = [NSJSONSerialization dataWithJSONObject:[self.recentSites array] options:0 error:&error];
+  NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  
+  [Keychain setString:str forKey:RecentSitesKey];
+}
+
 - (void)sizeAndShowMatchingSitesView {
   CGRect frame = self.matchingSitesView.frame;
 
   frame.size.height = MIN(self.matchingSites.count, 5) * self.matchingSitesTableView.rowHeight;
   self.matchingSitesView.frame = frame;
   self.matchingSitesView.hidden = NO;
+}
+
+- (void)updatePasswordTextField {
+  self.passwordTextField.secureTextEntry = YES;
+  self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForSite:self.siteTextField.text
+                                                                            length:self.passwordLengthStepper.value];
 }
 
 - (void)updateClipboardCheckmark {
