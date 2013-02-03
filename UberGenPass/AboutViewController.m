@@ -9,7 +9,7 @@
 #import "AboutViewController.h"
 #import "GradientButton.h"
 
-#define AppStoreReviewsURL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=588224057"
+#define AppStoreReviewsURL @"http://camazotz.com/ubergenpass/review"
 
 @interface AboutViewController () <UIWebViewDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *nameLabel;
