@@ -55,6 +55,7 @@
 		4D98231216727EF4001F3D8A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98231116727EF4001F3D8A /* Default-568h@2x.png */; };
 		4D98231516728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4D98231616728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
+		4D99EFDC16C044CB00B2F08D /* TopLevelDomains.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D99EFDB16C044CB00B2F08D /* TopLevelDomains.txt */; };
 		4DB05B4F167E8DEF006669A1 /* Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB05B4D167E8DEF006669A1 /* Checkmark.png */; };
 		4DB05B50167E8DEF006669A1 /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */; };
 		4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D981676E7C900D3763E /* SettingsHelp.html */; };
@@ -141,6 +142,7 @@
 		4D98231116727EF4001F3D8A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4D98231316728813001F3D8A /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		4D98231416728813001F3D8A /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		4D99EFDB16C044CB00B2F08D /* TopLevelDomains.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TopLevelDomains.txt; sourceTree = "<group>"; };
 		4DB05B4D167E8DEF006669A1 /* Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkmark.png; sourceTree = "<group>"; };
 		4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
 		4DC01D971676E7C900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				4D2FBCAF1669CE99007B8065 /* SettingsButton.png */,
 				4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */,
 				4DC01D981676E7C900D3763E /* SettingsHelp.html */,
+				4D99EFDB16C044CB00B2F08D /* TopLevelDomains.txt */,
 				4D98230C16726902001F3D8A /* WelcomeOverlay.png */,
 				4D98230D16726902001F3D8A /* WelcomeOverlay@2x.png */,
 				4D8B12591665AFD40062C305 /* YellowStatus.png */,
@@ -428,6 +431,7 @@
 				4DC172B716B730B0000E2B99 /* HelpButton.png in Resources */,
 				4DC172B916B730B0000E2B99 /* HelpButton@2x.png in Resources */,
 				4D8F4D7D16BB775500B29904 /* About.html in Resources */,
+				4D99EFDC16C044CB00B2F08D /* TopLevelDomains.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
