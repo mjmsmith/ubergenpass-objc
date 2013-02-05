@@ -239,6 +239,7 @@
   
   if (!self.passwordTextField.hidden) {
     [self updatePasswordTextField];
+    [self updateClipboardCheckmark];
   }
 }
 
@@ -400,6 +401,7 @@
   
   if (!self.passwordTextField.hidden) {
     [self updatePasswordTextField];
+    [self updateClipboardCheckmark];
   }
 
   if (self.coveringView != nil) {
