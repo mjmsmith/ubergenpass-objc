@@ -126,6 +126,7 @@
   
   self.domainLabel.hidden = YES;
   self.passwordTextField.hidden = YES;
+  self.passwordTapView.hidden = YES;
   self.clipboardButton.hidden = YES;
   self.safariButton.hidden = YES;
   self.checkmarkImageView.hidden = YES;
@@ -213,6 +214,7 @@
 
   self.domainLabel.hidden = hidden;
   self.passwordTextField.hidden = hidden;
+  self.passwordTapView.hidden = hidden;
   self.clipboardButton.hidden = hidden;
   self.safariButton.hidden = hidden;
 
