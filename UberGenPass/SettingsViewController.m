@@ -24,6 +24,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
+@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *navigationBarHeightConstraint;
 @property (copy, readwrite, nonatomic) NSString *password;
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)addSafariBookmarklet;
@@ -86,15 +87,17 @@
   }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+  [self willRotateToInterfaceOrientation:UIApplication.sharedApplication.statusBarOrientation duration:0];
+  [super viewWillAppear:animated];
+}
+
 - (NSUInteger)supportedInterfaceOrientations {
   return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-  CGRect frame = self.navigationBar.frame;
-
-  frame.size.height = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 32 : 44;
-  self.navigationBar.frame = frame;
+  self.navigationBarHeightConstraint.constant = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? NavigationBarLandscapeHeight : NavigationBarPortraitHeight;
 
   int fontHeight = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 14 : 13;
   
