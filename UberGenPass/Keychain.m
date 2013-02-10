@@ -1,5 +1,5 @@
 //
-// Keychain.h
+// Keychain.m
 //
 // Based on code by Michael Mayo at http://overhrd.com/?p=208
 //
