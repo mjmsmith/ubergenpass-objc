@@ -221,7 +221,7 @@
   [self updateClipboardCheckmark];
   
   if (self.recentSites != nil) {
-    self.matchingSites = [self recentSitesWithPrefix:[self.siteTextField.text lowercaseString]];
+    self.matchingSites = [self recentSitesMatchingText:[self.siteTextField.text lowercaseString]];
     
     if (self.matchingSites.count == 0) {
       self.matchingSitesView.hidden = YES;
@@ -434,10 +434,16 @@
 
 - (void)addToRecentSites {
   NSString *site = [PasswordGenerator.sharedGenerator domainFromSite:self.siteTextField.text];
+
+  // Ignore this site if it's already the most recent one.
   
-  if ([self.recentSites containsObject:site]) {
+  if ([site isEqualToString:self.recentSites.lastObject]) {
     return;
   }
+  
+  // Append the site to the end of the ordered set.
+  
+  [self.recentSites removeObject:site];
 
   if (self.recentSites.count >= MaxRecentSites) {
     [self.recentSites removeObjectAtIndex:0];
@@ -447,22 +453,33 @@
   [self saveRecentSites];
 }
 
-- (NSArray *)recentSitesWithPrefix:(NSString *)prefix {
-  NSMutableArray *sites = [NSMutableArray array];
+- (NSArray *)recentSitesMatchingText:(NSString *)text {
+  NSMutableArray *prefixSites = [NSMutableArray array];
+  NSMutableArray *insideSites = [NSMutableArray array];
   
-  if (prefix.length == 0) {
-    return sites;
+  if (text.length == 0) {
+    return prefixSites;
   }
 
   for (NSString *site in self.recentSites) {
-    if (site.length > prefix.length && [site hasPrefix:prefix]) {
-      [sites addObject:site];
+    NSRange range = [site rangeOfString:text];
+    
+    if (range.location == 0) {
+      [prefixSites addObject:site];
+    }
+    else if (range.location != NSNotFound) {
+      [insideSites addObject:site];
     }
   }
 
-  return [sites sortedArrayUsingComparator:^(NSString *left, NSString *right) {
+  NSArray *firstSites = [prefixSites sortedArrayUsingComparator:^(NSString *left, NSString *right) {
     return [left compare:right];
   }];
+  NSArray *secondSites = [insideSites sortedArrayUsingComparator:^(NSString *left, NSString *right) {
+    return [left compare:right];
+  }];
+  
+  return [firstSites arrayByAddingObjectsFromArray:secondSites];
 }
 
 - (void)saveRecentSites {
