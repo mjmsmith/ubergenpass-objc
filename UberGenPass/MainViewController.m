@@ -17,6 +17,7 @@
 #import "SettingsViewController.h"
 
 #define MaxRecentSites 50
+#define MaxMatchingSiteListItems 5
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate,
                                   AboutViewControllerDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
@@ -31,6 +32,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *matchingSitesView;
 @property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
+@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *matchingSitesViewHeightConstraint;
 @property (strong, readwrite, nonatomic) UIView *coveringView;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 @property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentSites;
@@ -189,7 +191,8 @@
     controller.documentName = @"MainHelp";
     controller.delegate = self;
   }
-  else if ([segue.identifier isEqualToString:@"ShowSettingsOptional"] || [segue.identifier isEqualToString:@"ShowSettingsRequired"]) {
+  else if ([segue.identifier isEqualToString:@"ShowSettingsOptional"] ||
+           [segue.identifier isEqualToString:@"ShowSettingsRequired"]) {
     SettingsViewController *controller = segue.destinationViewController;
     
     controller.canCancel = [segue.identifier isEqualToString:@"ShowSettingsOptional"];
@@ -491,10 +494,8 @@
 }
 
 - (void)sizeAndShowMatchingSitesView {
-  CGRect frame = self.matchingSitesView.frame;
-
-  frame.size.height = MIN(self.matchingSites.count, 5) * self.matchingSitesTableView.rowHeight;
-  self.matchingSitesView.frame = frame;
+  self.matchingSitesViewHeightConstraint.constant = MIN(self.matchingSites.count, MaxMatchingSiteListItems) *
+                                                    self.matchingSitesTableView.rowHeight;
   self.matchingSitesView.hidden = NO;
 }
 
