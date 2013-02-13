@@ -139,12 +139,7 @@
   if (PasswordGenerator.sharedGenerator.hasMasterPassword) {
     [self editingChanged];
   }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-
-  if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
+  else {
     [self addCoveringView];
   }
 }
@@ -159,6 +154,7 @@
     [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
   }
   else {
+    [self removeCoveringView];
     if (self.siteTextField.text.length == 0) {
       [self.siteTextField becomeFirstResponder];
     }
@@ -307,6 +303,7 @@
   }
   else {
     [self updateClipboardCheckmark];
+    [self removeCoveringView];
   }
   
   self.inactiveDate = nil;
@@ -409,11 +406,7 @@
     [self updateClipboardCheckmark];
   }
 
-  if (self.coveringView != nil) {
-    [self.coveringView removeFromSuperview];
-    self.coveringView = nil;
-  }
-
+  [self removeCoveringView];
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -433,6 +426,15 @@
   self.coveringView.backgroundColor = self.view.backgroundColor;
   
   [self.view addSubview:self.coveringView];
+}
+
+- (void)removeCoveringView {
+  if (self.coveringView == nil) {
+    return;
+  }
+
+  [self.coveringView removeFromSuperview];
+  self.coveringView = nil;
 }
 
 - (void)addToRecentSites {
