@@ -16,3 +16,10 @@
 #define PasswordLengthKey @"PasswordLength"
 #define RecentSitesKey @"RecentSites"
 #define WelcomeShownKey @"WelcomeShown"
+
+#define ShowAboutSegue @"ShowAbout"
+#define ShowHelpSegue @"ShowHelp"
+#define ShowSettingsOptionalSegue @"ShowSettingsOptional"
+#define ShowSettingsRequiredSegue @"ShowSettingsRequired"
+
+#define MatchingSitesCellIdentifier @"MatchingSitesTableViewCell"

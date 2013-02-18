@@ -151,7 +151,7 @@
   // Otherwise, set focus if we have no site text.
   
   if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
-    [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
+    [self performSegueWithIdentifier:ShowSettingsRequiredSegue sender:self];
   }
   else {
     [self removeCoveringView];
@@ -176,22 +176,22 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"ShowAbout"]) {
+  if ([segue.identifier isEqualToString:ShowAboutSegue]) {
     AboutViewController *controller = segue.destinationViewController;
     
     controller.delegate = self;
   }
-  else if ([segue.identifier isEqualToString:@"ShowHelp"]) {
+  else if ([segue.identifier isEqualToString:ShowHelpSegue]) {
     HelpViewController *controller = segue.destinationViewController;
     
     controller.documentName = @"MainHelp";
     controller.delegate = self;
   }
-  else if ([segue.identifier isEqualToString:@"ShowSettingsOptional"] ||
-           [segue.identifier isEqualToString:@"ShowSettingsRequired"]) {
+  else if ([segue.identifier isEqualToString:ShowSettingsOptionalSegue] ||
+           [segue.identifier isEqualToString:ShowSettingsRequiredSegue]) {
     SettingsViewController *controller = segue.destinationViewController;
     
-    controller.canCancel = [segue.identifier isEqualToString:@"ShowSettingsOptional"];
+    controller.canCancel = [segue.identifier isEqualToString:ShowSettingsOptionalSegue];
     controller.savesPasswordHash = PasswordGenerator.sharedGenerator.savesHash;
     controller.remembersRecentSites = (self.recentSites != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:BackgroundTimeoutKey];
@@ -298,7 +298,7 @@
         [self dismissViewControllerAnimated:NO completion:nil];
       }
       
-      [self performSegueWithIdentifier:@"ShowSettingsRequired" sender:self];
+      [self performSegueWithIdentifier:ShowSettingsRequiredSegue sender:self];
     }
   }
   else {
@@ -325,7 +325,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [self.matchingSitesTableView dequeueReusableCellWithIdentifier:@"MatchingSitesTableViewCell"];
+  UITableViewCell *cell = [self.matchingSitesTableView dequeueReusableCellWithIdentifier:MatchingSitesCellIdentifier];
   
   cell.textLabel.text = self.matchingSites[indexPath.row];
   

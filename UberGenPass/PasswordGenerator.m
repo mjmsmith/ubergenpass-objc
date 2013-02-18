@@ -163,7 +163,7 @@ static NSMutableSet *TLDs;
 
 - (void)setSavesHash:(BOOL)savesHash {
   if (savesHash) {
-    NSAssert((self.masterPassword != nil), @"Master password must exist before hash can be saved.");
+    NSAssert((self.masterPassword != nil), @"master password must exist before hash can be saved");
     [Keychain setString:[self.hash base64EncodedString] forKey:PasswordHashKey];
   }
   else {
