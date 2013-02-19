@@ -192,7 +192,7 @@
     SettingsViewController *controller = segue.destinationViewController;
     
     controller.canCancel = [segue.identifier isEqualToString:ShowSettingsOptionalSegue];
-    controller.remembersPasswordHash = PasswordGenerator.sharedGenerator.savesHash;
+    controller.remembersPasswordHash = ([Keychain stringForKey:PasswordHashKey] != nil);
     controller.remembersRecentSites = (self.recentSites != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:BackgroundTimeoutKey];
     controller.delegate = self;
@@ -378,8 +378,7 @@
 #pragma mark SettingsViewControllerDelegate
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
-  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
-  PasswordGenerator.sharedGenerator.savesHash = controller.remembersPasswordHash;
+  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password andSaveHash:controller.remembersPasswordHash];
 
   if (controller.remembersRecentSites) {
     if (self.recentSites == nil) {

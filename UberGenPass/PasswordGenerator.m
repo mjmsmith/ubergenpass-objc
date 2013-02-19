@@ -157,13 +157,11 @@ static NSMutableSet *TLDs;
   return self.masterPassword != nil;
 }
 
-- (BOOL)savesHash {
-  return [Keychain stringForKey:PasswordHashKey] != nil;
-}
-
-- (void)setSavesHash:(BOOL)savesHash {
+- (void)updateMasterPassword:(NSString *)masterPassword andSaveHash:(BOOL)savesHash {
+  self.masterPassword = masterPassword;
+  self.hash = [self.class sha256:masterPassword];
+  
   if (savesHash) {
-    NSAssert((self.masterPassword != nil), @"master password must exist before hash can be saved");
     [Keychain setString:[self.hash base64EncodedString] forKey:PasswordHashKey];
   }
   else {
@@ -173,11 +171,6 @@ static NSMutableSet *TLDs;
 
 - (BOOL)textMatchesHash:(NSString *)text {
   return [self.hash isEqualToData:[self.class sha256:text]];
-}
-
-- (void)updateMasterPassword:(NSString *)masterPassword {
-  self.masterPassword = masterPassword;
-  self.hash = [self.class sha256:masterPassword];
 }
 
 #pragma mark Private

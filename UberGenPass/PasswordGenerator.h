@@ -6,7 +6,6 @@
 //
 
 @interface PasswordGenerator : NSObject
-@property (assign, readwrite, nonatomic) BOOL savesHash;
 @property (assign, readonly, nonatomic) BOOL hasMasterPassword;
 @property (copy, readonly, nonatomic) NSData *hash;
 
@@ -17,7 +16,7 @@
 - (NSString *)passwordForSite:(NSString *)site length:(int)length;
 - (NSString *)domainFromSite:(NSString *)site;
 
-- (void)updateMasterPassword:(NSString *)masterPassword;
+- (void)updateMasterPassword:(NSString *)masterPassword andSaveHash:(BOOL)savesHash;
 
 - (BOOL)textMatchesHash:(NSString *)text;
 @end
