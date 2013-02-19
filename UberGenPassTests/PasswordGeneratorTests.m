@@ -16,7 +16,7 @@
 
 - (void)setUp {
   self.generator = [[PasswordGenerator alloc] init];
-  [self.generator updateMasterPassword:@"t0pS3cr3t"];
+  [self.generator updateMasterPassword:@"t0pS3cr3t" andSaveHash:NO];
 }
 
 - (void)tearDown {
@@ -35,27 +35,27 @@
   ];
 
   for (NSString *url in urls) {
-    STAssertEqualObjects([self.generator passwordForURL:url length:10], @"sTX7smlm3O", url);
+    STAssertEqualObjects([self.generator passwordForSite:url length:10], @"sTX7smlm3O", url);
   }
 }
 
 - (void)testDomains {
-  STAssertEqualObjects([self.generator passwordForURL:@"example.com" length:10], @"sTX7smlm3O", nil);
-  STAssertEqualObjects([self.generator passwordForURL:@"example.com/foo" length:10], @"sTX7smlm3O", nil);
+  STAssertEqualObjects([self.generator passwordForSite:@"example.com" length:10], @"sTX7smlm3O", nil);
+  STAssertEqualObjects([self.generator passwordForSite:@"example.com/foo" length:10], @"sTX7smlm3O", nil);
   
-  STAssertEqualObjects([self.generator passwordForURL:@"www.example.com" length:10], @"u8zU8AndAo", nil);
-  STAssertEqualObjects([self.generator passwordForURL:@"www.example.com/foo" length:10], @"u8zU8AndAo", nil);
+  STAssertEqualObjects([self.generator passwordForSite:@"www.example.com" length:10], @"u8zU8AndAo", nil);
+  STAssertEqualObjects([self.generator passwordForSite:@"www.example.com/foo" length:10], @"u8zU8AndAo", nil);
 }
 
 - (void)testTLDs {
-  STAssertEqualObjects([self.generator passwordForURL:@"example.co.uk" length:10], @"dyqtqDL83O", nil);
-  STAssertEqualObjects([self.generator passwordForURL:@"example.com.au" length:10], @"m1DnmJ4c4Q", nil);
+  STAssertEqualObjects([self.generator passwordForSite:@"example.co.uk" length:10], @"dyqtqDL83O", nil);
+  STAssertEqualObjects([self.generator passwordForSite:@"example.com.au" length:10], @"m1DnmJ4c4Q", nil);
   
 }
 
 - (void)testLengths {
   for (int i = 4; i < 24; ++i) {
-    STAssertEqualObjects([self.generator passwordForURL:@"http://example.com" length:i],
+    STAssertEqualObjects([self.generator passwordForSite:@"http://example.com" length:i],
                          [@"sTX7smlm3OiNOKgHC3gjpQAA" substringToIndex:i],
                          [[NSNumber numberWithInt:i] stringValue]);
   }
@@ -70,7 +70,7 @@
   ];
 
   for (NSString *url in urls) {
-    STAssertNil([self.generator passwordForURL:url length:10], url);
+    STAssertNil([self.generator passwordForSite:url length:10], url);
   }
 }
 
