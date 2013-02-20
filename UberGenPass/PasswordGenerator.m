@@ -10,9 +10,8 @@
 #import "NSData+Base64.h"
 #import "PasswordGenerator.h"
 
-static NSMutableSet *TLDs;
-
 @interface PasswordGenerator ()
+@property (retain, readwrite, nonatomic) NSMutableOrderedSet *tlds;
 @property (retain, readwrite, nonatomic) NSString *masterPassword;
 @property (copy, readwrite, nonatomic) NSData *hash;
 @property (retain, readwrite, nonatomic) NSRegularExpression *lowerCasePattern;
@@ -25,28 +24,17 @@ static NSMutableSet *TLDs;
 
 #pragma mark Lifecycle
 
-+ (void)initialize {
-  if (self == PasswordGenerator.class) {
-    NSError *error = nil;
-    NSString *path = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"TopLevelDomains.txt"];
-    NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-    NSRegularExpression *whitespace = [NSRegularExpression regularExpressionWithPattern:@"\\s" options:0 error:nil];
-    
-    NSAssert((error == nil), @"read error in tlds");
-    NSAssert(([text rangeOfString:@"$"].location == NSNotFound), @"$ in tlds");
-    
-    text = [text stringByReplacingOccurrencesOfString:@"\n" withString:@"$"];
-    NSAssert(([whitespace numberOfMatchesInString:text options:0 range:NSMakeRange(0, text.length)] == 0), @"whitespace in tlds");
-    
-    TLDs = [NSMutableSet setWithArray:[text componentsSeparatedByString:@"$"]];
-    [TLDs removeObject:@""];
-  }
-}
-
 - (id)init {
   if ((self = [super init]) != nil) {
-    self.hash = [NSData dataFromBase64String:[Keychain stringForKey:PasswordHashKey]];
+    NSError *error = nil;
+    NSString *path = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"TopLevelDomains.json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
+//    NSAssert1((error == nil), @"tlds load failed with %@", error);
+    
+    self.tlds = [NSMutableSet setWithArray:array];
+    self.hash = [NSData dataFromBase64String:[Keychain stringForKey:PasswordHashKey]];
     self.lowerCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[a-z]" options:0 error:nil];
     self.upperCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]" options:0 error:nil];
     self.digitPattern = [NSRegularExpression regularExpressionWithPattern:@"[\\d]" options:0 error:nil];
@@ -139,7 +127,7 @@ static NSMutableSet *TLDs;
     if (parts.count >= 2) {
       domain = [[parts subarrayWithRange:NSMakeRange((parts.count - 2), 2)] componentsJoinedByString:@"."];
       
-      if ([TLDs containsObject:domain]) {
+      if ([self.tlds containsObject:domain]) {
         if (parts.count >= 3) {
           domain = [[parts subarrayWithRange:NSMakeRange((parts.count - 3), 3)] componentsJoinedByString:@"."];
         }
