@@ -408,21 +408,14 @@
                                     <outlet property="delegate" destination="6" id="CqV-jT-ZTA"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remember Password Hash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z44-ze-eiR">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" type="user" id="DWa-An-Fro"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Password Hash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z44-ze-eiR">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eAq-ub-eJq" userLabel="Switch - Save Password Hash"/>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remember Recent Sites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubx-H7-1Vg">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" type="user" id="X0W-Iz-Sse"/>
-                                    <constraint firstAttribute="width" constant="209" type="user" id="dDH-4x-ZaQ"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Recent Sites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubx-H7-1Vg">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -441,7 +434,7 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Qe-Lj-LeB">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="290" type="user" id="fqr-aC-cW3"/>
+                                    <constraint firstAttribute="width" constant="250" type="user" id="fqr-aC-cW3"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Immediately"/>
@@ -499,7 +492,7 @@
                             <constraint firstItem="geA-K7-LHe" firstAttribute="bottom" secondItem="7" secondAttribute="bottom" type="user" id="KkJ-5R-XLd"/>
                             <constraint firstItem="79q-ur-hX6" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" type="user" id="KsG-2Q-2Dk"/>
                             <constraint firstAttribute="centerX" secondItem="fYr-2C-JLF" secondAttribute="centerX" type="user" id="Ldv-g8-cMy"/>
-                            <constraint firstItem="Lw2-ET-7mR" firstAttribute="top" secondItem="Ubx-H7-1Vg" secondAttribute="bottom" constant="11" type="user" id="Pmc-sr-IU2"/>
+                            <constraint firstItem="Lw2-ET-7mR" firstAttribute="top" secondItem="Ubx-H7-1Vg" secondAttribute="bottom" constant="16" type="user" id="Pmc-sr-IU2"/>
                             <constraint firstItem="M4U-NP-yJs" firstAttribute="trailing" secondItem="xbk-IX-gc4" secondAttribute="trailing" type="user" id="QXA-uU-TOj"/>
                             <constraint firstItem="szX-NZ-2YT" firstAttribute="centerY" secondItem="M4U-NP-yJs" secondAttribute="centerY" type="user" id="Qld-KE-E2c"/>
                             <constraint firstItem="Lw2-ET-7mR" firstAttribute="leading" secondItem="Ubx-H7-1Vg" secondAttribute="leading" type="user" id="Qvj-r6-XIj"/>
@@ -510,7 +503,6 @@
                             <constraint firstItem="Z44-ze-eiR" firstAttribute="centerY" secondItem="eAq-ub-eJq" secondAttribute="centerY" type="user" id="Z4x-A8-tCW"/>
                             <constraint firstItem="szX-NZ-2YT" firstAttribute="top" secondItem="xbk-IX-gc4" secondAttribute="bottom" constant="4" type="user" id="ZEc-ez-Hpd"/>
                             <constraint firstItem="xbk-IX-gc4" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="10" type="user" id="Zwd-S2-B8S"/>
-                            <constraint firstItem="Z44-ze-eiR" firstAttribute="trailing" secondItem="Ubx-H7-1Vg" secondAttribute="trailing" type="default" id="duQ-77-XyE"/>
                             <constraint firstItem="geA-K7-LHe" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="user" id="ffu-mU-tby"/>
                             <constraint firstItem="szX-NZ-2YT" firstAttribute="centerY" secondItem="fYr-2C-JLF" secondAttribute="centerY" type="user" id="hoa-AE-4tP"/>
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="user" id="i10-4t-qpa"/>
@@ -520,7 +512,7 @@
                             <constraint firstItem="eAq-ub-eJq" firstAttribute="trailing" secondItem="Jjj-ca-rcS" secondAttribute="trailing" type="user" id="ouv-1W-Dd2"/>
                             <constraint firstItem="Jjj-ca-rcS" firstAttribute="trailing" secondItem="Lw2-ET-7mR" secondAttribute="trailing" type="user" id="rBh-fm-yyV"/>
                             <constraint firstItem="3Qe-Lj-LeB" firstAttribute="top" secondItem="Lw2-ET-7mR" secondAttribute="bottom" constant="4" type="user" id="sDP-Po-UmA"/>
-                            <constraint firstItem="Jjj-ca-rcS" firstAttribute="top" secondItem="eAq-ub-eJq" secondAttribute="bottom" constant="5" type="user" id="tMY-GI-ggn"/>
+                            <constraint firstItem="Jjj-ca-rcS" firstAttribute="top" secondItem="eAq-ub-eJq" secondAttribute="bottom" constant="10" type="user" id="tMY-GI-ggn"/>
                             <constraint firstAttribute="centerX" secondItem="3Qe-Lj-LeB" secondAttribute="centerX" type="user" id="wsc-ob-zgu"/>
                         </constraints>
                     </view>
@@ -718,7 +710,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cB1-bY-lok"/>
+        <segue reference="BcP-J1-rlP"/>
         <segue reference="F6i-BF-7ir"/>
     </inferredMetricsTieBreakers>
 </document>
