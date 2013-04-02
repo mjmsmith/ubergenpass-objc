@@ -20,14 +20,7 @@
   // Is this the same version as the last session?
   
   if (![currentVersion isEqualToString:defaultsVersion]) {
-    // No, if we have no version, it's a new install or a delete/reinstall.
-    // In case it's the last one, delete undeleted Keychain data.
-    
-    if (defaultsVersion == nil) {
-      [Keychain removeStringForKey:PasswordHashKey];
-    }
-    
-    [NSUserDefaults.standardUserDefaults setObject:currentVersion forKey:AppVersionKey];
+    [self versionUpdatedFrom:defaultsVersion to:currentVersion];
   }
   
   return YES;
@@ -50,6 +43,26 @@
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
   return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+#pragma mark Private
+
+- (void)versionUpdatedFrom:(NSString *)oldVersion to:(NSString *)newVersion {
+  if (oldVersion == nil) {
+    [Keychain removeStringForKey:PasswordHashKey];
+    [Keychain removeStringForKey:RecentSitesKey];
+  }
+  else {
+    if ([newVersion isEqualToString:@"1.1.0"]) {
+      NSString *title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(AppNameString, nil), newVersion];
+      NSString *message = NSLocalizedString(RecentSitesString, nil);
+      NSString *ok = NSLocalizedString(OKString, nil);
+      
+      [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:ok otherButtonTitles:nil] show];
+    }
+  }
+  
+  [NSUserDefaults.standardUserDefaults setObject:newVersion forKey:AppVersionKey];
 }
 
 @end

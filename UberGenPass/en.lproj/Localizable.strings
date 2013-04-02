@@ -1,7 +1,9 @@
-/* 
-  Localizable.strings
-  UberGenPass
+//
+//  Localizable.strings
+//  UberGenPass
+//
+//  Copyright (c) 2012 Camazotz Limited. All rights reserved.
+//
 
-  Created by Mark Smith on 12/10/12.
-  Copyright (c) 2012 Camazotz Limited. All rights reserved.
-*/
+"AppName" = "UberGenPass";
+"RecentSites" = "The 'Save Recent Sites' setting adds the ability to save and recall previously entered sites as you type.";
