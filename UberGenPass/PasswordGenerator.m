@@ -33,7 +33,7 @@
     
 //    NSAssert1((error == nil), @"tlds load failed with %@", error);
     
-    self.tlds = [NSMutableSet setWithArray:array];
+    self.tlds = [NSMutableOrderedSet orderedSetWithArray:array];
     self.hash = [NSData dataFromBase64String:[Keychain stringForKey:PasswordHashKey]];
     self.lowerCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[a-z]" options:0 error:nil];
     self.upperCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]" options:0 error:nil];
