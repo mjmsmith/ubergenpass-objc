@@ -25,8 +25,6 @@
 		4D424E5C17E0C2D2000E1D5A /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5817E0C2D2000E1D5A /* FUIButton.m */; };
 		4D424E5D17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */; };
 		4D424E5E17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */; };
-		4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
-		4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8716653CBB006A86E9 /* NSData+Base64.m */; };
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
@@ -106,8 +104,6 @@
 		4D424E5817E0C2D2000E1D5A /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
 		4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
 		4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
-		4D501E8616653CBB006A86E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		4D501E8716653CBB006A86E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
 		4D501E8916653CBB006A86E9 /* PasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordGenerator.m; sourceTree = "<group>"; };
 		4D6576F2166536FD00F32D4F /* UberGenPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberGenPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,8 +237,6 @@
 				4D2FBCAC166992F7007B8065 /* Keychain.m */,
 				4D657711166536FD00F32D4F /* MainViewController.h */,
 				4D657712166536FD00F32D4F /* MainViewController.m */,
-				4D501E8616653CBB006A86E9 /* NSData+Base64.h */,
-				4D501E8716653CBB006A86E9 /* NSData+Base64.m */,
 				4D501E8816653CBB006A86E9 /* PasswordGenerator.h */,
 				4D501E8916653CBB006A86E9 /* PasswordGenerator.m */,
 				4D657714166536FD00F32D4F /* SettingsViewController.h */,
@@ -480,7 +474,6 @@
 				4D657707166536FD00F32D4F /* AppDelegate.m in Sources */,
 				4D657713166536FD00F32D4F /* MainViewController.m in Sources */,
 				4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */,
-				4D501E8A16653CBB006A86E9 /* NSData+Base64.m in Sources */,
 				4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
 				4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */,
 				4D98231516728813001F3D8A /* HelpViewController.m in Sources */,
@@ -495,7 +488,6 @@
 			files = (
 				4D424E5C17E0C2D2000E1D5A /* FUIButton.m in Sources */,
 				4D65772B166536FD00F32D4F /* PasswordGeneratorTests.m in Sources */,
-				4D501E8B16653CBB006A86E9 /* NSData+Base64.m in Sources */,
 				4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
 				4D424E5E17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */,
 				4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */,

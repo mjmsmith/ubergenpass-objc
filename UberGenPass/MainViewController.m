@@ -12,7 +12,6 @@
 #import "HelpViewController.h"
 #import "Keychain.h"
 #import "MainViewController.h"
-#import "NSData+Base64.h"
 #import "PasswordGenerator.h"
 #import "SettingsViewController.h"
 
