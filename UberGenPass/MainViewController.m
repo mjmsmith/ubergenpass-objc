@@ -8,7 +8,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "AboutViewController.h"
-#import "GradientButton.h"
+#import "FUIButton.h"
 #import "HelpViewController.h"
 #import "Keychain.h"
 #import "MainViewController.h"
@@ -19,7 +19,7 @@
 #define MaxRecentSites 50
 #define MaxMatchingSiteListItems 5
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate,
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, UIToolbarDelegate,
                                   AboutViewControllerDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *siteTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
@@ -27,9 +27,10 @@
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *domainLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *passwordTapView;
-@property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
-@property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
+@property (strong, readwrite, nonatomic) IBOutlet FUIButton *clipboardButton;
+@property (strong, readwrite, nonatomic) IBOutlet FUIButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *matchingSitesView;
 @property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *matchingSitesViewHeightConstraint;
@@ -114,9 +115,12 @@
   
   // Password buttons.
   
-  [self.clipboardButton useAlertStyle];
-  [self.safariButton useAlertStyle];
-  
+  self.clipboardButton.buttonColor = [UIColor colorWithRed:50.0/255 green:79.0/255 blue:133.0/255 alpha:1];
+  self.clipboardButton.cornerRadius = 6.0f;
+
+  self.safariButton.buttonColor = [UIColor colorWithRed:50.0/255 green:79.0/255 blue:133.0/255 alpha:1];
+  self.safariButton.cornerRadius = 6.0f;
+
   // Matching sites popup.
   
   self.matchingSitesView.layer.shadowColor = UIColor.blackColor.CGColor;
@@ -142,6 +146,10 @@
   else {
     [self addCoveringView];
   }
+  
+  // Toolbar.
+  
+  self.toolbar.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -361,6 +369,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return YES;
+}
+
+#pragma mark UIToolbarDelegate
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+  return UIBarPositionBottom;
 }
 
 #pragma mark AboutViewControllerDelegate
