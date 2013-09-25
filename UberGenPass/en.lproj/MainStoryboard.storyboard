@@ -438,16 +438,6 @@
                                     <outlet property="delegate" destination="6" id="CqV-jT-ZTA"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Password Hash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z44-ze-eiR">
-                                <rect key="frame" x="35" y="144" width="164" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eAq-ub-eJq" userLabel="Switch - Save Password Hash">
-                                <rect key="frame" x="236" y="139" width="51" height="31"/>
-                            </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Recent Sites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubx-H7-1Vg">
                                 <rect key="frame" x="35" y="185" width="140" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -456,7 +446,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jjj-ca-rcS" userLabel="Switch - Remember Recent Sites">
-                                <rect key="frame" x="236" y="180" width="51" height="31"/>
+                                <rect key="frame" x="236" y="181" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw2-ET-7mR">
                                 <rect key="frame" x="35" y="223" width="250" height="21"/>
@@ -530,7 +520,6 @@
                             <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="7hQ-sG-Tx4"/>
                             <constraint firstItem="xbk-IX-gc4" firstAttribute="top" secondItem="12" secondAttribute="bottom" constant="10" id="9EJ-68-D4Y"/>
                             <constraint firstAttribute="bottom" secondItem="p2x-tj-kTT" secondAttribute="bottom" constant="26" id="Aqd-i2-iHs"/>
-                            <constraint firstItem="eAq-ub-eJq" firstAttribute="top" secondItem="M4U-NP-yJs" secondAttribute="bottom" constant="10" id="GQ8-Ba-QPC"/>
                             <constraint firstItem="geA-K7-LHe" firstAttribute="bottom" secondItem="7" secondAttribute="bottom" id="KkJ-5R-XLd"/>
                             <constraint firstItem="79q-ur-hX6" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" id="KsG-2Q-2Dk"/>
                             <constraint firstAttribute="centerX" secondItem="fYr-2C-JLF" secondAttribute="centerX" id="Ldv-g8-cMy"/>
@@ -539,10 +528,9 @@
                             <constraint firstItem="szX-NZ-2YT" firstAttribute="centerY" secondItem="M4U-NP-yJs" secondAttribute="centerY" id="Qld-KE-E2c"/>
                             <constraint firstItem="Lw2-ET-7mR" firstAttribute="leading" secondItem="Ubx-H7-1Vg" secondAttribute="leading" id="Qvj-r6-XIj"/>
                             <constraint firstItem="p2x-tj-kTT" firstAttribute="centerY" secondItem="79q-ur-hX6" secondAttribute="centerY" id="Ttl-wG-GTH"/>
+                            <constraint firstItem="Ubx-H7-1Vg" firstAttribute="top" secondItem="szX-NZ-2YT" secondAttribute="bottom" constant="56" id="ULg-JE-4WX"/>
                             <constraint firstAttribute="trailing" secondItem="xbk-IX-gc4" secondAttribute="trailing" constant="10" id="VXX-eq-RdF"/>
-                            <constraint firstItem="Ubx-H7-1Vg" firstAttribute="leading" secondItem="Z44-ze-eiR" secondAttribute="leading" id="YJj-Oj-Gpm"/>
                             <constraint firstItem="3Qe-Lj-LeB" firstAttribute="trailing" secondItem="Lw2-ET-7mR" secondAttribute="trailing" id="Z2J-zs-glw"/>
-                            <constraint firstItem="Z44-ze-eiR" firstAttribute="centerY" secondItem="eAq-ub-eJq" secondAttribute="centerY" id="Z4x-A8-tCW"/>
                             <constraint firstItem="szX-NZ-2YT" firstAttribute="top" secondItem="xbk-IX-gc4" secondAttribute="bottom" constant="4" id="ZEc-ez-Hpd"/>
                             <constraint firstItem="xbk-IX-gc4" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="10" id="Zwd-S2-B8S"/>
                             <constraint firstItem="geA-K7-LHe" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="ffu-mU-tby"/>
@@ -551,10 +539,8 @@
                             <constraint firstItem="fYr-2C-JLF" firstAttribute="leading" secondItem="szX-NZ-2YT" secondAttribute="trailing" constant="3" id="lhs-o3-bkF"/>
                             <constraint firstItem="M4U-NP-yJs" firstAttribute="leading" secondItem="fYr-2C-JLF" secondAttribute="trailing" constant="3" id="nQv-KS-ibd"/>
                             <constraint firstItem="szX-NZ-2YT" firstAttribute="leading" secondItem="xbk-IX-gc4" secondAttribute="leading" id="onk-gz-4lW"/>
-                            <constraint firstItem="eAq-ub-eJq" firstAttribute="trailing" secondItem="Jjj-ca-rcS" secondAttribute="trailing" id="ouv-1W-Dd2"/>
                             <constraint firstItem="Jjj-ca-rcS" firstAttribute="trailing" secondItem="Lw2-ET-7mR" secondAttribute="trailing" id="rBh-fm-yyV"/>
                             <constraint firstItem="3Qe-Lj-LeB" firstAttribute="top" secondItem="Lw2-ET-7mR" secondAttribute="bottom" constant="4" id="sDP-Po-UmA"/>
-                            <constraint firstItem="Jjj-ca-rcS" firstAttribute="top" secondItem="eAq-ub-eJq" secondAttribute="bottom" constant="10" id="tMY-GI-ggn"/>
                             <constraint firstAttribute="centerX" secondItem="3Qe-Lj-LeB" secondAttribute="centerX" id="wsc-ob-zgu"/>
                         </constraints>
                     </view>
@@ -564,7 +550,6 @@
                         <outlet property="leftPasswordTextField" destination="szX-NZ-2YT" id="XCK-vc-cJx"/>
                         <outlet property="navigationBar" destination="12" id="ch2-Vl-vl3"/>
                         <outlet property="navigationBarHeightConstraint" destination="Md2-qi-vIh" id="MmH-Aw-VBL"/>
-                        <outlet property="passwordHashSwitch" destination="eAq-ub-eJq" id="pzl-If-HHF"/>
                         <outlet property="recentSitesSwitch" destination="Jjj-ca-rcS" id="GPe-5o-jBP"/>
                         <outlet property="rightPasswordTextField" destination="M4U-NP-yJs" id="lfE-51-lHs"/>
                         <outlet property="statusImageView" destination="fYr-2C-JLF" id="1MT-ys-8Rm"/>

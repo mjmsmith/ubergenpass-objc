@@ -144,16 +144,11 @@
   return self.masterPassword != nil;
 }
 
-- (void)updateMasterPassword:(NSString *)masterPassword andSaveHash:(BOOL)savesHash {
+- (void)updateMasterPassword:(NSString *)masterPassword {
   self.masterPassword = masterPassword;
   self.hash = [self.class sha256:masterPassword];
   
-  if (savesHash) {
-    [Keychain setString:[self.hash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
-  }
-  else {
-    [Keychain removeStringForKey:PasswordHashKey];
-  }
+  [Keychain setString:[self.hash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
 }
 
 - (BOOL)textMatchesHash:(NSString *)text {
