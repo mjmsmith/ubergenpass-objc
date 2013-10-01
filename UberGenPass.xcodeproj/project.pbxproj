@@ -370,6 +370,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Camazotz Limited";
+				TargetAttributes = {
+					4D6576F1166536FD00F32D4F = {
+						DevelopmentTeam = G7ZK42W7RU;
+					};
+				};
 			};
 			buildConfigurationList = 4D6576EC166536FD00F32D4F /* Build configuration list for PBXProject "UberGenPass" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -625,10 +630,13 @@
 		4D65772F166536FD00F32D4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UberGenPass/UberGenPass-Prefix.pch";
 				INFOPLIST_FILE = "UberGenPass/UberGenPass-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -636,10 +644,13 @@
 		4D657730166536FD00F32D4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UberGenPass/UberGenPass-Prefix.pch";
 				INFOPLIST_FILE = "UberGenPass/UberGenPass-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -62,6 +62,10 @@
     [self removeCancelButton];
   }
 
+  if ([PasswordGenerator.sharedGenerator hasMasterPassword]) {
+    self.rightPasswordTextField.hidden = YES;
+  }
+  
   self.recentSitesSwitch.on = self.remembersRecentSites;
   
   if (self.backgroundTimeout == 300) {
@@ -208,7 +212,13 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  
   if (textField == self.leftPasswordTextField) {
+    if (self.rightPasswordTextField.hidden) {
+      self.rightPasswordTextField.text = nil;
+      self.rightPasswordTextField.hidden = NO;
+    }
+
     [self.rightPasswordTextField becomeFirstResponder];
   }
   else {
