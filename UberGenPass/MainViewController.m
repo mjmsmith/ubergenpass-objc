@@ -341,10 +341,12 @@
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self.matchingSitesTableView deselectRowAtIndexPath:indexPath animated:YES];
-
   self.siteTextField.text = self.matchingSites[indexPath.row];
+  [self.siteTextField resignFirstResponder];
+  
   [self editingChanged];
+
+  [self.matchingSitesTableView deselectRowAtIndexPath:indexPath animated:YES];
   self.matchingSitesView.hidden = YES;
 }
 
