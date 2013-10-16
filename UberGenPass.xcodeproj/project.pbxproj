@@ -21,6 +21,7 @@
 		4D2FBCB21669CE99007B8065 /* SettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */; };
 		4D2FBCB51669DC36007B8065 /* GreyStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB31669DC36007B8065 /* GreyStatus.png */; };
 		4D2FBCB61669DC36007B8065 /* GreyStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB41669DC36007B8065 /* GreyStatus@2x.png */; };
+		4D309BBD180F30AD003E210A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */; };
 		4D424E5B17E0C2D2000E1D5A /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5817E0C2D2000E1D5A /* FUIButton.m */; };
 		4D424E5C17E0C2D2000E1D5A /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5817E0C2D2000E1D5A /* FUIButton.m */; };
 		4D424E5D17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */; };
@@ -37,7 +38,6 @@
 		4D657710166536FD00F32D4F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */; };
 		4D657713166536FD00F32D4F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657712166536FD00F32D4F /* MainViewController.m */; };
 		4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657715166536FD00F32D4F /* SettingsViewController.m */; };
-		4D65771E166536FD00F32D4F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D65771D166536FD00F32D4F /* SenTestingKit.framework */; };
 		4D65771F166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
 		4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
 		4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D657726166536FD00F32D4F /* InfoPlist.strings */; };
@@ -121,8 +121,7 @@
 		4D657712166536FD00F32D4F /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		4D657714166536FD00F32D4F /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4D657715166536FD00F32D4F /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		4D65771C166536FD00F32D4F /* UberGenPassTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberGenPassTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D65771D166536FD00F32D4F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4D65771C166536FD00F32D4F /* UberGenPassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberGenPassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D657725166536FD00F32D4F /* UberGenPassTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UberGenPassTests-Info.plist"; sourceTree = "<group>"; };
 		4D657727166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D657729166536FD00F32D4F /* PasswordGeneratorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordGeneratorTests.h; sourceTree = "<group>"; };
@@ -178,9 +177,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D309BBD180F30AD003E210A /* CoreGraphics.framework in Frameworks */,
 				4D657720166536FD00F32D4F /* Foundation.framework in Frameworks */,
 				4D2FBCAA16694FA3007B8065 /* Security.framework in Frameworks */,
-				4D65771E166536FD00F32D4F /* SenTestingKit.framework in Frameworks */,
 				4D65771F166536FD00F32D4F /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				4D6576F2166536FD00F32D4F /* UberGenPass.app */,
-				4D65771C166536FD00F32D4F /* UberGenPassTests.octest */,
+				4D65771C166536FD00F32D4F /* UberGenPassTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,7 +213,6 @@
 				4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */,
 				4D6576F8166536FD00F32D4F /* Foundation.framework */,
 				4D2FBCA816694F7F007B8065 /* Security.framework */,
-				4D65771D166536FD00F32D4F /* SenTestingKit.framework */,
 				4D6576F6166536FD00F32D4F /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -359,8 +357,8 @@
 			);
 			name = UberGenPassTests;
 			productName = UberGenPassTests;
-			productReference = 4D65771C166536FD00F32D4F /* UberGenPassTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 4D65771C166536FD00F32D4F /* UberGenPassTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -668,7 +666,6 @@
 				INFOPLIST_FILE = "UberGenPassTests/UberGenPassTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -685,7 +682,6 @@
 				INFOPLIST_FILE = "UberGenPassTests/UberGenPassTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
