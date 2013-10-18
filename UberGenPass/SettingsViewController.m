@@ -17,16 +17,16 @@
 @property (strong, readwrite, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *leftPasswordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *rightPasswordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UITextField *upperPasswordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerPasswordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *passwordHashSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *recentSitesSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
-@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *leftPasswordTextFieldTopConstraint;
-@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *rightPasswordTextFieldTopConstraint;
-@property (assign, readwrite, nonatomic) int prevRightPasswordTextFieldTopConstraintConstant;
+@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *upperPasswordTextFieldTopConstraint;
+@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *lowerPasswordTextFieldTopConstraint;
+@property (assign, readwrite, nonatomic) int prevlowerPasswordTextFieldTopConstraintConstant;
 @property (copy, readwrite, nonatomic) NSString *password;
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)addSafariBookmarklet;
@@ -44,9 +44,9 @@
     [self removeCancelButton];
   }
   
-  self.leftPasswordTextField.text = self.rightPasswordTextField.text = nil;
+  self.upperPasswordTextField.text = self.lowerPasswordTextField.text = nil;
 
-  [self.leftPasswordTextField becomeFirstResponder];
+  [self.upperPasswordTextField becomeFirstResponder];
   [self editingChanged:nil];
 }
 
@@ -65,9 +65,9 @@
   }
   
   if (PasswordGenerator.sharedGenerator.hash != nil) {
-    self.prevRightPasswordTextFieldTopConstraintConstant = self.rightPasswordTextFieldTopConstraint.constant;
-    self.rightPasswordTextFieldTopConstraint.constant = self.leftPasswordTextFieldTopConstraint.constant;
-    self.rightPasswordTextField.hidden = YES;
+    self.prevlowerPasswordTextFieldTopConstraintConstant = self.lowerPasswordTextFieldTopConstraint.constant;
+    self.lowerPasswordTextFieldTopConstraint.constant = self.upperPasswordTextFieldTopConstraint.constant;
+    self.lowerPasswordTextField.hidden = YES;
   }
   
   self.recentSitesSwitch.on = self.remembersRecentSites;
@@ -90,7 +90,7 @@
   [self editingChanged:nil];
 
   if (self.welcomeImageView == nil) {
-    [self.leftPasswordTextField becomeFirstResponder];
+    [self.upperPasswordTextField becomeFirstResponder];
   }
 }
 
@@ -120,15 +120,15 @@
 #pragma mark Actions
 
 - (IBAction)editingChanged:(id)sender {
-  NSString *leftText = self.leftPasswordTextField.text;
-  NSString *rightText = self.rightPasswordTextField.text;
+  NSString *leftText = self.upperPasswordTextField.text;
+  NSString *rightText = self.lowerPasswordTextField.text;
   UIImage *statusImage = self.greyImage;
   BOOL done = NO;
 
   // If the left password field was just edited to match the hash, set the right field too.
   
-  if (sender == self.leftPasswordTextField && [PasswordGenerator.sharedGenerator textMatchesHash:leftText]) {
-    self.rightPasswordTextField.text = rightText = leftText;
+  if (sender == self.upperPasswordTextField && [PasswordGenerator.sharedGenerator textMatchesHash:leftText]) {
+    self.lowerPasswordTextField.text = rightText = leftText;
   }
   
   // Status image.
@@ -155,8 +155,8 @@
   // Password text fields.
   
   if (done) {
-    [self.leftPasswordTextField resignFirstResponder];
-    [self.rightPasswordTextField resignFirstResponder];
+    [self.upperPasswordTextField resignFirstResponder];
+    [self.lowerPasswordTextField resignFirstResponder];
   }
   
   // Animate status images if done.
@@ -188,7 +188,7 @@
 - (IBAction)done {
   int timeouts[] = {0, 60, 300};
   
-  self.password = self.leftPasswordTextField.text;
+  self.password = self.upperPasswordTextField.text;
   self.remembersRecentSites = self.recentSitesSwitch.on;
   self.backgroundTimeout = timeouts[self.timeoutSegment.selectedSegmentIndex];
   
@@ -202,26 +202,26 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-  if (textField == self.leftPasswordTextField) {
-    if (self.rightPasswordTextField.hidden) {
+  if (textField == self.upperPasswordTextField) {
+    if (self.lowerPasswordTextField.hidden) {
       [UIView animateWithDuration:0.5
                             delay:0.0
                           options:UIViewAnimationOptionCurveEaseInOut
                        animations:^{
-                         self.rightPasswordTextFieldTopConstraint.constant = self.prevRightPasswordTextFieldTopConstraintConstant;
-                         self.rightPasswordTextField.hidden = NO;
+                         self.lowerPasswordTextFieldTopConstraint.constant = self.prevlowerPasswordTextFieldTopConstraintConstant;
+                         self.lowerPasswordTextField.hidden = NO;
                          [self.view layoutIfNeeded];
                        }
                        completion:^(BOOL finished){
-                         [self.rightPasswordTextField becomeFirstResponder];
+                         [self.lowerPasswordTextField becomeFirstResponder];
                        }];
     }
     else {
-      [self.rightPasswordTextField becomeFirstResponder];
+      [self.lowerPasswordTextField becomeFirstResponder];
     }
   }
   else {
-    [self.leftPasswordTextField becomeFirstResponder];
+    [self.upperPasswordTextField becomeFirstResponder];
   }
 
   return NO;

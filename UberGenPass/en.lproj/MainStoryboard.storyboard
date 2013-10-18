@@ -437,17 +437,17 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Recent Sites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubx-H7-1Vg">
-                                <rect key="frame" x="35" y="192" width="140" height="22"/>
+                                <rect key="frame" x="30" y="192" width="140" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jjj-ca-rcS" userLabel="Switch - Remember Recent Sites">
-                                <rect key="frame" x="236" y="188" width="51" height="31"/>
+                                <rect key="frame" x="241" y="188" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw2-ET-7mR">
-                                <rect key="frame" x="35" y="230" width="250" height="21"/>
+                                <rect key="frame" x="30" y="222" width="260" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bsO-gd-S44"/>
                                 </constraints>
@@ -458,9 +458,9 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Qe-Lj-LeB">
-                                <rect key="frame" x="35" y="255" width="250" height="29"/>
+                                <rect key="frame" x="30" y="247" width="260" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="fqr-aC-cW3"/>
+                                    <constraint firstAttribute="width" constant="260" id="fqr-aC-cW3"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Immediately"/>
@@ -517,7 +517,7 @@
                             <constraint firstItem="12" firstAttribute="top" secondItem="uAd-Gx-HiW" secondAttribute="bottom" id="Iag-UW-sdL"/>
                             <constraint firstItem="geA-K7-LHe" firstAttribute="bottom" secondItem="7" secondAttribute="bottom" id="KkJ-5R-XLd"/>
                             <constraint firstItem="79q-ur-hX6" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" id="KsG-2Q-2Dk"/>
-                            <constraint firstItem="Lw2-ET-7mR" firstAttribute="top" secondItem="Ubx-H7-1Vg" secondAttribute="bottom" constant="16" id="Pmc-sr-IU2"/>
+                            <constraint firstItem="Lw2-ET-7mR" firstAttribute="top" secondItem="Ubx-H7-1Vg" secondAttribute="bottom" constant="8" id="Pmc-sr-IU2"/>
                             <constraint firstItem="Lw2-ET-7mR" firstAttribute="leading" secondItem="Ubx-H7-1Vg" secondAttribute="leading" id="Qvj-r6-XIj"/>
                             <constraint firstItem="M4U-NP-yJs" firstAttribute="leading" secondItem="szX-NZ-2YT" secondAttribute="leading" id="Smq-kE-rsz"/>
                             <constraint firstItem="p2x-tj-kTT" firstAttribute="centerY" secondItem="79q-ur-hX6" secondAttribute="centerY" id="Ttl-wG-GTH"/>
@@ -543,14 +543,14 @@
                     <connections>
                         <outlet property="cancelButtonItem" destination="14" id="ODa-cm-RH4"/>
                         <outlet property="doneButtonItem" destination="kIK-vY-Mm2" id="gWO-S2-2qU"/>
-                        <outlet property="leftPasswordTextField" destination="szX-NZ-2YT" id="XCK-vc-cJx"/>
-                        <outlet property="leftPasswordTextFieldTopConstraint" destination="bw0-Cn-sHN" id="3cW-FB-krn"/>
+                        <outlet property="lowerPasswordTextField" destination="M4U-NP-yJs" id="lfE-51-lHs"/>
+                        <outlet property="lowerPasswordTextFieldTopConstraint" destination="Wv9-cX-iyL" id="PxW-mm-9F6"/>
                         <outlet property="navigationBar" destination="12" id="ch2-Vl-vl3"/>
                         <outlet property="recentSitesSwitch" destination="Jjj-ca-rcS" id="GPe-5o-jBP"/>
-                        <outlet property="rightPasswordTextField" destination="M4U-NP-yJs" id="lfE-51-lHs"/>
-                        <outlet property="rightPasswordTextFieldTopConstraint" destination="Wv9-cX-iyL" id="PxW-mm-9F6"/>
                         <outlet property="statusImageView" destination="fYr-2C-JLF" id="1MT-ys-8Rm"/>
                         <outlet property="timeoutSegment" destination="3Qe-Lj-LeB" id="pVA-zs-YZk"/>
+                        <outlet property="upperPasswordTextField" destination="szX-NZ-2YT" id="XCK-vc-cJx"/>
+                        <outlet property="upperPasswordTextFieldTopConstraint" destination="bw0-Cn-sHN" id="3cW-FB-krn"/>
                         <outlet property="welcomeImageView" destination="geA-K7-LHe" id="aOs-bh-3w8"/>
                     </connections>
                 </viewController>
@@ -657,6 +657,7 @@
         <image name="Checkmark.png" width="14" height="14"/>
         <image name="Default.png" width="320" height="480"/>
         <image name="ForwardButton.png" width="15" height="18"/>
+        <image name="HelpButton.png" width="28" height="28"/>
         <image name="HelpButton.png" width="28" height="28"/>
         <image name="InfoButton.png" width="28" height="28"/>
         <image name="SettingsButton.png" width="28" height="28"/>
