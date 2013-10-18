@@ -205,16 +205,23 @@
   if (textField == self.upperPasswordTextField) {
     if (self.lowerPasswordTextField.hidden) {
       [UIView animateWithDuration:0.5
-                            delay:0.0
-                          options:UIViewAnimationOptionCurveEaseInOut
                        animations:^{
                          self.lowerPasswordTextFieldTopConstraint.constant = self.prevlowerPasswordTextFieldTopConstraintConstant;
-                         self.lowerPasswordTextField.hidden = NO;
                          [self.view layoutIfNeeded];
                        }
                        completion:^(BOOL finished){
-                         [self.lowerPasswordTextField becomeFirstResponder];
-                       }];
+                         [UIView transitionWithView:self.lowerPasswordTextField
+                                           duration:0.5
+                                            options:UIViewAnimationOptionTransitionCrossDissolve
+                                         animations:^{
+                                           self.lowerPasswordTextField.hidden = NO;
+                                         }
+                                         completion:^(BOOL finished){
+                                           [self.lowerPasswordTextField becomeFirstResponder];
+                                         }
+                         ];
+                       }
+      ];
     }
     else {
       [self.lowerPasswordTextField becomeFirstResponder];
