@@ -24,7 +24,9 @@
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
-@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *navigationBarHeightConstraint;
+@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *leftPasswordTextFieldTopConstraint;
+@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *rightPasswordTextFieldTopConstraint;
+@property (assign, readwrite, nonatomic) int prevRightPasswordTextFieldTopConstraintConstant;
 @property (copy, readwrite, nonatomic) NSString *password;
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)addSafariBookmarklet;
@@ -61,8 +63,10 @@
   if (!self.canCancel) {
     [self removeCancelButton];
   }
-
-  if ([PasswordGenerator.sharedGenerator hasMasterPassword]) {
+  
+  if (PasswordGenerator.sharedGenerator.hash != nil) {
+    self.prevRightPasswordTextFieldTopConstraintConstant = self.rightPasswordTextFieldTopConstraint.constant;
+    self.rightPasswordTextFieldTopConstraint.constant = self.leftPasswordTextFieldTopConstraint.constant;
     self.rightPasswordTextField.hidden = YES;
   }
   
@@ -90,22 +94,8 @@
   }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-  [self willRotateToInterfaceOrientation:UIApplication.sharedApplication.statusBarOrientation duration:0];
-  [super viewWillAppear:animated];
-}
-
 - (NSUInteger)supportedInterfaceOrientations {
-  return UIInterfaceOrientationMaskAllButUpsideDown;
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-  self.navigationBarHeightConstraint.constant = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? NavigationBarLandscapeHeight : NavigationBarPortraitHeight;
-
-  int fontHeight = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 14 : 13;
-  
-  self.leftPasswordTextField.font = self.rightPasswordTextField.font = [UIFont systemFontOfSize:fontHeight];
-  self.welcomeImageView.hidden = UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+  return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -212,14 +202,23 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-  
   if (textField == self.leftPasswordTextField) {
     if (self.rightPasswordTextField.hidden) {
-      self.rightPasswordTextField.text = nil;
-      self.rightPasswordTextField.hidden = NO;
+      [UIView animateWithDuration:0.5
+                            delay:0.0
+                          options:UIViewAnimationOptionCurveEaseInOut
+                       animations:^{
+                         self.rightPasswordTextFieldTopConstraint.constant = self.prevRightPasswordTextFieldTopConstraintConstant;
+                         self.rightPasswordTextField.hidden = NO;
+                         [self.view layoutIfNeeded];
+                       }
+                       completion:^(BOOL finished){
+                         [self.rightPasswordTextField becomeFirstResponder];
+                       }];
     }
-
-    [self.rightPasswordTextField becomeFirstResponder];
+    else {
+      [self.rightPasswordTextField becomeFirstResponder];
+    }
   }
   else {
     [self.leftPasswordTextField becomeFirstResponder];

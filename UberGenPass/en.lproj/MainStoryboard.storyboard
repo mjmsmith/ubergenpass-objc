@@ -291,7 +291,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-163" y="-1122"/>
+            <point key="canvasLocation" x="-211" y="-998"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="82c-7B-u7D">
@@ -369,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nw4-Ln-agS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="-836"/>
+            <point key="canvasLocation" x="916" y="-998"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="9">
@@ -402,9 +402,9 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Master Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbk-IX-gc4">
-                                <rect key="frame" x="16" y="80" width="288" height="21"/>
+                                <rect key="frame" x="16" y="80" width="134" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="shX-As-vgF"/>
+                                    <constraint firstAttribute="height" constant="21" id="vp2-en-dGI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -421,10 +421,10 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-2C-JLF" userLabel="Image View - Status">
-                                <rect key="frame" x="151" y="81" width="19" height="19"/>
+                                <rect key="frame" x="158" y="81" width="19" height="19"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="BV6-Ya-5Ds"/>
                                     <constraint firstAttribute="height" constant="19" id="XSW-kc-v1P"/>
+                                    <constraint firstAttribute="width" constant="19" id="vha-8q-xFr"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype…" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="M4U-NP-yJs">
@@ -513,27 +513,26 @@
                             <constraint firstItem="Lw2-ET-7mR" firstAttribute="leading" secondItem="3Qe-Lj-LeB" secondAttribute="leading" id="2vw-2T-d28"/>
                             <constraint firstItem="Jjj-ca-rcS" firstAttribute="centerY" secondItem="Ubx-H7-1Vg" secondAttribute="centerY" id="47E-oL-m6U"/>
                             <constraint firstAttribute="trailing" secondItem="p2x-tj-kTT" secondAttribute="trailing" constant="16" id="516-cb-BEs"/>
-                            <constraint firstItem="xbk-IX-gc4" firstAttribute="top" secondItem="12" secondAttribute="bottom" constant="16" id="9EJ-68-D4Y"/>
                             <constraint firstAttribute="bottom" secondItem="p2x-tj-kTT" secondAttribute="bottom" constant="26" id="Aqd-i2-iHs"/>
                             <constraint firstItem="12" firstAttribute="top" secondItem="uAd-Gx-HiW" secondAttribute="bottom" id="Iag-UW-sdL"/>
                             <constraint firstItem="geA-K7-LHe" firstAttribute="bottom" secondItem="7" secondAttribute="bottom" id="KkJ-5R-XLd"/>
                             <constraint firstItem="79q-ur-hX6" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" id="KsG-2Q-2Dk"/>
-                            <constraint firstAttribute="centerX" secondItem="fYr-2C-JLF" secondAttribute="centerX" id="Ldv-g8-cMy"/>
                             <constraint firstItem="Lw2-ET-7mR" firstAttribute="top" secondItem="Ubx-H7-1Vg" secondAttribute="bottom" constant="16" id="Pmc-sr-IU2"/>
                             <constraint firstItem="Lw2-ET-7mR" firstAttribute="leading" secondItem="Ubx-H7-1Vg" secondAttribute="leading" id="Qvj-r6-XIj"/>
                             <constraint firstItem="M4U-NP-yJs" firstAttribute="leading" secondItem="szX-NZ-2YT" secondAttribute="leading" id="Smq-kE-rsz"/>
                             <constraint firstItem="p2x-tj-kTT" firstAttribute="centerY" secondItem="79q-ur-hX6" secondAttribute="centerY" id="Ttl-wG-GTH"/>
-                            <constraint firstItem="M4U-NP-yJs" firstAttribute="top" secondItem="szX-NZ-2YT" secondAttribute="bottom" constant="8" symbolic="YES" id="VFh-GA-ku7"/>
-                            <constraint firstAttribute="trailing" secondItem="xbk-IX-gc4" secondAttribute="trailing" constant="16" id="VXX-eq-RdF"/>
-                            <constraint firstItem="szX-NZ-2YT" firstAttribute="top" secondItem="xbk-IX-gc4" secondAttribute="bottom" constant="4" id="VpB-DJ-qea"/>
-                            <constraint firstItem="M4U-NP-yJs" firstAttribute="leading" secondItem="xbk-IX-gc4" secondAttribute="leading" id="WIQ-lA-V0M"/>
+                            <constraint firstItem="xbk-IX-gc4" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" id="U97-1e-yQ8"/>
+                            <constraint firstItem="xbk-IX-gc4" firstAttribute="centerY" secondItem="fYr-2C-JLF" secondAttribute="centerY" id="VAm-VW-P75"/>
+                            <constraint firstAttribute="trailing" secondItem="szX-NZ-2YT" secondAttribute="trailing" constant="16" id="VYc-OS-nk4"/>
+                            <constraint firstItem="M4U-NP-yJs" firstAttribute="top" secondItem="xbk-IX-gc4" secondAttribute="bottom" constant="42" id="Wv9-cX-iyL"/>
                             <constraint firstItem="3Qe-Lj-LeB" firstAttribute="trailing" secondItem="Lw2-ET-7mR" secondAttribute="trailing" id="Z2J-zs-glw"/>
-                            <constraint firstItem="xbk-IX-gc4" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" id="Zwd-S2-B8S"/>
-                            <constraint firstItem="fYr-2C-JLF" firstAttribute="centerY" secondItem="xbk-IX-gc4" secondAttribute="centerY" id="eJ0-Sh-eFc"/>
+                            <constraint firstItem="szX-NZ-2YT" firstAttribute="top" secondItem="xbk-IX-gc4" secondAttribute="bottom" constant="4" id="bw0-Cn-sHN"/>
+                            <constraint firstItem="xbk-IX-gc4" firstAttribute="top" secondItem="12" secondAttribute="bottom" constant="16" id="bwh-C0-hu1"/>
+                            <constraint firstItem="fYr-2C-JLF" firstAttribute="leading" secondItem="xbk-IX-gc4" secondAttribute="trailing" constant="8" id="eSR-FJ-Gfw"/>
                             <constraint firstItem="geA-K7-LHe" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="ffu-mU-tby"/>
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="i10-4t-qpa"/>
                             <constraint firstItem="M4U-NP-yJs" firstAttribute="trailing" secondItem="szX-NZ-2YT" secondAttribute="trailing" id="iPR-x2-xo6"/>
-                            <constraint firstItem="M4U-NP-yJs" firstAttribute="trailing" secondItem="xbk-IX-gc4" secondAttribute="trailing" id="lW7-7Z-6XA"/>
+                            <constraint firstItem="szX-NZ-2YT" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" id="owX-4q-F2M"/>
                             <constraint firstItem="Jjj-ca-rcS" firstAttribute="trailing" secondItem="Lw2-ET-7mR" secondAttribute="trailing" id="rBh-fm-yyV"/>
                             <constraint firstItem="3Qe-Lj-LeB" firstAttribute="top" secondItem="Lw2-ET-7mR" secondAttribute="bottom" constant="4" id="sDP-Po-UmA"/>
                             <constraint firstItem="Ubx-H7-1Vg" firstAttribute="top" secondItem="M4U-NP-yJs" secondAttribute="bottom" constant="19" id="tf4-LN-ivG"/>
@@ -545,9 +544,11 @@
                         <outlet property="cancelButtonItem" destination="14" id="ODa-cm-RH4"/>
                         <outlet property="doneButtonItem" destination="kIK-vY-Mm2" id="gWO-S2-2qU"/>
                         <outlet property="leftPasswordTextField" destination="szX-NZ-2YT" id="XCK-vc-cJx"/>
+                        <outlet property="leftPasswordTextFieldTopConstraint" destination="bw0-Cn-sHN" id="3cW-FB-krn"/>
                         <outlet property="navigationBar" destination="12" id="ch2-Vl-vl3"/>
                         <outlet property="recentSitesSwitch" destination="Jjj-ca-rcS" id="GPe-5o-jBP"/>
                         <outlet property="rightPasswordTextField" destination="M4U-NP-yJs" id="lfE-51-lHs"/>
+                        <outlet property="rightPasswordTextFieldTopConstraint" destination="Wv9-cX-iyL" id="PxW-mm-9F6"/>
                         <outlet property="statusImageView" destination="fYr-2C-JLF" id="1MT-ys-8Rm"/>
                         <outlet property="timeoutSegment" destination="3Qe-Lj-LeB" id="pVA-zs-YZk"/>
                         <outlet property="welcomeImageView" destination="geA-K7-LHe" id="aOs-bh-3w8"/>
@@ -648,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jk5-oQ-m9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="-494"/>
+            <point key="canvasLocation" x="316" y="-637"/>
         </scene>
     </scenes>
     <resources>
@@ -667,7 +668,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cB1-bY-lok"/>
+        <segue reference="BcP-J1-rlP"/>
         <segue reference="F6i-BF-7ir"/>
     </inferredMetricsTieBreakers>
 </document>
