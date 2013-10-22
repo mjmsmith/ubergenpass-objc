@@ -36,7 +36,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL or domain" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FBz-9R-IZS">
                                 <rect key="frame" x="51" y="80" width="253" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
                                 <connections>
                                     <action selector="editingChanged" destination="2" eventType="editingChanged" id="9aY-Dh-SzH"/>
@@ -413,7 +413,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type…" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="szX-NZ-2YT">
                                 <rect key="frame" x="16" y="105" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="editingChanged:" destination="6" eventType="editingChanged" id="Zwt-Kb-8wR"/>
@@ -429,7 +429,7 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype…" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="M4U-NP-yJs">
                                 <rect key="frame" x="16" y="143" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="editingChanged:" destination="6" eventType="editingChanged" id="RMm-hZ-Aa0"/>
@@ -506,6 +506,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WelcomeOverlay.png" translatesAutoresizingMaskIntoConstraints="NO" id="geA-K7-LHe">
                                 <rect key="frame" x="0.0" y="280" width="320" height="200"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a74-XJ-7dY">
+                                <rect key="frame" x="244" y="74" width="60" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Change">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changePassword" destination="6" eventType="touchUpInside" id="NSh-cW-fTd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -542,6 +553,7 @@
                     </view>
                     <connections>
                         <outlet property="cancelButtonItem" destination="14" id="ODa-cm-RH4"/>
+                        <outlet property="changePasswordButton" destination="a74-XJ-7dY" id="gHv-Ya-jRS"/>
                         <outlet property="doneButtonItem" destination="kIK-vY-Mm2" id="gWO-S2-2qU"/>
                         <outlet property="lowerPasswordTextField" destination="M4U-NP-yJs" id="lfE-51-lHs"/>
                         <outlet property="lowerPasswordTextFieldTopConstraint" destination="Wv9-cX-iyL" id="PxW-mm-9F6"/>
@@ -668,7 +680,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BcP-J1-rlP"/>
         <segue reference="F6i-BF-7ir"/>
+        <segue reference="BcP-J1-rlP"/>
     </inferredMetricsTieBreakers>
 </document>

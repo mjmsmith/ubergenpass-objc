@@ -19,6 +19,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *upperPasswordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerPasswordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UIButton *changePasswordButton;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *passwordHashSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *recentSitesSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
@@ -26,7 +27,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *upperPasswordTextFieldTopConstraint;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *lowerPasswordTextFieldTopConstraint;
-@property (assign, readwrite, nonatomic) int prevlowerPasswordTextFieldTopConstraintConstant;
+@property (assign, readwrite, nonatomic) int prevLowerPasswordTextFieldTopConstraintConstant;
 @property (copy, readwrite, nonatomic) NSString *password;
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)addSafariBookmarklet;
@@ -65,9 +66,12 @@
   }
   
   if (PasswordGenerator.sharedGenerator.hash != nil) {
-    self.prevlowerPasswordTextFieldTopConstraintConstant = self.lowerPasswordTextFieldTopConstraint.constant;
+    self.prevLowerPasswordTextFieldTopConstraintConstant = self.lowerPasswordTextFieldTopConstraint.constant;
     self.lowerPasswordTextFieldTopConstraint.constant = self.upperPasswordTextFieldTopConstraint.constant;
     self.lowerPasswordTextField.hidden = YES;
+  }
+  else {
+    self.changePasswordButton.hidden = YES;
   }
   
   self.recentSitesSwitch.on = self.remembersRecentSites;
@@ -164,20 +168,38 @@
   if (done) {
     CGRect frame = self.statusImageView.frame;
     
-    [UIView animateWithDuration:0.75
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveEaseInOut
+    [UIView animateWithDuration:0.4
                      animations:^{
-                       self.statusImageView.frame = CGRectInset(self.statusImageView.frame, -6, -6);
-                       self.statusImageView.frame = frame;
+                       self.statusImageView.frame = CGRectInset(self.statusImageView.frame, -12, -12);
                      }
-                     completion:^(BOOL finished){
-                       if (!finished) {
-                         self.statusImageView.frame = frame;
-                       }
+                     completion:^(BOOL finished) {
+                       [UIView animateWithDuration:0.6
+                                        animations:^{
+                                          self.statusImageView.frame = frame;
+                                        }
+                       ];
                      }
      ];
   }  
+}
+
+- (IBAction)changePassword {
+  [UIView animateWithDuration:0.3
+                   animations:^{
+                     self.lowerPasswordTextFieldTopConstraint.constant = self.prevLowerPasswordTextFieldTopConstraintConstant;
+                     [self.view layoutIfNeeded];
+                   }
+                   completion:^(BOOL finished){
+                     [UIView transitionWithView:self.lowerPasswordTextField
+                                       duration:0.3
+                                        options:UIViewAnimationOptionTransitionCrossDissolve
+                                     animations:^{
+                                       self.changePasswordButton.hidden = YES;
+                                       self.lowerPasswordTextField.hidden = NO;
+                                     }
+                                     completion:nil];
+                     }
+   ];
 }
 
 - (IBAction)addSafariBookmarklet {
@@ -206,7 +228,7 @@
     if (self.lowerPasswordTextField.hidden) {
       [UIView animateWithDuration:0.3
                        animations:^{
-                         self.lowerPasswordTextFieldTopConstraint.constant = self.prevlowerPasswordTextFieldTopConstraintConstant;
+                         self.lowerPasswordTextFieldTopConstraint.constant = self.prevLowerPasswordTextFieldTopConstraintConstant;
                          [self.view layoutIfNeeded];
                        }
                        completion:^(BOOL finished){
@@ -214,6 +236,7 @@
                                            duration:0.3
                                             options:UIViewAnimationOptionTransitionCrossDissolve
                                          animations:^{
+                                           self.changePasswordButton.hidden = YES;
                                            self.lowerPasswordTextField.hidden = NO;
                                          }
                                          completion:^(BOOL finished){
