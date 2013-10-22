@@ -204,14 +204,14 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   if (textField == self.upperPasswordTextField) {
     if (self.lowerPasswordTextField.hidden) {
-      [UIView animateWithDuration:0.5
+      [UIView animateWithDuration:0.3
                        animations:^{
                          self.lowerPasswordTextFieldTopConstraint.constant = self.prevlowerPasswordTextFieldTopConstraintConstant;
                          [self.view layoutIfNeeded];
                        }
                        completion:^(BOOL finished){
                          [UIView transitionWithView:self.lowerPasswordTextField
-                                           duration:0.5
+                                           duration:0.3
                                             options:UIViewAnimationOptionTransitionCrossDissolve
                                          animations:^{
                                            self.lowerPasswordTextField.hidden = NO;
