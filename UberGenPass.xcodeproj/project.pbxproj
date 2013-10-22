@@ -7,20 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D2FBC9116694269007B8065 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC8D16694269007B8065 /* Icon-Small.png */; };
-		4D2FBC9216694269007B8065 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */; };
-		4D2FBC9316694269007B8065 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC8F16694269007B8065 /* Icon.png */; };
-		4D2FBC9416694269007B8065 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC9016694269007B8065 /* Icon@2x.png */; };
 		4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC9F166947B5007B8065 /* iTunesArtwork */; };
 		4D2FBCA2166947B5007B8065 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */; };
 		4D2FBCA916694F7F007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
 		4D2FBCAA16694FA3007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
 		4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
 		4D2FBCAE166992F7007B8065 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAC166992F7007B8065 /* Keychain.m */; };
-		4D2FBCB11669CE99007B8065 /* SettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCAF1669CE99007B8065 /* SettingsButton.png */; };
-		4D2FBCB21669CE99007B8065 /* SettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */; };
-		4D2FBCB51669DC36007B8065 /* GreyStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB31669DC36007B8065 /* GreyStatus.png */; };
-		4D2FBCB61669DC36007B8065 /* GreyStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCB41669DC36007B8065 /* GreyStatus@2x.png */; };
 		4D309BBD180F30AD003E210A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */; };
 		4D424E5B17E0C2D2000E1D5A /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5817E0C2D2000E1D5A /* FUIButton.m */; };
 		4D424E5C17E0C2D2000E1D5A /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5817E0C2D2000E1D5A /* FUIButton.m */; };
@@ -28,13 +20,12 @@
 		4D424E5E17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */; };
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
+		4D56CE6D1816D0A300660142 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D56CE6C1816D0A300660142 /* Images.xcassets */; };
 		4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
 		4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
 		4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D6576FF166536FD00F32D4F /* InfoPlist.strings */; };
 		4D657703166536FD00F32D4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657702166536FD00F32D4F /* main.m */; };
 		4D657707166536FD00F32D4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657706166536FD00F32D4F /* AppDelegate.m */; };
-		4D657709166536FD00F32D4F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D657708166536FD00F32D4F /* Default.png */; };
-		4D65770B166536FD00F32D4F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D65770A166536FD00F32D4F /* Default@2x.png */; };
 		4D657710166536FD00F32D4F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */; };
 		4D657713166536FD00F32D4F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657712166536FD00F32D4F /* MainViewController.m */; };
 		4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D657715166536FD00F32D4F /* SettingsViewController.m */; };
@@ -43,37 +34,16 @@
 		4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D657726166536FD00F32D4F /* InfoPlist.strings */; };
 		4D65772B166536FD00F32D4F /* PasswordGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65772A166536FD00F32D4F /* PasswordGeneratorTests.m */; };
 		4D728B1816758957004824AB /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 4D728B1716758957004824AB /* help.css */; };
-		4D8B125B1665AFD40062C305 /* GreenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12551665AFD40062C305 /* GreenStatus.png */; };
-		4D8B125C1665AFD40062C305 /* GreenStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12561665AFD40062C305 /* GreenStatus@2x.png */; };
-		4D8B125D1665AFD40062C305 /* RedStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12571665AFD40062C305 /* RedStatus.png */; };
-		4D8B125E1665AFD40062C305 /* RedStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12581665AFD40062C305 /* RedStatus@2x.png */; };
-		4D8B125F1665AFD40062C305 /* YellowStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B12591665AFD40062C305 /* YellowStatus.png */; };
-		4D8B12601665AFD40062C305 /* YellowStatus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B125A1665AFD40062C305 /* YellowStatus@2x.png */; };
 		4D8F4D7A16BB760B00B29904 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */; };
 		4D8F4D7D16BB775500B29904 /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D8F4D7B16BB775500B29904 /* About.html */; };
-		4D98230E16726902001F3D8A /* WelcomeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98230C16726902001F3D8A /* WelcomeOverlay.png */; };
-		4D98230F16726902001F3D8A /* WelcomeOverlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98230D16726902001F3D8A /* WelcomeOverlay@2x.png */; };
-		4D98231216727EF4001F3D8A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D98231116727EF4001F3D8A /* Default-568h@2x.png */; };
 		4D98231516728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4D98231616728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4D99EFDC16C044CB00B2F08D /* TopLevelDomains.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */; };
-		4DB05B4F167E8DEF006669A1 /* Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB05B4D167E8DEF006669A1 /* Checkmark.png */; };
-		4DB05B50167E8DEF006669A1 /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */; };
 		4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D981676E7C900D3763E /* SettingsHelp.html */; };
 		4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D9D1676E87900D3763E /* Localizable.strings */; };
 		4DC172A616B6DEE2000E2B99 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC172A516B6DEE2000E2B99 /* AboutViewController.m */; };
 		4DC172A716B6DEE2000E2B99 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC172A516B6DEE2000E2B99 /* AboutViewController.m */; };
-		4DC172B716B730B0000E2B99 /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC172B516B730B0000E2B99 /* HelpButton.png */; };
-		4DC172B816B730B0000E2B99 /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC172B516B730B0000E2B99 /* HelpButton.png */; };
-		4DC172B916B730B0000E2B99 /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC172B616B730B0000E2B99 /* HelpButton@2x.png */; };
-		4DC172BA16B730B0000E2B99 /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC172B616B730B0000E2B99 /* HelpButton@2x.png */; };
 		4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5A0711677BD6E00719D18 /* MainHelp.html */; };
-		4DEF1B89167BC70300E187D9 /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B85167BC70300E187D9 /* BackButton.png */; };
-		4DEF1B8A167BC70300E187D9 /* BackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B86167BC70300E187D9 /* BackButton@2x.png */; };
-		4DEF1B8B167BC70300E187D9 /* ForwardButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B87167BC70300E187D9 /* ForwardButton.png */; };
-		4DEF1B8C167BC70300E187D9 /* ForwardButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEF1B88167BC70300E187D9 /* ForwardButton@2x.png */; };
-		4DF343A41671AB49004C6377 /* InfoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A21671AB49004C6377 /* InfoButton.png */; };
-		4DF343A51671AB49004C6377 /* InfoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF343A31671AB49004C6377 /* InfoButton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,25 +57,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D2FBC8D16694269007B8065 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		4D2FBC8F16694269007B8065 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		4D2FBC9016694269007B8065 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4D2FBC9F166947B5007B8065 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		4D2FBCA816694F7F007B8065 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4D2FBCAB166992F7007B8065 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keychain.h; sourceTree = "<group>"; };
 		4D2FBCAC166992F7007B8065 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keychain.m; sourceTree = "<group>"; };
-		4D2FBCAF1669CE99007B8065 /* SettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsButton.png; sourceTree = "<group>"; };
-		4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsButton@2x.png"; sourceTree = "<group>"; };
-		4D2FBCB31669DC36007B8065 /* GreyStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreyStatus.png; sourceTree = "<group>"; };
-		4D2FBCB41669DC36007B8065 /* GreyStatus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GreyStatus@2x.png"; sourceTree = "<group>"; };
 		4D424E5717E0C2D2000E1D5A /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
 		4D424E5817E0C2D2000E1D5A /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
 		4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
 		4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
 		4D501E8916653CBB006A86E9 /* PasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordGenerator.m; sourceTree = "<group>"; };
+		4D56CE6C1816D0A300660142 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D6576F2166536FD00F32D4F /* UberGenPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberGenPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6576F6166536FD00F32D4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D6576F8166536FD00F32D4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,8 +77,6 @@
 		4D657704166536FD00F32D4F /* UberGenPass-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UberGenPass-Prefix.pch"; sourceTree = "<group>"; };
 		4D657705166536FD00F32D4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D657706166536FD00F32D4F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4D657708166536FD00F32D4F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		4D65770A166536FD00F32D4F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4D65770F166536FD00F32D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4D657711166536FD00F32D4F /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		4D657712166536FD00F32D4F /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -128,37 +89,18 @@
 		4D65772A166536FD00F32D4F /* PasswordGeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordGeneratorTests.m; sourceTree = "<group>"; };
 		4D728B1316758701004824AB /* Misc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Misc; path = UberGenPass/Misc; sourceTree = "<group>"; };
 		4D728B1716758957004824AB /* help.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
-		4D8B12551665AFD40062C305 /* GreenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenStatus.png; sourceTree = "<group>"; };
-		4D8B12561665AFD40062C305 /* GreenStatus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GreenStatus@2x.png"; sourceTree = "<group>"; };
-		4D8B12571665AFD40062C305 /* RedStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedStatus.png; sourceTree = "<group>"; };
-		4D8B12581665AFD40062C305 /* RedStatus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RedStatus@2x.png"; sourceTree = "<group>"; };
-		4D8B12591665AFD40062C305 /* YellowStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowStatus.png; sourceTree = "<group>"; };
-		4D8B125A1665AFD40062C305 /* YellowStatus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YellowStatus@2x.png"; sourceTree = "<group>"; };
 		4D8B12611665B91D0062C305 /* UberGenPass-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UberGenPass-Info.plist"; sourceTree = "<group>"; };
 		4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4D8F4D7C16BB775500B29904 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = UberGenPass/en.lproj/About.html; sourceTree = SOURCE_ROOT; };
-		4D98230C16726902001F3D8A /* WelcomeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeOverlay.png; sourceTree = "<group>"; };
-		4D98230D16726902001F3D8A /* WelcomeOverlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WelcomeOverlay@2x.png"; sourceTree = "<group>"; };
-		4D98231116727EF4001F3D8A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4D98231316728813001F3D8A /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		4D98231416728813001F3D8A /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopLevelDomains.json; sourceTree = "<group>"; };
-		4DB05B4D167E8DEF006669A1 /* Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkmark.png; sourceTree = "<group>"; };
-		4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
 		4DC01D971676E7C900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
 		4DC01D9C1676E87900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DC1729E16B6C707000E2B99 /* UberGenPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UberGenPass.h; sourceTree = "<group>"; };
 		4DC172A416B6DEE2000E2B99 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		4DC172A516B6DEE2000E2B99 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		4DC172B516B730B0000E2B99 /* HelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelpButton.png; sourceTree = "<group>"; };
-		4DC172B616B730B0000E2B99 /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HelpButton@2x.png"; sourceTree = "<group>"; };
 		4DE5A0701677BD6E00719D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/MainHelp.html; sourceTree = "<group>"; };
-		4DEF1B85167BC70300E187D9 /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
-		4DEF1B86167BC70300E187D9 /* BackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton@2x.png"; sourceTree = "<group>"; };
-		4DEF1B87167BC70300E187D9 /* ForwardButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ForwardButton.png; sourceTree = "<group>"; };
-		4DEF1B88167BC70300E187D9 /* ForwardButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ForwardButton@2x.png"; sourceTree = "<group>"; };
-		4DF343A21671AB49004C6377 /* InfoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoButton.png; sourceTree = "<group>"; };
-		4DF343A31671AB49004C6377 /* InfoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InfoButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +184,7 @@
 				4DC1729E16B6C707000E2B99 /* UberGenPass.h */,
 				4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */,
 				4D8B12541665AFD40062C305 /* Resources */,
+				4D56CE6C1816D0A300660142 /* Images.xcassets */,
 				4D6576FD166536FD00F32D4F /* Supporting Files */,
 			);
 			path = UberGenPass;
@@ -280,43 +223,14 @@
 			isa = PBXGroup;
 			children = (
 				4D8F4D7B16BB775500B29904 /* About.html */,
-				4DEF1B85167BC70300E187D9 /* BackButton.png */,
-				4DEF1B86167BC70300E187D9 /* BackButton@2x.png */,
-				4DB05B4D167E8DEF006669A1 /* Checkmark.png */,
-				4DB05B4E167E8DEF006669A1 /* Checkmark@2x.png */,
-				4D657708166536FD00F32D4F /* Default.png */,
-				4D65770A166536FD00F32D4F /* Default@2x.png */,
-				4D98231116727EF4001F3D8A /* Default-568h@2x.png */,
-				4DEF1B87167BC70300E187D9 /* ForwardButton.png */,
-				4DEF1B88167BC70300E187D9 /* ForwardButton@2x.png */,
-				4D8B12551665AFD40062C305 /* GreenStatus.png */,
-				4D8B12561665AFD40062C305 /* GreenStatus@2x.png */,
-				4D2FBCB31669DC36007B8065 /* GreyStatus.png */,
-				4D2FBCB41669DC36007B8065 /* GreyStatus@2x.png */,
 				4D728B1716758957004824AB /* help.css */,
-				4DC172B516B730B0000E2B99 /* HelpButton.png */,
-				4DC172B616B730B0000E2B99 /* HelpButton@2x.png */,
-				4D2FBC8F16694269007B8065 /* Icon.png */,
-				4D2FBC9016694269007B8065 /* Icon@2x.png */,
-				4D2FBC8D16694269007B8065 /* Icon-Small.png */,
-				4D2FBC8E16694269007B8065 /* Icon-Small@2x.png */,
-				4DF343A21671AB49004C6377 /* InfoButton.png */,
-				4DF343A31671AB49004C6377 /* InfoButton@2x.png */,
 				4D6576FF166536FD00F32D4F /* InfoPlist.strings */,
 				4D2FBC9F166947B5007B8065 /* iTunesArtwork */,
 				4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */,
 				4DC01D9D1676E87900D3763E /* Localizable.strings */,
 				4DE5A0711677BD6E00719D18 /* MainHelp.html */,
-				4D8B12571665AFD40062C305 /* RedStatus.png */,
-				4D8B12581665AFD40062C305 /* RedStatus@2x.png */,
-				4D2FBCAF1669CE99007B8065 /* SettingsButton.png */,
-				4D2FBCB01669CE99007B8065 /* SettingsButton@2x.png */,
 				4DC01D981676E7C900D3763E /* SettingsHelp.html */,
 				4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */,
-				4D98230C16726902001F3D8A /* WelcomeOverlay.png */,
-				4D98230D16726902001F3D8A /* WelcomeOverlay@2x.png */,
-				4D8B12591665AFD40062C305 /* YellowStatus.png */,
-				4D8B125A1665AFD40062C305 /* YellowStatus@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -398,42 +312,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */,
-				4D657709166536FD00F32D4F /* Default.png in Resources */,
-				4D65770B166536FD00F32D4F /* Default@2x.png in Resources */,
 				4D657710166536FD00F32D4F /* MainStoryboard.storyboard in Resources */,
-				4D8B125B1665AFD40062C305 /* GreenStatus.png in Resources */,
-				4D8B125C1665AFD40062C305 /* GreenStatus@2x.png in Resources */,
-				4D8B125D1665AFD40062C305 /* RedStatus.png in Resources */,
-				4D8B125E1665AFD40062C305 /* RedStatus@2x.png in Resources */,
-				4D8B125F1665AFD40062C305 /* YellowStatus.png in Resources */,
-				4D8B12601665AFD40062C305 /* YellowStatus@2x.png in Resources */,
-				4D2FBC9116694269007B8065 /* Icon-Small.png in Resources */,
-				4D2FBC9216694269007B8065 /* Icon-Small@2x.png in Resources */,
-				4D2FBC9316694269007B8065 /* Icon.png in Resources */,
-				4D2FBC9416694269007B8065 /* Icon@2x.png in Resources */,
 				4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */,
 				4D2FBCA2166947B5007B8065 /* iTunesArtwork@2x in Resources */,
-				4D2FBCB11669CE99007B8065 /* SettingsButton.png in Resources */,
-				4D2FBCB21669CE99007B8065 /* SettingsButton@2x.png in Resources */,
-				4D2FBCB51669DC36007B8065 /* GreyStatus.png in Resources */,
-				4D2FBCB61669DC36007B8065 /* GreyStatus@2x.png in Resources */,
-				4DF343A41671AB49004C6377 /* InfoButton.png in Resources */,
-				4DF343A51671AB49004C6377 /* InfoButton@2x.png in Resources */,
-				4D98230E16726902001F3D8A /* WelcomeOverlay.png in Resources */,
-				4D98230F16726902001F3D8A /* WelcomeOverlay@2x.png in Resources */,
-				4D98231216727EF4001F3D8A /* Default-568h@2x.png in Resources */,
+				4D56CE6D1816D0A300660142 /* Images.xcassets in Resources */,
 				4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */,
 				4D728B1816758957004824AB /* help.css in Resources */,
 				4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */,
 				4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */,
-				4DEF1B89167BC70300E187D9 /* BackButton.png in Resources */,
-				4DEF1B8A167BC70300E187D9 /* BackButton@2x.png in Resources */,
-				4DEF1B8B167BC70300E187D9 /* ForwardButton.png in Resources */,
-				4DEF1B8C167BC70300E187D9 /* ForwardButton@2x.png in Resources */,
-				4DB05B4F167E8DEF006669A1 /* Checkmark.png in Resources */,
-				4DB05B50167E8DEF006669A1 /* Checkmark@2x.png in Resources */,
-				4DC172B716B730B0000E2B99 /* HelpButton.png in Resources */,
-				4DC172B916B730B0000E2B99 /* HelpButton@2x.png in Resources */,
 				4D8F4D7D16BB775500B29904 /* About.html in Resources */,
 				4D99EFDC16C044CB00B2F08D /* TopLevelDomains.json in Resources */,
 			);
@@ -444,8 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */,
-				4DC172B816B730B0000E2B99 /* HelpButton.png in Resources */,
-				4DC172BA16B730B0000E2B99 /* HelpButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +512,8 @@
 		4D65772F166536FD00F32D4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -643,6 +529,8 @@
 		4D657730166536FD00F32D4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
