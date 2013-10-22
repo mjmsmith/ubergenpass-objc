@@ -34,6 +34,9 @@
 		4D657728166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D657726166536FD00F32D4F /* InfoPlist.strings */; };
 		4D65772B166536FD00F32D4F /* PasswordGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65772A166536FD00F32D4F /* PasswordGeneratorTests.m */; };
 		4D728B1816758957004824AB /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 4D728B1716758957004824AB /* help.css */; };
+		4D7CA2A71816EBCA00CBC956 /* GreenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA2A61816EBCA00CBC956 /* GreenStatus.png */; };
+		4D7CA2AA1816ECA800CBC956 /* RedStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA2A81816ECA800CBC956 /* RedStatus.png */; };
+		4D7CA2AB1816ECA800CBC956 /* YellowStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA2A91816ECA800CBC956 /* YellowStatus.png */; };
 		4D8F4D7A16BB760B00B29904 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */; };
 		4D8F4D7D16BB775500B29904 /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D8F4D7B16BB775500B29904 /* About.html */; };
 		4D98231516728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
@@ -89,6 +92,9 @@
 		4D65772A166536FD00F32D4F /* PasswordGeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordGeneratorTests.m; sourceTree = "<group>"; };
 		4D728B1316758701004824AB /* Misc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Misc; path = UberGenPass/Misc; sourceTree = "<group>"; };
 		4D728B1716758957004824AB /* help.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
+		4D7CA2A61816EBCA00CBC956 /* GreenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenStatus.png; path = UberGenPass/Images.xcassets/GreenStatus.imageset/GreenStatus.png; sourceTree = SOURCE_ROOT; };
+		4D7CA2A81816ECA800CBC956 /* RedStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedStatus.png; path = UberGenPass/Images.xcassets/RedStatus.imageset/RedStatus.png; sourceTree = SOURCE_ROOT; };
+		4D7CA2A91816ECA800CBC956 /* YellowStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = YellowStatus.png; path = UberGenPass/Images.xcassets/YellowStatus.imageset/YellowStatus.png; sourceTree = SOURCE_ROOT; };
 		4D8B12611665B91D0062C305 /* UberGenPass-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UberGenPass-Info.plist"; sourceTree = "<group>"; };
 		4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4D8F4D7C16BB775500B29904 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = UberGenPass/en.lproj/About.html; sourceTree = SOURCE_ROOT; };
@@ -223,14 +229,17 @@
 			isa = PBXGroup;
 			children = (
 				4D8F4D7B16BB775500B29904 /* About.html */,
+				4D7CA2A61816EBCA00CBC956 /* GreenStatus.png */,
 				4D728B1716758957004824AB /* help.css */,
 				4D6576FF166536FD00F32D4F /* InfoPlist.strings */,
 				4D2FBC9F166947B5007B8065 /* iTunesArtwork */,
 				4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */,
 				4DC01D9D1676E87900D3763E /* Localizable.strings */,
 				4DE5A0711677BD6E00719D18 /* MainHelp.html */,
+				4D7CA2A81816ECA800CBC956 /* RedStatus.png */,
 				4DC01D981676E7C900D3763E /* SettingsHelp.html */,
 				4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */,
+				4D7CA2A91816ECA800CBC956 /* YellowStatus.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -311,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7CA2AA1816ECA800CBC956 /* RedStatus.png in Resources */,
 				4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */,
 				4D657710166536FD00F32D4F /* MainStoryboard.storyboard in Resources */,
 				4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */,
@@ -319,9 +329,11 @@
 				4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */,
 				4D728B1816758957004824AB /* help.css in Resources */,
 				4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */,
+				4D7CA2A71816EBCA00CBC956 /* GreenStatus.png in Resources */,
 				4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */,
 				4D8F4D7D16BB775500B29904 /* About.html in Resources */,
 				4D99EFDC16C044CB00B2F08D /* TopLevelDomains.json in Resources */,
+				4D7CA2AB1816ECA800CBC956 /* YellowStatus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
