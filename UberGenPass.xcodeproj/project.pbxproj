@@ -169,14 +169,12 @@
 		4D6576FC166536FD00F32D4F /* UberGenPass */ = {
 			isa = PBXGroup;
 			children = (
-				4D424E5717E0C2D2000E1D5A /* FUIButton.h */,
-				4D424E5817E0C2D2000E1D5A /* FUIButton.m */,
-				4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */,
-				4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */,
 				4DC172A416B6DEE2000E2B99 /* AboutViewController.h */,
 				4DC172A516B6DEE2000E2B99 /* AboutViewController.m */,
 				4D657705166536FD00F32D4F /* AppDelegate.h */,
 				4D657706166536FD00F32D4F /* AppDelegate.m */,
+				4D424E5717E0C2D2000E1D5A /* FUIButton.h */,
+				4D424E5817E0C2D2000E1D5A /* FUIButton.m */,
 				4D98231316728813001F3D8A /* HelpViewController.h */,
 				4D98231416728813001F3D8A /* HelpViewController.m */,
 				4D2FBCAB166992F7007B8065 /* Keychain.h */,
@@ -188,6 +186,8 @@
 				4D657714166536FD00F32D4F /* SettingsViewController.h */,
 				4D657715166536FD00F32D4F /* SettingsViewController.m */,
 				4DC1729E16B6C707000E2B99 /* UberGenPass.h */,
+				4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */,
+				4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */,
 				4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */,
 				4D8B12541665AFD40062C305 /* Resources */,
 				4D56CE6C1816D0A300660142 /* Images.xcassets */,
