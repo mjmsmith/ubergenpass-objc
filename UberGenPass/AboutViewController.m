@@ -7,13 +7,13 @@
 
 
 #import "AboutViewController.h"
-#import "GradientButton.h"
+#import "FUIButton.h"
 
 #define AppStoreReviewsURL @"http://camazotz.com/ubergenpass/review"
 
 @interface AboutViewController () <UIWebViewDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, readwrite, nonatomic) IBOutlet GradientButton *rateButton;
+@property (strong, readwrite, nonatomic) IBOutlet FUIButton *rateButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
 - (IBAction)done;
 - (IBAction)rate;
@@ -36,7 +36,8 @@
                          [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"],
                          [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
   
-  [self.rateButton useAlertStyle];
+  self.rateButton.buttonColor = FUIButton.defaultButtonColor;
+  self.rateButton.cornerRadius = 6.0f;
 
   self.webView.scrollView.bounces = NO;
   [self.webView loadRequest:[NSURLRequest requestWithURL:[NSBundle.mainBundle URLForResource:@"About" withExtension:@"html"]]];

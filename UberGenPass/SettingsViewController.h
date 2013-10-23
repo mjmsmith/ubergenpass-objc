@@ -14,7 +14,6 @@
 
 @interface SettingsViewController : UIViewController
 @property (weak, readwrite, nonatomic) id <SettingsViewControllerDelegate> delegate;
-@property (assign, readwrite, nonatomic) BOOL remembersPasswordHash;
 @property (assign, readwrite, nonatomic) BOOL remembersRecentSites;
 @property (assign, readwrite, nonatomic) BOOL canCancel;
 @property (assign, readwrite, nonatomic) int backgroundTimeout;

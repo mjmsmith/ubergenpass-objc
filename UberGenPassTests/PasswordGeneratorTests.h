@@ -5,7 +5,7 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface UberGenPassTests : SenTestCase
+@interface UberGenPassTests : XCTestCase
 @end

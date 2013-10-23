@@ -16,7 +16,7 @@
 - (NSString *)passwordForSite:(NSString *)site length:(int)length;
 - (NSString *)domainFromSite:(NSString *)site;
 
-- (void)updateMasterPassword:(NSString *)masterPassword andSaveHash:(BOOL)savesHash;
+- (void)updateMasterPassword:(NSString *)masterPassword;
 
 - (BOOL)textMatchesHash:(NSString *)text;
 @end

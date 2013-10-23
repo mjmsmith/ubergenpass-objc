@@ -8,18 +8,17 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "AboutViewController.h"
-#import "GradientButton.h"
+#import "FUIButton.h"
 #import "HelpViewController.h"
 #import "Keychain.h"
 #import "MainViewController.h"
-#import "NSData+Base64.h"
 #import "PasswordGenerator.h"
 #import "SettingsViewController.h"
 
 #define MaxRecentSites 50
 #define MaxMatchingSiteListItems 5
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate,
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, UIToolbarDelegate,
                                   AboutViewControllerDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *siteTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
@@ -27,9 +26,10 @@
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *domainLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *passwordTapView;
-@property (strong, readwrite, nonatomic) IBOutlet GradientButton *clipboardButton;
-@property (strong, readwrite, nonatomic) IBOutlet GradientButton *safariButton;
+@property (strong, readwrite, nonatomic) IBOutlet FUIButton *clipboardButton;
+@property (strong, readwrite, nonatomic) IBOutlet FUIButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
+@property (strong, readwrite, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *matchingSitesView;
 @property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *matchingSitesViewHeightConstraint;
@@ -114,16 +114,19 @@
   
   // Password buttons.
   
-  [self.clipboardButton useAlertStyle];
-  [self.safariButton useAlertStyle];
-  
+  self.clipboardButton.buttonColor = FUIButton.defaultButtonColor;
+  self.clipboardButton.cornerRadius = 6.0f;
+
+  self.safariButton.buttonColor = FUIButton.defaultButtonColor;
+  self.safariButton.cornerRadius = 6.0f;
+
   // Matching sites popup.
   
   self.matchingSitesView.layer.shadowColor = UIColor.blackColor.CGColor;
-  self.matchingSitesView.layer.shadowOpacity = 0.75;
-  self.matchingSitesView.layer.shadowOffset = CGSizeMake(4, 2);
-  self.matchingSitesView.layer.shadowRadius = 10;
-  
+  self.matchingSitesView.layer.shadowOpacity = 0.5;
+  self.matchingSitesView.layer.shadowOffset = CGSizeMake(0, 2);
+  self.matchingSitesView.layer.shadowRadius = 4;
+
   // Controls hidden until we have a site.
   
   self.domainLabel.hidden = YES;
@@ -142,6 +145,10 @@
   else {
     [self addCoveringView];
   }
+  
+  // Toolbar.
+  
+  self.toolbar.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -192,7 +199,6 @@
     SettingsViewController *controller = segue.destinationViewController;
     
     controller.canCancel = [segue.identifier isEqualToString:ShowSettingsOptionalSegue];
-    controller.remembersPasswordHash = ([Keychain stringForKey:PasswordHashKey] != nil);
     controller.remembersRecentSites = (self.recentSites != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:BackgroundTimeoutKey];
     controller.delegate = self;
@@ -335,10 +341,12 @@
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self.matchingSitesTableView deselectRowAtIndexPath:indexPath animated:YES];
-
   self.siteTextField.text = self.matchingSites[indexPath.row];
+  [self.siteTextField resignFirstResponder];
+  
   [self editingChanged];
+
+  [self.matchingSitesTableView deselectRowAtIndexPath:indexPath animated:YES];
   self.matchingSitesView.hidden = YES;
 }
 
@@ -363,6 +371,12 @@
   return YES;
 }
 
+#pragma mark UIToolbarDelegate
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+  return UIBarPositionBottom;
+}
+
 #pragma mark AboutViewControllerDelegate
 
 - (void)aboutViewControllerDidFinish:(AboutViewController *)controller {
@@ -378,7 +392,7 @@
 #pragma mark SettingsViewControllerDelegate
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
-  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password andSaveHash:controller.remembersPasswordHash];
+  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
 
   if (controller.remembersRecentSites) {
     if (self.recentSites == nil) {

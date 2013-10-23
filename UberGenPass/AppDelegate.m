@@ -53,12 +53,7 @@
     [Keychain removeStringForKey:RecentSitesKey];
   }
   else {
-    if ([newVersion isEqualToString:@"1.1.0"]) {
-      NSString *title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(AppNameString, nil), newVersion];
-      NSString *message = NSLocalizedString(RecentSitesString, nil);
-      NSString *ok = NSLocalizedString(OKString, nil);
-      
-      [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:ok otherButtonTitles:nil] show];
+    if ([newVersion isEqualToString:@"2.0.0"]) {
     }
   }
   

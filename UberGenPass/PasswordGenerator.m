@@ -7,7 +7,6 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import "Keychain.h"
-#import "NSData+Base64.h"
 #import "PasswordGenerator.h"
 
 @interface PasswordGenerator ()
@@ -30,11 +29,12 @@
     NSString *path = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"TopLevelDomains.json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    
-//    NSAssert1((error == nil), @"tlds load failed with %@", error);
+    NSString *hashStr = [Keychain stringForKey:PasswordHashKey];
     
     self.tlds = [NSMutableOrderedSet orderedSetWithArray:array];
-    self.hash = [NSData dataFromBase64String:[Keychain stringForKey:PasswordHashKey]];
+    if (hashStr.length != 0) {
+      self.hash = [[NSData alloc] initWithBase64EncodedString:hashStr options:0];
+    }
     self.lowerCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[a-z]" options:0 error:nil];
     self.upperCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]" options:0 error:nil];
     self.digitPattern = [NSRegularExpression regularExpressionWithPattern:@"[\\d]" options:0 error:nil];
@@ -90,8 +90,7 @@
   int count = 0;
   
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
-    NSData *md5 = [self.class md5:password];
-    password = [md5 base64EncodedString];
+    password = [[self.class md5:password] base64EncodedStringWithOptions:0];
     password = [password stringByReplacingOccurrencesOfString:@"=" withString:@"A"];
     password = [password stringByReplacingOccurrencesOfString:@"+" withString:@"9"];
     password = [password stringByReplacingOccurrencesOfString:@"/" withString:@"8"];
@@ -145,16 +144,11 @@
   return self.masterPassword != nil;
 }
 
-- (void)updateMasterPassword:(NSString *)masterPassword andSaveHash:(BOOL)savesHash {
+- (void)updateMasterPassword:(NSString *)masterPassword {
   self.masterPassword = masterPassword;
   self.hash = [self.class sha256:masterPassword];
   
-  if (savesHash) {
-    [Keychain setString:[self.hash base64EncodedString] forKey:PasswordHashKey];
-  }
-  else {
-    [Keychain removeStringForKey:PasswordHashKey];
-  }
+  [Keychain setString:[self.hash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
 }
 
 - (BOOL)textMatchesHash:(NSString *)text {
