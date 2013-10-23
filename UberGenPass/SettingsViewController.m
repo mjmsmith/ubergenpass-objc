@@ -66,6 +66,8 @@
   }
   
   if (PasswordGenerator.sharedGenerator.hash != nil) {
+    self.upperPasswordTextField.returnKeyType = UIReturnKeyDefault;
+
     self.prevLowerPasswordTextFieldTopConstraintConstant = self.lowerPasswordTextFieldTopConstraint.constant;
     self.lowerPasswordTextFieldTopConstraint.constant = self.upperPasswordTextFieldTopConstraint.constant;
     self.lowerPasswordTextField.hidden = YES;
@@ -124,25 +126,25 @@
 #pragma mark Actions
 
 - (IBAction)editingChanged:(id)sender {
-  NSString *leftText = self.upperPasswordTextField.text;
-  NSString *rightText = self.lowerPasswordTextField.text;
+  NSString *upperText = self.upperPasswordTextField.text;
+  NSString *lowerText = self.lowerPasswordTextField.text;
   UIImage *statusImage = self.greyImage;
   BOOL done = NO;
 
-  // If the left password field was just edited to match the hash, set the right field too.
+  // If the upper password field was just edited to match the hash, set the lower field too.
   
-  if (sender == self.upperPasswordTextField && [PasswordGenerator.sharedGenerator textMatchesHash:leftText]) {
-    self.lowerPasswordTextField.text = rightText = leftText;
+  if (sender == self.upperPasswordTextField && [PasswordGenerator.sharedGenerator textMatchesHash:upperText]) {
+    self.lowerPasswordTextField.text = lowerText = upperText;
   }
   
   // Status image.
   
-  if (leftText.length > 0 && rightText.length > 0) {
-    if ([leftText isEqualToString:rightText]) {
+  if (upperText.length > 0 && lowerText.length > 0) {
+    if ([upperText isEqualToString:lowerText]) {
       statusImage = self.greenImage;
       done = YES;
     }
-    else if ([leftText hasPrefix:rightText] || [rightText hasPrefix:leftText]) {
+    else if ([upperText hasPrefix:lowerText] || [lowerText hasPrefix:upperText]) {
       statusImage = self.yellowImage;
     }
     else {
@@ -195,6 +197,8 @@
                                         options:UIViewAnimationOptionTransitionCrossDissolve
                                      animations:^{
                                        self.changePasswordButton.hidden = YES;
+                                       self.upperPasswordTextField.returnKeyType = UIReturnKeyNext;
+                                       [self.upperPasswordTextField reloadInputViews];
                                        self.lowerPasswordTextField.hidden = NO;
                                      }
                                      completion:nil];
@@ -225,32 +229,11 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   if (textField == self.upperPasswordTextField) {
-    if (self.lowerPasswordTextField.hidden) {
-      [UIView animateWithDuration:0.3
-                       animations:^{
-                         self.lowerPasswordTextFieldTopConstraint.constant = self.prevLowerPasswordTextFieldTopConstraintConstant;
-                         [self.view layoutIfNeeded];
-                       }
-                       completion:^(BOOL finished){
-                         [UIView transitionWithView:self.lowerPasswordTextField
-                                           duration:0.3
-                                            options:UIViewAnimationOptionTransitionCrossDissolve
-                                         animations:^{
-                                           self.changePasswordButton.hidden = YES;
-                                           self.lowerPasswordTextField.hidden = NO;
-                                         }
-                                         completion:^(BOOL finished){
-                                           [self.lowerPasswordTextField becomeFirstResponder];
-                                         }
-                         ];
-                       }
-      ];
-    }
-    else {
+    if (!self.lowerPasswordTextField.hidden) {
       [self.lowerPasswordTextField becomeFirstResponder];
     }
   }
-  else {
+  else if (textField == self.lowerPasswordTextField) {
     [self.upperPasswordTextField becomeFirstResponder];
   }
 
