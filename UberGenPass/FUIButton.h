@@ -10,6 +10,8 @@
 
 @interface FUIButton : UIButton
 
++ (UIColor *)defaultButtonColor;
+
 @property(nonatomic, strong, readwrite) UIColor *buttonColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong, readwrite) UIColor *shadowColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, readwrite) CGFloat shadowHeight UI_APPEARANCE_SELECTOR;

@@ -17,6 +17,10 @@
 
 @implementation FUIButton
 
++ (UIColor *)defaultButtonColor {
+  return [UIColor colorWithRed:50.0/255 green:79.0/255 blue:133.0/255 alpha:1];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

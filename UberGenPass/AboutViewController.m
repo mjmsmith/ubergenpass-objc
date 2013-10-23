@@ -36,7 +36,7 @@
                          [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"],
                          [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
   
-  self.rateButton.buttonColor = [UIColor colorWithRed:50.0/255 green:79.0/255 blue:133.0/255 alpha:1];
+  self.rateButton.buttonColor = FUIButton.defaultButtonColor;
   self.rateButton.cornerRadius = 6.0f;
 
   self.webView.scrollView.bounces = NO;

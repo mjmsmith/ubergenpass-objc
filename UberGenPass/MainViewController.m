@@ -114,19 +114,19 @@
   
   // Password buttons.
   
-  self.clipboardButton.buttonColor = [UIColor colorWithRed:50.0/255 green:79.0/255 blue:133.0/255 alpha:1];
+  self.clipboardButton.buttonColor = FUIButton.defaultButtonColor;
   self.clipboardButton.cornerRadius = 6.0f;
 
-  self.safariButton.buttonColor = [UIColor colorWithRed:50.0/255 green:79.0/255 blue:133.0/255 alpha:1];
+  self.safariButton.buttonColor = FUIButton.defaultButtonColor;
   self.safariButton.cornerRadius = 6.0f;
 
   // Matching sites popup.
   
   self.matchingSitesView.layer.shadowColor = UIColor.blackColor.CGColor;
-  self.matchingSitesView.layer.shadowOpacity = 0.75;
-  self.matchingSitesView.layer.shadowOffset = CGSizeMake(4, 2);
-  self.matchingSitesView.layer.shadowRadius = 10;
-  
+  self.matchingSitesView.layer.shadowOpacity = 0.5;
+  self.matchingSitesView.layer.shadowOffset = CGSizeMake(0, 2);
+  self.matchingSitesView.layer.shadowRadius = 4;
+
   // Controls hidden until we have a site.
   
   self.domainLabel.hidden = YES;
