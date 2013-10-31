@@ -53,7 +53,7 @@
     [Keychain removeStringForKey:RecentSitesKey];
   }
   else {
-    if ([newVersion isEqualToString:@"2.0.0"]) {
+    if ([newVersion isEqualToString:@"#.#.#"]) {
     }
   }
   
