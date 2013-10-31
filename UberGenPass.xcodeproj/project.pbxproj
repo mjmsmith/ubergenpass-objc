@@ -21,6 +21,8 @@
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D56CE6D1816D0A300660142 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D56CE6C1816D0A300660142 /* Images.xcassets */; };
+		4D5A1FEF1821DD6F0085BA43 /* Padlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D5A1FED1821DD6F0085BA43 /* Padlock.png */; };
+		4D5A1FF01821DD6F0085BA43 /* Padlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D5A1FEE1821DD6F0085BA43 /* Padlock@2x.png */; };
 		4D6576F7166536FD00F32D4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F6166536FD00F32D4F /* UIKit.framework */; };
 		4D6576F9166536FD00F32D4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6576F8166536FD00F32D4F /* Foundation.framework */; };
 		4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D6576FF166536FD00F32D4F /* InfoPlist.strings */; };
@@ -72,6 +74,8 @@
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
 		4D501E8916653CBB006A86E9 /* PasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordGenerator.m; sourceTree = "<group>"; };
 		4D56CE6C1816D0A300660142 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4D5A1FED1821DD6F0085BA43 /* Padlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Padlock.png; sourceTree = "<group>"; };
+		4D5A1FEE1821DD6F0085BA43 /* Padlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Padlock@2x.png"; sourceTree = "<group>"; };
 		4D6576F2166536FD00F32D4F /* UberGenPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberGenPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6576F6166536FD00F32D4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D6576F8166536FD00F32D4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -228,6 +232,8 @@
 		4D8B12541665AFD40062C305 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D5A1FED1821DD6F0085BA43 /* Padlock.png */,
+				4D5A1FEE1821DD6F0085BA43 /* Padlock@2x.png */,
 				4D8F4D7B16BB775500B29904 /* About.html */,
 				4D7CA2A61816EBCA00CBC956 /* GreenStatus.png */,
 				4D728B1716758957004824AB /* help.css */,
@@ -329,7 +335,9 @@
 				4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */,
 				4D728B1816758957004824AB /* help.css in Resources */,
 				4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */,
+				4D5A1FF01821DD6F0085BA43 /* Padlock@2x.png in Resources */,
 				4D7CA2A71816EBCA00CBC956 /* GreenStatus.png in Resources */,
+				4D5A1FEF1821DD6F0085BA43 /* Padlock.png in Resources */,
 				4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */,
 				4D8F4D7D16BB775500B29904 /* About.html in Resources */,
 				4D99EFDC16C044CB00B2F08D /* TopLevelDomains.json in Resources */,

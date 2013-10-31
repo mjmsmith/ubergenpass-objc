@@ -582,8 +582,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="top" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ih1-Ed-sFc" userLabel="Image View - Background">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <imageView userInteractionEnabled="NO" contentMode="top" image="Padlock.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ih1-Ed-sFc" userLabel="Image View - Background">
+                                <rect key="frame" x="40" y="120" width="240" height="240"/>
                             </imageView>
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ6-sX-Sg8">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -642,11 +642,11 @@
                             <constraint firstItem="4ky-Ng-MPn" firstAttribute="trailing" secondItem="euM-Gs-LiF" secondAttribute="trailing" id="831-53-vxI"/>
                             <constraint firstItem="PJ6-sX-Sg8" firstAttribute="leading" secondItem="euM-Gs-LiF" secondAttribute="leading" id="CMZ-hU-H9d"/>
                             <constraint firstItem="PJ6-sX-Sg8" firstAttribute="top" secondItem="V6W-iF-ZGu" secondAttribute="bottom" id="Ccj-ON-hx2"/>
-                            <constraint firstItem="Ih1-Ed-sFc" firstAttribute="top" secondItem="euM-Gs-LiF" secondAttribute="top" id="D0d-rW-3w1"/>
                             <constraint firstItem="YVa-HH-mdQ" firstAttribute="bottom" secondItem="euM-Gs-LiF" secondAttribute="bottom" id="JDB-5s-wQ0"/>
                             <constraint firstItem="4ky-Ng-MPn" firstAttribute="leading" secondItem="euM-Gs-LiF" secondAttribute="leading" id="KFO-7q-3Y4"/>
+                            <constraint firstAttribute="centerY" secondItem="Ih1-Ed-sFc" secondAttribute="centerY" id="O3U-kr-hcj"/>
+                            <constraint firstAttribute="centerX" secondItem="Ih1-Ed-sFc" secondAttribute="centerX" id="OqF-62-gl8"/>
                             <constraint firstItem="5km-ej-3Fz" firstAttribute="centerX" secondItem="4ky-Ng-MPn" secondAttribute="centerX" id="VLh-E1-QOi"/>
-                            <constraint firstItem="Ih1-Ed-sFc" firstAttribute="leading" secondItem="euM-Gs-LiF" secondAttribute="leading" id="Xsd-BC-PUu"/>
                             <constraint firstItem="YVa-HH-mdQ" firstAttribute="trailing" secondItem="euM-Gs-LiF" secondAttribute="trailing" id="beK-K4-cdc"/>
                             <constraint firstItem="4ky-Ng-MPn" firstAttribute="top" secondItem="PJ6-sX-Sg8" secondAttribute="bottom" constant="16" id="gPi-uz-vfi"/>
                             <constraint firstItem="YVa-HH-mdQ" firstAttribute="leading" secondItem="euM-Gs-LiF" secondAttribute="leading" id="gub-9H-gn7"/>
@@ -667,10 +667,10 @@
     <resources>
         <image name="BackButton.png" width="15" height="18"/>
         <image name="Checkmark.png" width="14" height="14"/>
-        <image name="Default.png" width="320" height="480"/>
         <image name="ForwardButton.png" width="15" height="18"/>
         <image name="HelpButton.png" width="28" height="28"/>
         <image name="InfoButton.png" width="28" height="28"/>
+        <image name="Padlock.png" width="240" height="240"/>
         <image name="SettingsButton.png" width="28" height="28"/>
         <image name="WelcomeOverlay.png" width="320" height="200"/>
     </resources>
