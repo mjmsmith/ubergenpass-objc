@@ -127,6 +127,10 @@
   self.matchingSitesView.layer.shadowOffset = CGSizeMake(0, 2);
   self.matchingSitesView.layer.shadowRadius = 4;
 
+
+  self.matchingSitesView.layer.cornerRadius = 4;
+  ((UITableView *)self.matchingSitesView.subviews[0]).layer.cornerRadius = 4;
+
   // Controls hidden until we have a site.
   
   self.domainLabel.hidden = YES;
