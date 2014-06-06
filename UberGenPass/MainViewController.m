@@ -100,7 +100,7 @@
 
   // Password length stepper and text field.
   
-  int passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:PasswordLengthKey];
+  NSInteger passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:PasswordLengthKey];
   
   self.passwordLengthStepper.minimumValue = 4;
   self.passwordLengthStepper.maximumValue = 24;

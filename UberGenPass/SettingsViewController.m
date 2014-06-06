@@ -27,7 +27,7 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *upperPasswordTextFieldTopConstraint;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *lowerPasswordTextFieldTopConstraint;
-@property (assign, readwrite, nonatomic) int prevLowerPasswordTextFieldTopConstraintConstant;
+@property (assign, readwrite, nonatomic) NSInteger prevLowerPasswordTextFieldTopConstraintConstant;
 @property (copy, readwrite, nonatomic) NSString *password;
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)addSafariBookmarklet;
@@ -42,7 +42,7 @@
 - (void)resetForActivate {
   if (self.canCancel) {
     self.canCancel = NO;
-    [self removeCancelButton];
+    self.cancelButtonItem.enabled = NO;
   }
   
   self.upperPasswordTextField.text = self.lowerPasswordTextField.text = nil;
@@ -62,7 +62,7 @@
   self.redImage = [UIImage imageNamed:@"RedStatus"];
 
   if (!self.canCancel) {
-    [self removeCancelButton];
+    self.cancelButtonItem.enabled = NO;
   }
   
   if (PasswordGenerator.sharedGenerator.hash != nil) {
@@ -212,7 +212,7 @@
 }
 
 - (IBAction)done {
-  int timeouts[] = {0, 60, 300};
+  NSInteger timeouts[] = {0, 60, 300};
   
   self.password = self.upperPasswordTextField.text;
   self.remembersRecentSites = self.recentSitesSwitch.on;
@@ -244,12 +244,6 @@
 
 - (void)helpViewControllerDidFinish:(HelpViewController *)controller {
   [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark Private
-
-- (void)removeCancelButton {
-  ((UINavigationItem *)self.navigationBar.items[0]).leftBarButtonItem = nil;
 }
 
 @end

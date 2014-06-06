@@ -13,7 +13,7 @@
 + (NSData *)md5:(NSString *)str;
 + (NSData *)sha256:(NSString *)str;
 
-- (NSString *)passwordForSite:(NSString *)site length:(int)length;
+- (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length;
 - (NSString *)domainFromSite:(NSString *)site;
 
 - (void)updateMasterPassword:(NSString *)masterPassword;

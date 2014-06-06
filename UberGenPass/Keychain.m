@@ -24,7 +24,7 @@
 		
 		status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributesToUpdate);
 		if (status != errSecSuccess) {
-      NSLog(@"SecItemUpdate failed: %ld", status);
+      NSLog(@"SecItemUpdate failed: %d", (int)status);
     }
 	}
   else if (status == errSecItemNotFound) {
@@ -32,11 +32,11 @@
 		
 		status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
 		if (status != errSecSuccess) {
-      NSLog(@"SecItemAdd failed: %ld", status);
+      NSLog(@"SecItemAdd failed: %d", (int)status);
     }
 	}
   else {
-		NSLog(@"SecItemCopyMatching failed: %ld", status);
+		NSLog(@"SecItemCopyMatching failed: %d", (int)status);
 	}
 }
 
@@ -66,7 +66,7 @@
 		
 	OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
 	if (status != errSecSuccess) {
-		NSLog(@"SecItemDelete failed: %ld", status);
+		NSLog(@"SecItemDelete failed: %d", (int)status);
 	}
 }
 

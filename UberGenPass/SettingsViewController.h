@@ -16,7 +16,7 @@
 @property (weak, readwrite, nonatomic) id <SettingsViewControllerDelegate> delegate;
 @property (assign, readwrite, nonatomic) BOOL remembersRecentSites;
 @property (assign, readwrite, nonatomic) BOOL canCancel;
-@property (assign, readwrite, nonatomic) int backgroundTimeout;
+@property (assign, readwrite, nonatomic) NSInteger backgroundTimeout;
 @property (copy, readonly, nonatomic) NSString *password;
 
 - (void)resetForActivate;

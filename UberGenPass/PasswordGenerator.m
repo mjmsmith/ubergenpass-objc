@@ -61,7 +61,7 @@
   const char *cStr = [str UTF8String];
   unsigned char digest[CC_MD5_DIGEST_LENGTH];
   
-  CC_MD5(cStr, strlen(cStr), digest);
+  CC_MD5(cStr, (unsigned int)strlen(cStr), digest);
   
   return [NSData dataWithBytes:digest length:CC_MD5_DIGEST_LENGTH];
 }
@@ -70,12 +70,12 @@
   const char *cStr = [str UTF8String];
   unsigned char digest[CC_SHA256_DIGEST_LENGTH];
   
-  CC_SHA256(cStr, strlen(cStr), digest);
+  CC_SHA256(cStr, (unsigned int)strlen(cStr), digest);
   
   return [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
 }
 
-- (NSString *)passwordForSite:(NSString *)site length:(int)length {
+- (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length {
   if (site == nil) {
     return nil;
   }
@@ -87,7 +87,7 @@
   }
   
   NSString *password = [NSString stringWithFormat:@"%@:%@", self.masterPassword, domain];
-  int count = 0;
+  NSInteger count = 0;
   
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
     password = [[self.class md5:password] base64EncodedStringWithOptions:0];

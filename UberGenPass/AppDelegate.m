@@ -22,7 +22,7 @@
   if (![currentVersion isEqualToString:defaultsVersion]) {
     [self versionUpdatedFrom:defaultsVersion to:currentVersion];
   }
-  
+
   return YES;
 }
 
