@@ -10,8 +10,6 @@
 @property (copy, readonly, nonatomic) NSData *hash;
 
 + (PasswordGenerator *)sharedGenerator;
-+ (NSData *)md5:(NSString *)str;
-+ (NSData *)sha256:(NSString *)str;
 
 - (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length;
 - (NSString *)domainFromSite:(NSString *)site;

@@ -39,6 +39,8 @@
 		4D7CA2A71816EBCA00CBC956 /* GreenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA2A61816EBCA00CBC956 /* GreenStatus.png */; };
 		4D7CA2AA1816ECA800CBC956 /* RedStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA2A81816ECA800CBC956 /* RedStatus.png */; };
 		4D7CA2AB1816ECA800CBC956 /* YellowStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA2A91816ECA800CBC956 /* YellowStatus.png */; };
+		4D898075194229290082B539 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D898074194229290082B539 /* NSData+CommonCrypto.m */; };
+		4D898076194229290082B539 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D898074194229290082B539 /* NSData+CommonCrypto.m */; };
 		4D8F4D7A16BB760B00B29904 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */; };
 		4D8F4D7D16BB775500B29904 /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D8F4D7B16BB775500B29904 /* About.html */; };
 		4D98231516728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
@@ -99,6 +101,8 @@
 		4D7CA2A61816EBCA00CBC956 /* GreenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenStatus.png; path = UberGenPass/Images.xcassets/GreenStatus.imageset/GreenStatus.png; sourceTree = SOURCE_ROOT; };
 		4D7CA2A81816ECA800CBC956 /* RedStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedStatus.png; path = UberGenPass/Images.xcassets/RedStatus.imageset/RedStatus.png; sourceTree = SOURCE_ROOT; };
 		4D7CA2A91816ECA800CBC956 /* YellowStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = YellowStatus.png; path = UberGenPass/Images.xcassets/YellowStatus.imageset/YellowStatus.png; sourceTree = SOURCE_ROOT; };
+		4D898073194229290082B539 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		4D898074194229290082B539 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
 		4D8B12611665B91D0062C305 /* UberGenPass-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UberGenPass-Info.plist"; sourceTree = "<group>"; };
 		4D8F4D7916BB760B00B29904 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4D8F4D7C16BB775500B29904 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = UberGenPass/en.lproj/About.html; sourceTree = SOURCE_ROOT; };
@@ -173,26 +177,13 @@
 		4D6576FC166536FD00F32D4F /* UberGenPass */ = {
 			isa = PBXGroup;
 			children = (
-				4DC172A416B6DEE2000E2B99 /* AboutViewController.h */,
-				4DC172A516B6DEE2000E2B99 /* AboutViewController.m */,
-				4D657705166536FD00F32D4F /* AppDelegate.h */,
 				4D657706166536FD00F32D4F /* AppDelegate.m */,
-				4D424E5717E0C2D2000E1D5A /* FUIButton.h */,
-				4D424E5817E0C2D2000E1D5A /* FUIButton.m */,
-				4D98231316728813001F3D8A /* HelpViewController.h */,
-				4D98231416728813001F3D8A /* HelpViewController.m */,
-				4D2FBCAB166992F7007B8065 /* Keychain.h */,
-				4D2FBCAC166992F7007B8065 /* Keychain.m */,
-				4D657711166536FD00F32D4F /* MainViewController.h */,
-				4D657712166536FD00F32D4F /* MainViewController.m */,
-				4D501E8816653CBB006A86E9 /* PasswordGenerator.h */,
-				4D501E8916653CBB006A86E9 /* PasswordGenerator.m */,
-				4D657714166536FD00F32D4F /* SettingsViewController.h */,
-				4D657715166536FD00F32D4F /* SettingsViewController.m */,
-				4DC1729E16B6C707000E2B99 /* UberGenPass.h */,
-				4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */,
-				4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */,
 				4D65770E166536FD00F32D4F /* MainStoryboard.storyboard */,
+				4D89807819422AD70082B539 /* Categories */,
+				4D89807919422ADD0082B539 /* Controllers */,
+				4D89807B19422B140082B539 /* Utilities */,
+				4D89807A19422AEF0082B539 /* Views */,
+				4D898072194228FC0082B539 /* Headers */,
 				4D8B12541665AFD40062C305 /* Resources */,
 				4D56CE6C1816D0A300660142 /* Images.xcassets */,
 				4D6576FD166536FD00F32D4F /* Supporting Files */,
@@ -227,6 +218,61 @@
 				4D657726166536FD00F32D4F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D898072194228FC0082B539 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4DC172A416B6DEE2000E2B99 /* AboutViewController.h */,
+				4D657705166536FD00F32D4F /* AppDelegate.h */,
+				4D424E5717E0C2D2000E1D5A /* FUIButton.h */,
+				4D98231316728813001F3D8A /* HelpViewController.h */,
+				4D2FBCAB166992F7007B8065 /* Keychain.h */,
+				4D657711166536FD00F32D4F /* MainViewController.h */,
+				4D898073194229290082B539 /* NSData+CommonCrypto.h */,
+				4D501E8816653CBB006A86E9 /* PasswordGenerator.h */,
+				4D657714166536FD00F32D4F /* SettingsViewController.h */,
+				4DC1729E16B6C707000E2B99 /* UberGenPass.h */,
+				4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		4D89807819422AD70082B539 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4D898074194229290082B539 /* NSData+CommonCrypto.m */,
+				4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		4D89807919422ADD0082B539 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DC172A516B6DEE2000E2B99 /* AboutViewController.m */,
+				4D98231416728813001F3D8A /* HelpViewController.m */,
+				4D657712166536FD00F32D4F /* MainViewController.m */,
+				4D657715166536FD00F32D4F /* SettingsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4D89807A19422AEF0082B539 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D424E5817E0C2D2000E1D5A /* FUIButton.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4D89807B19422B140082B539 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FBCAC166992F7007B8065 /* Keychain.m */,
+				4D501E8916653CBB006A86E9 /* PasswordGenerator.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		4D8B12541665AFD40062C305 /* Resources */ = {
@@ -378,6 +424,7 @@
 			files = (
 				4D424E5D17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */,
 				4D657703166536FD00F32D4F /* main.m in Sources */,
+				4D898075194229290082B539 /* NSData+CommonCrypto.m in Sources */,
 				4D657707166536FD00F32D4F /* AppDelegate.m in Sources */,
 				4D657713166536FD00F32D4F /* MainViewController.m in Sources */,
 				4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */,
@@ -393,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D898076194229290082B539 /* NSData+CommonCrypto.m in Sources */,
 				4D424E5C17E0C2D2000E1D5A /* FUIButton.m in Sources */,
 				4D65772B166536FD00F32D4F /* PasswordGeneratorTests.m in Sources */,
 				4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */,

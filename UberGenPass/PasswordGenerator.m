@@ -5,8 +5,8 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
-#import <CommonCrypto/CommonDigest.h>
 #import "Keychain.h"
+#import "NSData+CommonCrypto.h"
 #import "PasswordGenerator.h"
 
 @interface PasswordGenerator ()
@@ -57,24 +57,6 @@
   return instance;
 }
 
-+ (NSData *)md5:(NSString *)str {
-  const char *cStr = [str UTF8String];
-  unsigned char digest[CC_MD5_DIGEST_LENGTH];
-  
-  CC_MD5(cStr, (unsigned int)strlen(cStr), digest);
-  
-  return [NSData dataWithBytes:digest length:CC_MD5_DIGEST_LENGTH];
-}
-
-+ (NSData *)sha256:(NSString *)str {
-  const char *cStr = [str UTF8String];
-  unsigned char digest[CC_SHA256_DIGEST_LENGTH];
-  
-  CC_SHA256(cStr, (unsigned int)strlen(cStr), digest);
-  
-  return [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
-}
-
 - (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length {
   if (site == nil) {
     return nil;
@@ -90,7 +72,7 @@
   NSInteger count = 0;
   
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
-    password = [[self.class md5:password] base64EncodedStringWithOptions:0];
+    password = [[[password dataUsingEncoding:NSUTF8StringEncoding] MD5Sum] base64EncodedStringWithOptions:0];
     password = [password stringByReplacingOccurrencesOfString:@"=" withString:@"A"];
     password = [password stringByReplacingOccurrencesOfString:@"+" withString:@"9"];
     password = [password stringByReplacingOccurrencesOfString:@"/" withString:@"8"];
@@ -146,13 +128,13 @@
 
 - (void)updateMasterPassword:(NSString *)masterPassword {
   self.masterPassword = masterPassword;
-  self.hash = [self.class sha256:masterPassword];
+  self.hash = [[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash];
   
   [Keychain setString:[self.hash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
 }
 
 - (BOOL)textMatchesHash:(NSString *)text {
-  return [self.hash isEqualToData:[self.class sha256:text]];
+  return [self.hash isEqualToData:[[text dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]];
 }
 
 #pragma mark Private
