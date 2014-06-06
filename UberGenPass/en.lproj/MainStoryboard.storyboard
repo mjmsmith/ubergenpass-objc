@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -43,29 +43,34 @@
                                     <outlet property="delegate" destination="2" id="zan-xh-5gk"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password Length" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEj-7Y-Hwl">
-                                <rect key="frame" x="16" y="124" width="134" height="22"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEj-7Y-Hwl">
+                                <rect key="frame" x="16" y="125" width="76" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-DS-CcW" userLabel="Text Field - Password Length">
-                                <rect key="frame" x="159" y="120" width="40" height="30"/>
-                                <color key="backgroundColor" red="0.84313725490000002" green="0.85882352939999995" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="L45-bm-ucR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                            </textField>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="N8b-Y0-FHI" userLabel="Stepper - Password Length">
-                                <rect key="frame" x="210" y="121" width="94" height="29"/>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="N8b-Y0-FHI" userLabel="Stepper - Password Length" customClass="SAStepperControl">
+                                <rect key="frame" x="101" y="121" width="94" height="29"/>
                                 <connections>
-                                    <action selector="lengthChanged" destination="2" eventType="valueChanged" id="R1f-XS-wtf"/>
+                                    <action selector="passwordLengthChanged" destination="2" eventType="valueChanged" id="yIC-A0-aYW"/>
                                 </connections>
                             </stepper>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iIt-cy-LLg">
+                                <rect key="frame" x="210" y="121" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="UvE-Dk-3y8"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="MD5"/>
+                                    <segment title="SHA"/>
+                                </segments>
+                                <connections>
+                                    <action selector="passwordTypeChanged" destination="2" eventType="valueChanged" id="Bb3-ff-57p"/>
+                                </connections>
+                            </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$domain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmF-lm-GqR" userLabel="Label - Domain">
                                 <rect key="frame" x="20" y="161" width="280" height="21"/>
                                 <constraints>
@@ -226,24 +231,24 @@
                         <constraints>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="186" id="19E-qb-FZd"/>
                             <constraint firstItem="0cx-uC-ixZ" firstAttribute="centerY" secondItem="LRc-2i-vlU" secondAttribute="centerY" id="1Mc-IH-Dq5"/>
+                            <constraint firstItem="N8b-Y0-FHI" firstAttribute="top" secondItem="FBz-9R-IZS" secondAttribute="bottom" constant="11" id="2IM-rg-ELY"/>
+                            <constraint firstItem="N8b-Y0-FHI" firstAttribute="centerY" secondItem="iIt-cy-LLg" secondAttribute="centerY" constant="0.5" id="2h3-43-6dw"/>
+                            <constraint firstItem="iIt-cy-LLg" firstAttribute="leading" secondItem="N8b-Y0-FHI" secondAttribute="trailing" constant="15" id="31Q-cL-nyD"/>
                             <constraint firstItem="N8b-Y0-FHI" firstAttribute="centerY" secondItem="QEj-7Y-Hwl" secondAttribute="centerY" id="4uG-uW-3zw"/>
                             <constraint firstItem="QEj-7Y-Hwl" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="16" id="5BT-E9-Rw6"/>
                             <constraint firstItem="3SQ-CK-b1y" firstAttribute="bottom" secondItem="05y-Ke-SPJ" secondAttribute="bottom" id="9Xg-c5-tjJ"/>
                             <constraint firstItem="5Hs-N2-o2x" firstAttribute="top" secondItem="FBz-9R-IZS" secondAttribute="bottom" constant="4" id="ACN-8T-waA"/>
-                            <constraint firstAttribute="trailing" secondItem="N8b-Y0-FHI" secondAttribute="trailing" constant="16" id="Ahq-5t-Qgx"/>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="top" secondItem="3SQ-CK-b1y" secondAttribute="top" id="CHt-3Z-2dS"/>
-                            <constraint firstItem="kMk-DS-CcW" firstAttribute="top" secondItem="3" secondAttribute="top" constant="120" id="GBp-6m-MGT"/>
                             <constraint firstItem="LRc-2i-vlU" firstAttribute="leading" secondItem="TT1-7X-NsD" secondAttribute="leading" id="GIo-aD-mrt"/>
                             <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="16" id="H61-BA-rMe"/>
                             <constraint firstItem="1dF-yb-3sh" firstAttribute="top" secondItem="2Ah-Od-uxc" secondAttribute="top" id="HRf-UD-Gon"/>
-                            <constraint firstItem="QEj-7Y-Hwl" firstAttribute="centerY" secondItem="kMk-DS-CcW" secondAttribute="centerY" id="JVz-CY-1k0"/>
                             <constraint firstAttribute="trailing" secondItem="WmF-lm-GqR" secondAttribute="trailing" constant="20" symbolic="YES" id="LDV-vT-Jhq"/>
-                            <constraint firstItem="kMk-DS-CcW" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="159" id="LVu-Fi-kDq"/>
                             <constraint firstItem="1dF-yb-3sh" firstAttribute="centerX" secondItem="TT1-7X-NsD" secondAttribute="centerX" id="MsD-v0-fMa"/>
                             <constraint firstItem="86x-B8-9iG" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="16" id="PZo-6V-DBX"/>
                             <constraint firstItem="2Ah-Od-uxc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="16" id="QAm-Dr-dpc"/>
                             <constraint firstItem="0cx-uC-ixZ" firstAttribute="leading" secondItem="LRc-2i-vlU" secondAttribute="trailing" constant="8" symbolic="YES" id="QPN-cA-meW"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="top" secondItem="3" secondAttribute="top" constant="161" id="Rbx-Od-IXj"/>
+                            <constraint firstAttribute="trailing" secondItem="iIt-cy-LLg" secondAttribute="trailing" constant="16" id="SZv-sr-MiT"/>
                             <constraint firstAttribute="trailing" secondItem="5Hs-N2-o2x" secondAttribute="trailing" constant="38" id="Ufx-jl-h1P"/>
                             <constraint firstItem="TT1-7X-NsD" firstAttribute="trailing" secondItem="LRc-2i-vlU" secondAttribute="trailing" id="V7L-hA-jLp"/>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="leading" secondItem="3SQ-CK-b1y" secondAttribute="leading" id="XhA-Nu-rjI"/>
@@ -276,9 +281,9 @@
                         <outlet property="matchingSitesView" destination="5Hs-N2-o2x" id="Tj8-Sw-SPE"/>
                         <outlet property="matchingSitesViewHeightConstraint" destination="z1t-gm-m2Q" id="eN1-x7-dXS"/>
                         <outlet property="passwordLengthStepper" destination="N8b-Y0-FHI" id="kbI-Vj-Vrr"/>
-                        <outlet property="passwordLengthTextField" destination="kMk-DS-CcW" id="eXC-v8-83c"/>
                         <outlet property="passwordTapView" destination="3SQ-CK-b1y" id="jQ9-BI-DXh"/>
                         <outlet property="passwordTextField" destination="05y-Ke-SPJ" id="Zmg-Fj-RXS"/>
+                        <outlet property="passwordTypeSegment" destination="iIt-cy-LLg" id="oDq-kU-EQ7"/>
                         <outlet property="safariButton" destination="TT1-7X-NsD" id="rTa-T3-NDe"/>
                         <outlet property="siteTextField" destination="FBz-9R-IZS" id="xap-K1-8y6"/>
                         <segue destination="6" kind="modal" identifier="ShowSettingsRequired" modalTransitionStyle="flipHorizontal" id="F6i-BF-7ir"/>

@@ -17,6 +17,7 @@
 #define AppVersionKey @"AppVersion"
 #define BackgroundTimeoutKey @"BackgroundTimeout"
 #define PasswordLengthKey @"PasswordLength"
+#define PasswordTypeKey @"PasswordType"
 #define WelcomeShownKey @"WelcomeShown"
 
 // Keychain.

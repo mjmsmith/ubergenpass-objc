@@ -18,30 +18,25 @@
 #define MaxRecentSites 50
 #define MaxMatchingSiteListItems 5
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, UIToolbarDelegate,
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate,
                                   AboutViewControllerDelegate, HelpViewControllerDelegate, SettingsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *siteTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIStepper *passwordLengthStepper;
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordLengthTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *passwordTypeSegment;
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *domainLabel;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *passwordTapView;
 @property (strong, readwrite, nonatomic) IBOutlet FUIButton *clipboardButton;
 @property (strong, readwrite, nonatomic) IBOutlet FUIButton *safariButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *checkmarkImageView;
-@property (strong, readwrite, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, readwrite, nonatomic) IBOutlet UIView *matchingSitesView;
 @property (strong, readwrite, nonatomic) IBOutlet UITableView *matchingSitesTableView;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *matchingSitesViewHeightConstraint;
+
 @property (strong, readwrite, nonatomic) UIView *coveringView;
 @property (strong, readwrite, nonatomic) NSDate *inactiveDate;
 @property (strong, readwrite, nonatomic) NSMutableOrderedSet *recentSites;
 @property (strong, readwrite, nonatomic) NSArray *matchingSites;
-- (IBAction)editingChanged;
-- (IBAction)lengthChanged;
-- (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer;
-- (IBAction)copyToClipboard;
-- (IBAction)launchSafari;
 @end
 
 @implementation MainViewController
@@ -98,7 +93,7 @@
   
   self.siteTextField.text = self.site;
 
-  // Password length stepper and text field.
+  // Password length stepper.
   
   NSInteger passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:PasswordLengthKey];
   
@@ -106,8 +101,17 @@
   self.passwordLengthStepper.maximumValue = 24;
   self.passwordLengthStepper.value = (passwordLength == 0) ? 10 : passwordLength;
 
-  self.passwordLengthTextField.text = [NSString stringWithFormat:@"%d", (int)self.passwordLengthStepper.value];
-
+  // Password type.
+  
+  NSString *passwordType = [NSUserDefaults.standardUserDefaults stringForKey:PasswordTypeKey];
+  
+  if ([passwordType isEqualToString:@"SHA"]) {
+    self.passwordTypeSegment.selectedSegmentIndex = PasswordTypeSHA;
+  }
+  else {
+    self.passwordTypeSegment.selectedSegmentIndex = PasswordTypeMD5;
+  }
+  
   // Password text field.  We can't set the height in IB if the style is a rounded rect.
   
   self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -149,10 +153,6 @@
   else {
     [self addCoveringView];
   }
-  
-  // Toolbar.
-  
-  self.toolbar.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -244,9 +244,19 @@
   self->_site = self.siteTextField.text;
 }
 
-- (IBAction)lengthChanged {
+- (IBAction)passwordLengthChanged {
   [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:PasswordLengthKey];
-  self.passwordLengthTextField.text = [NSNumber numberWithInt:self.passwordLengthStepper.value].stringValue;
+  
+  if (!self.passwordTextField.hidden) {
+    [self updatePasswordTextField];
+    [self updateClipboardCheckmark];
+  }
+}
+
+- (IBAction)passwordTypeChanged {
+  NSString *type = [self.passwordTypeSegment titleForSegmentAtIndex:self.passwordTypeSegment.selectedSegmentIndex];
+  
+  [NSUserDefaults.standardUserDefaults setObject:type forKey:PasswordTypeKey];
   
   if (!self.passwordTextField.hidden) {
     [self updatePasswordTextField];
@@ -373,12 +383,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return YES;
-}
-
-#pragma mark UIToolbarDelegate
-
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
-  return UIBarPositionBottom;
 }
 
 #pragma mark AboutViewControllerDelegate
@@ -521,7 +525,8 @@
 - (void)updatePasswordTextField {
   self.passwordTextField.secureTextEntry = YES;
   self.passwordTextField.text = [PasswordGenerator.sharedGenerator passwordForSite:self.siteTextField.text
-                                                                            length:self.passwordLengthStepper.value];
+                                                                            length:self.passwordLengthStepper.value
+                                                                              type:self.passwordTypeSegment.selectedSegmentIndex];
 }
 
 - (void)updateClipboardCheckmark {

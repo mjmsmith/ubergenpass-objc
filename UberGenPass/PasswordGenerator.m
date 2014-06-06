@@ -57,7 +57,7 @@
   return instance;
 }
 
-- (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length {
+- (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length type:(PasswordType)type {
   if (site == nil) {
     return nil;
   }
@@ -72,7 +72,13 @@
   NSInteger count = 0;
   
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
-    password = [[[password dataUsingEncoding:NSUTF8StringEncoding] MD5Sum] base64EncodedStringWithOptions:0];
+    if (type == PasswordTypeMD5) {
+      password = [[[password dataUsingEncoding:NSUTF8StringEncoding] MD5Sum] base64EncodedStringWithOptions:0];
+    }
+    else {
+      password = [[[password dataUsingEncoding:NSUTF8StringEncoding] SHA512Hash] base64EncodedStringWithOptions:0];
+    }
+
     password = [password stringByReplacingOccurrencesOfString:@"=" withString:@"A"];
     password = [password stringByReplacingOccurrencesOfString:@"+" withString:@"9"];
     password = [password stringByReplacingOccurrencesOfString:@"/" withString:@"8"];

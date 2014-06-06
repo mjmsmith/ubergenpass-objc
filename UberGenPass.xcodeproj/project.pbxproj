@@ -46,6 +46,7 @@
 		4D98231516728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4D98231616728813001F3D8A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98231416728813001F3D8A /* HelpViewController.m */; };
 		4D99EFDC16C044CB00B2F08D /* TopLevelDomains.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */; };
+		4DB6F1591942534500FE0EEE /* SAStepperControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6F1581942534500FE0EEE /* SAStepperControl.m */; };
 		4DC01D961676E7C900D3763E /* SettingsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D981676E7C900D3763E /* SettingsHelp.html */; };
 		4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DC01D9D1676E87900D3763E /* Localizable.strings */; };
 		4DC172A616B6DEE2000E2B99 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC172A516B6DEE2000E2B99 /* AboutViewController.m */; };
@@ -109,6 +110,8 @@
 		4D98231316728813001F3D8A /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		4D98231416728813001F3D8A /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopLevelDomains.json; sourceTree = "<group>"; };
+		4DB6F1571942534500FE0EEE /* SAStepperControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAStepperControl.h; sourceTree = "<group>"; };
+		4DB6F1581942534500FE0EEE /* SAStepperControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAStepperControl.m; sourceTree = "<group>"; };
 		4DC01D971676E7C900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/SettingsHelp.html; sourceTree = "<group>"; };
 		4DC01D9C1676E87900D3763E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DC1729E16B6C707000E2B99 /* UberGenPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UberGenPass.h; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 				4D657711166536FD00F32D4F /* MainViewController.h */,
 				4D898073194229290082B539 /* NSData+CommonCrypto.h */,
 				4D501E8816653CBB006A86E9 /* PasswordGenerator.h */,
+				4DB6F1571942534500FE0EEE /* SAStepperControl.h */,
 				4D657714166536FD00F32D4F /* SettingsViewController.h */,
 				4DC1729E16B6C707000E2B99 /* UberGenPass.h */,
 				4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */,
@@ -262,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				4D424E5817E0C2D2000E1D5A /* FUIButton.m */,
+				4DB6F1581942534500FE0EEE /* SAStepperControl.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				4D898075194229290082B539 /* NSData+CommonCrypto.m in Sources */,
 				4D657707166536FD00F32D4F /* AppDelegate.m in Sources */,
 				4D657713166536FD00F32D4F /* MainViewController.m in Sources */,
+				4DB6F1591942534500FE0EEE /* SAStepperControl.m in Sources */,
 				4D657716166536FD00F32D4F /* SettingsViewController.m in Sources */,
 				4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */,
 				4D2FBCAD166992F7007B8065 /* Keychain.m in Sources */,
