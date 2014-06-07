@@ -18,6 +18,7 @@
 		4D424E5C17E0C2D2000E1D5A /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5817E0C2D2000E1D5A /* FUIButton.m */; };
 		4D424E5D17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */; };
 		4D424E5E17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */; };
+		4D4BE84D1942CB9C00F2FD5C /* PasswordsHelp.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D4BE84F1942CB9C00F2FD5C /* PasswordsHelp.html */; };
 		4D501E8C16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D501E8D16653CBB006A86E9 /* PasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D501E8916653CBB006A86E9 /* PasswordGenerator.m */; };
 		4D56CE6D1816D0A300660142 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D56CE6C1816D0A300660142 /* Images.xcassets */; };
@@ -75,6 +76,7 @@
 		4D424E5817E0C2D2000E1D5A /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
 		4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
 		4D424E5A17E0C2D2000E1D5A /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		4D4BE84E1942CB9C00F2FD5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/PasswordsHelp.html; sourceTree = "<group>"; };
 		4D501E8816653CBB006A86E9 /* PasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordGenerator.h; sourceTree = "<group>"; };
 		4D501E8916653CBB006A86E9 /* PasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordGenerator.m; sourceTree = "<group>"; };
 		4D56CE6C1816D0A300660142 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */,
 				4DC01D9D1676E87900D3763E /* Localizable.strings */,
 				4DE5A0711677BD6E00719D18 /* MainHelp.html */,
+				4D4BE84F1942CB9C00F2FD5C /* PasswordsHelp.html */,
 				4D7CA2A81816ECA800CBC956 /* RedStatus.png */,
 				4DC01D981676E7C900D3763E /* SettingsHelp.html */,
 				4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */,
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7CA2AA1816ECA800CBC956 /* RedStatus.png in Resources */,
+				4D4BE84D1942CB9C00F2FD5C /* PasswordsHelp.html in Resources */,
 				4D657701166536FD00F32D4F /* InfoPlist.strings in Resources */,
 				4D657710166536FD00F32D4F /* MainStoryboard.storyboard in Resources */,
 				4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */,
@@ -474,6 +478,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4D4BE84F1942CB9C00F2FD5C /* PasswordsHelp.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D4BE84E1942CB9C00F2FD5C /* en */,
+			);
+			name = PasswordsHelp.html;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		4D6576FF166536FD00F32D4F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
