@@ -66,10 +66,10 @@
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   
-  // If we have no master password, force a segue to Passwords (only happens on startup).
+  // If we have no master password hash, force a segue to Passwords (only happens on startup).
   // Otherwise, set focus.
   
-  if (!PasswordGenerator.sharedGenerator.hasMasterPassword) {
+  if (PasswordGenerator.sharedGenerator.hash == nil) {
     [self performSegueWithIdentifier:ShowPasswordsRequiredSegue sender:self];
   }
   else {
