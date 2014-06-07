@@ -12,6 +12,7 @@
 @interface PasswordGenerator ()
 @property (retain, readwrite, nonatomic) NSMutableOrderedSet *tlds;
 @property (retain, readwrite, nonatomic) NSString *masterPassword;
+@property (retain, readwrite, nonatomic) NSString *secretPassword;
 @property (copy, readwrite, nonatomic) NSData *hash;
 @property (retain, readwrite, nonatomic) NSRegularExpression *lowerCasePattern;
 @property (retain, readwrite, nonatomic) NSRegularExpression *upperCasePattern;
@@ -68,7 +69,7 @@
     return nil;
   }
   
-  NSString *password = [NSString stringWithFormat:@"%@:%@", self.masterPassword, domain];
+  NSString *password = [NSString stringWithFormat:@"%@%@:%@", self.masterPassword, self.secretPassword, domain];
   NSInteger count = 0;
   
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
@@ -132,11 +133,42 @@
   return self.masterPassword != nil;
 }
 
-- (void)updateMasterPassword:(NSString *)masterPassword {
+- (BOOL)setMasterPasswordForCurrentHash:(NSString *)masterPassword {
+  if (self.hash.length == 0) {
+    return NO;
+  }
+  
+  if (![self.hash isEqualToData:[[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]]) {
+    return NO;
+  }
+  
   self.masterPassword = masterPassword;
+
+  NSData *secretPasswordData = [NSUserDefaults.standardUserDefaults objectForKey:PasswordSecretKey];
+  NSError *error = nil;
+  
+  if (secretPasswordData.length == 0) {
+    self.secretPassword = @"";
+  }
+  else {
+    secretPasswordData = [secretPasswordData decryptedAES256DataUsingKey:self.masterPassword error:&error];
+    self.secretPassword = [[NSString alloc] initWithData:secretPasswordData encoding:NSUTF8StringEncoding];
+  }
+  
+  return YES;
+}
+
+- (void)updateMasterPassword:(NSString *)masterPassword secretPassword:(NSString *)secretPassword {
+  NSError *error = nil;
+  
+  self.masterPassword = masterPassword;
+  self.secretPassword = secretPassword;
   self.hash = [[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash];
   
+  NSData *secret = [[secretPassword dataUsingEncoding:NSUTF8StringEncoding] AES256EncryptedDataUsingKey:masterPassword error:&error];
+  
   [Keychain setString:[self.hash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
+  [Keychain setString:[secret base64EncodedStringWithOptions:0] forKey:PasswordSecretKey];
 }
 
 - (BOOL)textMatchesHash:(NSString *)text {

@@ -23,6 +23,7 @@
 // Keychain.
 
 #define PasswordHashKey @"Hash"
+#define PasswordSecretKey @"Secret"
 #define RecentSitesKey @"RecentSites"
 
 // Localized strings.
@@ -35,6 +36,8 @@
 
 #define ShowAboutSegue @"ShowAbout"
 #define ShowHelpSegue @"ShowHelp"
+#define ShowPasswordsOptionalSegue @"ShowPasswordsOptional"
+#define ShowPasswordsRequiredSegue @"ShowPasswordsRequired"
 #define ShowSettingsOptionalSegue @"ShowSettingsOptional"
 #define ShowSettingsRequiredSegue @"ShowSettingsRequired"
 

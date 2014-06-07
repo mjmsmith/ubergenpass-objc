@@ -179,9 +179,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   // Handle background taps.
   
-  UITouch *touch = [touches anyObject];
-  
-  if (touch.phase == UITouchPhaseBegan) {
+  if ([[touches anyObject] phase] == UITouchPhaseBegan) {
     [self.view endEditing:YES];
   }
 }
@@ -205,6 +203,7 @@
     controller.canCancel = [segue.identifier isEqualToString:ShowSettingsOptionalSegue];
     controller.remembersRecentSites = (self.recentSites != nil);
     controller.backgroundTimeout = [NSUserDefaults.standardUserDefaults integerForKey:BackgroundTimeoutKey];
+    
     controller.delegate = self;
   }
 }
@@ -400,8 +399,6 @@
 #pragma mark SettingsViewControllerDelegate
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
-  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.password];
-
   if (controller.remembersRecentSites) {
     if (self.recentSites == nil) {
       self.recentSites = [NSMutableOrderedSet orderedSet];
@@ -432,6 +429,11 @@
 }
 
 - (void)settingsViewControllerDidCancel:(SettingsViewController *)controller {
+  if (!self.passwordTextField.hidden) {
+    [self updatePasswordTextField];
+    [self updateClipboardCheckmark];
+  }
+
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 

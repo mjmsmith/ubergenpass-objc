@@ -19,7 +19,8 @@ typedef NS_ENUM(NSUInteger, PasswordType) {
 - (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length type:(PasswordType)type;
 - (NSString *)domainFromSite:(NSString *)site;
 
-- (void)updateMasterPassword:(NSString *)masterPassword;
+- (BOOL)setMasterPasswordForCurrentHash:(NSString *)masterPassword;
+- (void)updateMasterPassword:(NSString *)masterPassword secretPassword:(NSString *)secretPassword;
 
 - (BOOL)textMatchesHash:(NSString *)text;
 @end
