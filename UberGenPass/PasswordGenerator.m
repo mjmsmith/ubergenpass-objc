@@ -143,14 +143,16 @@
   }
   
   self.masterPassword = masterPassword;
-
-  NSData *secretPasswordData = [NSUserDefaults.standardUserDefaults objectForKey:PasswordSecretKey];
-  NSError *error = nil;
   
-  if (secretPasswordData.length == 0) {
+  NSString *secretPasswordStr = [Keychain stringForKey:PasswordSecretKey];
+
+  if (secretPasswordStr.length == 0) {
     self.secretPassword = @"";
   }
   else {
+    NSData *secretPasswordData = [[NSData alloc] initWithBase64EncodedString:secretPasswordStr options:0];
+    NSError *error = nil;
+
     secretPasswordData = [secretPasswordData decryptedAES256DataUsingKey:self.masterPassword error:&error];
     self.secretPassword = [[NSString alloc] initWithData:secretPasswordData encoding:NSUTF8StringEncoding];
   }
