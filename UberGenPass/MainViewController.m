@@ -245,7 +245,8 @@
 
 - (IBAction)passwordLengthChanged {
   [NSUserDefaults.standardUserDefaults setInteger:self.passwordLengthStepper.value forKey:PasswordLengthKey];
-  
+  [NSUserDefaults.standardUserDefaults synchronize];
+
   if (!self.passwordTextField.hidden) {
     [self updatePasswordTextField];
     [self updateClipboardCheckmark];
@@ -256,6 +257,7 @@
   NSString *type = [self.passwordTypeSegment titleForSegmentAtIndex:self.passwordTypeSegment.selectedSegmentIndex];
   
   [NSUserDefaults.standardUserDefaults setObject:type forKey:PasswordTypeKey];
+  [NSUserDefaults.standardUserDefaults synchronize];
   
   if (!self.passwordTextField.hidden) {
     [self updatePasswordTextField];
@@ -411,13 +413,15 @@
     if (self.recentSites != nil) {
       self.recentSites = nil;
       self.matchingSites = nil;
+      self.matchingSitesView.hidden = YES;
 
       [NSUserDefaults.standardUserDefaults removeObjectForKey:RecentSitesKey];
-      self.matchingSitesView.hidden = YES;
+      [NSUserDefaults.standardUserDefaults synchronize];
     }
   }
 
   [NSUserDefaults.standardUserDefaults setInteger:controller.backgroundTimeout forKey:BackgroundTimeoutKey];
+  [NSUserDefaults.standardUserDefaults synchronize];
   
   if (!self.passwordTextField.hidden) {
     [self updatePasswordTextField];

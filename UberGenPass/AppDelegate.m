@@ -58,6 +58,7 @@
   }
   
   [NSUserDefaults.standardUserDefaults setObject:newVersion forKey:AppVersionKey];
+  [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 @end
