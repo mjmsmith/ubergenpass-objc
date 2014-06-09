@@ -119,19 +119,26 @@
 
   // Secret status image.
   
-  if ([upperSecretText isEqualToString:lowerSecretText]) {
-    secretStatusImage = self.greenImage;
-    isSecretDone = YES;
-  }
-  else if ([upperSecretText hasPrefix:lowerSecretText] || [lowerSecretText hasPrefix:upperSecretText]) {
-    secretStatusImage = self.yellowImage;
+  if (upperSecretText.length > 0 || lowerSecretText.length > 0) {
+    if ([upperSecretText isEqualToString:lowerSecretText]) {
+      secretStatusImage = self.greenImage;
+      isSecretDone = YES;
+    }
+    else if ([upperSecretText hasPrefix:lowerSecretText] || [lowerSecretText hasPrefix:upperSecretText]) {
+      secretStatusImage = self.yellowImage;
+    }
+    else if (upperSecretText.length > 0 && lowerSecretText.length > 0) {
+      secretStatusImage = self.redImage;
+    }
+
+    self.secretStatusImageView.image = secretStatusImage;
+    self.secretStatusImageView.hidden = NO;
   }
   else {
-    secretStatusImage = self.redImage;
+    self.secretStatusImageView.hidden = YES;
+    isSecretDone = YES;
   }
-  
-  self.secretStatusImageView.image = secretStatusImage;
-  
+
   // Done button.
   
   self.doneButtonItem.enabled = isMasterDone && isSecretDone;
@@ -162,8 +169,8 @@
 }
 
 - (IBAction)done {
-  [PasswordGenerator.sharedGenerator updateMasterPassword:self.upperMasterTextField.text
-                                           secretPassword:self.upperSecretTextField.text];
+  self.masterPassword = self.upperMasterTextField.text;
+  self.secretPassword = self.upperSecretTextField.text;
   
   [self.delegate passwordsViewControllerDidFinish:self];
 }

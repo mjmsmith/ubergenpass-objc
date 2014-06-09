@@ -401,6 +401,8 @@
 #pragma mark SettingsViewControllerDelegate
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller {
+  [PasswordGenerator.sharedGenerator setMasterPasswordForCurrentHash:controller.masterPassword];
+
   if (controller.remembersRecentSites) {
     if (self.recentSites == nil) {
       self.recentSites = [NSMutableOrderedSet orderedSet];

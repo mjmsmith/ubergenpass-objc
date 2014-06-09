@@ -16,4 +16,6 @@
 @interface PasswordsViewController : UIViewController
 @property (weak, readwrite, nonatomic) id <PasswordsViewControllerDelegate> delegate;
 @property (assign, readwrite, nonatomic) BOOL canCancel;
+@property (strong, readwrite, nonatomic) NSString *masterPassword;
+@property (strong, readwrite, nonatomic) NSString *secretPassword;
 @end

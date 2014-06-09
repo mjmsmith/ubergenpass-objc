@@ -143,8 +143,7 @@
 - (IBAction)done {
   NSInteger timeouts[] = {0, 60, 300};
 
-  [PasswordGenerator.sharedGenerator setMasterPasswordForCurrentHash:self.passwordTextField.text];
-  
+  self.masterPassword = self.passwordTextField.text;
   self.remembersRecentSites = self.recentSitesSwitch.on;
   self.backgroundTimeout = timeouts[self.timeoutSegment.selectedSegmentIndex];
   
@@ -170,7 +169,10 @@
 #pragma mark PasswordsViewControllerDelegate
 
 - (void)passwordsViewControllerDidFinish:(PasswordsViewController *)controller {
-  self.passwordTextField.text = nil;
+  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.masterPassword
+                                           secretPassword:controller.secretPassword];
+
+  self.passwordTextField.text = controller.masterPassword;
   [self editingChanged:nil];
   
   [self dismissViewControllerAnimated:YES completion:nil];
