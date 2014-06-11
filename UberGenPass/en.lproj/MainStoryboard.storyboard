@@ -20,44 +20,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="barTintColor" red="0.72172474860000002" green="0.73767691849999995" blue="0.75906360149999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="UberGenPass" id="ykd-BG-oUU">
-                                        <barButtonItem key="leftBarButtonItem" id="ocX-vi-vZe">
-                                            <button key="customView" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="10" userLabel="Button - Settings">
-                                                <rect key="frame" x="16" y="4" width="36" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="onJ-QF-qSV"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" image="SettingsButton"/>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="6" kind="modal" identifier="ShowSettingsOptional" modalTransitionStyle="flipHorizontal" id="11"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" id="wHb-V0-0ur">
-                                            <button key="customView" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="1dF-yb-3sh" userLabel="Button - About">
-                                                <rect key="frame" x="268" y="4" width="36" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="R0d-9u-hP0"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" image="InfoButton">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="2H2-gP-edu" kind="modal" identifier="ShowAbout" id="eaU-N3-fwh"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="UberGenPass" id="ykd-BG-oUU"/>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86x-B8-9iG">
@@ -189,6 +152,41 @@
                                     <segue destination="NnY-82-Unv" kind="modal" identifier="ShowHelp" modalTransitionStyle="coverVertical" id="cB1-bY-lok"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMs-xh-v3J" userLabel="Button - About">
+                                <rect key="frame" x="142" y="428" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Kad-VP-cgI"/>
+                                    <constraint firstAttribute="width" constant="36" id="bFm-Q2-LS3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="InfoButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="2H2-gP-edu" kind="modal" identifier="ShowAbout" modalTransitionStyle="coverVertical" id="iKR-mu-FWW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GW7-td-A7H" userLabel="Button - Settings">
+                                <rect key="frame" x="268" y="428" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="3xu-MP-RQr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="KAQ-IQ-Veu"/>
+                                    <constraint firstAttribute="width" constant="36" id="QpJ-d1-sZ1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="SettingsButton"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6" kind="modal" identifier="ShowSettingsOptional" modalTransitionStyle="flipHorizontal" id="T3x-le-hXq"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hs-N2-o2x" userLabel="View - Domain Popup">
                                 <rect key="frame" x="73" y="114" width="209" height="125"/>
                                 <subviews>
@@ -246,12 +244,15 @@
                             <constraint firstItem="5Hs-N2-o2x" firstAttribute="top" secondItem="FBz-9R-IZS" secondAttribute="bottom" constant="4" id="ACN-8T-waA"/>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="top" secondItem="3SQ-CK-b1y" secondAttribute="top" id="CHt-3Z-2dS"/>
                             <constraint firstItem="LRc-2i-vlU" firstAttribute="leading" secondItem="TT1-7X-NsD" secondAttribute="leading" id="GIo-aD-mrt"/>
+                            <constraint firstAttribute="centerX" secondItem="ZMs-xh-v3J" secondAttribute="centerX" id="H50-11-KzJ"/>
                             <constraint firstAttribute="trailing" secondItem="WmF-lm-GqR" secondAttribute="trailing" constant="20" symbolic="YES" id="LDV-vT-Jhq"/>
+                            <constraint firstAttribute="bottom" secondItem="GW7-td-A7H" secondAttribute="bottom" constant="16" id="OMa-Sq-7Ow"/>
                             <constraint firstItem="86x-B8-9iG" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="16" id="PZo-6V-DBX"/>
                             <constraint firstItem="2Ah-Od-uxc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="16" id="QAm-Dr-dpc"/>
                             <constraint firstItem="0cx-uC-ixZ" firstAttribute="leading" secondItem="LRc-2i-vlU" secondAttribute="trailing" constant="8" symbolic="YES" id="QPN-cA-meW"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="top" secondItem="3" secondAttribute="top" constant="161" id="Rbx-Od-IXj"/>
                             <constraint firstAttribute="trailing" secondItem="iIt-cy-LLg" secondAttribute="trailing" constant="16" id="SZv-sr-MiT"/>
+                            <constraint firstAttribute="bottom" secondItem="ZMs-xh-v3J" secondAttribute="bottom" constant="16" id="TjQ-p9-wE2"/>
                             <constraint firstAttribute="trailing" secondItem="5Hs-N2-o2x" secondAttribute="trailing" constant="38" id="Ufx-jl-h1P"/>
                             <constraint firstItem="TT1-7X-NsD" firstAttribute="trailing" secondItem="LRc-2i-vlU" secondAttribute="trailing" id="V7L-hA-jLp"/>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="leading" secondItem="3SQ-CK-b1y" secondAttribute="leading" id="XhA-Nu-rjI"/>
@@ -262,6 +263,7 @@
                             <constraint firstItem="FBz-9R-IZS" firstAttribute="top" secondItem="bVv-5p-2mC" secondAttribute="bottom" constant="16" id="cxP-vm-C6d"/>
                             <constraint firstItem="LRc-2i-vlU" firstAttribute="trailing" secondItem="3SQ-CK-b1y" secondAttribute="trailing" id="fJu-4D-ROq"/>
                             <constraint firstAttribute="bottom" secondItem="2Ah-Od-uxc" secondAttribute="bottom" constant="16" id="fnn-2M-e2o"/>
+                            <constraint firstAttribute="trailing" secondItem="GW7-td-A7H" secondAttribute="trailing" constant="16" id="fst-pJ-OLs"/>
                             <constraint firstItem="5Hs-N2-o2x" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="73" id="g4r-lU-ZNq"/>
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="top" secondItem="M3u-xy-Uwj" secondAttribute="bottom" id="hjq-QB-jlH"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="centerX" secondItem="05y-Ke-SPJ" secondAttribute="centerX" id="i7J-Sc-ima"/>
@@ -273,8 +275,9 @@
                             <constraint firstItem="FBz-9R-IZS" firstAttribute="baseline" secondItem="86x-B8-9iG" secondAttribute="baseline" id="tI2-Iy-8dK"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="checkmarkImageView" destination="0cx-uC-ixZ" id="dWS-v1-oYX"/>
                         <outlet property="clipboardButton" destination="LRc-2i-vlU" id="mcK-T3-48P"/>
@@ -439,17 +442,17 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Recent Sites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubx-H7-1Vg">
-                                <rect key="frame" x="30" y="165" width="140" height="22"/>
+                                <rect key="frame" x="30" y="157" width="140" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jjj-ca-rcS" userLabel="Switch - Remember Recent Sites">
-                                <rect key="frame" x="241" y="161" width="51" height="31"/>
+                                <rect key="frame" x="241" y="153" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw2-ET-7mR">
-                                <rect key="frame" x="30" y="195" width="260" height="21"/>
+                                <rect key="frame" x="30" y="187" width="260" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bsO-gd-S44"/>
                                 </constraints>
@@ -460,7 +463,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Qe-Lj-LeB">
-                                <rect key="frame" x="30" y="220" width="260" height="29"/>
+                                <rect key="frame" x="30" y="210" width="260" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="fqr-aC-cW3"/>
                                 </constraints>
@@ -536,10 +539,10 @@
                             <constraint firstItem="xbk-IX-gc4" firstAttribute="top" secondItem="12" secondAttribute="bottom" constant="16" id="bwh-C0-hu1"/>
                             <constraint firstItem="fYr-2C-JLF" firstAttribute="leading" secondItem="xbk-IX-gc4" secondAttribute="trailing" constant="8" id="eSR-FJ-Gfw"/>
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="i10-4t-qpa"/>
-                            <constraint firstItem="Ubx-H7-1Vg" firstAttribute="top" secondItem="szX-NZ-2YT" secondAttribute="bottom" constant="32" id="mXT-yv-fXT"/>
+                            <constraint firstItem="Ubx-H7-1Vg" firstAttribute="top" secondItem="szX-NZ-2YT" secondAttribute="bottom" constant="24" id="mXT-yv-fXT"/>
                             <constraint firstItem="szX-NZ-2YT" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="16" id="owX-4q-F2M"/>
                             <constraint firstItem="Jjj-ca-rcS" firstAttribute="trailing" secondItem="Lw2-ET-7mR" secondAttribute="trailing" id="rBh-fm-yyV"/>
-                            <constraint firstItem="3Qe-Lj-LeB" firstAttribute="top" secondItem="Lw2-ET-7mR" secondAttribute="bottom" constant="4" id="sDP-Po-UmA"/>
+                            <constraint firstItem="3Qe-Lj-LeB" firstAttribute="top" secondItem="Lw2-ET-7mR" secondAttribute="bottom" constant="2" id="sDP-Po-UmA"/>
                             <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="txZ-zF-etd"/>
                             <constraint firstAttribute="centerX" secondItem="3Qe-Lj-LeB" secondAttribute="centerX" id="wsc-ob-zgu"/>
                         </constraints>
@@ -655,6 +658,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype…" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="c6A-DA-05h">
                                 <rect key="frame" x="16" y="237" width="288" height="30"/>
@@ -851,8 +856,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="F6i-BF-7ir"/>
         <segue reference="rdm-MB-dbP"/>
-        <segue reference="aOn-2Y-DZL"/>
+        <segue reference="T3x-le-hXq"/>
+        <segue reference="cB1-bY-lok"/>
     </inferredMetricsTieBreakers>
 </document>
