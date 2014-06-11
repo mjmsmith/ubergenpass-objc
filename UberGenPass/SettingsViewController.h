@@ -14,10 +14,10 @@
 
 @interface SettingsViewController : UIViewController
 @property (weak, readwrite, nonatomic) id <SettingsViewControllerDelegate> delegate;
-@property (assign, readwrite, nonatomic) BOOL remembersRecentSites;
 @property (assign, readwrite, nonatomic) BOOL canCancel;
+@property (strong, readwrite, nonatomic) NSString *masterPassword;
+@property (assign, readwrite, nonatomic) BOOL remembersRecentSites;
 @property (assign, readwrite, nonatomic) NSInteger backgroundTimeout;
-@property (copy, readonly, nonatomic) NSString *password;
 
 - (void)resetForActivate;
 @end

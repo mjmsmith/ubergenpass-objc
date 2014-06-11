@@ -9,7 +9,7 @@
 #import "AboutViewController.h"
 #import "FUIButton.h"
 
-#define AppStoreReviewsURL @"http://camazotz.com/ubergenpass/review"
+#define AppStoreURL @"http://appstore.com/ubergenpass"
 
 @interface AboutViewController () <UIWebViewDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *nameLabel;
@@ -50,8 +50,8 @@
 #pragma mark UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)type {
-  if (type == UIWebViewNavigationTypeLinkClicked) {
-    [[UIApplication sharedApplication] openURL:[request URL]];
+  if (type == UIWebViewNavigationTypeLinkClicked && [[request.URL absoluteString] hasPrefix:@"http"]) {
+    [UIApplication.sharedApplication openURL:request.URL];
     return NO;
   }
   
@@ -65,7 +65,7 @@
 }
 
 - (IBAction)rate {
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:AppStoreReviewsURL]];
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:AppStoreURL]];
 }
 
 @end

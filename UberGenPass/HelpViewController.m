@@ -13,9 +13,6 @@
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *forwardButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *navigationBarHeightConstraint;
 @property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *toolBarHeightConstraint;
-- (IBAction)done;
-- (IBAction)back;
-- (IBAction)forward;
 @end
 
 @implementation HelpViewController

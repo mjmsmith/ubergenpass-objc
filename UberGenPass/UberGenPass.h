@@ -17,11 +17,13 @@
 #define AppVersionKey @"AppVersion"
 #define BackgroundTimeoutKey @"BackgroundTimeout"
 #define PasswordLengthKey @"PasswordLength"
+#define PasswordTypeKey @"PasswordType"
 #define WelcomeShownKey @"WelcomeShown"
 
 // Keychain.
 
 #define PasswordHashKey @"Hash"
+#define PasswordSecretKey @"Secret"
 #define RecentSitesKey @"RecentSites"
 
 // Localized strings.
@@ -34,6 +36,8 @@
 
 #define ShowAboutSegue @"ShowAbout"
 #define ShowHelpSegue @"ShowHelp"
+#define ShowPasswordsOptionalSegue @"ShowPasswordsOptional"
+#define ShowPasswordsRequiredSegue @"ShowPasswordsRequired"
 #define ShowSettingsOptionalSegue @"ShowSettingsOptional"
 #define ShowSettingsRequiredSegue @"ShowSettingsRequired"
 

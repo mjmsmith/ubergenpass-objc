@@ -7,32 +7,21 @@
 
 #import "HelpViewController.h"
 #import "PasswordGenerator.h"
+#import "PasswordsViewController.h"
 #import "SettingsViewController.h"
+#import "StatusImageView.h"
 
-@interface SettingsViewController () <HelpViewControllerDelegate>
-@property (strong, readwrite, nonatomic) UIImage *greyImage;
-@property (strong, readwrite, nonatomic) UIImage *greenImage;
-@property (strong, readwrite, nonatomic) UIImage *yellowImage;
-@property (strong, readwrite, nonatomic) UIImage *redImage;
-@property (strong, readwrite, nonatomic) IBOutlet UINavigationBar *navigationBar;
-@property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
+@interface SettingsViewController () <HelpViewControllerDelegate, PasswordsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *upperPasswordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerPasswordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
+@property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, readwrite, nonatomic) IBOutlet StatusImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIButton *changePasswordButton;
-@property (strong, readwrite, nonatomic) IBOutlet UISwitch *passwordHashSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *recentSitesSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
-@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *upperPasswordTextFieldTopConstraint;
-@property (strong, readwrite, nonatomic) IBOutlet NSLayoutConstraint *lowerPasswordTextFieldTopConstraint;
-@property (assign, readwrite, nonatomic) NSInteger prevLowerPasswordTextFieldTopConstraintConstant;
-@property (copy, readwrite, nonatomic) NSString *password;
-- (IBAction)editingChanged:(id)sender;
-- (IBAction)addSafariBookmarklet;
-- (IBAction)done;
-- (IBAction)cancel;
+
+@property (strong, readwrite, nonatomic) UIImage *greyImage;
+@property (strong, readwrite, nonatomic) UIImage *greenImage;
 @end
 
 @implementation SettingsViewController
@@ -45,9 +34,9 @@
     self.cancelButtonItem.enabled = NO;
   }
   
-  self.upperPasswordTextField.text = self.lowerPasswordTextField.text = nil;
+  self.passwordTextField.text = nil;
 
-  [self.upperPasswordTextField becomeFirstResponder];
+  [self.passwordTextField becomeFirstResponder];
   [self editingChanged:nil];
 }
 
@@ -58,22 +47,9 @@
   
   self.greyImage = [UIImage imageNamed:@"GreyStatus"];
   self.greenImage = [UIImage imageNamed:@"GreenStatus"];
-  self.yellowImage = [UIImage imageNamed:@"YellowStatus"];
-  self.redImage = [UIImage imageNamed:@"RedStatus"];
 
   if (!self.canCancel) {
     self.cancelButtonItem.enabled = NO;
-  }
-  
-  if (PasswordGenerator.sharedGenerator.hash != nil) {
-    self.upperPasswordTextField.returnKeyType = UIReturnKeyDefault;
-
-    self.prevLowerPasswordTextFieldTopConstraintConstant = self.lowerPasswordTextFieldTopConstraint.constant;
-    self.lowerPasswordTextFieldTopConstraint.constant = self.upperPasswordTextFieldTopConstraint.constant;
-    self.lowerPasswordTextField.hidden = YES;
-  }
-  else {
-    self.changePasswordButton.hidden = YES;
   }
   
   self.recentSitesSwitch.on = self.remembersRecentSites;
@@ -85,18 +61,25 @@
     self.timeoutSegment.selectedSegmentIndex = 1;
   }
   
-  if ([NSUserDefaults.standardUserDefaults boolForKey:WelcomeShownKey]) {
-    [self.welcomeImageView removeFromSuperview];
-    self.welcomeImageView = nil;
+  [self editingChanged:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  // If we have no master password hash, force a segue to Passwords (only happens on startup).
+  // Otherwise, set focus if the Done button isn't enabled.
+  
+  if (PasswordGenerator.sharedGenerator.hash == nil) {
+    [self performSegueWithIdentifier:ShowPasswordsRequiredSegue sender:self];
   }
   else {
-    [NSUserDefaults.standardUserDefaults setBool:YES forKey:WelcomeShownKey];
-  }
-  
-  [self editingChanged:nil];
-
-  if (self.welcomeImageView == nil) {
-    [self.upperPasswordTextField becomeFirstResponder];
+    if (self.doneButtonItem.enabled) {
+      [self.view endEditing:NO];
+    }
+    else {
+      [self.passwordTextField becomeFirstResponder];
+    }
   }
 }
 
@@ -107,9 +90,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   // Handle background taps.
 
-  UITouch *touch = [touches anyObject];
-  
-  if (touch.phase == UITouchPhaseBegan) {
+  if ([[touches anyObject] phase] == UITouchPhaseBegan) {
     [self.view endEditing:YES];
   }
 }
@@ -121,89 +102,32 @@
     controller.documentName = @"SettingsHelp";
     controller.delegate = self;
   }
+  else if ([segue.identifier isEqualToString:ShowPasswordsOptionalSegue] ||
+           [segue.identifier isEqualToString:ShowPasswordsRequiredSegue]) {
+    PasswordsViewController *controller = segue.destinationViewController;
+    
+    controller.canCancel = [segue.identifier isEqualToString:ShowPasswordsOptionalSegue];
+    controller.delegate = self;
+  }
 }
 
 #pragma mark Actions
 
 - (IBAction)editingChanged:(id)sender {
-  NSString *upperText = self.upperPasswordTextField.text;
-  NSString *lowerText = self.lowerPasswordTextField.text;
-  UIImage *statusImage = self.greyImage;
-  BOOL done = NO;
-
-  // If the upper password field was just edited to match the hash, set the lower field too.
-  
-  if (sender == self.upperPasswordTextField && [PasswordGenerator.sharedGenerator textMatchesHash:upperText]) {
-    self.lowerPasswordTextField.text = lowerText = upperText;
-  }
-  
-  // Status image.
-  
-  if (upperText.length > 0 && lowerText.length > 0) {
-    if ([upperText isEqualToString:lowerText]) {
-      statusImage = self.greenImage;
-      done = YES;
-    }
-    else if ([upperText hasPrefix:lowerText] || [lowerText hasPrefix:upperText]) {
-      statusImage = self.yellowImage;
-    }
-    else {
-      statusImage = self.redImage;
-    }
-  }
-  
-  self.statusImageView.image = statusImage;
-  
-  // Done button.
-  
-  self.doneButtonItem.enabled = done;
-  
-  // Password text fields.
-  
-  if (done) {
-    [self.upperPasswordTextField resignFirstResponder];
-    [self.lowerPasswordTextField resignFirstResponder];
-  }
-  
-  // Animate status images if done.
-
-  if (done) {
-    CGRect frame = self.statusImageView.frame;
+  if ([PasswordGenerator.sharedGenerator textMatchesHash:self.passwordTextField.text]) {
+    self.statusImageView.image = self.greenImage;
+    self.doneButtonItem.enabled = YES;
     
-    [UIView animateWithDuration:0.4
-                     animations:^{
-                       self.statusImageView.frame = CGRectInset(self.statusImageView.frame, -12, -12);
-                     }
-                     completion:^(BOOL finished) {
-                       [UIView animateWithDuration:0.6
-                                        animations:^{
-                                          self.statusImageView.frame = frame;
-                                        }
-                       ];
-                     }
-     ];
-  }  
-}
-
-- (IBAction)changePassword {
-  [UIView animateWithDuration:0.3
-                   animations:^{
-                     self.lowerPasswordTextFieldTopConstraint.constant = self.prevLowerPasswordTextFieldTopConstraintConstant;
-                     [self.view layoutIfNeeded];
-                   }
-                   completion:^(BOOL finished){
-                     [UIView transitionWithView:self.lowerPasswordTextField
-                                       duration:0.3
-                                        options:UIViewAnimationOptionTransitionCrossDissolve
-                                     animations:^{
-                                       self.changePasswordButton.hidden = YES;
-                                       self.upperPasswordTextField.returnKeyType = UIReturnKeyNext;
-                                       [self.upperPasswordTextField reloadInputViews];
-                                       self.lowerPasswordTextField.hidden = NO;
-                                     }
-                                     completion:nil];
-                     }
-   ];
+    [self.passwordTextField resignFirstResponder];
+    
+    if (sender == self.passwordTextField) {
+      [self.statusImageView animate];
+    }
+  }
+  else {
+    self.statusImageView.image = self.greyImage;
+    self.doneButtonItem.enabled = NO;
+  }
 }
 
 - (IBAction)addSafariBookmarklet {
@@ -213,8 +137,8 @@
 
 - (IBAction)done {
   NSInteger timeouts[] = {0, 60, 300};
-  
-  self.password = self.upperPasswordTextField.text;
+
+  self.masterPassword = self.passwordTextField.text;
   self.remembersRecentSites = self.recentSitesSwitch.on;
   self.backgroundTimeout = timeouts[self.timeoutSegment.selectedSegmentIndex];
   
@@ -228,21 +152,28 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-  if (textField == self.upperPasswordTextField) {
-    if (!self.lowerPasswordTextField.hidden) {
-      [self.lowerPasswordTextField becomeFirstResponder];
-    }
-  }
-  else if (textField == self.lowerPasswordTextField) {
-    [self.upperPasswordTextField becomeFirstResponder];
-  }
-
   return NO;
 }
 
 #pragma mark HelpViewControllerDelegate
 
 - (void)helpViewControllerDidFinish:(HelpViewController *)controller {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark PasswordsViewControllerDelegate
+
+- (void)passwordsViewControllerDidFinish:(PasswordsViewController *)controller {
+  [PasswordGenerator.sharedGenerator updateMasterPassword:controller.masterPassword
+                                           secretPassword:controller.secretPassword];
+
+  self.passwordTextField.text = controller.masterPassword;
+  [self editingChanged:nil];
+  
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)passwordsViewControllerDidCancel:(PasswordsViewController *)controller {
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 

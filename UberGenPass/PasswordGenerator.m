@@ -5,13 +5,14 @@
 //  Copyright (c) 2012 Camazotz Limited. All rights reserved.
 //
 
-#import <CommonCrypto/CommonDigest.h>
 #import "Keychain.h"
+#import "NSData+CommonCrypto.h"
 #import "PasswordGenerator.h"
 
 @interface PasswordGenerator ()
 @property (retain, readwrite, nonatomic) NSMutableOrderedSet *tlds;
 @property (retain, readwrite, nonatomic) NSString *masterPassword;
+@property (retain, readwrite, nonatomic) NSString *secretPassword;
 @property (copy, readwrite, nonatomic) NSData *hash;
 @property (retain, readwrite, nonatomic) NSRegularExpression *lowerCasePattern;
 @property (retain, readwrite, nonatomic) NSRegularExpression *upperCasePattern;
@@ -57,25 +58,7 @@
   return instance;
 }
 
-+ (NSData *)md5:(NSString *)str {
-  const char *cStr = [str UTF8String];
-  unsigned char digest[CC_MD5_DIGEST_LENGTH];
-  
-  CC_MD5(cStr, (unsigned int)strlen(cStr), digest);
-  
-  return [NSData dataWithBytes:digest length:CC_MD5_DIGEST_LENGTH];
-}
-
-+ (NSData *)sha256:(NSString *)str {
-  const char *cStr = [str UTF8String];
-  unsigned char digest[CC_SHA256_DIGEST_LENGTH];
-  
-  CC_SHA256(cStr, (unsigned int)strlen(cStr), digest);
-  
-  return [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
-}
-
-- (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length {
+- (NSString *)passwordForSite:(NSString *)site length:(NSUInteger)length type:(PasswordType)type {
   if (site == nil) {
     return nil;
   }
@@ -86,11 +69,17 @@
     return nil;
   }
   
-  NSString *password = [NSString stringWithFormat:@"%@:%@", self.masterPassword, domain];
+  NSString *password = [NSString stringWithFormat:@"%@%@:%@", self.masterPassword, self.secretPassword, domain];
   NSInteger count = 0;
   
   while (count < 10 || ![self isValidPassword:[password substringToIndex:length]]) {
-    password = [[self.class md5:password] base64EncodedStringWithOptions:0];
+    if (type == PasswordTypeMD5) {
+      password = [[[password dataUsingEncoding:NSUTF8StringEncoding] MD5Sum] base64EncodedStringWithOptions:0];
+    }
+    else {
+      password = [[[password dataUsingEncoding:NSUTF8StringEncoding] SHA512Hash] base64EncodedStringWithOptions:0];
+    }
+
     password = [password stringByReplacingOccurrencesOfString:@"=" withString:@"A"];
     password = [password stringByReplacingOccurrencesOfString:@"+" withString:@"9"];
     password = [password stringByReplacingOccurrencesOfString:@"/" withString:@"8"];
@@ -144,15 +133,48 @@
   return self.masterPassword != nil;
 }
 
-- (void)updateMasterPassword:(NSString *)masterPassword {
+- (BOOL)setMasterPasswordForCurrentHash:(NSString *)masterPassword {
+  if (self.hash.length == 0) {
+    return NO;
+  }
+  
+  if (![self.hash isEqualToData:[[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]]) {
+    return NO;
+  }
+  
   self.masterPassword = masterPassword;
-  self.hash = [self.class sha256:masterPassword];
+  
+  NSString *secretPasswordStr = [Keychain stringForKey:PasswordSecretKey];
+
+  if (secretPasswordStr.length == 0) {
+    self.secretPassword = @"";
+  }
+  else {
+    NSData *secretPasswordData = [[NSData alloc] initWithBase64EncodedString:secretPasswordStr options:0];
+    NSError *error = nil;
+
+    secretPasswordData = [secretPasswordData decryptedAES256DataUsingKey:self.masterPassword error:&error];
+    self.secretPassword = [[NSString alloc] initWithData:secretPasswordData encoding:NSUTF8StringEncoding];
+  }
+  
+  return YES;
+}
+
+- (void)updateMasterPassword:(NSString *)masterPassword secretPassword:(NSString *)secretPassword {
+  NSError *error = nil;
+  
+  self.masterPassword = masterPassword;
+  self.secretPassword = secretPassword;
+  self.hash = [[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash];
+  
+  NSData *secret = [[secretPassword dataUsingEncoding:NSUTF8StringEncoding] AES256EncryptedDataUsingKey:masterPassword error:&error];
   
   [Keychain setString:[self.hash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
+  [Keychain setString:[secret base64EncodedStringWithOptions:0] forKey:PasswordSecretKey];
 }
 
 - (BOOL)textMatchesHash:(NSString *)text {
-  return [self.hash isEqualToData:[self.class sha256:text]];
+  return [self.hash isEqualToData:[[text dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]];
 }
 
 #pragma mark Private
