@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D03C0061948FE1400387070 /* StatusImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03C0051948FE1400387070 /* StatusImageView.m */; };
+		4D03C0081949067A00387070 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D03C0071949067A00387070 /* UserDefaults.plist */; };
 		4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC9F166947B5007B8065 /* iTunesArtwork */; };
 		4D2FBCA2166947B5007B8065 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */; };
 		4D2FBCA916694F7F007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		4D03C0041948FE1400387070 /* StatusImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusImageView.h; sourceTree = "<group>"; };
 		4D03C0051948FE1400387070 /* StatusImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusImageView.m; sourceTree = "<group>"; };
+		4D03C0071949067A00387070 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		4D2FBC9F166947B5007B8065 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		4D2FBCA816694F7F007B8065 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -312,6 +314,7 @@
 				4D7CA2A81816ECA800CBC956 /* RedStatus.png */,
 				4DC01D981676E7C900D3763E /* SettingsHelp.html */,
 				4D99EFDB16C044CB00B2F08D /* TopLevelDomains.json */,
+				4D03C0071949067A00387070 /* UserDefaults.plist */,
 				4D7CA2A91816ECA800CBC956 /* YellowStatus.png */,
 			);
 			path = Resources;
@@ -404,6 +407,7 @@
 				4D728B1816758957004824AB /* help.css in Resources */,
 				4DC01D9B1676E87900D3763E /* Localizable.strings in Resources */,
 				4D5A1FF01821DD6F0085BA43 /* Padlock@2x.png in Resources */,
+				4D03C0081949067A00387070 /* UserDefaults.plist in Resources */,
 				4D7CA2A71816EBCA00CBC956 /* GreenStatus.png in Resources */,
 				4D5A1FEF1821DD6F0085BA43 /* Padlock.png in Resources */,
 				4DE5A06F1677BD6E00719D18 /* MainHelp.html in Resources */,

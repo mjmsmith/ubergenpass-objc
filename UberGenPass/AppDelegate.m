@@ -14,10 +14,16 @@
 #pragma mark UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // Register defaults.
+  
+  NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"UserDefaults" ofType:@"plist"]];
+  
+  [NSUserDefaults.standardUserDefaults registerDefaults:dict];
+
+  // Update version.
+  
   NSString *currentVersion = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   NSString *defaultsVersion = [NSUserDefaults.standardUserDefaults stringForKey:AppVersionKey];
-  
-  // Is this the same version as the last session?
   
   if (![currentVersion isEqualToString:defaultsVersion]) {
     [self versionUpdatedFrom:defaultsVersion to:currentVersion];
