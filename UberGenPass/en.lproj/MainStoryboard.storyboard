@@ -20,7 +20,44 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="barTintColor" red="0.72172474860000002" green="0.73767691849999995" blue="0.75906360149999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="UberGenPass" id="ykd-BG-oUU"/>
+                                    <navigationItem title="UberGenPass" id="ykd-BG-oUU">
+                                        <barButtonItem key="leftBarButtonItem" id="ocX-vi-vZe">
+                                            <button key="customView" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="10" userLabel="Button - Settings">
+                                                <rect key="frame" x="16" y="4" width="36" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="36" id="onJ-QF-qSV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" image="SettingsButton"/>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="6" kind="modal" identifier="ShowSettingsOptional" modalTransitionStyle="flipHorizontal" id="11"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" id="wHb-V0-0ur">
+                                            <button key="customView" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="1dF-yb-3sh" userLabel="Button - About">
+                                                <rect key="frame" x="268" y="4" width="36" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="36" id="R0d-9u-hP0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" image="InfoButton">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="2H2-gP-edu" kind="modal" identifier="ShowAbout" id="eaU-N3-fwh"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86x-B8-9iG">
@@ -59,7 +96,6 @@
                             </stepper>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iIt-cy-LLg">
                                 <rect key="frame" x="210" y="121" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="UvE-Dk-3y8"/>
                                 </constraints>
@@ -153,36 +189,6 @@
                                     <segue destination="NnY-82-Unv" kind="modal" identifier="ShowHelp" modalTransitionStyle="coverVertical" id="cB1-bY-lok"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dF-yb-3sh" userLabel="Button - About">
-                                <rect key="frame" x="142" y="428" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="R0d-9u-hP0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="InfoButton">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="2H2-gP-edu" kind="modal" identifier="ShowAbout" id="eaU-N3-fwh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10" userLabel="Button - Settings">
-                                <rect key="frame" x="268" y="428" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="onJ-QF-qSV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="SettingsButton"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="6" kind="modal" identifier="ShowSettingsOptional" modalTransitionStyle="flipHorizontal" id="11"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hs-N2-o2x" userLabel="View - Domain Popup">
                                 <rect key="frame" x="73" y="114" width="209" height="125"/>
                                 <subviews>
@@ -240,10 +246,7 @@
                             <constraint firstItem="5Hs-N2-o2x" firstAttribute="top" secondItem="FBz-9R-IZS" secondAttribute="bottom" constant="4" id="ACN-8T-waA"/>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="top" secondItem="3SQ-CK-b1y" secondAttribute="top" id="CHt-3Z-2dS"/>
                             <constraint firstItem="LRc-2i-vlU" firstAttribute="leading" secondItem="TT1-7X-NsD" secondAttribute="leading" id="GIo-aD-mrt"/>
-                            <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="16" id="H61-BA-rMe"/>
-                            <constraint firstItem="1dF-yb-3sh" firstAttribute="top" secondItem="2Ah-Od-uxc" secondAttribute="top" id="HRf-UD-Gon"/>
                             <constraint firstAttribute="trailing" secondItem="WmF-lm-GqR" secondAttribute="trailing" constant="20" symbolic="YES" id="LDV-vT-Jhq"/>
-                            <constraint firstItem="1dF-yb-3sh" firstAttribute="centerX" secondItem="TT1-7X-NsD" secondAttribute="centerX" id="MsD-v0-fMa"/>
                             <constraint firstItem="86x-B8-9iG" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="16" id="PZo-6V-DBX"/>
                             <constraint firstItem="2Ah-Od-uxc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="16" id="QAm-Dr-dpc"/>
                             <constraint firstItem="0cx-uC-ixZ" firstAttribute="leading" secondItem="LRc-2i-vlU" secondAttribute="trailing" constant="8" symbolic="YES" id="QPN-cA-meW"/>
@@ -263,13 +266,10 @@
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="top" secondItem="M3u-xy-Uwj" secondAttribute="bottom" id="hjq-QB-jlH"/>
                             <constraint firstItem="WmF-lm-GqR" firstAttribute="centerX" secondItem="05y-Ke-SPJ" secondAttribute="centerX" id="i7J-Sc-ima"/>
                             <constraint firstItem="3SQ-CK-b1y" firstAttribute="leading" secondItem="LRc-2i-vlU" secondAttribute="leading" id="mit-6I-Kpb"/>
-                            <constraint firstItem="10" firstAttribute="bottom" secondItem="1dF-yb-3sh" secondAttribute="bottom" id="mvD-A0-jkH"/>
-                            <constraint firstItem="1dF-yb-3sh" firstAttribute="top" secondItem="10" secondAttribute="top" id="prG-YG-LLK"/>
                             <constraint firstItem="bVv-5p-2mC" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="q2Z-s8-ED0"/>
                             <constraint firstItem="FBz-9R-IZS" firstAttribute="leading" secondItem="86x-B8-9iG" secondAttribute="trailing" constant="5" id="r0X-1x-2t7"/>
                             <constraint firstAttribute="trailing" secondItem="FBz-9R-IZS" secondAttribute="trailing" constant="16" id="rPG-Uz-g94"/>
                             <constraint firstItem="LRc-2i-vlU" firstAttribute="top" secondItem="3" secondAttribute="top" constant="242" id="rza-Jy-nVI"/>
-                            <constraint firstItem="2Ah-Od-uxc" firstAttribute="bottom" secondItem="1dF-yb-3sh" secondAttribute="bottom" id="sQu-cd-vpd"/>
                             <constraint firstItem="FBz-9R-IZS" firstAttribute="baseline" secondItem="86x-B8-9iG" secondAttribute="baseline" id="tI2-Iy-8dK"/>
                         </constraints>
                     </view>
@@ -314,6 +314,9 @@
                         <subviews>
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4A-gO-TSz">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ayO-T7-VzA"/>
+                                </constraints>
                                 <color key="barTintColor" red="0.72172474860000002" green="0.73767691849999995" blue="0.75906360149999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Help" id="wx8-EX-jSe">
@@ -370,6 +373,7 @@
                     <connections>
                         <outlet property="backButtonItem" destination="ufO-1k-3Ld" id="Yb0-bd-Bnh"/>
                         <outlet property="forwardButtonItem" destination="adY-iQ-NSO" id="TZ9-qX-DX9"/>
+                        <outlet property="navigationBarHeightConstraint" destination="ayO-T7-VzA" id="5EO-I9-Mvo"/>
                         <outlet property="toolBarHeightConstraint" destination="XEa-ii-xOK" id="cyu-ZN-3Xd"/>
                         <outlet property="webView" destination="j9A-WN-GQR" id="e62-vb-2Oi"/>
                     </connections>
@@ -503,7 +507,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a74-XJ-7dY">
                                 <rect key="frame" x="244" y="74" width="60" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Change">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -649,7 +652,6 @@
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(optional)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxP-NI-po3">
                                 <rect key="frame" x="233" y="180" width="71" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -849,8 +851,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aOn-2Y-DZL"/>
+        <segue reference="F6i-BF-7ir"/>
+        <segue reference="cB1-bY-lok"/>
         <segue reference="rdm-MB-dbP"/>
-        <segue reference="11"/>
     </inferredMetricsTieBreakers>
 </document>
