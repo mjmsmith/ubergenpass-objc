@@ -9,12 +9,13 @@
 #import "PasswordGenerator.h"
 #import "PasswordsViewController.h"
 #import "SettingsViewController.h"
+#import "StatusImageView.h"
 
 @interface SettingsViewController () <HelpViewControllerDelegate, PasswordsViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *statusImageView;
+@property (strong, readwrite, nonatomic) IBOutlet StatusImageView *statusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIButton *changePasswordButton;
 @property (strong, readwrite, nonatomic) IBOutlet UISwitch *recentSitesSwitch;
 @property (strong, readwrite, nonatomic) IBOutlet UISegmentedControl *timeoutSegment;
@@ -118,21 +119,10 @@
     self.doneButtonItem.enabled = YES;
     
     [self.passwordTextField resignFirstResponder];
-      
-    CGRect frame = self.statusImageView.frame;
-      
-    [UIView animateWithDuration:0.4
-                     animations:^{
-                       self.statusImageView.frame = CGRectInset(self.statusImageView.frame, -12, -12);
-                     }
-                     completion:^(BOOL finished) {
-                       [UIView animateWithDuration:0.6
-                                        animations:^{
-                                          self.statusImageView.frame = frame;
-                                        }
-                        ];
-                     }
-     ];
+    
+    if (sender == self.passwordTextField) {
+      [self.statusImageView animate];
+    }
   }
   else {
     self.statusImageView.image = self.greyImage;

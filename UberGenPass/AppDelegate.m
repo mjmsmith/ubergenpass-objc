@@ -50,6 +50,7 @@
 - (void)versionUpdatedFrom:(NSString *)oldVersion to:(NSString *)newVersion {
   if (oldVersion == nil) {
     [Keychain removeStringForKey:PasswordHashKey];
+    [Keychain removeStringForKey:PasswordSecretKey];
     [Keychain removeStringForKey:RecentSitesKey];
   }
   else {

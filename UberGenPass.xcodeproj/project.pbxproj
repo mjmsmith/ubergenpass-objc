@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D03C0061948FE1400387070 /* StatusImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03C0051948FE1400387070 /* StatusImageView.m */; };
 		4D2FBCA1166947B5007B8065 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBC9F166947B5007B8065 /* iTunesArtwork */; };
 		4D2FBCA2166947B5007B8065 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */; };
 		4D2FBCA916694F7F007B8065 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FBCA816694F7F007B8065 /* Security.framework */; };
@@ -68,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D03C0041948FE1400387070 /* StatusImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusImageView.h; sourceTree = "<group>"; };
+		4D03C0051948FE1400387070 /* StatusImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusImageView.m; sourceTree = "<group>"; };
 		4D2FBC9F166947B5007B8065 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		4D2FBCA0166947B5007B8065 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		4D2FBCA816694F7F007B8065 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -244,6 +247,7 @@
 				4DF23190194265B9003E4BE9 /* PasswordsViewController.h */,
 				4DB6F1571942534500FE0EEE /* SAStepperControl.h */,
 				4D657714166536FD00F32D4F /* SettingsViewController.h */,
+				4D03C0041948FE1400387070 /* StatusImageView.h */,
 				4DC1729E16B6C707000E2B99 /* UberGenPass.h */,
 				4D424E5917E0C2D2000E1D5A /* UIImage+FlatUI.h */,
 			);
@@ -276,6 +280,7 @@
 			children = (
 				4D424E5817E0C2D2000E1D5A /* FUIButton.m */,
 				4DB6F1581942534500FE0EEE /* SAStepperControl.m */,
+				4D03C0051948FE1400387070 /* StatusImageView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D03C0061948FE1400387070 /* StatusImageView.m in Sources */,
 				4D424E5D17E0C2D2000E1D5A /* UIImage+FlatUI.m in Sources */,
 				4D657703166536FD00F32D4F /* main.m in Sources */,
 				4D898075194229290082B539 /* NSData+CommonCrypto.m in Sources */,

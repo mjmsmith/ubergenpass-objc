@@ -431,7 +431,7 @@
                                     <outlet property="delegate" destination="6" id="U0t-tT-xS9"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreyStatus" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-2C-JLF" userLabel="Image View - Status">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreyStatus" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-2C-JLF" userLabel="Image View - Status" customClass="StatusImageView">
                                 <rect key="frame" x="158" y="81" width="19" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="XSW-kc-v1P"/>
@@ -608,7 +608,7 @@
                                     <outlet property="delegate" destination="w82-eJ-RSn" id="h4R-7h-QbY"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreyStatus" translatesAutoresizingMaskIntoConstraints="NO" id="pea-Vp-w0o" userLabel="Image View - Status">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreyStatus" translatesAutoresizingMaskIntoConstraints="NO" id="pea-Vp-w0o" userLabel="Image View - Status" customClass="StatusImageView">
                                 <rect key="frame" x="158" y="81" width="19" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="aRl-3Y-d3A"/>
@@ -643,7 +643,7 @@
                                     <outlet property="delegate" destination="w82-eJ-RSn" id="btx-9C-J9L"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreyStatus" translatesAutoresizingMaskIntoConstraints="NO" id="Ibh-g8-djI" userLabel="Image View - Status">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreyStatus" translatesAutoresizingMaskIntoConstraints="NO" id="Ibh-g8-djI" userLabel="Image View - Status" customClass="StatusImageView">
                                 <rect key="frame" x="158" y="181" width="19" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="ZQd-AE-TGJ"/>
@@ -852,7 +852,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="F6i-BF-7ir"/>
-        <segue reference="cB1-bY-lok"/>
         <segue reference="rdm-MB-dbP"/>
+        <segue reference="aOn-2Y-DZL"/>
     </inferredMetricsTieBreakers>
 </document>

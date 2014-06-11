@@ -8,16 +8,17 @@
 #import "HelpViewController.h"
 #import "PasswordGenerator.h"
 #import "PasswordsViewController.h"
+#import "StatusImageView.h"
 
 @interface PasswordsViewController () <HelpViewControllerDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UIBarButtonItem *doneButtonItem;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *upperMasterTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerMasterTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *masterStatusImageView;
+@property (strong, readwrite, nonatomic) IBOutlet StatusImageView *masterStatusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *upperSecretTextField;
 @property (strong, readwrite, nonatomic) IBOutlet UITextField *lowerSecretTextField;
-@property (strong, readwrite, nonatomic) IBOutlet UIImageView *secretStatusImageView;
+@property (strong, readwrite, nonatomic) IBOutlet StatusImageView *secretStatusImageView;
 @property (strong, readwrite, nonatomic) IBOutlet UIImageView *welcomeImageView;
 
 @property (strong, readwrite, nonatomic) UIImage *greyImage;
@@ -145,26 +146,14 @@
   
   // Animate status images if done.
   
-  if (self.doneButtonItem.enabled) {
+  if (isMasterDone && (sender == self.upperMasterTextField || sender == self.lowerMasterTextField)) {
     [self.view endEditing:YES];
-
-    CGRect masterImageViewFrame = self.masterStatusImageView.frame;
-    CGRect secretImageViewFrame = self.secretStatusImageView.frame;
-    
-    [UIView animateWithDuration:0.4
-                     animations:^{
-                       self.masterStatusImageView.frame = CGRectInset(self.masterStatusImageView.frame, -12, -12);
-                       self.secretStatusImageView.frame = CGRectInset(self.secretStatusImageView.frame, -12, -12);
-                     }
-                     completion:^(BOOL finished) {
-                       [UIView animateWithDuration:0.6
-                                        animations:^{
-                                          self.masterStatusImageView.frame = masterImageViewFrame;
-                                          self.secretStatusImageView.frame = secretImageViewFrame;
-                                        }
-                        ];
-                     }
-     ];
+    [self.masterStatusImageView animate];
+  }
+  
+  if (isSecretDone && (sender == self.upperSecretTextField || sender == self.lowerSecretTextField)) {
+    [self.view endEditing:YES];
+    [self.secretStatusImageView animate];
   }
 }
 
