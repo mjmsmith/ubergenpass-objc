@@ -67,13 +67,18 @@
   [super viewDidAppear:animated];
   
   // If we have no master password hash, force a segue to Passwords (only happens on startup).
-  // Otherwise, set focus.
+  // Otherwise, set focus if the Done button isn't enabled.
   
   if (PasswordGenerator.sharedGenerator.hash == nil) {
     [self performSegueWithIdentifier:ShowPasswordsRequiredSegue sender:self];
   }
   else {
-    [self.passwordTextField becomeFirstResponder];
+    if (self.doneButtonItem.enabled) {
+      [self.view endEditing:NO];
+    }
+    else {
+      [self.passwordTextField becomeFirstResponder];
+    }
   }
 }
 
