@@ -119,6 +119,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="0cx-uC-ixZ">
                                 <rect key="frame" x="296" y="257" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="OG3-61-KE4"/>
+                                    <constraint firstAttribute="width" constant="14" id="klM-mm-MKO"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TT1-7X-NsD" customClass="FUIButton">
                                 <rect key="frame" x="32" y="298" width="256" height="44"/>
