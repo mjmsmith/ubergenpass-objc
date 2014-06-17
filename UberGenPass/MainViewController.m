@@ -44,9 +44,7 @@
 #pragma mark Lifecycle
 
 - (void)dealloc {
-  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
-  [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
-  [NSNotificationCenter.defaultCenter removeObserver:self name:UIPasteboardChangedNotification object:UIPasteboard.generalPasteboard];
+  [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark Public
@@ -69,8 +67,7 @@
   // Recent sites.
   
   NSError *error = nil;
-  NSString *str = [Keychain stringForKey:RecentSitesKey];
-  NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+  NSData *data = [[Keychain stringForKey:RecentSitesKey] dataUsingEncoding:NSUTF8StringEncoding];
   NSArray *recentSites = (data == nil) ? nil : [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
   
   if (recentSites != nil) {
@@ -95,11 +92,9 @@
 
   // Password length stepper.
   
-  NSInteger passwordLength = [NSUserDefaults.standardUserDefaults integerForKey:PasswordLengthKey];
-  
   self.passwordLengthStepper.minimumValue = 4;
   self.passwordLengthStepper.maximumValue = 24;
-  self.passwordLengthStepper.value = (passwordLength == 0) ? 10 : passwordLength;
+  self.passwordLengthStepper.value = [NSUserDefaults.standardUserDefaults integerForKey:PasswordLengthKey];
 
   // Password type.
   
@@ -130,8 +125,6 @@
   self.matchingSitesView.layer.shadowOpacity = 0.5;
   self.matchingSitesView.layer.shadowOffset = CGSizeMake(0, 2);
   self.matchingSitesView.layer.shadowRadius = 4;
-
-
   self.matchingSitesView.layer.cornerRadius = 4;
   ((UITableView *)self.matchingSitesView.subviews[0]).layer.cornerRadius = 4;
 
@@ -516,9 +509,8 @@
 - (void)saveRecentSites {
   NSError *error = nil;
   NSData *data = [NSJSONSerialization dataWithJSONObject:[self.recentSites array] options:0 error:&error];
-  NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
   
-  [Keychain setString:str forKey:RecentSitesKey];
+  [Keychain setString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] forKey:RecentSitesKey];
 }
 
 - (void)sizeAndShowMatchingSitesView {

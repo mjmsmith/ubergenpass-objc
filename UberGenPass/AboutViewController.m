@@ -9,14 +9,10 @@
 #import "AboutViewController.h"
 #import "FUIButton.h"
 
-#define AppStoreURL @"http://appstore.com/ubergenpass"
-
 @interface AboutViewController () <UIWebViewDelegate>
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, readwrite, nonatomic) IBOutlet FUIButton *rateButton;
 @property (strong, readwrite, nonatomic) IBOutlet UIWebView *webView;
-- (IBAction)done;
-- (IBAction)rate;
 @end
 
 @implementation AboutViewController
@@ -65,7 +61,7 @@
 }
 
 - (IBAction)rate {
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:AppStoreURL]];
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://appstore.com/ubergenpass"]];
 }
 
 @end
