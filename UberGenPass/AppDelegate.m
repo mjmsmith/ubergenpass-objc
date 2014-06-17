@@ -60,7 +60,12 @@
     [Keychain removeStringForKey:RecentSitesKey];
   }
   else {
-    if ([newVersion isEqualToString:@"#.#.#"]) {
+    if ([newVersion isEqualToString:@"3.0.0"]) {
+      [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"AppName", nil)
+                                  message:NSLocalizedString(@"UpgradeMessage", nil)
+                                 delegate:nil
+                        cancelButtonTitle:nil
+                        otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
     }
   }
   

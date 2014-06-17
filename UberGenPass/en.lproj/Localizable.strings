@@ -6,3 +6,5 @@
 //
 
 "AppName" = "UberGenPass";
+"OK" = "OK";
+"UpgradeMessage" = "This release adds support for two SuperGenPass 3.0 features: an optional secret password and a SHA hash function.";
