@@ -72,14 +72,6 @@
   return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  // Handle background taps.
-  
-  if ([[touches anyObject] phase] == UITouchPhaseBegan) {
-    [self.view endEditing:YES];
-  }
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:ShowHelpSegue]) {
     HelpViewController *controller = segue.destinationViewController;
@@ -155,6 +147,10 @@
     [self.view endEditing:YES];
     [self.secretStatusImageView animate];
   }
+}
+
+- (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer {
+  [self.view endEditing:YES];
 }
 
 - (IBAction)done {

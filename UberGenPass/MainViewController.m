@@ -176,14 +176,6 @@
   return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  // Handle background taps.
-  
-  if ([[touches anyObject] phase] == UITouchPhaseBegan) {
-    [self.view endEditing:YES];
-  }
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:ShowAboutSegue]) {
     AboutViewController *controller = segue.destinationViewController;
@@ -266,11 +258,16 @@
 }
 
 - (IBAction)tapGestureRecognized:(UITapGestureRecognizer *)recognizer {
-  self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
-  [self.siteTextField resignFirstResponder];
+  if (recognizer.view == self.passwordTapView) {
+    self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
+    [self.siteTextField resignFirstResponder];
 
-  if (self.recentSites != nil) {
-    [self addToRecentSites];
+    if (self.recentSites != nil) {
+      [self addToRecentSites];
+    }
+  }
+  else {
+    [self.view endEditing:YES];
   }
 }
 

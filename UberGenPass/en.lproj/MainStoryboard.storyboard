@@ -236,6 +236,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="05y-Ke-SPJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="186" id="19E-qb-FZd"/>
                             <constraint firstItem="0cx-uC-ixZ" firstAttribute="centerY" secondItem="LRc-2i-vlU" secondAttribute="centerY" id="1Mc-IH-Dq5"/>
@@ -278,6 +279,9 @@
                             <constraint firstItem="LRc-2i-vlU" firstAttribute="top" secondItem="3" secondAttribute="top" constant="242" id="rza-Jy-nVI"/>
                             <constraint firstItem="FBz-9R-IZS" firstAttribute="baseline" secondItem="86x-B8-9iG" secondAttribute="baseline" id="tI2-Iy-8dK"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VVT-iX-qmv" appends="YES" id="uQP-Hd-ECL"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -302,6 +306,11 @@
                 <tapGestureRecognizer id="AoI-Dl-MiJ">
                     <connections>
                         <action selector="tapGestureRecognized:" destination="2" id="Lc0-2O-17u"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="VVT-iX-qmv">
+                    <connections>
+                        <action selector="tapGestureRecognized:" destination="2" id="7c9-03-0dU"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -524,6 +533,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="79q-ur-hX6" secondAttribute="bottom" constant="16" id="1Q1-EP-FMk"/>
                             <constraint firstItem="Lw2-ET-7mR" firstAttribute="leading" secondItem="3Qe-Lj-LeB" secondAttribute="leading" id="2vw-2T-d28"/>
@@ -550,6 +560,9 @@
                             <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="txZ-zF-etd"/>
                             <constraint firstAttribute="centerX" secondItem="3Qe-Lj-LeB" secondAttribute="centerX" id="wsc-ob-zgu"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="o7c-kr-IWm" appends="YES" id="aiM-8y-G7R"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="cancelButtonItem" destination="14" id="ODa-cm-RH4"/>
@@ -563,6 +576,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="o7c-kr-IWm">
+                    <connections>
+                        <action selector="tapGestureRecognized:" destination="6" id="RZ9-Gp-hDZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="382" y="-1300"/>
         </scene>
@@ -699,6 +717,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="39q-8t-N1b" firstAttribute="leading" secondItem="rnO-pT-df3" secondAttribute="leading" id="33Y-Du-UbR"/>
                             <constraint firstItem="Wzq-x5-EYh" firstAttribute="bottom" secondItem="cxP-NI-po3" secondAttribute="bottom" id="4ht-bQ-VoA"/>
@@ -732,6 +751,9 @@
                             <constraint firstItem="dfP-eT-7L9" firstAttribute="leading" secondItem="rnO-pT-df3" secondAttribute="leading" id="xPw-rF-v4s"/>
                             <constraint firstItem="Wzq-x5-EYh" firstAttribute="top" secondItem="cxP-NI-po3" secondAttribute="top" id="ykv-O6-8Bw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qh0-9y-sqz" appends="YES" id="epb-VM-qI6"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="cancelButtonItem" destination="RFe-N3-s4H" id="NKp-nU-2ti"/>
@@ -746,6 +768,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moz-5c-W6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qh0-9y-sqz">
+                    <connections>
+                        <action selector="tapGestureRecognized:" destination="w82-eJ-RSn" id="Kjv-3V-kMt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="932" y="-1300"/>
         </scene>
@@ -860,8 +887,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rdm-MB-dbP"/>
+        <segue reference="BcP-J1-rlP"/>
         <segue reference="T3x-le-hXq"/>
-        <segue reference="cB1-bY-lok"/>
+        <segue reference="rdm-MB-dbP"/>
     </inferredMetricsTieBreakers>
 </document>
