@@ -303,12 +303,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="AoI-Dl-MiJ">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="AoI-Dl-MiJ">
                     <connections>
                         <action selector="tapGestureRecognized:" destination="2" id="Lc0-2O-17u"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="VVT-iX-qmv">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="VVT-iX-qmv">
                     <connections>
                         <action selector="tapGestureRecognized:" destination="2" id="7c9-03-0dU"/>
                     </connections>
