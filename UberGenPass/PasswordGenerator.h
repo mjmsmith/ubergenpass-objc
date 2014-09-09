@@ -12,7 +12,7 @@ typedef NS_ENUM(NSUInteger, PasswordType) {
 
 @interface PasswordGenerator : NSObject
 @property (assign, readonly, nonatomic) BOOL hasMasterPassword;
-@property (copy, readonly, nonatomic) NSData *hash;
+@property (copy, readonly, nonatomic) NSData *passwordHash;
 
 + (PasswordGenerator *)sharedGenerator;
 

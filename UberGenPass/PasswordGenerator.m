@@ -13,7 +13,7 @@
 @property (retain, readwrite, nonatomic) NSMutableOrderedSet *tlds;
 @property (retain, readwrite, nonatomic) NSString *masterPassword;
 @property (retain, readwrite, nonatomic) NSString *secretPassword;
-@property (copy, readwrite, nonatomic) NSData *hash;
+@property (copy, readwrite, nonatomic) NSData *passwordHash;
 @property (retain, readwrite, nonatomic) NSRegularExpression *lowerCasePattern;
 @property (retain, readwrite, nonatomic) NSRegularExpression *upperCasePattern;
 @property (retain, readwrite, nonatomic) NSRegularExpression *digitPattern;
@@ -34,7 +34,7 @@
     
     self.tlds = [NSMutableOrderedSet orderedSetWithArray:array];
     if (hashStr.length != 0) {
-      self.hash = [[NSData alloc] initWithBase64EncodedString:hashStr options:0];
+      self.passwordHash = [[NSData alloc] initWithBase64EncodedString:hashStr options:0];
     }
     self.lowerCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[a-z]" options:0 error:nil];
     self.upperCasePattern = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]" options:0 error:nil];
@@ -134,11 +134,11 @@
 }
 
 - (BOOL)setMasterPasswordForCurrentHash:(NSString *)masterPassword {
-  if (self.hash.length == 0) {
+  if (self.passwordHash.length == 0) {
     return NO;
   }
   
-  if (![self.hash isEqualToData:[[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]]) {
+  if (![self.passwordHash isEqualToData:[[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]]) {
     return NO;
   }
   
@@ -165,16 +165,16 @@
   
   self.masterPassword = masterPassword;
   self.secretPassword = secretPassword;
-  self.hash = [[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash];
+  self.passwordHash = [[masterPassword dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash];
   
   NSData *secret = [[secretPassword dataUsingEncoding:NSUTF8StringEncoding] AES256EncryptedDataUsingKey:masterPassword error:&error];
   
-  [Keychain setString:[self.hash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
+  [Keychain setString:[self.passwordHash base64EncodedStringWithOptions:0] forKey:PasswordHashKey];
   [Keychain setString:[secret base64EncodedStringWithOptions:0] forKey:PasswordSecretKey];
 }
 
 - (BOOL)textMatchesHash:(NSString *)text {
-  return [self.hash isEqualToData:[[text dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]];
+  return [self.passwordHash isEqualToData:[[text dataUsingEncoding:NSUTF8StringEncoding] SHA256Hash]];
 }
 
 #pragma mark Private
