@@ -70,7 +70,7 @@
   // If we have no master password hash, force a segue to Passwords (only happens on startup).
   // Otherwise, set focus if the Done button isn't enabled.
   
-  if (PasswordGenerator.sharedGenerator.hash == nil) {
+  if (PasswordGenerator.sharedGenerator.passwordHash == nil) {
     [self performSegueWithIdentifier:ShowPasswordsRequiredSegue sender:self];
   }
   else {
