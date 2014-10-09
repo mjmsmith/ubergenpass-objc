@@ -1,0 +1,13 @@
+### BUGS
+
+### SETTINGS
+
+### MAIN
+
+### MISC
+
+iPhone 6x support.
+
+Integrate Crashlytics.
+
+Add Reveal pod.

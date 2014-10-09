@@ -1,3 +1,4 @@
+/Pods/
 /build/
-/UberGenPass.xcodeproj/project.xcworkspace/
-/UberGenPass.xcodeproj/xcuserdata/
+UberGenPass.xccheckout
+xcuserdata/
